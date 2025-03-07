@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b1cd6b3023611154b9e12f23bf7da35e
+guid: fa348aa85c31d7e4594b843c16311f1a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_3601_0
+      name: MCRoughVers2_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 1668
-        width: 233
-        height: 195
+        x: 0
+        y: 512
+        width: 769
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3165d04cc0f59314499b925b2564b1d7
-      internalID: 1746909181
+      spriteID: 06ab30bfe3008354690ae3377b8132fb
+      internalID: 1864206375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_3601_1
+      name: MCRoughVers2_1
       rect:
         serializedVersion: 2
-        x: 276
-        y: 1732
-        width: 207
-        height: 126
+        x: 772
+        y: 512
+        width: 764
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf4cb34aff168614b9cf0e1b192c2837
-      internalID: 883048845
+      spriteID: 1035e6c4eb8d54b4e96c58cdb75baf7e
+      internalID: 568695822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_3601_2
+      name: MCRoughVers2_2
       rect:
         serializedVersion: 2
-        x: 561
-        y: 1708
-        width: 332
-        height: 148
+        x: 1536
+        y: 512
+        width: 768
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c37fef1e0b5cb041aa6e96e272fb75a
-      internalID: -1351977249
+      spriteID: 90e39613b9c1bbd458aeac71cb71efef
+      internalID: 497995723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_3601_3
+      name: MCRoughVers2_3
       rect:
         serializedVersion: 2
-        x: 972
-        y: 1699
-        width: 207
-        height: 141
+        x: 2304
+        y: 512
+        width: 768
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 160741078529d2f4ab89219fce302a6e
-      internalID: -1863250333
+      spriteID: 1e76f5130d108a743a2dde2c3b10250c
+      internalID: 1980182081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_3601_8
+      name: MCRoughVers2_4
       rect:
         serializedVersion: 2
-        x: 74
-        y: 1208
-        width: 357
-        height: 382
+        x: 3072
+        y: 512
+        width: 768
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6491ab41ed36f754c9fc5a04036616d7
-      internalID: 1089128492
+      spriteID: 55b9277e8da2cb64c91d7a1bb0dc0606
+      internalID: 1355414494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_3601_9
+      name: MCRoughVers2_5
       rect:
         serializedVersion: 2
-        x: 525
-        y: 1236
-        width: 228
-        height: 318
+        x: 3840
+        y: 512
+        width: 768
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +216,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48d74618f9c10004a8a4e53be6cfcdcc
-      internalID: 883736079
+      spriteID: 5de9335e1d6ae7c4185522cc9dc08369
+      internalID: 1763529300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_3601_10
+      name: MCRoughVers2_6
       rect:
         serializedVersion: 2
-        x: 939
-        y: 214
+        x: 0
+        y: 2
+        width: 762
+        height: 510
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 926f356acc372354bb115eb14ed97d83
+      internalID: -19063230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCRoughVers2_7
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 2
+        width: 772
+        height: 510
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5b025b24bd0ede4ca9d47ccf292574a
+      internalID: 949651627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCRoughVers2_8
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2
+        width: 763
+        height: 510
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9841931695ec29f409bd082aea8754ff
+      internalID: 127571730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCRoughVers2_9
+      rect:
+        serializedVersion: 2
+        x: 2299
+        y: 2
         width: 773
-        height: 1171
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +300,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a17e7547cd4de5d4e9adba9cc0ad0ab1
-      internalID: -1937373308
+      spriteID: 2eead53baaa66164d99443a869088632
+      internalID: -1073389121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_3601_11
+      name: MCRoughVers2_10
       rect:
         serializedVersion: 2
-        x: 44
-        y: 143
-        width: 743
-        height: 979
+        x: 3072
+        y: 2
+        width: 760
+        height: 510
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,8 +321,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a82ce51c9acf54d428ad56b9b4d26f03
-      internalID: 1737069058
+      spriteID: 1dcce9dd1d63c3c4d8d4db1fd1d1d5e6
+      internalID: 1577415168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCRoughVers2_11
+      rect:
+        serializedVersion: 2
+        x: 3832
+        y: 2
+        width: 776
+        height: 510
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b11b02265f2774eae2c5d803cc855f
+      internalID: -216754979
       vertices: []
       indices: 
       edges: []
@@ -275,19 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IMG_3601_0: 1746909181
-      IMG_3601_1: 883048845
-      IMG_3601_10: -1937373308
-      IMG_3601_11: 1737069058
-      IMG_3601_12: -730657425
-      IMG_3601_2: -1351977249
-      IMG_3601_3: -1863250333
-      IMG_3601_4: 955745355
-      IMG_3601_5: 1045973765
-      IMG_3601_6: -1327743862
-      IMG_3601_7: 47726344
-      IMG_3601_8: 1089128492
-      IMG_3601_9: 883736079
+      MCRoughVers2_0: 1864206375
+      MCRoughVers2_1: 568695822
+      MCRoughVers2_10: 1577415168
+      MCRoughVers2_11: -216754979
+      MCRoughVers2_2: 497995723
+      MCRoughVers2_3: 1980182081
+      MCRoughVers2_4: 1355414494
+      MCRoughVers2_5: 1763529300
+      MCRoughVers2_6: -19063230
+      MCRoughVers2_7: 949651627
+      MCRoughVers2_8: 127571730
+      MCRoughVers2_9: -1073389121
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
