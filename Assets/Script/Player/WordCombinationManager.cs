@@ -2,9 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WordCombinationManager : MonoBehaviour
 {
+    public static WordCombinationManager Instance;
+
     [Header("Panels")]
     public Canvas worldCanvas;
     public Transform playerTransform; // Player's transform
@@ -16,6 +19,19 @@ public class WordCombinationManager : MonoBehaviour
 
     private int topCount = 0; // Counter for selected words
     private Vector3[] originalPositions; // Original positions of word buttons
+    private Dictionary<string, int> collectedWords = new Dictionary<string, int>(); // Собранные слова и их количество
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -101,20 +117,24 @@ public class WordCombinationManager : MonoBehaviour
     // Update word buttons
     void UpdateButtons()
     {
-        string[] collectedWords = GetCollectedWords();
-        for (int i = 0; i < wordButtons.Length; i++)
+        int index = 0;
+        foreach (var pair in collectedWords)
         {
-            if (i < collectedWords.Length)
+            if (index < wordButtons.Length)
             {
-                wordButtons[i].gameObject.SetActive(true);
-                TextMeshProUGUI buttonText = wordButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+                wordButtons[index].gameObject.SetActive(true);
+                TextMeshProUGUI buttonText = wordButtons[index].GetComponentInChildren<TextMeshProUGUI>();
                 if (buttonText != null)
-                    buttonText.text = collectedWords[i];
+                {
+                    buttonText.text = $"{pair.Key} x{pair.Value}";
+                }
+                index++;
             }
-            else
-            {
-                wordButtons[i].gameObject.SetActive(false);
-            }
+        }
+
+        for (int i = index; i < wordButtons.Length; i++)
+        {
+            wordButtons[i].gameObject.SetActive(false);
         }
 
         // Hide top buttons when updating
@@ -124,10 +144,19 @@ public class WordCombinationManager : MonoBehaviour
         }
     }
 
-    // Method to get collected words (stub, replace with your implementation)
-    string[] GetCollectedWords()
+    // Method to handle word collection
+    public void CollectWord(string word)
     {
-        return new string[] { "water", "star", "sun", "moon" };
+        if (collectedWords.ContainsKey(word))
+        {
+            collectedWords[word]++;
+        }
+        else
+        {
+            collectedWords[word] = 1;
+        }
+
+        UpdateButtons();
     }
 
     // Handle confirm button click
@@ -139,6 +168,24 @@ public class WordCombinationManager : MonoBehaviour
                                  topButtons[1].GetComponentInChildren<TextMeshProUGUI>().text;
 
             Debug.Log("Combination confirmed: " + combination);
+
+            // Decrease the count of used words
+            foreach (Button topButton in topButtons)
+            {
+                TextMeshProUGUI topButtonText = topButton.GetComponentInChildren<TextMeshProUGUI>();
+                if (topButtonText != null)
+                {
+                    string word = topButtonText.text;
+                    if (collectedWords.ContainsKey(word) && collectedWords[word] > 0)
+                    {
+                        collectedWords[word]--;
+                        if (collectedWords[word] == 0)
+                        {
+                            collectedWords.Remove(word);
+                        }
+                    }
+                }
+            }
 
             // Add combination handling here
 
@@ -173,7 +220,7 @@ public class WordCombinationManager : MonoBehaviour
             Button topButton = topButtons[i];
             foreach (Button button in wordButtons)
             {
-                if (button.GetComponentInChildren<TextMeshProUGUI>().text == topButton.GetComponentInChildren<TextMeshProUGUI>().text)
+                if (button.GetComponentInChildren<TextMeshProUGUI>().text.Contains(topButton.GetComponentInChildren<TextMeshProUGUI>().text))
                 {
                     button.gameObject.SetActive(true);
                 }
@@ -196,6 +243,8 @@ public class WordCombinationManager : MonoBehaviour
                 return;
             }
 
+            string word = buttonText.text.Split(' ')[0]; // Получить слово без количества
+
             TextMeshProUGUI topButtonText = topButtons[topCount].GetComponentInChildren<TextMeshProUGUI>();
             if (topButtonText == null)
             {
@@ -203,12 +252,12 @@ public class WordCombinationManager : MonoBehaviour
                 return;
             }
 
-            topButtonText.text = buttonText.text;
+            topButtonText.text = word;
             topButtons[topCount].gameObject.SetActive(true);
-            button.gameObject.SetActive(false);
+            button.gameObject.SetActive(true);
             topCount++;
 
-            Debug.Log("Word added to top slot: " + buttonText.text);
+            Debug.Log("Word added to top slot: " + word);
         }
         else
         {
@@ -232,38 +281,21 @@ public class WordCombinationManager : MonoBehaviour
             return;
         }
 
+        string word = topButtonText.text;
+
         foreach (Button button in wordButtons)
         {
-            if (button.GetComponentInChildren<TextMeshProUGUI>().text == topButtonText.text)
+            if (button.GetComponentInChildren<TextMeshProUGUI>().text.Contains(word))
             {
                 button.gameObject.SetActive(true);
                 break;
             }
         }
 
-        Debug.Log("Word removed from top slot: " + topButtonText.text);
+        Debug.Log("Word removed from top slot: " + word);
 
         topButtonText.text = "";
         topButton.gameObject.SetActive(false);
         topCount--;
-    }
-
-    // Move button with animation (optional)
-    IEnumerator MoveButton(Button button, Vector3 targetPosition, System.Action onComplete = null)
-    {
-        float elapsedTime = 0f;
-        float duration = 0.5f; // Duration of the animation
-
-        Vector3 startPosition = button.transform.position;
-
-        while (elapsedTime < duration)
-        {
-            button.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        button.transform.position = targetPosition;
-        onComplete?.Invoke();
     }
 }
