@@ -187,7 +187,8 @@ public class WordCombinationManager : MonoBehaviour
                 }
             }
 
-            // Add combination handling here
+            // Apply the combination effects to enemies
+            ApplyCombinationEffect(combination);
 
             topCount = 0;
             ResetTopButtons();
@@ -297,5 +298,16 @@ public class WordCombinationManager : MonoBehaviour
         topButtonText.text = "";
         topButton.gameObject.SetActive(false);
         topCount--;
+    }
+
+    // Apply the combination effects to enemies
+    private void ApplyCombinationEffect(string combination)
+    {
+        // Find all enemies in the scene
+        PatrolEnemyEffects[] enemies = FindObjectsOfType<PatrolEnemyEffects>();
+        foreach (PatrolEnemyEffects enemy in enemies)
+        {
+            enemy.ApplyEffect(combination);
+        }
     }
 }
