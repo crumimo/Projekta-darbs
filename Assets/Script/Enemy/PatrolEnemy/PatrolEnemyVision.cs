@@ -56,6 +56,7 @@ public class PatrolEnemyVision : MonoBehaviour
         if (visionMeshFilter != null)
         {
             visionMeshFilter.mesh.Clear();
+            Debug.Log("Vision mesh disabled.");
         }
     }
 
@@ -63,6 +64,7 @@ public class PatrolEnemyVision : MonoBehaviour
     {
         if (visionMeshFilter != null)
         {
+            Debug.Log("Vision mesh enabled.");
             // Recreate the vision mesh here if needed
         }
     }

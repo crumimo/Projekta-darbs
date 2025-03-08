@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class WordCombinationManager : MonoBehaviour
 {
@@ -164,8 +165,18 @@ public class WordCombinationManager : MonoBehaviour
     {
         if (topCount == 2)
         {
-            string combination = topButtons[0].GetComponentInChildren<TextMeshProUGUI>().text + " " +
-                                 topButtons[1].GetComponentInChildren<TextMeshProUGUI>().text;
+            // Sort words to ensure order does not matter
+            List<string> selectedWords = new List<string>();
+            foreach (Button topButton in topButtons)
+            {
+                TextMeshProUGUI topButtonText = topButton.GetComponentInChildren<TextMeshProUGUI>();
+                if (topButtonText != null)
+                {
+                    selectedWords.Add(topButtonText.text);
+                }
+            }
+            selectedWords.Sort();
+            string combination = string.Join(" ", selectedWords);
 
             Debug.Log("Combination confirmed: " + combination);
 
