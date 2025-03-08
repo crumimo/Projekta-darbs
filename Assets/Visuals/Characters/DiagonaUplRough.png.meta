@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7bb68bcbb6dd7ad45a3cd345c2cb37ca
+guid: c1e425d58f14b324799cd4caf077c995
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MCRoughVers3_0
+      name: DiagonalRough_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 202
-        width: 300
-        height: 820
+        y: 1031
+        width: 500
+        height: 770
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4c94e08ba4c734479cbbe41b9b469c3
-      internalID: -985544713
+      spriteID: 7f577853e8b19384aa9f8d374cf954a9
+      internalID: -62914645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers3_1
+      name: DiagonalRough_1
       rect:
         serializedVersion: 2
-        x: 300
-        y: 202
-        width: 300
-        height: 820
+        x: 500
+        y: 1031
+        width: 500
+        height: 770
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 317003a301e842d4aaec99a8e6f6496f
-      internalID: -1786724813
+      spriteID: 1b1bfea2187c0dd40b71fe397d3c46e3
+      internalID: 1366156955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers3_2
+      name: DiagonalRough_2
       rect:
         serializedVersion: 2
-        x: 600
-        y: 202
-        width: 300
-        height: 820
+        x: 1000
+        y: 1031
+        width: 500
+        height: 770
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,62 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c334e13aeca6bd2449291a3d8bc8b00c
-      internalID: 85640270
+      spriteID: 0888e2d50ce92f9469ca859391ea44db
+      internalID: -804810553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers3_3
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 202
-        width: 300
-        height: 820
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 581d451da48c1cf4280ff386bdb22d91
-      internalID: -694466190
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MCRoughVers3_4
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 202
-        width: 300
-        height: 820
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b7ede338d84e9645ad78be0cd2c832a
-      internalID: -1868322352
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MCRoughVers3_5
+      name: DiagonalRough_3
       rect:
         serializedVersion: 2
         x: 1500
-        y: 202
-        width: 300
-        height: 820
+        y: 1031
+        width: 500
+        height: 770
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5453368292b4d094595bfa6a4da9af6e
-      internalID: -1406614099
+      spriteID: 18e981461aa27bc498cf9d81d81860aa
+      internalID: 1143459260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers3_6
+      name: DiagonalRough_4
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 202
-        width: 300
-        height: 820
+        x: 2000
+        y: 1031
+        width: 500
+        height: 770
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebb02415d2f78f04191abdb8660343f2
-      internalID: 1890006752
+      spriteID: fecfc03916c90bd4b87f7b8c347112d9
+      internalID: 2131578334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers3_7
+      name: DiagonalRough_5
       rect:
         serializedVersion: 2
-        x: 2100
-        y: 202
-        width: 300
-        height: 820
+        x: 2500
+        y: 1031
+        width: 500
+        height: 770
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4870a915174e4674d9b9ce75489a280c
-      internalID: -125305880
+      spriteID: 0f2202c0f6ba1bc4383357f5ce6c0621
+      internalID: -1068254340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers3_8
+      name: DiagonalRough_6
       rect:
         serializedVersion: 2
-        x: 2400
-        y: 202
-        width: 300
-        height: 820
+        x: 0
+        y: 261
+        width: 500
+        height: 770
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bc5448da3fe12f4eb7782b0316f837c
-      internalID: -176364008
+      spriteID: dc00475fde8c75846a84f01a3f2c49e9
+      internalID: 1505744793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers3_9
+      name: DiagonalRough_7
       rect:
         serializedVersion: 2
-        x: 2700
-        y: 202
-        width: 300
-        height: 820
+        x: 500
+        y: 261
+        width: 500
+        height: 770
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c178fe0c63642f04fba7734ac24fb052
-      internalID: 1296348901
+      spriteID: fb4a5d3ff54c4eb46acc2f9aea37b0b4
+      internalID: -1024714052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers3_10
+      name: DiagonalRough_8
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 202
-        width: 300
-        height: 820
+        x: 1000
+        y: 261
+        width: 500
+        height: 770
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,8 +279,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 844c0fa61271dd74b906a9ad6e4a471f
-      internalID: 441437680
+      spriteID: 2d843bca28cf5024392c1242f2569356
+      internalID: -920481680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRough_9
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 261
+        width: 500
+        height: 770
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca4d23c20b09be47819429d8c591eeb
+      internalID: 520972582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRough_10
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 261
+        width: 500
+        height: 770
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e3d1171328aca4186f193d5635430d
+      internalID: -1496257440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonalRough_11
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 261
+        width: 500
+        height: 770
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f731796a79601441b46e8d129a15aa1
+      internalID: 2131709125
       vertices: []
       indices: 
       edges: []
@@ -338,17 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MCRoughVers3_0: -985544713
-      MCRoughVers3_1: -1786724813
-      MCRoughVers3_10: 441437680
-      MCRoughVers3_2: 85640270
-      MCRoughVers3_3: -694466190
-      MCRoughVers3_4: -1868322352
-      MCRoughVers3_5: -1406614099
-      MCRoughVers3_6: 1890006752
-      MCRoughVers3_7: -125305880
-      MCRoughVers3_8: -176364008
-      MCRoughVers3_9: 1296348901
+      DiagonalRough_0: -62914645
+      DiagonalRough_1: 1366156955
+      DiagonalRough_10: -1496257440
+      DiagonalRough_11: 2131709125
+      DiagonalRough_2: -804810553
+      DiagonalRough_3: 1143459260
+      DiagonalRough_4: 2131578334
+      DiagonalRough_5: -1068254340
+      DiagonalRough_6: 1505744793
+      DiagonalRough_7: -1024714052
+      DiagonalRough_8: -920481680
+      DiagonalRough_9: 520972582
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

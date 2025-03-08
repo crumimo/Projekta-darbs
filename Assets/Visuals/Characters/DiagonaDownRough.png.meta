@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5687baa658204b84f83b17fb324e2a53
+guid: f5e7f479be518ae46b085ef3ad4dbc67
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,253 +97,253 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MCRoughVers1_0
+      name: DiagonaDownRough_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 202
-        width: 300
-        height: 820
+        y: 1021
+        width: 500
+        height: 780
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c9b8bcdc82af974f8da39110e4479de
-      internalID: -727558514
+      spriteID: 92d5b07c6080fbf4e8344607281260cb
+      internalID: -882677209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers1_1
+      name: DiagonaDownRough_1
       rect:
         serializedVersion: 2
-        x: 300
-        y: 202
-        width: 300
-        height: 820
+        x: 500
+        y: 1021
+        width: 500
+        height: 780
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0e44b1fe0ec1b847bbcfae0d0bb2337
-      internalID: 1906322210
+      spriteID: 95874b63e2332244eafb27b35f733ea5
+      internalID: -148367752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers1_2
+      name: DiagonaDownRough_2
       rect:
         serializedVersion: 2
-        x: 600
-        y: 202
-        width: 300
-        height: 820
+        x: 1000
+        y: 1021
+        width: 500
+        height: 780
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 915285e74b27288499da21f0a3dccf7b
-      internalID: -220272018
+      spriteID: b64c1af26302fdc4c8cfcfe5d8f9910c
+      internalID: -1487118984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers1_3
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 202
-        width: 300
-        height: 820
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 543cf7ce75b42f4489ecfdf8e9a341ed
-      internalID: 340942224
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MCRoughVers1_4
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 202
-        width: 300
-        height: 820
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 181a8af90cc183d41a036be2556d9bc9
-      internalID: 955056125
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MCRoughVers1_5
+      name: DiagonaDownRough_3
       rect:
         serializedVersion: 2
         x: 1500
-        y: 202
-        width: 300
-        height: 820
+        y: 1021
+        width: 500
+        height: 780
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a3ab8caebd43f54587e9a28d78decca
-      internalID: 681098441
+      spriteID: 2d302780749a670448adcf3ce452d92a
+      internalID: -204631193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers1_6
+      name: DiagonaDownRough_4
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 202
-        width: 300
-        height: 820
+        x: 2000
+        y: 1021
+        width: 500
+        height: 780
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 669a2fc33e9005f408af3fabe9d96d17
-      internalID: -637997493
+      spriteID: 3ed17db25fb568344acddce5e57eb005
+      internalID: -1149158072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers1_7
+      name: DiagonaDownRough_5
       rect:
         serializedVersion: 2
-        x: 2100
-        y: 202
-        width: 300
-        height: 820
+        x: 2500
+        y: 1021
+        width: 500
+        height: 780
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f406c7efd7d7234593405b978c9703b
-      internalID: 1613302810
+      spriteID: fb0c8341ba12ba14489462fa18530c9a
+      internalID: -1550284915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers1_8
+      name: DiagonaDownRough_6
       rect:
         serializedVersion: 2
-        x: 2400
-        y: 202
-        width: 300
-        height: 820
+        x: 0
+        y: 241
+        width: 500
+        height: 780
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad27893e9b8edfd44888694489afc779
-      internalID: 195612855
+      spriteID: ec9e23477569bd340a8a9e57372bdc44
+      internalID: 208357850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers1_9
+      name: DiagonaDownRough_7
       rect:
         serializedVersion: 2
-        x: 2700
-        y: 202
-        width: 300
-        height: 820
+        x: 500
+        y: 241
+        width: 500
+        height: 780
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83d3e43100226084bb6a63d01cdf88d4
-      internalID: -1464026842
+      spriteID: ddef84e6be9e47c40aac98ecca94b8e7
+      internalID: 1622041006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers1_10
+      name: DiagonaDownRough_8
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 202
-        width: 300
-        height: 820
+        x: 1000
+        y: 241
+        width: 500
+        height: 780
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 053ca0ffde50a1447b2a9d27e017b29c
-      internalID: -366443496
+      spriteID: eebb59b23af65ab41843d3d3000f7b20
+      internalID: -1108300432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers1_11
+      name: DiagonaDownRough_9
       rect:
         serializedVersion: 2
-        x: 3300
-        y: 202
-        width: 300
-        height: 820
+        x: 1500
+        y: 241
+        width: 500
+        height: 780
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f1506444fb05264186da32f827b492a
-      internalID: 371214449
+      spriteID: 8fe54d798ae2b574e9042fea608d93d8
+      internalID: 2071184144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonaDownRough_10
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 241
+        width: 500
+        height: 780
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1821965d7f9b6094fb8e8a696c803614
+      internalID: -1794289937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DiagonaDownRough_11
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 241
+        width: 500
+        height: 780
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 440a11fa6f3f5fb4d91bf44f04e5b3fe
+      internalID: 1961333403
       vertices: []
       indices: 
       edges: []
@@ -359,18 +359,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MCRoughVers1_0: -727558514
-      MCRoughVers1_1: 1906322210
-      MCRoughVers1_10: -366443496
-      MCRoughVers1_11: 371214449
-      MCRoughVers1_2: -220272018
-      MCRoughVers1_3: 340942224
-      MCRoughVers1_4: 955056125
-      MCRoughVers1_5: 681098441
-      MCRoughVers1_6: -637997493
-      MCRoughVers1_7: 1613302810
-      MCRoughVers1_8: 195612855
-      MCRoughVers1_9: -1464026842
+      DiagonaDownRough_0: -882677209
+      DiagonaDownRough_1: -148367752
+      DiagonaDownRough_10: -1794289937
+      DiagonaDownRough_11: 1961333403
+      DiagonaDownRough_12: -1526213977
+      DiagonaDownRough_2: -1487118984
+      DiagonaDownRough_3: -204631193
+      DiagonaDownRough_4: -1149158072
+      DiagonaDownRough_5: -1550284915
+      DiagonaDownRough_6: 208357850
+      DiagonaDownRough_7: 1622041006
+      DiagonaDownRough_8: -1108300432
+      DiagonaDownRough_9: 2071184144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

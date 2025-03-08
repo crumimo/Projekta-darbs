@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 8648ec70bab6368459b4219738690607
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 981
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51664c410d8e90b4fad58254056f583e
+      internalID: -33313622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 981
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c616145066ac704caa239a13b386703
+      internalID: 654100804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 981
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc328bc46b00fee4ab0b79df9a9e91fe
+      internalID: 880058810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 981
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 863898361d48dc04593ba42ea5c7945a
+      internalID: -1060763446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 981
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f5e409ac8a37814dbd638e5360b9e67
+      internalID: -214540952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 981
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba910d95f4991a43a871fa2b98ce253
+      internalID: -653401954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 981
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 387ca6824c64ef34c997d0f1833e317d
+      internalID: -1586596249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_7
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 981
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8588e5981795c64ab26135a52d5360d
+      internalID: 975323609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_8
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 981
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917d25175bb4637488924d784eeec54d
+      internalID: 451615292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_9
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 981
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33ef804f7dfcd6744a6b201c720f7a3d
+      internalID: 2141017139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 161
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8acafcaff557f1449ec92deeefc311e
+      internalID: -1260699897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 161
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9495a346683984547b0a74e6fbbbc16f
+      internalID: 1752658975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_12
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 161
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31809c667bbee5d4b9ef1d16916ab64a
+      internalID: -580649978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_13
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 161
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 271e96ecd47adbf42add8fae367f1bf2
+      internalID: 1273036614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_14
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 161
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc4028de18f7b44683be483d59bedf6
+      internalID: 1591868061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_15
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 161
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b29030b78196e34ca75692d9ef1b8d7
+      internalID: -1688396711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_16
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 161
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3fd7943a8ff9ef4886ca47000ff4a35
+      internalID: -815034460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_17
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 161
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97428d9fcd945244ab13d4439ad7460f
+      internalID: 1183954362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_18
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 161
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 873a9add4bac6284a96364c75e9c7811
+      internalID: -2055695349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_19
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 161
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67dc12e72a1b734b92042d9129ec7b5
+      internalID: -651581809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_20
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 161
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5e97e89c8d373342b96457bd5fc1ee6
+      internalID: -1282980560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_21
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 161
+        width: 300
+        height: 820
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a11575fa68376f4188ea171b5ce811d
+      internalID: -2144596471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Idle&Up&DownRough_0: -33313622
+      Idle&Up&DownRough_1: 654100804
+      Idle&Up&DownRough_10: -1260699897
+      Idle&Up&DownRough_11: 1752658975
+      Idle&Up&DownRough_12: -580649978
+      Idle&Up&DownRough_13: 1273036614
+      Idle&Up&DownRough_14: 1591868061
+      Idle&Up&DownRough_15: -1688396711
+      Idle&Up&DownRough_16: -815034460
+      Idle&Up&DownRough_17: 1183954362
+      Idle&Up&DownRough_18: -2055695349
+      Idle&Up&DownRough_19: -651581809
+      Idle&Up&DownRough_2: 880058810
+      Idle&Up&DownRough_20: -1282980560
+      Idle&Up&DownRough_21: -2144596471
+      Idle&Up&DownRough_3: -1060763446
+      Idle&Up&DownRough_4: -214540952
+      Idle&Up&DownRough_5: -653401954
+      Idle&Up&DownRough_6: -1586596249
+      Idle&Up&DownRough_7: 975323609
+      Idle&Up&DownRough_8: 451615292
+      Idle&Up&DownRough_9: 2141017139
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
