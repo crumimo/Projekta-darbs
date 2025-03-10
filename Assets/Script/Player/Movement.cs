@@ -6,7 +6,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private Animator animator;
+    public Animator animator;
     private Vector2 movement;
     private Rigidbody2D rb;
    
@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
+        
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
