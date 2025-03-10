@@ -9,7 +9,6 @@ public class Movement : MonoBehaviour
     private Animator animator;
     private Vector2 movement;
     private Rigidbody2D rb;
-   
 
     private void Start()
     {
@@ -25,13 +24,12 @@ public class Movement : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-        
     }
 
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement.normalized * (speed * Time.fixedDeltaTime));
-        
+
         if (movement != Vector2.zero)
         {
             animator.SetFloat("LastHorizontal", movement.x);
