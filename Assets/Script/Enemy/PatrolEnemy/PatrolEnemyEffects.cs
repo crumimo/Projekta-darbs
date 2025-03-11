@@ -4,6 +4,7 @@ using UnityEngine;
 public class PatrolEnemyEffects : MonoBehaviour
 {
     public float effectRadius = 5f; // Радиус действия эффектов
+    public NotebookManager notebookManager; // Ссылка на NotebookManager
     private PatrolEnemy patrolEnemy;
     private PatrolEnemyVision patrolEnemyVision;
     private bool isInvisibleEffectActive = false;
@@ -20,6 +21,11 @@ public class PatrolEnemyEffects : MonoBehaviour
         if (player == null)
         {
             Debug.LogError("Player not found in the scene.");
+        }
+
+        if (notebookManager == null)
+        {
+            Debug.LogError("NotebookManager not assigned.");
         }
     }
 
@@ -39,10 +45,12 @@ public class PatrolEnemyEffects : MonoBehaviour
             case "Lull Mist":
             case "Mist Lull":
                 StartCoroutine(InvisibilityEffect(5f));
+                notebookManager.AddEntry("Lull Mist", "Комбинация 'Lull Mist' использована на враге. Враг стал невидимым на 5 секунд.");
                 break;
             case "Lull Drift":
             case "Drift Lull":
                 StartCoroutine(SleepEffect(5f));
+                notebookManager.AddEntry("Lull Drift", "Комбинация 'Lull Drift' использована на враге. Враг уснул на 5 секунд.");
                 break;
             default:
                 Debug.LogWarning("Unknown combination: " + combination);

@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 public class WordCombinationManager : MonoBehaviour
 {
@@ -190,9 +189,11 @@ public class WordCombinationManager : MonoBehaviour
                     if (collectedWords.ContainsKey(word) && collectedWords[word] > 0)
                     {
                         collectedWords[word]--;
+                        Debug.Log($"Decreased count for word '{word}'. New count: {collectedWords[word]}");
                         if (collectedWords[word] == 0)
                         {
                             collectedWords.Remove(word);
+                            Debug.Log($"Removed word '{word}' from collected words.");
                         }
                     }
                 }
@@ -266,7 +267,6 @@ public class WordCombinationManager : MonoBehaviour
 
             topButtonText.text = word;
             topButtons[topCount].gameObject.SetActive(true);
-            button.gameObject.SetActive(true);
             topCount++;
 
             Debug.Log("Word added to top slot: " + word);
