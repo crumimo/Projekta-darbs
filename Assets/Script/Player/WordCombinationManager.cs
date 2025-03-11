@@ -199,8 +199,20 @@ public class WordCombinationManager : MonoBehaviour
                 }
             }
 
-            // Apply the combination effects to enemies
-            ApplyCombinationEffect(combination);
+            // Apply the combination effects to enemies or create thorn circle
+            if (combination == "Thorn Drift" || combination == "Drift Thorn")
+            {
+                ThornCircleManager.Instance.ApplyThornCircleEffect();
+            }
+            else
+            {
+                // Find all enemies in the scene
+                PatrolEnemyEffects[] enemies = FindObjectsOfType<PatrolEnemyEffects>();
+                foreach (PatrolEnemyEffects enemy in enemies)
+                {
+                    enemy.ApplyEffect(combination);
+                }
+            }
 
             topCount = 0;
             ResetTopButtons();
@@ -309,16 +321,5 @@ public class WordCombinationManager : MonoBehaviour
         topButtonText.text = "";
         topButton.gameObject.SetActive(false);
         topCount--;
-    }
-
-    // Apply the combination effects to enemies
-    private void ApplyCombinationEffect(string combination)
-    {
-        // Find all enemies in the scene
-        PatrolEnemyEffects[] enemies = FindObjectsOfType<PatrolEnemyEffects>();
-        foreach (PatrolEnemyEffects enemy in enemies)
-        {
-            enemy.ApplyEffect(combination);
-        }
     }
 }
