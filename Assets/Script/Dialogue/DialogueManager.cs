@@ -12,21 +12,33 @@ public class DialogueManager : MonoBehaviour
     public Transform answersContainer;
     public Button answerButtonPrefab;
     public float typingSpeed = 0.05f;
+    public int lettersPerSound = 4; // Звук будет проигрываться раз в 4 буквы
 
     private Queue<DialogueSegment> segmentsQueue;
     private bool isTyping = false;
     private bool isDialogueActive = false;
     private bool skipTyping = false;
 
+    public AudioSource audioSource; // Источник звука
+    public List<CharacterVoice> characterVoices; // Список персонажей и их звуков
+    private Dictionary<string, AudioClip[]> voiceDictionary; // Словарь для быстрого доступа
+
     void Start()
     {
         dialogueCanvas.enabled = false;
         segmentsQueue = new Queue<DialogueSegment>();
+
+        // Заполняем словарь голосов персонажей
+        voiceDictionary = new Dictionary<string, AudioClip[]>();
+        foreach (var voice in characterVoices)
+        {
+            voiceDictionary[voice.characterName] = voice.voiceClips; // Сохраняем массив звуков
+        }
     }
 
     void Update()
     {
-        if (isDialogueActive && (Input.GetKeyDown(KeyCode.Space)))
+        if (isDialogueActive && Input.GetKeyDown(KeyCode.Space))
         {
             if (isTyping)
             {
@@ -59,7 +71,7 @@ public class DialogueManager : MonoBehaviour
 
         isDialogueActive = true;
         dialogueCanvas.enabled = true;
-        FindObjectOfType<Movement>().enabled = false; // Блокируем управление персонажем
+        FindObjectOfType<Movement>().enabled = false;
 
         DisplayNextSegment();
     }
@@ -88,24 +100,36 @@ public class DialogueManager : MonoBehaviour
         {
             ClearAnswers();
             StopAllCoroutines();
-            StartCoroutine(TypeSentence(segment.sentence));
+            StartCoroutine(TypeSentence(segment.sentence, segment.speakerName));
         }
     }
 
-    IEnumerator TypeSentence(string sentence)
+    IEnumerator TypeSentence(string sentence, string speakerName)
     {
         dialogueText.text = "";
         isTyping = true;
         skipTyping = false;
 
-        foreach (char letter in sentence.ToCharArray())
+        for (int i = 0; i < sentence.Length; i++)
         {
             if (skipTyping)
             {
                 dialogueText.text = sentence;
                 break;
             }
-            dialogueText.text += letter;
+
+            dialogueText.text += sentence[i];
+
+            // Воспроизводим звук раз в каждые 4 буквы
+            if (i % lettersPerSound == 0 && voiceDictionary.ContainsKey(speakerName) && audioSource != null)
+            {
+                AudioClip[] sounds = voiceDictionary[speakerName];
+                if (sounds.Length > 0)
+                {
+                    audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Length)]);
+                }
+            }
+
             yield return new WaitForSeconds(typingSpeed);
         }
 
@@ -141,22 +165,15 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator ShowAnswerAndContinue(DialogueAnswer answer)
     {
-        // Показать текст ответа
-        yield return StartCoroutine(TypeSentence(answer.responseText));
-    
-        // Ждем, пока игрок не нажмет кнопку, чтобы продолжить
+        yield return StartCoroutine(TypeSentence(answer.responseText, nameText.text));
+
         while (!Input.GetMouseButtonDown(0) && !Input.GetKeyDown(KeyCode.Space))
         {
             yield return null;
         }
 
-        // Очищаем ответы после показа текста ответа
         ClearAnswers();
-
-        // Небольшая задержка перед продолжением
         yield return new WaitForSeconds(0.5f);
-
-        // После показа ответа продолжаем основной диалог
         DisplayNextSegment();
     }
 
@@ -164,6 +181,13 @@ public class DialogueManager : MonoBehaviour
     {
         isDialogueActive = false;
         dialogueCanvas.enabled = false;
-        FindObjectOfType<Movement>().enabled = true; // Разблокируем управление персонажем
+        FindObjectOfType<Movement>().enabled = true;
     }
+}
+
+[System.Serializable]
+public class CharacterVoice
+{
+    public string characterName;
+    public AudioClip[] voiceClips; // Теперь у каждого персонажа массив звуков
 }
