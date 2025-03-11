@@ -105,7 +105,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,7 +126,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,7 +139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GroundTest_23
+      name: GroundTest_24
       rect:
         serializedVersion: 2
         x: 256
@@ -147,28 +147,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2ce9e8e6214b0949aec277bda66d083
-      internalID: -539876718
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GroundTest_24
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 366
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +163,12 @@ TextureImporter:
       name: GroundTest_25
       rect:
         serializedVersion: 2
-        x: 768
+        x: 512
         y: 366
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,12 +184,12 @@ TextureImporter:
       name: GroundTest_26
       rect:
         serializedVersion: 2
-        x: 1024
+        x: 768
         y: 366
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -226,12 +205,12 @@ TextureImporter:
       name: GroundTest_27
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 1024
         y: 366
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,7 +223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GroundTest_30
+      name: GroundTest_31
       rect:
         serializedVersion: 2
         x: 256
@@ -252,28 +231,7 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d224f413aedba094985a42837335a37c
-      internalID: 295846721
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GroundTest_31
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 110
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,12 +247,12 @@ TextureImporter:
       name: GroundTest_32
       rect:
         serializedVersion: 2
-        x: 768
+        x: 512
         y: 110
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -302,6 +260,153 @@ TextureImporter:
       bones: []
       spriteID: 604f49bd6ed01aa4daa0bed22565fe00
       internalID: 100079923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundTest_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 622
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a8b2c3f4ff607448e9913df663acd8
+      internalID: -685693357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundTest_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 622
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c873dfd8a6247b4193da33baade4435
+      internalID: -1995793448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundTest_19
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 622
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da12c25ff8f63ad4ba07928db3b88c47
+      internalID: 1698744033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundTest_20
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 622
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3880385d37867847a9ab3c53db8486d
+      internalID: 656410677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundTest_21
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 622
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6eb2c9f9bc7a1e4996cddf84e5aa128
+      internalID: 80188211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundTest_28
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 366
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45ee2c365f2346944a4df3bc6de365bc
+      internalID: 1475025288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundTest_33
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 110
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f36121a685a57749bfe250dd02387d3
+      internalID: -27659821
       vertices: []
       indices: 
       edges: []
@@ -346,6 +451,7 @@ TextureImporter:
       GroundTest_32: 100079923
       GroundTest_33: -27659821
       GroundTest_34: 129070527
+      GroundTest_35: 142760170
       GroundTest_4: -522553820
       GroundTest_5: 1917403294
       GroundTest_6: 187483515
