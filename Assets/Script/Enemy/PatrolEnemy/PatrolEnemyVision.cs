@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,10 @@ public class PatrolEnemyVision : MonoBehaviour
     public LayerMask playerLayer;
     private Transform player;
     public MeshFilter visionMeshFilter; // Сделаем публичным
+    [SerializeField] private string ScenesToReload;
+    [SerializeField] private Transform checkpoint;
+    
+    private bool playerGotHit = false;
 
     private void Start()
     {
@@ -28,8 +33,8 @@ public class PatrolEnemyVision : MonoBehaviour
         if (visionMeshFilter == null || visionMeshFilter.mesh.vertexCount == 0)
             return;
 
-        Vector3 directionToPlayer = (player.position - transform.position).normalized;
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        Vector2 directionToPlayer = (player.position - transform.position).normalized;
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         if (distanceToPlayer < visionDistance)
         {
@@ -37,18 +42,21 @@ public class PatrolEnemyVision : MonoBehaviour
             if (angleToPlayer < visionAngle / 2)
             {
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, visionDistance, playerLayer);
-                if (hit.collider != null && hit.collider.CompareTag("Player"))
+                if (hit.collider != null && hit.collider.CompareTag("Player") && !playerGotHit)
                 {
-                    Debug.Log("Player detected! Restarting scene...");
-                    RestartScene();
+                    playerGotHit = true;
+                    Debug.Log("Enemy detected player!");
+                    StartCoroutine(Damage());
                 }
             }
         }
     }
 
-    private void RestartScene()
+    private IEnumerator Damage()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        player.transform.position = checkpoint.position;
+        yield return new WaitForSeconds(1f);
+        playerGotHit = false;
     }
 
     public void DisableVisionMesh()

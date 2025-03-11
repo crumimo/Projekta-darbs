@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102.66, y: -56.538}
+  m_AnchoredPosition: {x: -134.59999, y: 2.0000029}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8517577975340902918
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7015159970880617956}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WordCombinationManager, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 2
@@ -547,7 +547,6 @@ GameObject:
   - component: {fileID: 8132462228368141839}
   - component: {fileID: 2419830561776339494}
   - component: {fileID: 2982680604261254465}
-  - component: {fileID: 7015159970880617956}
   m_Layer: 5
   m_Name: MelodyPanel
   m_TagString: Untagged
@@ -562,7 +561,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2246623480637071021}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.022900162, y: 0.022900162, z: 0.022900162}
   m_ConstrainProportionsScale: 0
@@ -601,7 +600,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -557110349
   m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &2419830561776339494
@@ -644,29 +643,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7015159970880617956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2246623480637071021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d52d0015f50fd0458a90e54776ccdcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  worldCanvas: {fileID: 8132462228368141839}
-  playerTransform: {fileID: 0}
-  wordButtons:
-  - {fileID: 3832750850192858868}
-  - {fileID: 7064980774649527880}
-  - {fileID: 7887867500913792483}
-  - {fileID: 2465929500930027669}
-  topButtons:
-  - {fileID: 8794984228674758231}
-  - {fileID: 4761530139565832279}
-  confirmButton: {fileID: 8103119406857824633}
 --- !u!1 &2432377504472153477
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,7 +813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90.86, y: -11.745}
+  m_AnchoredPosition: {x: -133.9, y: -41}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4003322511660964914
@@ -922,7 +898,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7015159970880617956}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WordCombinationManager, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 2
@@ -1104,7 +1080,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -93.165, y: 60.81}
+  m_AnchoredPosition: {x: -64, y: 113}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8213192756005661657
@@ -1359,7 +1335,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27.107, y: 60.478}
+  m_AnchoredPosition: {x: 62, y: 113}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8678511527270575019
@@ -1480,7 +1456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102.66, y: -11.745}
+  m_AnchoredPosition: {x: -110, y: 46}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5420321185592614666
@@ -1565,7 +1541,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7015159970880617956}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WordCombinationManager, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 2
@@ -1613,7 +1589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 89.865, y: 32.053}
+  m_AnchoredPosition: {x: 107, y: 70}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3135787844152261792
@@ -1734,7 +1710,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 89.865, y: -61.12}
+  m_AnchoredPosition: {x: -105, y: -96}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8947100101000695038
@@ -1819,7 +1795,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7015159970880617956}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WordCombinationManager, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 2

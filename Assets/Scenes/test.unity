@@ -1003,7 +1003,8 @@ Transform:
   m_LocalPosition: {x: 6.116786, y: -0.29738498, z: -0.04357604}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1705536874}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &294063552
@@ -4360,7 +4361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &870848209
 Transform:
   m_ObjectHideFlags: 0
@@ -5480,7 +5481,7 @@ Transform:
   m_GameObject: {fileID: 1191948274}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 718.37646, y: 272.17615, z: 5.5053368}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6696,7 +6697,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.6, y: -15.5, z: -10}
+  m_LocalPosition: {x: -6.1, y: -70.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7274,7 +7275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1557489431
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7835,7 +7836,7 @@ GameObject:
   - component: {fileID: 1705536876}
   - component: {fileID: 1705536875}
   m_Layer: 6
-  m_Name: FakePlayer
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7850,12 +7851,12 @@ Transform:
   m_GameObject: {fileID: 1705536873}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 65.6, y: -15.5, z: 0}
+  m_LocalPosition: {x: 59.48321, y: -15.202615, z: 0.04357604}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 723913261}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 291845897}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1705536875
 BoxCollider2D:
@@ -11310,7 +11311,6 @@ SceneRoots:
   - {fileID: 760513212}
   - {fileID: 1173300300}
   - {fileID: 291845897}
-  - {fileID: 1705536874}
   - {fileID: 1516545229}
   - {fileID: 333240402}
   - {fileID: 19920526}

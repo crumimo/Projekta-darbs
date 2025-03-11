@@ -41,26 +41,7 @@ public class PatrolEnemy : MonoBehaviour
     {
         if (isWaiting)
         {
-            waitTimer += Time.deltaTime;
-            if (waitTimer >= waitTime)
-            {
-                isWaiting = false;
-                waitTimer = 0f;
-                currentPointIndex = (currentPointIndex + 1) % patrolPoints.Length;
-            }
-            else
-            {
-                // Turn left and right when waiting
-                float angle = Mathf.Sin(Time.time * rotationSpeed) * visionAngleIdle;
-                targetRotation = Quaternion.Euler(0, 0, angle);
-                currentVisionAngle = Mathf.Lerp(currentVisionAngle, visionAngleIdle, Time.deltaTime * visionChangeSpeed);
-
-                // Update PatrolEnemyVision angle
-                if (patrolEnemyVision != null)
-                {
-                    patrolEnemyVision.visionAngle = currentVisionAngle;
-                }
-            }
+            Idle();
         }
         else
         {
@@ -94,6 +75,30 @@ public class PatrolEnemy : MonoBehaviour
         UpdateVisionMesh();
     }
 
+    private void Idle()
+    {
+        waitTimer += Time.deltaTime;
+        if (waitTimer >= waitTime)
+        {
+            isWaiting = false;
+            waitTimer = 0f;
+            currentPointIndex = (currentPointIndex + 1) % patrolPoints.Length;
+        }
+        else
+        {
+            // Turn left and right when waiting
+            float angle = Mathf.Sin(Time.time * rotationSpeed) * visionAngleIdle;
+            targetRotation = Quaternion.Euler(0, 0, angle);
+            currentVisionAngle = Mathf.Lerp(currentVisionAngle, visionAngleIdle, Time.deltaTime * visionChangeSpeed);
+
+            // Update PatrolEnemyVision angle
+            if (patrolEnemyVision != null)
+            {
+                patrolEnemyVision.visionAngle = currentVisionAngle;
+            }
+        }
+    }
+
     private void UpdateVisionMesh()
     {
         if (patrolEnemyVision == null || patrolEnemyVision.visionMeshFilter == null) return;
@@ -119,7 +124,7 @@ public class PatrolEnemy : MonoBehaviour
                 triangles[i * 3 + 2] = i + 2;
             }
         }
-
+        
         patrolEnemyVision.visionMeshFilter.mesh.Clear();
         patrolEnemyVision.visionMeshFilter.mesh.vertices = vertices;
         patrolEnemyVision.visionMeshFilter.mesh.triangles = triangles;
