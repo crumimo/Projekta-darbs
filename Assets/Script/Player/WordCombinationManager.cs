@@ -10,16 +10,16 @@ public class WordCombinationManager : MonoBehaviour
 
     [Header("Panels")]
     public Canvas worldCanvas;
-    public Transform playerTransform; // Player's transform
+    public Transform playerTransform;
 
     [Header("Buttons")]
-    public Button[] wordButtons; // Buttons for selecting words
-    public Button[] topButtons; // Buttons for selected words
-    public Button confirmButton; // Button for confirming the combination
+    public Button[] wordButtons;
+    public Button[] topButtons;
+    public Button confirmButton;
 
-    private int topCount = 0; // Counter for selected words
-    private Vector3[] originalPositions; // Original positions of word buttons
-    private Dictionary<string, int> collectedWords = new Dictionary<string, int>(); // Собранные слова и их количество
+    private int topCount = 0;
+    private Vector3[] originalPositions;
+    private Dictionary<string, int> collectedWords = new Dictionary<string, int>();
 
     void Awake()
     {
@@ -35,29 +35,25 @@ public class WordCombinationManager : MonoBehaviour
 
     void Start()
     {
-        // Disable the panel at the start of the game
         worldCanvas.enabled = false;
 
         if (confirmButton != null)
             confirmButton.onClick.AddListener(OnConfirmButtonClick);
 
-        // Save original positions of word buttons
         originalPositions = new Vector3[wordButtons.Length];
         for (int i = 0; i < wordButtons.Length; i++)
         {
             originalPositions[i] = wordButtons[i].transform.position;
         }
 
-        // Add listeners to the word buttons
         foreach (Button button in wordButtons)
         {
             AddButtonClickListener(button);
         }
 
-        // Add listeners to the top buttons for right-click removal
         foreach (Button topButton in topButtons)
         {
-            topButton.onClick.RemoveAllListeners(); // Remove all previous listeners
+            topButton.onClick.RemoveAllListeners();
             topButton.onClick.AddListener(() => OnTopButtonClick(topButton));
         }
 
@@ -71,13 +67,11 @@ public class WordCombinationManager : MonoBehaviour
             ToggleWorldPanel();
         }
 
-        // Update the position of the canvas to follow the player
         if (worldCanvas.enabled)
         {
-            worldCanvas.transform.position = playerTransform.position + new Vector3(0, 2, 0); // Offset relative to the player
+            worldCanvas.transform.position = playerTransform.position + new Vector3(0, 2, 0);
         }
 
-        // Check for right-click on top buttons
         if (Input.GetMouseButtonDown(1))
         {
             foreach (Button topButton in topButtons)
@@ -91,30 +85,25 @@ public class WordCombinationManager : MonoBehaviour
         }
     }
 
-    // Add click listener to word buttons
     void AddButtonClickListener(Button button)
     {
-        button.onClick.RemoveAllListeners(); // Remove all previous listeners
+        button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() => OnButtonClick(button));
     }
 
-    // Open/close the panel
     void ToggleWorldPanel()
     {
         if (worldCanvas.enabled)
         {
-            // If the panel is being closed, reset the selected words
             StartCoroutine(ResetSelectedWords());
         }
         else
         {
-            // If the panel is being opened, update the buttons
             UpdateButtons();
         }
         worldCanvas.enabled = !worldCanvas.enabled;
     }
 
-    // Update word buttons
     void UpdateButtons()
     {
         int index = 0;
@@ -137,14 +126,12 @@ public class WordCombinationManager : MonoBehaviour
             wordButtons[i].gameObject.SetActive(false);
         }
 
-        // Hide top buttons when updating
         for (int i = 0; i < topButtons.Length; i++)
         {
             topButtons[i].gameObject.SetActive(false);
         }
     }
 
-    // Method to handle word collection
     public void CollectWord(string word)
     {
         if (collectedWords.ContainsKey(word))
@@ -159,12 +146,10 @@ public class WordCombinationManager : MonoBehaviour
         UpdateButtons();
     }
 
-    // Handle confirm button click
     void OnConfirmButtonClick()
     {
         if (topCount == 2)
         {
-            // Sort words to ensure order does not matter
             List<string> selectedWords = new List<string>();
             foreach (Button topButton in topButtons)
             {
@@ -179,7 +164,6 @@ public class WordCombinationManager : MonoBehaviour
 
             Debug.Log("Combination confirmed: " + combination);
 
-            // Decrease the count of used words
             foreach (Button topButton in topButtons)
             {
                 TextMeshProUGUI topButtonText = topButton.GetComponentInChildren<TextMeshProUGUI>();
@@ -199,25 +183,16 @@ public class WordCombinationManager : MonoBehaviour
                 }
             }
 
-            // Apply the combination effects to enemies or create thorn circle
-            if (combination == "Thorn Drift" || combination == "Drift Thorn")
+            SilverFCombinationHandler sceneCombinationHandler = FindObjectOfType<SilverFCombinationHandler>();
+            if (sceneCombinationHandler != null)
             {
-                ThornCircleManager.Instance.ApplyThornCircleEffect();
-            }
-            else
-            {
-                // Find all enemies in the scene
-                PatrolEnemyEffects[] enemies = FindObjectsOfType<PatrolEnemyEffects>();
-                foreach (PatrolEnemyEffects enemy in enemies)
-                {
-                    enemy.ApplyEffect(combination);
-                }
+                sceneCombinationHandler.ApplyCombinationEffect(combination);
             }
 
             topCount = 0;
             ResetTopButtons();
             UpdateButtons();
-            worldCanvas.enabled = false; // Close the canvas after confirmation
+            worldCanvas.enabled = false;
         }
         else
         {
@@ -225,7 +200,6 @@ public class WordCombinationManager : MonoBehaviour
         }
     }
 
-    // Reset top buttons
     void ResetTopButtons()
     {
         for (int i = 0; i < topButtons.Length; i++)
@@ -237,7 +211,6 @@ public class WordCombinationManager : MonoBehaviour
         }
     }
 
-    // Reset selected words without moving slots
     IEnumerator ResetSelectedWords()
     {
         for (int i = 0; i < topCount; i++)
@@ -256,7 +229,6 @@ public class WordCombinationManager : MonoBehaviour
         yield break;
     }
 
-    // Handle word button click
     public void OnButtonClick(Button button)
     {
         if (topCount < 2)
@@ -268,7 +240,7 @@ public class WordCombinationManager : MonoBehaviour
                 return;
             }
 
-            string word = buttonText.text.Split(' ')[0]; // Получить слово без количества
+            string word = buttonText.text.Split(' ')[0];
 
             TextMeshProUGUI topButtonText = topButtons[topCount].GetComponentInChildren<TextMeshProUGUI>();
             if (topButtonText == null)
@@ -289,13 +261,11 @@ public class WordCombinationManager : MonoBehaviour
         }
     }
 
-    // Handle right-click on top button to remove the word
     public void OnTopButtonClick(Button topButton)
     {
         RemoveWordFromTopButton(topButton);
     }
 
-    // Remove word from top button
     void RemoveWordFromTopButton(Button topButton)
     {
         TextMeshProUGUI topButtonText = topButton.GetComponentInChildren<TextMeshProUGUI>();

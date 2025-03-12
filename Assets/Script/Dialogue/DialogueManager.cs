@@ -19,20 +19,19 @@ public class DialogueManager : MonoBehaviour
     private bool isDialogueActive = false;
     private bool skipTyping = false;
 
-    public AudioSource audioSource; // Источник звука
-    public List<CharacterVoice> characterVoices; // Список персонажей и их звуков
-    private Dictionary<string, AudioClip[]> voiceDictionary; // Словарь для быстрого доступа
+    public AudioSource audioSource; 
+    public List<CharacterVoice> characterVoices; 
+    private Dictionary<string, AudioClip[]> voiceDictionary; 
 
     void Start()
     {
         dialogueCanvas.enabled = false;
         segmentsQueue = new Queue<DialogueSegment>();
-
-        // Заполняем словарь голосов персонажей
+        
         voiceDictionary = new Dictionary<string, AudioClip[]>();
         foreach (var voice in characterVoices)
         {
-            voiceDictionary[voice.characterName] = voice.voiceClips; // Сохраняем массив звуков
+            voiceDictionary[voice.characterName] = voice.voiceClips; 
         }
     }
 
@@ -189,5 +188,5 @@ public class DialogueManager : MonoBehaviour
 public class CharacterVoice
 {
     public string characterName;
-    public AudioClip[] voiceClips; // Теперь у каждого персонажа массив звуков
+    public AudioClip[] voiceClips; 
 }

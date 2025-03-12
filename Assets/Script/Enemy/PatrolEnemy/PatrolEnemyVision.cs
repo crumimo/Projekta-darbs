@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PatrolEnemyVision : MonoBehaviour
 {
@@ -8,15 +7,16 @@ public class PatrolEnemyVision : MonoBehaviour
     public float visionAngle = 45f;
     public LayerMask playerLayer;
     private Transform player;
-    public MeshFilter visionMeshFilter; // Сделаем публичным
-    [SerializeField] private string ScenesToReload;
-    [SerializeField] private Transform checkpoint;
-    
+    private Movement playerMovement;
+    public MeshFilter visionMeshFilter;
+
     private bool playerGotHit = false;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerMovement = player.GetComponent<Movement>();
+
         if (visionMeshFilter == null)
         {
             visionMeshFilter = GetComponentInChildren<MeshFilter>();
@@ -46,16 +46,14 @@ public class PatrolEnemyVision : MonoBehaviour
                 {
                     playerGotHit = true;
                     Debug.Log("Enemy detected player!");
-                    StartCoroutine(Damage());
+                    playerMovement.Die();
                 }
             }
         }
     }
 
-    private IEnumerator Damage()
+    public void ResetEnemyState()
     {
-        player.transform.position = checkpoint.position;
-        yield return new WaitForSeconds(1f);
         playerGotHit = false;
     }
 

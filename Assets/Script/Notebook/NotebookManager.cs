@@ -16,6 +16,7 @@ public class NotebookManager : MonoBehaviour
     private List<string> entries = new List<string>();
     private List<string> pages = new List<string>();
     private int currentPage = 0;
+    private List<string> notebookEntries = new List<string>(); // Добавляем эту переменную
 
     void Start()
     {
@@ -108,5 +109,23 @@ public class NotebookManager : MonoBehaviour
             currentPage++;
             UpdateNotebookContent();
         }
+    }
+    
+    public List<string> GetNotebookEntries()
+    {
+        return notebookEntries;
+    }
+
+    public void SetNotebookEntries(List<string> entries)
+    {
+        notebookEntries = entries;
+        UpdateNotebookDisplay();
+    }
+
+    private void UpdateNotebookDisplay()
+    {
+        entries = new List<string>(notebookEntries);
+        UpdatePages();
+        UpdateNotebookContent();
     }
 }

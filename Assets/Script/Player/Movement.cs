@@ -1,14 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    public Animator animator;
     private Vector2 movement;
     private Rigidbody2D rb;
+    private bool isDead = false;
+    private Animator animator;
 
     private void Start()
     {
@@ -18,22 +16,55 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+        if (!isDead)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+            animator.SetFloat("Speed", movement.sqrMagnitude);
+        }
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement.normalized * (speed * Time.fixedDeltaTime));
-
-        if (movement != Vector2.zero)
+        if (!isDead)
         {
-            animator.SetFloat("LastHorizontal", movement.x);
-            animator.SetFloat("LastVertical", movement.y);
+            rb.MovePosition(rb.position + movement.normalized * (speed * Time.fixedDeltaTime));
+
+            if (movement != Vector2.zero)
+            {
+                animator.SetFloat("LastHorizontal", movement.x);
+                animator.SetFloat("LastVertical", movement.y);
+            }
+        }
+    }
+
+    public void Die()
+    {
+        isDead = true;
+        // Остановить движение
+        movement = Vector2.zero;
+        rb.velocity = Vector2.zero;
+        animator.SetTrigger("Die");
+
+        // Перезагрузить сцену после задержки
+        Invoke("Respawn", 1f);
+    }
+
+    private void Respawn()
+    {
+        isDead = false;
+        GameState gameState = GameSession.Instance.GameState;
+        transform.position = gameState.PlayerPosition;
+        animator.SetTrigger("Respawn");
+
+        // Найти всех врагов и сбросить их состояние
+        PatrolEnemyVision[] enemies = FindObjectsOfType<PatrolEnemyVision>();
+        foreach (var enemy in enemies)
+        {
+            enemy.ResetEnemyState();
         }
     }
 }

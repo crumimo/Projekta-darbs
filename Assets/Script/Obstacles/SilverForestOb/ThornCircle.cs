@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class ThornCircle : MonoBehaviour
 {
-    public float duration = 2f; // Продолжительность существования круга шипов
-    public float rotationSpeed = 100f; // Скорость вращения круга шипов
-    public Transform playerTransform; // Ссылка на трансформ игрока
+    public float duration = 2f; 
+    public float rotationSpeed = 100f; 
+    public Transform playerTransform; 
 
     private void Start()
     {
@@ -14,10 +14,8 @@ public class ThornCircle : MonoBehaviour
 
     private void Update()
     {
-        // Вращение круга шипов
         transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
-
-        // Обновление позиции круга шипов в соответствии с позицией игрока
+        
         if (playerTransform != null)
         {
             transform.position = playerTransform.position;
@@ -37,12 +35,12 @@ public class ThornCircle : MonoBehaviour
         if (collision.CompareTag("Obstacle"))
         {
             Debug.Log("Destroying obstacle: " + collision.gameObject.name);
-            Destroy(collision.gameObject); // Разрушить препятствие
+            Destroy(collision.gameObject); 
         }
         else if (collision.CompareTag("Enemy"))
         {
             Debug.Log("Destroying enemy: " + collision.gameObject.name);
-            Destroy(collision.gameObject); // Убить врага
+            Destroy(collision.gameObject); 
         }
     }
 }
