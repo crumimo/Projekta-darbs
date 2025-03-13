@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
@@ -6,6 +7,11 @@ public class DialogueTrigger : MonoBehaviour
     public bool requiresLullDrift;
     public bool requiresLullThorn;
     private bool canStartDialogue = false;
+
+   /* private void Start()
+    {
+        canStartDialogue = true;
+    }*/
 
     void Update()
     {

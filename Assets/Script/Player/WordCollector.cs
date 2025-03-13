@@ -3,13 +3,14 @@ using UnityEngine;
 public class WordCollector : MonoBehaviour
 {
     public string word; // the word that will be collected
+    [SerializeField] private int wordCount;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             Debug.Log($"Player collected the word: {word}");
-            WordCombinationManager.Instance.CollectWord(word);
+            WordCombinationManager.Instance.CollectWord(word, wordCount);
             Destroy(gameObject); // Destroy the object after collection
         }
         else
