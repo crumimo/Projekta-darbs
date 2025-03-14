@@ -3012,6 +3012,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2419830561776339494, guid: 171026e4254051542af7985b94a3c478, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2432377504472153477, guid: 171026e4254051542af7985b94a3c478, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -7214,8 +7218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: 4b1e875e73045e547b1e652b4bd2962d, type: 2}
-  requiresLullDrift: 0
-  requiresLullThorn: 1
+  requiresLullDrift: 1
+  requiresLullThorn: 0
 --- !u!4 &1557489433
 Transform:
   m_ObjectHideFlags: 0
