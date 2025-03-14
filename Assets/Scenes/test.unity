@@ -7218,8 +7218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: 4b1e875e73045e547b1e652b4bd2962d, type: 2}
-  requiresLullDrift: 1
-  requiresLullThorn: 0
+  requiresLullDrift: 0
+  requiresLullThorn: 1
 --- !u!4 &1557489433
 Transform:
   m_ObjectHideFlags: 0
