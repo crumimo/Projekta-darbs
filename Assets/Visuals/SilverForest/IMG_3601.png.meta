@@ -100,12 +100,12 @@ TextureImporter:
       name: IMG_3601_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 1668
-        width: 233
-        height: 195
+        x: 6
+        y: 1670
+        width: 234
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -122,11 +122,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 276
-        y: 1732
-        width: 207
+        y: 1731
+        width: 206
         height: 126
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: IMG_3601_2
       rect:
         serializedVersion: 2
-        x: 561
-        y: 1708
-        width: 332
-        height: 148
+        x: 560
+        y: 1711
+        width: 333
+        height: 145
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: IMG_3601_3
       rect:
         serializedVersion: 2
-        x: 972
-        y: 1699
-        width: 207
-        height: 141
+        x: 971
+        y: 1704
+        width: 204
+        height: 137
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: IMG_3601_8
       rect:
         serializedVersion: 2
-        x: 74
-        y: 1208
-        width: 357
-        height: 382
+        x: 2849
+        y: 1523
+        width: 206
+        height: 360
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,57 +202,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_3601_9
-      rect:
-        serializedVersion: 2
-        x: 525
-        y: 1236
-        width: 228
-        height: 318
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48d74618f9c10004a8a4e53be6cfcdcc
-      internalID: 883736079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_3601_10
-      rect:
-        serializedVersion: 2
-        x: 939
-        y: 214
-        width: 773
-        height: 1171
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a17e7547cd4de5d4e9adba9cc0ad0ab1
-      internalID: -1937373308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: IMG_3601_11
       rect:
         serializedVersion: 2
-        x: 44
-        y: 143
-        width: 743
-        height: 979
+        x: 1810
+        y: 1177
+        width: 299
+        height: 534
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,6 +218,195 @@ TextureImporter:
       bones: []
       spriteID: a82ce51c9acf54d428ad56b9b4d26f03
       internalID: 1737069058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3601_5
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 1454
+        width: 344
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de35314c81ee2814fbc4cc7958f5c102
+      internalID: 1045973765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3601_6
+      rect:
+        serializedVersion: 2
+        x: 2197
+        y: 1151
+        width: 173
+        height: 716
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ef08316d455f1d46bbaeff84efcf340
+      internalID: -1327743862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3601_7
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 1193
+        width: 328
+        height: 648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d76a6c617adf18458a7e72f2efb7d4f
+      internalID: 47726344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3601_12
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1206
+        width: 359
+        height: 383
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a67208daada54439a26693ee2293e9
+      internalID: -730657425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3601_13
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 1235
+        width: 227
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0704d72470ad354ebb9b43406407959
+      internalID: -1586988640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3601_15
+      rect:
+        serializedVersion: 2
+        x: 2872
+        y: 1190
+        width: 143
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb5a738766c22845b8c444ae19abbc2
+      internalID: 1231209153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3601_16
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 143
+        width: 743
+        height: 979
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5a43dba62218b6419f7cc516729702c
+      internalID: -819814676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3601_17
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 213
+        width: 775
+        height: 1172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d14015de36c6464aa51337c5e2954c2
+      internalID: -783523914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3601_18
+      rect:
+        serializedVersion: 2
+        x: 1817
+        y: 123
+        width: 708
+        height: 966
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4751401404903041acea8b0c825240a
+      internalID: 559354351
       vertices: []
       indices: 
       edges: []
@@ -280,6 +427,13 @@ TextureImporter:
       IMG_3601_10: -1937373308
       IMG_3601_11: 1737069058
       IMG_3601_12: -730657425
+      IMG_3601_13: -1586988640
+      IMG_3601_14: -206678116
+      IMG_3601_15: 1231209153
+      IMG_3601_16: -819814676
+      IMG_3601_17: -783523914
+      IMG_3601_18: 559354351
+      IMG_3601_19: -1415607836
       IMG_3601_2: -1351977249
       IMG_3601_3: -1863250333
       IMG_3601_4: 955745355

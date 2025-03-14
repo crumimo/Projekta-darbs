@@ -132,15 +132,15 @@ public class WordCombinationManager : MonoBehaviour
         }
     }
 
-    public void CollectWord(string word)
+    public void CollectWord(string word, int wordCount)
     {
         if (collectedWords.ContainsKey(word))
         {
-            collectedWords[word]++;
+            collectedWords[word] += wordCount;
         }
         else
         {
-            collectedWords[word] = 1;
+            collectedWords[word] = wordCount;
         }
 
         UpdateButtons();
