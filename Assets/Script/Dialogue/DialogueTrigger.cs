@@ -18,7 +18,7 @@ public class DialogueTrigger : MonoBehaviour
     public void ApplyEffect(string combination)
     {
         float distanceToPlayer = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
-        if (distanceToPlayer > 5f)
+        if (distanceToPlayer > 10f)
         {
             Debug.Log("Player is too far away to apply the effect.");
             return;
