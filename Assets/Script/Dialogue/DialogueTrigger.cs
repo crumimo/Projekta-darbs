@@ -8,6 +8,8 @@ public class DialogueTrigger : MonoBehaviour
     public bool requiresLullThorn;
     private bool canStartDialogue = false;
 
+    [SerializeField] private float distanceToActivate;
+
    /* private void Start()
     {
         canStartDialogue = true;
@@ -24,7 +26,7 @@ public class DialogueTrigger : MonoBehaviour
     public void ApplyEffect(string combination)
     {
         float distanceToPlayer = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
-        if (distanceToPlayer > 10f)
+        if (distanceToPlayer > distanceToActivate)
         {
             Debug.Log("Player is too far away to apply the effect.");
             return;

@@ -19,6 +19,6 @@ public class Checkpoint : MonoBehaviour
     {
         GameState gameState = GameSession.Instance.GameState;
         gameState.PlayerPosition = playerTransform.position;
-        gameState.CurrentCheckpointID = checkpointID;
+        gameState.currentCheckpointID = checkpointID;
     }
 }

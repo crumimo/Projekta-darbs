@@ -4,5 +4,5 @@ using UnityEngine;
 public class GameState
 {
     public Vector3 PlayerPosition;
-    public int CurrentCheckpointID = -1;
+    public int currentCheckpointID = -1;
 }
