@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SilverForetsWords
   m_EditorClassIdentifier: 
   combinations:
-  - word1: 'Lull '
-    word2: Mist
+  - word1: Mist
+    word2: Lull
     effectName: SleepEffect
   - word1: Drift
     word2: Mist

@@ -2452,8 +2452,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 838238969}
-  effectRadius: 5
-  notebookManager: {fileID: 1173300299}
+  effectRadius: 15
+  ignorePlayer: 0
 --- !u!1 &550293281
 GameObject:
   m_ObjectHideFlags: 0
