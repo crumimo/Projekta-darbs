@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -7,7 +8,8 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isDead = false;
     private Animator animator;
-
+    
+    
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -21,9 +23,11 @@ public class Movement : MonoBehaviour
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
 
+            
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
+            
         }
     }
 
@@ -31,15 +35,18 @@ public class Movement : MonoBehaviour
     {
         if (!isDead)
         {
-            rb.MovePosition(rb.position + movement.normalized * (speed * Time.fixedDeltaTime));
-
             if (movement != Vector2.zero)
             {
                 animator.SetFloat("LastHorizontal", movement.x);
                 animator.SetFloat("LastVertical", movement.y);
             }
+            
+            rb.MovePosition(rb.position + movement.normalized * (speed * Time.fixedDeltaTime));
+            
         }
     }
+    
+
 
     public void Die()
     {
@@ -60,11 +67,8 @@ public class Movement : MonoBehaviour
         transform.position = gameState.PlayerPosition;
         animator.SetTrigger("Respawn");
 
-        // Найти всех врагов и сбросить их состояние
-        PatrolEnemyVision[] enemies = FindObjectsOfType<PatrolEnemyVision>();
-        foreach (var enemy in enemies)
-        {
-            enemy.ResetEnemyState();
-        }
+        EnemyManager enemyManager = FindObjectOfType<EnemyManager>();
+        enemyManager.ResetEnemies();
     }
+    
 }
