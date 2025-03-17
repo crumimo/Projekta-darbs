@@ -27,11 +27,19 @@ public class EffectManager : MonoBehaviour
                 if (effect is InvisibilityEffect invisibilityEffect)
                 {
                     invisibilityEffect.Apply(target);
+                    Debug.Log($"InvisibilityEffect applied to {target.name}");
                     return;
                 }
-                else if (effect is SleepEffect sleepEffect)
+                if (effect is SleepEffect sleepEffect)
                 {
                     sleepEffect.Apply(target);
+                    Debug.Log($"SleepEffect applied to {target.name}");
+                    return;
+                }
+                if (effect is QuietWhisperEffect quietWhisperEffect)
+                {
+                    quietWhisperEffect.Apply(target);
+                    Debug.Log($"QuietWhisperEffect applied to {target.name}");
                     return;
                 }
             }

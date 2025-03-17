@@ -9,13 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5b06a38ead33948bb58af9351c31f6, type: 3}
-  m_Name: SilverForetsWords
+  m_Script: {fileID: 11500000, guid: d20c5a717486c744a931e3afe11ac861, type: 3}
+  m_Name: QuietWhisperEffect
   m_EditorClassIdentifier: 
-  combinations:
-  - word1: Mist
-    word2: Lull
-    effectName: SleepEffect
-  - word1: Drift
-    word2: Mist
-    effectName: InvisibilityEffect

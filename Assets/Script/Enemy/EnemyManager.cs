@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    private PatrolEnemyVision[] patrolEnemies;
+    private PatrolEnemy[] patrolEnemies;
     
     
     private void Start()
     {
-        patrolEnemies = FindObjectsOfType<PatrolEnemyVision>();
+        patrolEnemies = FindObjectsOfType<PatrolEnemy>();
     }
 
     public void ResetEnemies()

@@ -96,7 +96,7 @@ public class WordUIManager : MonoBehaviour
         {
             string effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
             // Apply the effect to all enemies in range
-            foreach (var enemy in FindObjectsOfType<PatrolEnemyTest>())
+            foreach (var enemy in FindObjectsOfType<PatrolEnemy>())
             {
                 enemy.ApplyEffect(effect);
             }

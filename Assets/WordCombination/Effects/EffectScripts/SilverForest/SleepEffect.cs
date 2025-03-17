@@ -9,14 +9,14 @@ public class SleepEffect : ScriptableObject
     public void Apply(GameObject target)
     {
         Debug.Log("Applying Sleep Effect");
-        PatrolEnemyTest enemy = target.GetComponent<PatrolEnemyTest>();
+        PatrolEnemy enemy = target.GetComponent<PatrolEnemy>();
         if (enemy != null)
         {
             enemy.StartCoroutine(SleepCoroutine(enemy));
         }
     }
 
-    private IEnumerator SleepCoroutine(PatrolEnemyTest enemy)
+    private IEnumerator SleepCoroutine(PatrolEnemy enemy)
     {
         Debug.Log("Enemy is now asleep");
         enemy.enabled = false;

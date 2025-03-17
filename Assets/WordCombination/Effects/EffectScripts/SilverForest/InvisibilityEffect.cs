@@ -9,14 +9,14 @@ public class InvisibilityEffect : ScriptableObject
     public void Apply(GameObject target)
     {
         Debug.Log("Applying Invisibility Effect");
-        PatrolEnemyTest enemy = target.GetComponent<PatrolEnemyTest>();
+        PatrolEnemy enemy = target.GetComponent<PatrolEnemy>();
         if (enemy != null)
         {
             enemy.StartCoroutine(InvisibilityCoroutine(enemy));
         }
     }
 
-    private IEnumerator InvisibilityCoroutine(PatrolEnemyTest enemy)
+    private IEnumerator InvisibilityCoroutine(PatrolEnemy enemy)
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         SpriteRenderer playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
