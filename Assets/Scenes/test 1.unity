@@ -4495,7 +4495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &870848209
 Transform:
   m_ObjectHideFlags: 0
@@ -5497,6 +5497,7 @@ MonoBehaviour:
   answerButtonPrefab: {fileID: 7137584654143434354, guid: 22b887c3e0291c044a7da7768a25ba9a, type: 3}
   typingSpeed: 0.05
   lettersPerSound: 3
+  speakerImage: {fileID: 847749092}
   audioSource: {fileID: 1191948277}
   characterVoices:
   - characterName: Albina
@@ -7743,7 +7744,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: 4b1e875e73045e547b1e652b4bd2962d, type: 2}
-  requiresCombo: 0
+  requiresNoCombo: 1
+  requiresQuietWhisper: 0
+  requiresEchoingRoots: 0
   distanceToActivate: 15
 --- !u!4 &1557489433
 Transform:
@@ -9055,6 +9058,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 92334e567b9774a4b90f2c187a17a3a2, type: 2}
   - {fileID: 11400000, guid: afabc5f32c6bebc4d93dc8e7297d10a6, type: 2}
   - {fileID: 11400000, guid: b7fe063e8868dd0489773eb3e74068ad, type: 2}
+  - {fileID: 11400000, guid: 55e3df51c9499724bacd3250ea9bb04a, type: 2}
 --- !u!4 &1727851828
 Transform:
   m_ObjectHideFlags: 0

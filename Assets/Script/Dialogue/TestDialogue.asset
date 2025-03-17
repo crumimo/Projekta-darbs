@@ -17,10 +17,12 @@ MonoBehaviour:
     isQuestion: 0
     sentence: It will be clear day today
     answers: []
+    speakerSprite: {fileID: 387486583, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
   - speakerName: Albina
     isQuestion: 0
     sentence: Perfect weather to gather some food
     answers: []
+    speakerSprite: {fileID: 1042594011, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
   - speakerName: Albina
     isQuestion: 1
     sentence: Don't you agree?
@@ -31,7 +33,9 @@ MonoBehaviour:
       responseText: ...
     - text: i want sum seaweed
       responseText: go and get it then
+    speakerSprite: {fileID: -237883397, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
   - speakerName: '-'
     isQuestion: 0
     sentence: '*Is this okay to be so braindead like me?*'
     answers: []
+    speakerSprite: {fileID: 387486583, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}

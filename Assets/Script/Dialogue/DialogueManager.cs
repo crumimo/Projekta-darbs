@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     public Button answerButtonPrefab;
     public float typingSpeed = 0.05f;
     public int lettersPerSound = 4; // Звук будет проигрываться раз в 4 буквы
+    public Image speakerImage; // Image для отображения спрайта говорящего
 
     private Queue<DialogueSegment> segmentsQueue;
     private bool isTyping = false;
@@ -90,6 +91,7 @@ public class DialogueManager : MonoBehaviour
     public void DisplaySegment(DialogueSegment segment)
     {
         nameText.text = segment.speakerName;
+        speakerImage.sprite = segment.speakerSprite; // Устанавливаем спрайт говорящего
 
         if (segment.isQuestion)
         {

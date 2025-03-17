@@ -205,6 +205,9 @@ public class PatrolEnemy : MonoBehaviour
         float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
+        // Log the rotation action
+        Debug.Log("Enemy rotated to face the player.");
+
         // Set flag to maintain look at player
         isLookingAtPlayer = true;
 
@@ -229,9 +232,32 @@ public class PatrolEnemy : MonoBehaviour
                     Debug.Log("Player is not in the vision cone after Lull Drift combination.");
                 }
             }
+            else
+            {
+                Debug.Log("Player is outside the vision angle.");
+            }
+        }
+        else
+        {
+            Debug.Log("Player is outside the vision distance.");
         }
 
         // Reset flag
         isLookingAtPlayer = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (patrolPoints != null && patrolPoints.Length > 0)
+        {
+            Gizmos.color = Color.red; 
+            foreach (Transform point in patrolPoints)
+            {
+                if (point != null)
+                {
+                    Gizmos.DrawSphere(point.position, 0.2f); 
+                }
+            }
+        }
     }
 }

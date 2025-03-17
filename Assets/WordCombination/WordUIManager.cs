@@ -95,10 +95,15 @@ public class WordUIManager : MonoBehaviour
         if (selectedWords.Count == 2)
         {
             string effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
-            // Apply the effect to all enemies in range
+            Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect}");
+            // Apply the effect to all enemies and dialogue triggers in range
             foreach (var enemy in FindObjectsOfType<PatrolEnemy>())
             {
                 enemy.ApplyEffect(effect);
+            }
+            foreach (var dialogueTrigger in FindObjectsOfType<DialogueTrigger>())
+            {
+                dialogueTrigger.ApplyEffect(effect);
             }
             ResetSelection();
         }
