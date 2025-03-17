@@ -1060,7 +1060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011514e05661c8f449fb5f214cdeaa14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneWords: {fileID: 11400000, guid: b494a0d724b82c14898d8ca8c1479094, type: 2}
+  sceneWordData: {fileID: 11400000, guid: b494a0d724b82c14898d8ca8c1479094, type: 2}
 --- !u!1 &139080439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,7 +1729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &248371146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2281,14 +2281,16 @@ MonoBehaviour:
   answerButtonPrefab: {fileID: 7137584654143434354, guid: 22b887c3e0291c044a7da7768a25ba9a, type: 3}
   typingSpeed: 0.05
   lettersPerSound: 4
-  speakerImage: {fileID: 0}
+  speakerImage: {fileID: 1470781455}
   audioSource: {fileID: 292591564}
   characterVoices:
-  - characterName: Albina
+  - characterName: Maya
     voiceClips:
-    - {fileID: 8300000, guid: 889de647bea56d34abd0aa3d60a92083, type: 3}
-    - {fileID: 8300000, guid: af3d75f937e7b514693db857badf3987, type: 3}
-    - {fileID: 8300000, guid: 41122e8e12e14f74e99a092899189bc7, type: 3}
+    - {fileID: 8300000, guid: 6d88e1f3e151be847a892eb60e2421ef, type: 3}
+    - {fileID: 8300000, guid: 57bb26489c0d87d4cb2789b35384de38, type: 3}
+    - {fileID: 8300000, guid: c12320867213897429b5714d595e05ac, type: 3}
+    - {fileID: 8300000, guid: 58e477684d26ed94fb30c76280feeef5, type: 3}
+    - {fileID: 8300000, guid: dc43be9500d22f144b7e1dfba0dcfc21, type: 3}
 --- !u!82 &292591564
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2300,7 +2302,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4178,7 +4180,7 @@ Transform:
   m_GameObject: {fileID: 979491080}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 99.9, y: 3.9, z: 0}
+  m_LocalPosition: {x: 247.8, y: -10.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4421,6 +4423,7 @@ GameObject:
   - component: {fileID: 995647935}
   - component: {fileID: 995647934}
   - component: {fileID: 995647933}
+  - component: {fileID: 995647936}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
@@ -4441,8 +4444,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: 4b1e875e73045e547b1e652b4bd2962d, type: 2}
-  requiresNoCombo: 1
-  requiresQuietWhisper: 0
+  requiresNoCombo: 0
+  requiresQuietWhisper: 1
   requiresEchoingRoots: 0
   distanceToActivate: 10
 --- !u!212 &995647934
@@ -4512,6 +4515,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 366390592}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &995647936
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995647932}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4
 --- !u!1 &1084621188
 GameObject:
   m_ObjectHideFlags: 0
@@ -4692,7 +4730,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 97.6, y: 3.3000002, z: -10}
+  m_LocalPosition: {x: 245.5, y: -11.200001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5881,7 +5919,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 97.6, y: 3.3000002, z: -10}
+  m_LocalPosition: {x: 245.5, y: -11.200001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

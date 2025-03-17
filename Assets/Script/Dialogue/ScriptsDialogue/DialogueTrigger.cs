@@ -11,16 +11,16 @@ public class DialogueTrigger : MonoBehaviour
 
     [SerializeField] private float distanceToActivate;
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Debug.Log("F key pressed.");
-        }
+   
 
-        if ((canStartDialogue || requiresNoCombo) && Input.GetKeyDown(KeyCode.F))
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.CompareTag("Player"))
         {
-            TryStartDialogue();
+            if ((canStartDialogue || requiresNoCombo) && Input.GetKeyDown(KeyCode.F))
+            {
+                TryStartDialogue();
+            }
         }
     }
 

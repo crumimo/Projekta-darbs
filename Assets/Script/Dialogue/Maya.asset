@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4f7c28a35c789f4e837055a1efc1a0a, type: 3}
-  m_Name: Albina
+  m_Name: Maya
   m_EditorClassIdentifier: 
   segments:
-  - speakerName: Albina
+  - speakerName: Maya
     isQuestion: 0
     sentence: It will be clear day today
     answers: []
     speakerSprite: {fileID: 387486583, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
-  - speakerName: Albina
+  - speakerName: Maya
     isQuestion: 0
     sentence: Perfect weather to gather some food
     answers: []
-    speakerSprite: {fileID: 1042594011, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
-  - speakerName: Albina
+    speakerSprite: {fileID: 387486583, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
+  - speakerName: Maya
     isQuestion: 1
     sentence: Don't you agree?
     answers:
@@ -33,7 +33,7 @@ MonoBehaviour:
       responseText: ...
     - text: i want sum seaweed
       responseText: go and get it then
-    speakerSprite: {fileID: -237883397, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
+    speakerSprite: {fileID: 387486583, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
   - speakerName: '-'
     isQuestion: 0
     sentence: '*Is this okay to be so braindead like me?*'
