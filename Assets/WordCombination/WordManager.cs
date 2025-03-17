@@ -1,41 +1,74 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class WordManager : MonoBehaviour
 {
     public static WordManager Instance;
-    public SceneWordData sceneWords; // Подключаем ScriptableObject в инспекторе
-    private Dictionary<string, string> wordDictionary = new();
 
-    void Awake()
+    private List<string> collectedWords = new List<string>();
+    private Dictionary<string, string> wordCombinations = new Dictionary<string, string>(); 
+
+    public SceneWordData sceneWordData; 
+
+    private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-
-        LoadWords();
+        if (Instance == null)
+        {
+            Instance = this;
+            LoadWordCombinations();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    void LoadWords()
+    private void LoadWordCombinations()
     {
-        wordDictionary.Clear();
-        foreach (var combo in sceneWords.combinations)
+        foreach (var combination in sceneWordData.combinations)
         {
-            string key1 = combo.word1 + " " + combo.word2;
-            string key2 = combo.word2 + " " + combo.word1;
-            wordDictionary[key1] = combo.effectName;
-            wordDictionary[key2] = combo.effectName;
+            string combinationKey = combination.word1 + "+" + combination.word2;
+            wordCombinations[combinationKey] = combination.effectName;
+        }
+    }
+
+    public void CollectWord(string word)
+    {
+        collectedWords.Add(word);
+    }
+
+    public List<string> GetCollectedWords()
+    {
+        return new List<string>(collectedWords);
+    }
+
+    public void SetCollectedWords(List<string> words)
+    {
+        collectedWords = new List<string>(words);
+    }
+
+    public void UseWord(string word)
+    {
+        if (collectedWords.Contains(word))
+        {
+            collectedWords.Remove(word);
         }
     }
 
     public string GetEffect(string word1, string word2)
     {
-        string key = word1 + " " + word2;
-        if (wordDictionary.TryGetValue(key, out string effect))
+        if (wordCombinations == null)
         {
-            Debug.Log($"Effect found: {effect}");
+            Debug.LogError("wordCombinations is not initialized.");
+            return null;
+        }
+
+        string combination = word1 + "+" + word2;
+        if (wordCombinations.TryGetValue(combination, out string effect))
+        {
             return effect;
         }
-        Debug.Log("Effect not found, returning 'None'");
-        return "None";
+
+        return null;
     }
 }

@@ -9,7 +9,6 @@ public class Movement : MonoBehaviour
     private bool isDead = false;
     private Animator animator;
     
-    
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -23,11 +22,9 @@ public class Movement : MonoBehaviour
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
 
-            
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
-            
         }
     }
 
@@ -42,21 +39,21 @@ public class Movement : MonoBehaviour
             }
             
             rb.MovePosition(rb.position + movement.normalized * (speed * Time.fixedDeltaTime));
-            
         }
     }
-    
-
 
     public void Die()
     {
         isDead = true;
-        // Остановить движение
+        
         movement = Vector2.zero;
         rb.velocity = Vector2.zero;
         animator.SetTrigger("Die");
 
-        // Перезагрузить сцену после задержки
+        
+        WordUIManager.Instance.ResetToCheckpoint();
+        WordUIManager.Instance.RestoreCollectedWordsOnScene();
+        
         Invoke("Respawn", 1f);
     }
 
@@ -70,5 +67,4 @@ public class Movement : MonoBehaviour
         EnemyManager enemyManager = FindObjectOfType<EnemyManager>();
         enemyManager.ResetEnemies();
     }
-    
 }

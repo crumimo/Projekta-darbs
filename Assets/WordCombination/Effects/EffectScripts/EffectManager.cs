@@ -3,7 +3,7 @@ using UnityEngine;
 public class EffectManager : MonoBehaviour
 {
     public static EffectManager Instance;
-    public ScriptableObject[] availableEffects; // Массив доступных эффектов
+    public ScriptableObject[] availableEffects; 
 
     private void Awake()
     {
@@ -30,19 +30,19 @@ public class EffectManager : MonoBehaviour
                     Debug.Log($"InvisibilityEffect applied to {target.name}");
                     return;
                 }
-                else if (effect is SleepEffect sleepEffect)
+                if (effect is SleepEffect sleepEffect)
                 {
                     sleepEffect.Apply(target);
                     Debug.Log($"SleepEffect applied to {target.name}");
                     return;
                 }
-                else if (effect is QuietWhisperEffect quietWhisperEffect)
+                if (effect is QuietWhisperEffect quietWhisperEffect)
                 {
                     quietWhisperEffect.Apply(target);
                     Debug.Log($"QuietWhisperEffect applied to {target.name}");
                     return;
                 }
-                else if (effect is EchoingRootsEffect echoingRootsEffect) // Добавляем новый эффект
+                if (effect is EchoingRootsEffect echoingRootsEffect) 
                 {
                     echoingRootsEffect.Apply(target);
                     Debug.Log($"EchoingRootsEffect applied to {target.name}");

@@ -4,9 +4,9 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    [SerializeField] private bool requiresNoCombo = false; // Диалог начинается без комбо
-    [SerializeField] private bool requiresQuietWhisper = false; // Диалог начинается с QuietWhisperEffect
-    [SerializeField] private bool requiresEchoingRoots = false; // Диалог начинается с EchoingRootsEffect
+    [SerializeField] private bool requiresNoCombo = false; 
+    [SerializeField] private bool requiresQuietWhisper = false; 
+    [SerializeField] private bool requiresEchoingRoots = false; 
     private bool canStartDialogue = false;
 
     [SerializeField] private float distanceToActivate;
@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
 
         if ((canStartDialogue || requiresNoCombo) && Input.GetKeyDown(KeyCode.F))
         {
-            StartDialogue();
+            TryStartDialogue();
         }
     }
 
@@ -41,6 +41,18 @@ public class DialogueTrigger : MonoBehaviour
     {
         canStartDialogue = true;
         Debug.Log("Dialogue can be started by pressing F.");
+    }
+
+    private void TryStartDialogue()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
+        if (distanceToPlayer > distanceToActivate)
+        {
+            Debug.Log("Player is too far away to start the dialogue.");
+            return;
+        }
+
+        StartDialogue();
     }
 
     private void StartDialogue()

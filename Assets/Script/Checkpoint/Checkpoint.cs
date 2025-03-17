@@ -1,16 +1,17 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    public int checkpointID; // Уникальный идентификатор чекпоинта
-    private bool isActive = false; // Состояние чекпоинта
+    public int checkpointID; 
+    private bool isActive = false; 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player") && !isActive)
+        if (other.CompareTag("Player") && !isActive)
         {
-            isActive = true; // Активируем чекпоинт
-            SaveCheckpoint(collision.transform);
+            isActive = true; 
+            SaveCheckpoint(other.transform);
             Debug.Log("Checkpoint activated: " + checkpointID);
         }
     }
@@ -20,5 +21,6 @@ public class Checkpoint : MonoBehaviour
         GameState gameState = GameSession.Instance.GameState;
         gameState.PlayerPosition = playerTransform.position;
         gameState.currentCheckpointID = checkpointID;
+        WordUIManager.Instance.SaveCheckpoint(); 
     }
 }

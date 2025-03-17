@@ -18,6 +18,9 @@ public class WordUIManager : MonoBehaviour
 
     private List<string> selectedWords = new();
     private Dictionary<string, int> collectedWords = new();
+    private Dictionary<string, int> savedCollectedWords = new(); 
+    private List<WordCollector> trackedWords = new(); 
+    private List<WordCollector> checkpointTrackedWords = new(); 
 
     void Awake()
     {
@@ -26,6 +29,12 @@ public class WordUIManager : MonoBehaviour
 
         confirmButton.onClick.AddListener(ConfirmCombination);
         worldCanvas.enabled = false;
+
+        
+        foreach (var btn in topButtons)
+        {
+            btn.onClick.AddListener(() => DeselectWord(btn));
+        }
     }
 
     void Update()
@@ -40,6 +49,30 @@ public class WordUIManager : MonoBehaviour
         else collectedWords[word] = count;
 
         UpdateButtons();
+    }
+
+    public void TrackCollectedWord(WordCollector wordCollector)
+    {
+        trackedWords.Add(wordCollector); 
+    }
+
+    public void SaveCheckpoint()
+    {
+        checkpointTrackedWords = new List<WordCollector>(trackedWords); 
+        savedCollectedWords = new Dictionary<string, int>(collectedWords); 
+    }
+
+    public void RestoreCollectedWordsOnScene()
+    {
+        
+        foreach (var wordCollector in trackedWords)
+        {
+            if (!checkpointTrackedWords.Contains(wordCollector))
+            {
+                wordCollector.ResetWord();
+            }
+        }
+        trackedWords.Clear(); 
     }
 
     void ToggleWorldPanel()
@@ -67,11 +100,22 @@ public class WordUIManager : MonoBehaviour
 
     void SelectWord(string word)
     {
-        if (selectedWords.Count < 2)
+        if (selectedWords.Count < 2 && collectedWords[word] > 0)
         {
             selectedWords.Add(word);
+            collectedWords[word]--;
             UpdateTopButtons();
+            UpdateButtons();
         }
+    }
+
+    void DeselectWord(Button button)
+    {
+        string word = button.GetComponentInChildren<TextMeshProUGUI>().text;
+        selectedWords.Remove(word);
+        collectedWords[word]++;
+        UpdateTopButtons();
+        UpdateButtons();
     }
 
     void UpdateTopButtons()
@@ -106,6 +150,8 @@ public class WordUIManager : MonoBehaviour
                 dialogueTrigger.ApplyEffect(effect);
             }
             ResetSelection();
+            
+            worldCanvas.enabled = false;
         }
     }
 
@@ -113,5 +159,17 @@ public class WordUIManager : MonoBehaviour
     {
         selectedWords.Clear();
         foreach (var btn in topButtons) btn.gameObject.SetActive(false);
+    }
+
+    public void RestoreCollectedWords()
+    {
+        collectedWords = new Dictionary<string, int>(savedCollectedWords);
+        UpdateButtons();
+        ResetSelection();
+    }
+
+    public void ResetToCheckpoint()
+    {
+        RestoreCollectedWords();
     }
 }
