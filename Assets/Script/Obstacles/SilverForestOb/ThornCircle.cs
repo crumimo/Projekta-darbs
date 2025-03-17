@@ -40,7 +40,7 @@ public class ThornCircle : MonoBehaviour
         else if (collision.CompareTag("Enemy"))
         {
             Debug.Log("Destroying enemy: " + collision.gameObject.name);
-            Destroy(collision.gameObject); 
+            collision.gameObject.SetActive(false);
         }
     }
 }
