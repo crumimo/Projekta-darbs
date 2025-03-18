@@ -76,6 +76,7 @@ public class Movement : MonoBehaviour
     public void DisableMovement()
     {
         isPaused = true;
+        animator.SetFloat("Speed", 0f);
         movement = Vector2.zero;
         rb.velocity = Vector2.zero;
     }

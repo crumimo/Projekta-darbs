@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
@@ -8,6 +9,9 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private bool requiresQuietWhisper = false; 
     [SerializeField] private bool requiresEchoingRoots = false; 
     private bool canStartDialogue = false;
+
+    [SerializeField] private GameObject canTalk;
+    [SerializeField] private GameObject cantTalk;
 
     [SerializeField] private float distanceToActivate;
 
@@ -21,6 +25,28 @@ public class DialogueTrigger : MonoBehaviour
             {
                 TryStartDialogue();
             }
+            
+            if (canStartDialogue)
+            {
+                canTalk.SetActive(true);
+                cantTalk.SetActive(false);
+            }
+
+            if (!canStartDialogue)
+            {
+                cantTalk.SetActive(true);
+                canTalk.SetActive(false);
+            }
+        }
+    }
+    
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            cantTalk.SetActive(false);
+            canTalk.SetActive(false);
         }
     }
 
