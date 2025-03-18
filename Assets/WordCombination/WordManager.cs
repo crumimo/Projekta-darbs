@@ -27,8 +27,10 @@ public class WordManager : MonoBehaviour
     {
         foreach (var combination in sceneWordData.combinations)
         {
-            string combinationKey = combination.word1 + "+" + combination.word2;
-            wordCombinations[combinationKey] = combination.effectName;
+            string combinationKey1 = combination.word1 + "+" + combination.word2;
+            string combinationKey2 = combination.word2 + "+" + combination.word1;
+            wordCombinations[combinationKey1] = combination.effectName;
+            wordCombinations[combinationKey2] = combination.effectName;
         }
     }
 
@@ -63,8 +65,10 @@ public class WordManager : MonoBehaviour
             return null;
         }
 
-        string combination = word1 + "+" + word2;
-        if (wordCombinations.TryGetValue(combination, out string effect))
+        string combination1 = word1 + "+" + word2;
+        string combination2 = word2 + "+" + word1;
+
+        if (wordCombinations.TryGetValue(combination1, out string effect) || wordCombinations.TryGetValue(combination2, out effect))
         {
             return effect;
         }
