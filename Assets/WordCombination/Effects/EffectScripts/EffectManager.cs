@@ -24,32 +24,38 @@ public class EffectManager : MonoBehaviour
         {
             if (effect.name == effectName)
             {
-                if (effect is InvisibilityEffect invisibilityEffect)
+                if (effect is InvisibilityEffect invisibilityEffect && target.GetComponent<PatrolEnemy>() != null)
                 {
                     invisibilityEffect.Apply(target);
                     Debug.Log($"InvisibilityEffect applied to {target.name}");
                     return;
                 }
-                if (effect is SleepEffect sleepEffect)
+                if (effect is SleepEffect sleepEffect && target.GetComponent<PatrolEnemy>() != null)
                 {
                     sleepEffect.Apply(target);
                     Debug.Log($"SleepEffect applied to {target.name}");
                     return;
                 }
-                if (effect is QuietWhisperEffect quietWhisperEffect)
+                if (effect is QuietWhisperEffect quietWhisperEffect && target.GetComponent<DialogueTrigger>() != null)
                 {
                     quietWhisperEffect.Apply(target);
                     Debug.Log($"QuietWhisperEffect applied to {target.name}");
                     return;
                 }
-                if (effect is EchoingRootsEffect echoingRootsEffect) 
+                if (effect is EchoingRootsEffect echoingRootsEffect && target.GetComponent<DialogueTrigger>() != null)
                 {
                     echoingRootsEffect.Apply(target);
                     Debug.Log($"EchoingRootsEffect applied to {target.name}");
                     return;
                 }
+                if (effect is ThornDriftEffect thornDriftEffect && target.CompareTag("Player"))
+                {
+                    thornDriftEffect.Apply(target);
+                    Debug.Log($"ThornDriftEffect applied to {target.name}");
+                    return;
+                }
             }
         }
-        Debug.LogWarning($"Effect {effectName} not found!");
+        Debug.LogWarning($"Effect {effectName} not found or not applicable to {target.name}!");
     }
 }

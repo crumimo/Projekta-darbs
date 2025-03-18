@@ -2452,7 +2452,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 838238969}
-  effectRadius: 15
+  effectRadius: 10
+  isAsleep: 0
   ignorePlayer: 0
 --- !u!1 &550293281
 GameObject:
@@ -4882,7 +4883,7 @@ GameObject:
   - component: {fileID: 1122504723}
   - component: {fileID: 1122504724}
   m_Layer: 0
-  m_Name: Obctacle
+  m_Name: ObctacleManager
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4900,10 +4901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371fade69a07d774d9de968c1309948a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiresThornDrift: 1
-  requiresMistThorn: 0
-  thornCirclePrefab: {fileID: 4615117934149718682, guid: 8e4d158062fc4834aa6b8cd9fb7bcf10, type: 3}
-  playerTransform: {fileID: 1705536874}
+  distanceToActivate: 10
 --- !u!4 &1122504722
 Transform:
   m_ObjectHideFlags: 0
@@ -4913,7 +4911,7 @@ Transform:
   m_GameObject: {fileID: 1122504720}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 85.529594, y: -10.932312, z: -2.5622795}
+  m_LocalPosition: {x: 57.05, y: -17.6, z: -2.5622795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4952,7 +4950,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.1059914, y: -0.7054386}
+  m_Offset: {x: -2.6667347, y: -0.7054386}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4963,7 +4961,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2119827, y: 12.5166855}
+  m_Size: {x: 6.3334694, y: 12.5166855}
   m_EdgeRadius: 0
 --- !u!50 &1122504724
 Rigidbody2D:
@@ -5500,13 +5498,6 @@ MonoBehaviour:
   speakerImage: {fileID: 847749092}
   audioSource: {fileID: 1191948277}
   characterVoices:
-  - characterName: Albina
-    voiceClips:
-    - {fileID: 8300000, guid: c12320867213897429b5714d595e05ac, type: 3}
-    - {fileID: 8300000, guid: dc43be9500d22f144b7e1dfba0dcfc21, type: 3}
-    - {fileID: 8300000, guid: 6d88e1f3e151be847a892eb60e2421ef, type: 3}
-    - {fileID: 8300000, guid: 57bb26489c0d87d4cb2789b35384de38, type: 3}
-    - {fileID: 8300000, guid: 58e477684d26ed94fb30c76280feeef5, type: 3}
   - characterName: Shark
     voiceClips:
     - {fileID: 8300000, guid: fc57709e5c45ca74db2bf65706e8bdc1, type: 3}
@@ -7244,6 +7235,7 @@ MonoBehaviour:
   - {fileID: 723095984}
   - {fileID: 32837351}
   confirmButton: {fileID: 13810322}
+  effectRadius: 10
 --- !u!4 &1441669406
 Transform:
   m_ObjectHideFlags: 0
@@ -9112,6 +9104,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: afabc5f32c6bebc4d93dc8e7297d10a6, type: 2}
   - {fileID: 11400000, guid: b7fe063e8868dd0489773eb3e74068ad, type: 2}
   - {fileID: 11400000, guid: 55e3df51c9499724bacd3250ea9bb04a, type: 2}
+  - {fileID: 11400000, guid: 14b96dc50eb03ab4bae137b94203d93a, type: 2}
 --- !u!4 &1727851828
 Transform:
   m_ObjectHideFlags: 0

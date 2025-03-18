@@ -28,7 +28,7 @@ public class PatrolEnemy : MonoBehaviour
     private Mesh visionMesh;
     private float currentVisionAngle;
     private bool playerGotHit = false;
-    private bool isAsleep = false;
+    public bool isAsleep = false; 
     private bool isLookingAtPlayer = false;
 
     public bool ignorePlayer = false; // Variable to ignore player
@@ -52,7 +52,7 @@ public class PatrolEnemy : MonoBehaviour
     {
         if (isAsleep)
         {
-            return;
+            return; // Полностью останавливаем патрулирование и действия врага, если он спит
         }
 
         if (isLookingAtPlayer)

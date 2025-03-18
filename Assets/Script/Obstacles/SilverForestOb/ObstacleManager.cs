@@ -2,28 +2,27 @@ using UnityEngine;
 
 public class ObstacleManager : MonoBehaviour
 {
-    public bool requiresThornDrift;
-    public bool requiresMistThorn;
-    public GameObject thornCirclePrefab; 
-    public Transform playerTransform; 
-    
+    public float distanceToActivate = 10f;
 
-    public void ApplyEffect(string combination)
+    public void ApplyEffect(string effectName)
     {
-        if (requiresThornDrift && (combination == "Thorn Drift" || combination == "Drift Thorn"))
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
         {
-            GameObject thornCircle = Instantiate(thornCirclePrefab, playerTransform.position, Quaternion.identity);
-            ThornCircle thornCircleScript = thornCircle.GetComponent<ThornCircle>();
-            thornCircleScript.playerTransform = playerTransform;
+            Debug.LogError("Player not found!");
+            return;
         }
-        else if (requiresMistThorn && (combination == "Mist Thorn" || combination == "Thorn Mist"))
+
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (distanceToPlayer > distanceToActivate)
         {
-            Debug.Log("Mist Thorn combination applied to obstacle: " + gameObject.name);
-            Destroy(gameObject); 
+            Debug.Log("Player is too far away to apply the effect.");
+            return;
         }
-        else
-        {
-            Debug.LogWarning("Unknown or unsupported combination for obstacle: " + combination);
-        }
+
+        Debug.Log("Applying effect: " + effectName);
+
+        
+        EffectManager.Instance.ApplyEffect(effectName, player);
     }
 }

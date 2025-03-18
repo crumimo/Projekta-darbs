@@ -3,12 +3,18 @@ using UnityEngine;
 
 public class ThornCircle : MonoBehaviour
 {
-    public float duration = 2f; 
-    public float rotationSpeed = 100f; 
-    public Transform playerTransform; 
+    private Transform playerTransform;
+    private float duration;
+    private float rotationSpeed;
 
-    private void Start()
+    public void Initialize(Transform playerTransform, float duration, float rotationSpeed)
     {
+        this.playerTransform = playerTransform;
+        this.duration = duration;
+        this.rotationSpeed = rotationSpeed;
+
+        Debug.Log("Initializing ThornCircle at position: " + playerTransform.position);
+
         StartCoroutine(DestroyAfterDuration(duration));
     }
 
@@ -18,7 +24,7 @@ public class ThornCircle : MonoBehaviour
         
         if (playerTransform != null)
         {
-            transform.position = playerTransform.position;
+            transform.position = playerTransform.position; 
         }
     }
 
@@ -30,16 +36,12 @@ public class ThornCircle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision detected with: " + collision.gameObject.name);
-
         if (collision.CompareTag("Obstacle"))
         {
-            Debug.Log("Destroying obstacle: " + collision.gameObject.name);
             Destroy(collision.gameObject); 
         }
         else if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("Destroying enemy: " + collision.gameObject.name);
             collision.gameObject.SetActive(false);
         }
     }
