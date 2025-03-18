@@ -1901,7 +1901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   word: Lull
-  wordCount: 1
+  wordCount: 10
 --- !u!212 &418193997
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3149,7 +3149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   word: Drift
-  wordCount: 1
+  wordCount: 10
 --- !u!212 &723192008
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5357,7 +5357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   word: Thorn
-  wordCount: 1
+  wordCount: 10
 --- !u!212 &1170637904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7895,7 +7895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   word: Mist
-  wordCount: 1
+  wordCount: 10
 --- !u!212 &1559586995
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -16,11 +16,18 @@ public class WordUIManager : MonoBehaviour
     public Button[] topButtons;
     public Button confirmButton;
 
+    [Header("Effect Radius")]
+    public float effectRadius = 5f; // Радиус действия эффекта
+
     private List<string> selectedWords = new();
     private Dictionary<string, int> collectedWords = new();
-    private Dictionary<string, int> savedCollectedWords = new(); 
-    private List<WordCollector> trackedWords = new(); 
-    private List<WordCollector> checkpointTrackedWords = new(); 
+    private Dictionary<string, int> savedCollectedWords = new(); // Для сохранения состояния слов при активации чекпоинта
+
+    private List<WordCollector> trackedWords = new(); // Для отслеживания собранных слов
+    private List<WordCollector> checkpointTrackedWords = new(); // Слова, сохраненные в чекпоинте
+
+    private Movement playerMovement;
+    private EnemyManager enemyManager;
 
     void Awake()
     {
@@ -30,11 +37,17 @@ public class WordUIManager : MonoBehaviour
         confirmButton.onClick.AddListener(ConfirmCombination);
         worldCanvas.enabled = false;
 
-        
+        // Добавляем слушатели для кнопок в верхней панели
         foreach (var btn in topButtons)
         {
             btn.onClick.AddListener(() => DeselectWord(btn));
         }
+    }
+
+    void Start()
+    {
+        playerMovement = FindObjectOfType<Movement>();
+        enemyManager = FindObjectOfType<EnemyManager>();
     }
 
     void Update()
@@ -53,18 +66,18 @@ public class WordUIManager : MonoBehaviour
 
     public void TrackCollectedWord(WordCollector wordCollector)
     {
-        trackedWords.Add(wordCollector); 
+        trackedWords.Add(wordCollector); // Отслеживаем собранное слово
     }
 
     public void SaveCheckpoint()
     {
-        checkpointTrackedWords = new List<WordCollector>(trackedWords); 
-        savedCollectedWords = new Dictionary<string, int>(collectedWords); 
+        checkpointTrackedWords = new List<WordCollector>(trackedWords); // Сохраняем слова в чекпоинте
+        savedCollectedWords = new Dictionary<string, int>(collectedWords); // Сохраняем состояние слов
     }
 
     public void RestoreCollectedWordsOnScene()
     {
-        
+        // Восстанавливаем слова на сцену, если они не были сохранены в чекпоинте
         foreach (var wordCollector in trackedWords)
         {
             if (!checkpointTrackedWords.Contains(wordCollector))
@@ -72,12 +85,24 @@ public class WordUIManager : MonoBehaviour
                 wordCollector.ResetWord();
             }
         }
-        trackedWords.Clear(); 
+        trackedWords.Clear(); // Очищаем список отслеживаемых слов
     }
 
     void ToggleWorldPanel()
     {
         worldCanvas.enabled = !worldCanvas.enabled;
+        
+        if (worldCanvas.enabled)
+        {
+            playerMovement.DisableMovement();
+            enemyManager.PauseEnemies();
+        }
+        else
+        {
+            playerMovement.EnableMovement();
+            enemyManager.ResumeEnemies();
+        }
+        
         if (!worldCanvas.enabled) ResetSelection();
     }
 
@@ -140,25 +165,54 @@ public class WordUIManager : MonoBehaviour
         {
             string effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
             Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect}");
-            // Apply the effect to all enemies and dialogue triggers in range
-            foreach (var enemy in FindObjectsOfType<PatrolEnemy>())
+
+            if (AnyObjectInRange())
             {
-                enemy.ApplyEffect(effect);
+                // Apply the effect to all enemies and dialogue triggers in range
+                foreach (var enemy in FindObjectsOfType<PatrolEnemy>())
+                {
+                    enemy.ApplyEffect(effect);
+                }
+                foreach (var dialogueTrigger in FindObjectsOfType<DialogueTrigger>())
+                {
+                    dialogueTrigger.ApplyEffect(effect);
+                }
+
+                ResetSelection();
+                // Закрываем панель после подтверждения комбинации
+                worldCanvas.enabled = false;
+                playerMovement.EnableMovement();
+                enemyManager.ResumeEnemies();
             }
-            foreach (var dialogueTrigger in FindObjectsOfType<DialogueTrigger>())
+            else
             {
-                dialogueTrigger.ApplyEffect(effect);
+                Debug.Log("No objects in range to apply the effect.");
+                // Возвращаем слова игроку, так как эффекта нет
+                collectedWords[selectedWords[0]]++;
+                collectedWords[selectedWords[1]]++;
+                ResetSelection();
             }
-            ResetSelection();
-            
-            worldCanvas.enabled = false;
         }
+    }
+
+    bool AnyObjectInRange()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(playerTransform.position, effectRadius);
+        foreach (var collider in colliders)
+        {
+            if (collider.GetComponent<PatrolEnemy>() != null || collider.GetComponent<DialogueTrigger>() != null)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     void ResetSelection()
     {
         selectedWords.Clear();
         foreach (var btn in topButtons) btn.gameObject.SetActive(false);
+        UpdateButtons();
     }
 
     public void RestoreCollectedWords()

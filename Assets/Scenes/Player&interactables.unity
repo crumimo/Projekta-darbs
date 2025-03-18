@@ -2286,11 +2286,25 @@ MonoBehaviour:
   characterVoices:
   - characterName: Maya
     voiceClips:
+    - {fileID: 8300000, guid: c12320867213897429b5714d595e05ac, type: 3}
+    - {fileID: 8300000, guid: dc43be9500d22f144b7e1dfba0dcfc21, type: 3}
     - {fileID: 8300000, guid: 6d88e1f3e151be847a892eb60e2421ef, type: 3}
     - {fileID: 8300000, guid: 57bb26489c0d87d4cb2789b35384de38, type: 3}
-    - {fileID: 8300000, guid: c12320867213897429b5714d595e05ac, type: 3}
     - {fileID: 8300000, guid: 58e477684d26ed94fb30c76280feeef5, type: 3}
-    - {fileID: 8300000, guid: dc43be9500d22f144b7e1dfba0dcfc21, type: 3}
+  - characterName: Vekh
+    voiceClips:
+    - {fileID: 8300000, guid: 405a75c5a23011d42bec5613335dc110, type: 3}
+    - {fileID: 8300000, guid: 1f5d2cf460c4cbb4dbcd1e410ad43286, type: 3}
+    - {fileID: 8300000, guid: d44d98d25d2d87844bf72b1e89f409b0, type: 3}
+    - {fileID: 8300000, guid: 497263126cfc98449a5714fc43244d35, type: 3}
+    - {fileID: 8300000, guid: 559bbbd543e8cb548aad1fa02ebada40, type: 3}
+  - characterName: Shark
+    voiceClips:
+    - {fileID: 8300000, guid: fc57709e5c45ca74db2bf65706e8bdc1, type: 3}
+    - {fileID: 8300000, guid: 4be8fe33a0de21a4cb212ad37cbc6a11, type: 3}
+    - {fileID: 8300000, guid: 4b978dcda6166864cbc04b19fc118849, type: 3}
+    - {fileID: 8300000, guid: d0283dcd57d654e4e87aeb8a172ec466, type: 3}
+    - {fileID: 8300000, guid: 3ec627d79af978d4daf0902e858c3d32, type: 3}
 --- !u!82 &292591564
 AudioSource:
   m_ObjectHideFlags: 0

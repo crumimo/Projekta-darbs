@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D rb;
     private bool isDead = false;
+    private bool isPaused = false;
     private Animator animator;
     
     private void Start()
@@ -17,7 +18,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if (!isDead)
+        if (!isDead && !isPaused)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
@@ -30,7 +31,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isDead)
+        if (!isDead && !isPaused)
         {
             if (movement != Vector2.zero)
             {
@@ -50,7 +51,6 @@ public class Movement : MonoBehaviour
         rb.velocity = Vector2.zero;
         animator.SetTrigger("Die");
 
-        
         WordUIManager.Instance.ResetToCheckpoint();
         WordUIManager.Instance.RestoreCollectedWordsOnScene();
         
@@ -66,5 +66,17 @@ public class Movement : MonoBehaviour
 
         EnemyManager enemyManager = FindObjectOfType<EnemyManager>();
         enemyManager.ResetEnemies();
+    }
+
+    public void EnableMovement()
+    {
+        isPaused = false;
+    }
+
+    public void DisableMovement()
+    {
+        isPaused = true;
+        movement = Vector2.zero;
+        rb.velocity = Vector2.zero;
     }
 }
