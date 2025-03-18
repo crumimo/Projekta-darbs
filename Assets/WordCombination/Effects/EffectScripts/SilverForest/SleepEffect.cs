@@ -19,12 +19,12 @@ public class SleepEffect : ScriptableObject
     private IEnumerator SleepCoroutine(PatrolEnemy enemy)
     {
         Debug.Log("Enemy is now asleep");
-        enemy.enabled = false;
+        enemy.isAsleep = true;
         enemy.visionMeshFilter.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(duration);
 
-        enemy.enabled = true;
+        enemy.isAsleep = false;
         enemy.visionMeshFilter.gameObject.SetActive(true);
         Debug.Log("Enemy woke up");
     }

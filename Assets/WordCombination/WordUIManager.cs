@@ -17,14 +17,14 @@ public class WordUIManager : MonoBehaviour
     public Button confirmButton;
 
     [Header("Effect Radius")]
-    public float effectRadius = 5f; // Радиус действия эффекта
+    public float effectRadius = 10f; 
 
     private List<string> selectedWords = new();
     private Dictionary<string, int> collectedWords = new();
-    private Dictionary<string, int> savedCollectedWords = new(); // Для сохранения состояния слов при активации чекпоинта
+    private Dictionary<string, int> savedCollectedWords = new();
 
-    private List<WordCollector> trackedWords = new(); // Для отслеживания собранных слов
-    private List<WordCollector> checkpointTrackedWords = new(); // Слова, сохраненные в чекпоинте
+    private List<WordCollector> trackedWords = new(); 
+    private List<WordCollector> checkpointTrackedWords = new(); 
 
     private Movement playerMovement;
     private EnemyManager enemyManager;
@@ -37,7 +37,7 @@ public class WordUIManager : MonoBehaviour
         confirmButton.onClick.AddListener(ConfirmCombination);
         worldCanvas.enabled = false;
 
-        // Добавляем слушатели для кнопок в верхней панели
+        
         foreach (var btn in topButtons)
         {
             btn.onClick.AddListener(() => DeselectWord(btn));
@@ -66,18 +66,17 @@ public class WordUIManager : MonoBehaviour
 
     public void TrackCollectedWord(WordCollector wordCollector)
     {
-        trackedWords.Add(wordCollector); // Отслеживаем собранное слово
+        trackedWords.Add(wordCollector); 
     }
 
     public void SaveCheckpoint()
     {
-        checkpointTrackedWords = new List<WordCollector>(trackedWords); // Сохраняем слова в чекпоинте
-        savedCollectedWords = new Dictionary<string, int>(collectedWords); // Сохраняем состояние слов
+        checkpointTrackedWords = new List<WordCollector>(trackedWords); 
+        savedCollectedWords = new Dictionary<string, int>(collectedWords); 
     }
 
     public void RestoreCollectedWordsOnScene()
     {
-        // Восстанавливаем слова на сцену, если они не были сохранены в чекпоинте
         foreach (var wordCollector in trackedWords)
         {
             if (!checkpointTrackedWords.Contains(wordCollector))
@@ -85,7 +84,7 @@ public class WordUIManager : MonoBehaviour
                 wordCollector.ResetWord();
             }
         }
-        trackedWords.Clear(); // Очищаем список отслеживаемых слов
+        trackedWords.Clear(); 
     }
 
     void ToggleWorldPanel()
@@ -168,7 +167,8 @@ public class WordUIManager : MonoBehaviour
 
             if (AnyObjectInRange())
             {
-                // Apply the effect to all enemies and dialogue triggers in range
+
+                
                 foreach (var enemy in FindObjectsOfType<PatrolEnemy>())
                 {
                     enemy.ApplyEffect(effect);
@@ -176,10 +176,16 @@ public class WordUIManager : MonoBehaviour
                 foreach (var dialogueTrigger in FindObjectsOfType<DialogueTrigger>())
                 {
                     dialogueTrigger.ApplyEffect(effect);
+                    EffectManager.Instance.ApplyEffect(effect, dialogueTrigger.gameObject);
+                }
+                foreach (var obstacleManager in FindObjectsOfType<ObstacleManager>())
+                {
+                    obstacleManager.ApplyEffect(effect);
+                    EffectManager.Instance.ApplyEffect(effect, playerTransform.gameObject);
                 }
 
                 ResetSelection();
-                // Закрываем панель после подтверждения комбинации
+            
                 worldCanvas.enabled = false;
                 playerMovement.EnableMovement();
                 enemyManager.ResumeEnemies();
@@ -187,7 +193,7 @@ public class WordUIManager : MonoBehaviour
             else
             {
                 Debug.Log("No objects in range to apply the effect.");
-                // Возвращаем слова игроку, так как эффекта нет
+            
                 collectedWords[selectedWords[0]]++;
                 collectedWords[selectedWords[1]]++;
                 ResetSelection();
@@ -200,7 +206,9 @@ public class WordUIManager : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(playerTransform.position, effectRadius);
         foreach (var collider in colliders)
         {
-            if (collider.GetComponent<PatrolEnemy>() != null || collider.GetComponent<DialogueTrigger>() != null)
+            if (collider.GetComponent<PatrolEnemy>() != null || 
+                collider.GetComponent<DialogueTrigger>() != null || 
+                collider.GetComponent<ObstacleManager>() != null)
             {
                 return true;
             }
