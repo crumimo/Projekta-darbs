@@ -4495,7 +4495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &870848209
 Transform:
   m_ObjectHideFlags: 0
@@ -7244,6 +7244,7 @@ MonoBehaviour:
   - {fileID: 723095984}
   - {fileID: 32837351}
   confirmButton: {fileID: 13810322}
+  effectRadius: 5
 --- !u!4 &1441669406
 Transform:
   m_ObjectHideFlags: 0
@@ -11127,7 +11128,7 @@ GameObject:
   - component: {fileID: 1996080979}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11141,7 +11142,7 @@ Transform:
   m_GameObject: {fileID: 1996080976}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9604, y: -0.7567, z: 0.0358613}
+  m_LocalPosition: {x: -32.6, y: -1.8, z: 0.0358613}
   m_LocalScale: {x: 2.9208, y: 12.059224, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
