@@ -90,7 +90,7 @@ public class WordUIManager : MonoBehaviour
     void ToggleWorldPanel()
     {
         worldCanvas.enabled = !worldCanvas.enabled;
-        
+    
         if (worldCanvas.enabled)
         {
             playerMovement.DisableMovement();
@@ -100,9 +100,13 @@ public class WordUIManager : MonoBehaviour
         {
             playerMovement.EnableMovement();
             enemyManager.ResumeEnemies();
+            
+            foreach (var word in selectedWords)
+            {
+                collectedWords[word]++;
+            }
+            ResetSelection();
         }
-        
-        if (!worldCanvas.enabled) ResetSelection();
     }
 
     void UpdateButtons()
@@ -167,8 +171,6 @@ public class WordUIManager : MonoBehaviour
 
             if (AnyObjectInRange())
             {
-
-                
                 foreach (var enemy in FindObjectsOfType<PatrolEnemy>())
                 {
                     enemy.ApplyEffect(effect);
@@ -183,6 +185,12 @@ public class WordUIManager : MonoBehaviour
                     obstacleManager.ApplyEffect(effect);
                     EffectManager.Instance.ApplyEffect(effect, playerTransform.gameObject);
                 }
+                foreach (var obstacleManager in FindObjectsOfType<ObstacleManager>())
+                {
+                    obstacleManager.ApplyEffect(effect);
+                    EffectManager.Instance.ApplyEffect(effect, obstacleManager.gameObject);
+                }
+                
 
                 ResetSelection();
             

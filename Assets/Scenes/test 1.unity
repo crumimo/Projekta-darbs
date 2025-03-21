@@ -4496,7 +4496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &870848209
 Transform:
   m_ObjectHideFlags: 0
@@ -7792,6 +7792,8 @@ MonoBehaviour:
   requiresNoCombo: 0
   requiresQuietWhisper: 1
   requiresEchoingRoots: 0
+  canTalk: {fileID: 0}
+  cantTalk: {fileID: 0}
   distanceToActivate: 15
 --- !u!4 &1557489433
 Transform:
@@ -9105,6 +9107,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b7fe063e8868dd0489773eb3e74068ad, type: 2}
   - {fileID: 11400000, guid: 55e3df51c9499724bacd3250ea9bb04a, type: 2}
   - {fileID: 11400000, guid: 14b96dc50eb03ab4bae137b94203d93a, type: 2}
+  - {fileID: 11400000, guid: 27fbdb928a2e3a74b899a4fdbefc2e12, type: 2}
 --- !u!4 &1727851828
 Transform:
   m_ObjectHideFlags: 0

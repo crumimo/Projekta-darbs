@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ThornDriftEffect", menuName = "Effects/ThornDrift")]
-public class ThornDriftEffect : ScriptableObject
+[CreateAssetMenu(fileName = "SpikeCircleEffect", menuName = "Effects/SpikeCircle")]
+public class SpikeCircleEffect : ScriptableObject
 {
     public GameObject thornCirclePrefab;
     public float duration = 2f;
@@ -11,7 +11,7 @@ public class ThornDriftEffect : ScriptableObject
     public void Apply(GameObject target)
     {
         Transform playerTransform = target.transform;
-        Debug.Log("Player position for ThornDriftEffect: " + playerTransform.position);
+        Debug.Log("Player position for SpikeCircleEffect: " + playerTransform.position);
 
         GameObject thornCircle = Instantiate(thornCirclePrefab, playerTransform.position, Quaternion.identity);
         ThornCircle thornCircleScript = thornCircle.GetComponent<ThornCircle>();

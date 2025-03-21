@@ -21,10 +21,10 @@ MonoBehaviour:
     effectName: SleepEffect
   - word1: Thorn
     word2: Drift
-    effectName: ThornDriftEffect
+    effectName: SpikeCircleEffect
   - word1: Thorn
     word2: Mist
-    effectName: 
+    effectName: ErosionTouchEffect
   - word1: Thorn
     word2: Lull
     effectName: EchoingRootsEffect

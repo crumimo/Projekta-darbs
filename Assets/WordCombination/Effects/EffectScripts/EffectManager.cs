@@ -48,10 +48,16 @@ public class EffectManager : MonoBehaviour
                     Debug.Log($"EchoingRootsEffect applied to {target.name}");
                     return;
                 }
-                if (effect is ThornDriftEffect thornDriftEffect && target.CompareTag("Player"))
+                if (effect is SpikeCircleEffect spikeCircleEffect && target.CompareTag("Player"))
                 {
-                    thornDriftEffect.Apply(target);
+                    spikeCircleEffect.Apply(target);
                     Debug.Log($"ThornDriftEffect applied to {target.name}");
+                    return;
+                }
+                if (effect is ErosionTouchEffect erosionTouchEffect && target.GetComponent<ObstacleManager>() != null)
+                {
+                    erosionTouchEffect.Apply(target);
+                    Debug.Log($"ErosionTouchEffect applied to {target.name}");
                     return;
                 }
             }

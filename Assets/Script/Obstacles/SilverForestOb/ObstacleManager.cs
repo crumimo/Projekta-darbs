@@ -22,7 +22,14 @@ public class ObstacleManager : MonoBehaviour
 
         Debug.Log("Applying effect: " + effectName);
 
-        
-        EffectManager.Instance.ApplyEffect(effectName, player);
+        // Проверка на эффект Erosion Touch
+        if (effectName == "ErosionTouchEffect")
+        {
+            EffectManager.Instance.ApplyEffect(effectName, gameObject);
+        }
+        else
+        {
+            EffectManager.Instance.ApplyEffect(effectName, player);
+        }
     }
 }
