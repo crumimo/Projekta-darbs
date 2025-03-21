@@ -37,7 +37,6 @@ public class WordUIManager : MonoBehaviour
         confirmButton.onClick.AddListener(ConfirmCombination);
         worldCanvas.enabled = false;
 
-        
         foreach (var btn in topButtons)
         {
             btn.onClick.AddListener(() => DeselectWord(btn));
@@ -181,16 +180,14 @@ public class WordUIManager : MonoBehaviour
                     EffectManager.Instance.ApplyEffect(effect, dialogueTrigger.gameObject);
                 }
                 foreach (var obstacleManager in FindObjectsOfType<ObstacleManager>())
-                {
-                    obstacleManager.ApplyEffect(effect);
-                    EffectManager.Instance.ApplyEffect(effect, playerTransform.gameObject);
-                }
-                foreach (var obstacleManager in FindObjectsOfType<ObstacleManager>())
-                {
+                { 
                     obstacleManager.ApplyEffect(effect);
                     EffectManager.Instance.ApplyEffect(effect, obstacleManager.gameObject);
                 }
-                
+                foreach (var fish in FindObjectsOfType<Fish>())
+                {
+                    fish.ApplyCorrectCombination();
+                }
 
                 ResetSelection();
             
@@ -241,5 +238,14 @@ public class WordUIManager : MonoBehaviour
     public void ResetToCheckpoint()
     {
         RestoreCollectedWords();
+    }
+    
+    public void ResetCollectedWords()
+    {
+        foreach (var wordCollector in trackedWords)
+        {
+            wordCollector.ResetWord();
+        }
+        trackedWords.Clear();
     }
 }

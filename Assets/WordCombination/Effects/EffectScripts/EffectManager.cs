@@ -60,6 +60,12 @@ public class EffectManager : MonoBehaviour
                     Debug.Log($"ErosionTouchEffect applied to {target.name}");
                     return;
                 }
+                if (effect is FishBehavior fishBehavior && target.GetComponent<Fish>() != null)
+                {
+                    fishBehavior.ExecuteBehavior(target.GetComponent<Fish>(), target.GetComponent<Fish>().playerTransform);
+                    Debug.Log($"FishBehavior applied to {target.name}");
+                    return;
+                }
             }
         }
         Debug.LogWarning($"Effect {effectName} not found or not applicable to {target.name}!");
