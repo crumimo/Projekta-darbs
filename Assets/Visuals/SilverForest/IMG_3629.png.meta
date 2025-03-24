@@ -100,10 +100,10 @@ TextureImporter:
       name: IMG_3629_0
       rect:
         serializedVersion: 2
-        x: 766
-        y: 759
-        width: 516
-        height: 527
+        x: 114
+        y: 832
+        width: 398
+        height: 404
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,6 +113,111 @@ TextureImporter:
       bones: []
       spriteID: 20771630556d758488ca9f34b0d90a69
       internalID: -1822406140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3629_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 832
+        width: 512
+        height: 486
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 794011ba9ac58734a90464086afaf1b7
+      internalID: -777223713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3629_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 832
+        width: 409
+        height: 404
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dac394732c685048b70bd6079ba4af7
+      internalID: 81694074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3629_6
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 304
+        width: 512
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7970ac763121776429c974491623aa2f
+      internalID: -2063427165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3629_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 935
+        width: 412
+        height: 409
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8301330eb562cb74285d757e6b1e490e
+      internalID: 1022102970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_3629_4
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 432
+        width: 406
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 126995adfe9ba9a4b8bd63dfaef7db0c
+      internalID: -152572261
       vertices: []
       indices: 
       edges: []
@@ -130,6 +235,12 @@ TextureImporter:
     nameFileIdTable:
       IMG_3629_0: -1822406140
       IMG_3629_1: -777223713
+      IMG_3629_2: 81694074
+      IMG_3629_3: 1022102970
+      IMG_3629_4: -152572261
+      IMG_3629_5: -993882082
+      IMG_3629_6: -2063427165
+      IMG_3629_7: 1060483180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af7181f404f1447c0a7a17b3070b952b, type: 3}
-  m_Name: Leaves
+  m_Name: LeavesBack
   m_EditorClassIdentifier: 
   m_Angles:
   - m_Start: -45
@@ -33,7 +33,7 @@ MonoBehaviour:
     m_Order: 0
     m_Sprites:
     - {fileID: -2063427165, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
-  m_FillTexture: {fileID: 2800000, guid: 80653c523fd7baa4aaeef0e9f2879196, type: 3}
+  m_FillTexture: {fileID: 2800000, guid: e246ee75daefa1849a7de40f125c7043, type: 3}
   m_CornerSprites:
   - m_CornerType: 0
     m_Sprites:
