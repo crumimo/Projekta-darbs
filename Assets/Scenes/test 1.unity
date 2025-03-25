@@ -1103,6 +1103,8 @@ MonoBehaviour:
   behavior: {fileID: 11400000, guid: dfd17fb68c3298b43841c480b1061290, type: 2}
   playerTransform: {fileID: 1705536874}
   wordObject: {fileID: 1464345485}
+  distanceToActivate: 10
+  sceneWordData: {fileID: 11400000, guid: b494a0d724b82c14898d8ca8c1479094, type: 2}
   originalPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &143501353
 Transform:
@@ -1881,23 +1883,23 @@ SpriteShapeRenderer:
   m_SortingOrder: -5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 2800000, guid: 6b62ead2b23b6cd46b8080212e9ea1a7, type: 3}
+  m_ShapeTexture: {fileID: 2800000, guid: 80653c523fd7baa4aaeef0e9f2879196, type: 3}
   m_Sprites:
-  - {fileID: -463650317, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -1355276106, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -463650317, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -836018873, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: 962499886, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -1714930863, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: 1745310866, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -453926937, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
+  - {fileID: -777223713, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -2063427165, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -777223713, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -2063427165, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -1822406140, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: 81694074, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -152572261, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: 1022102970, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -0.42380238, y: -4.0609465, z: 0}
-    m_Extent: {x: 10.725907, y: 7.428254, z: 0}
+    m_Center: {x: -0.75291634, y: -4.0576982, z: 0}
+    m_Extent: {x: 10.912985, y: 7.4197264, z: 0}
   m_SpriteSortPoint: 0
 --- !u!1 &301138990
 GameObject:
@@ -3472,7 +3474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011514e05661c8f449fb5f214cdeaa14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneWordData: {fileID: 11400000, guid: b494a0d724b82c14898d8ca8c1479094, type: 2}
+  silverForestWordData: {fileID: 11400000, guid: b494a0d724b82c14898d8ca8c1479094, type: 2}
+  gardenWordData: {fileID: 11400000, guid: 303adb0ef8cd2184db7c0d9e4e913276, type: 2}
 --- !u!4 &598322828
 Transform:
   m_ObjectHideFlags: 0
@@ -7748,23 +7751,23 @@ SpriteShapeRenderer:
   m_SortingOrder: -10
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 2800000, guid: 6b62ead2b23b6cd46b8080212e9ea1a7, type: 3}
+  m_ShapeTexture: {fileID: 2800000, guid: 80653c523fd7baa4aaeef0e9f2879196, type: 3}
   m_Sprites:
-  - {fileID: -463650317, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -1355276106, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -463650317, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -836018873, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: 962499886, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -1714930863, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: 1745310866, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -453926937, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
+  - {fileID: -777223713, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -2063427165, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -777223713, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -2063427165, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -1822406140, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: 81694074, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -152572261, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: 1022102970, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -0.5282421, y: -4.626446, z: 0}
-    m_Extent: {x: 12.025633, y: 8.555864, z: 0}
+    m_Center: {x: -0.53969383, y: -4.4998446, z: 0}
+    m_Extent: {x: 11.884162, y: 8.671023, z: 0}
   m_SpriteSortPoint: 0
 --- !u!1 &1233027112
 GameObject:
@@ -11413,34 +11416,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1727851828}
-  - component: {fileID: 1727851827}
+  - component: {fileID: 1727851829}
   m_Layer: 0
-  m_Name: EffectManager
+  m_Name: SilverForestEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1727851827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1727851826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8be987d99f6a7194f8dedd2f0d826b68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availableEffects:
-  - {fileID: 11400000, guid: 92334e567b9774a4b90f2c187a17a3a2, type: 2}
-  - {fileID: 11400000, guid: afabc5f32c6bebc4d93dc8e7297d10a6, type: 2}
-  - {fileID: 11400000, guid: b7fe063e8868dd0489773eb3e74068ad, type: 2}
-  - {fileID: 11400000, guid: 55e3df51c9499724bacd3250ea9bb04a, type: 2}
-  - {fileID: 11400000, guid: 14b96dc50eb03ab4bae137b94203d93a, type: 2}
-  - {fileID: 11400000, guid: 27fbdb928a2e3a74b899a4fdbefc2e12, type: 2}
-  - {fileID: 11400000, guid: dfd17fb68c3298b43841c480b1061290, type: 2}
 --- !u!4 &1727851828
 Transform:
   m_ObjectHideFlags: 0
@@ -11456,6 +11439,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1727851829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727851826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1c324dcd6ded444a259c42b30d2916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableEffects:
+  - {fileID: 11400000, guid: 55e3df51c9499724bacd3250ea9bb04a, type: 2}
+  - {fileID: 11400000, guid: 27fbdb928a2e3a74b899a4fdbefc2e12, type: 2}
+  - {fileID: 11400000, guid: dfd17fb68c3298b43841c480b1061290, type: 2}
+  - {fileID: 11400000, guid: afabc5f32c6bebc4d93dc8e7297d10a6, type: 2}
+  - {fileID: 11400000, guid: b7fe063e8868dd0489773eb3e74068ad, type: 2}
+  - {fileID: 11400000, guid: 92334e567b9774a4b90f2c187a17a3a2, type: 2}
+  - {fileID: 11400000, guid: 14b96dc50eb03ab4bae137b94203d93a, type: 2}
 --- !u!1 &1731374382
 GameObject:
   m_ObjectHideFlags: 0
@@ -11926,6 +11929,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777630104}
   m_CullTransparentMesh: 1
+--- !u!1 &1778613143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1778613144}
+  m_Layer: 0
+  m_Name: SceneHelper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1778613144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778613143}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 44.653786, y: -16.69307, z: -0.025905285}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1787316810
 GameObject:
   m_ObjectHideFlags: 0
@@ -15114,23 +15148,23 @@ SpriteShapeRenderer:
   m_SortingOrder: -5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 2800000, guid: 6b62ead2b23b6cd46b8080212e9ea1a7, type: 3}
+  m_ShapeTexture: {fileID: 2800000, guid: 80653c523fd7baa4aaeef0e9f2879196, type: 3}
   m_Sprites:
-  - {fileID: -463650317, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -1355276106, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -463650317, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -836018873, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: 962499886, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -1714930863, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: 1745310866, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
-  - {fileID: -453926937, guid: c2a59903fde2b714785bd5b72adc7ac4, type: 3}
+  - {fileID: -777223713, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -2063427165, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -777223713, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -2063427165, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -1822406140, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: 81694074, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: -152572261, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
+  - {fileID: 1022102970, guid: b11398879b1cb164e93b9f3c94c98344, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -0.42380238, y: -4.0609465, z: 0}
-    m_Extent: {x: 10.725907, y: 7.428254, z: 0}
+    m_Center: {x: -0.75291634, y: -4.0576982, z: 0}
+    m_Extent: {x: 10.912985, y: 7.4197264, z: 0}
   m_SpriteSortPoint: 0
 --- !u!4 &2121551203
 Transform:
@@ -15179,3 +15213,4 @@ SceneRoots:
   - {fileID: 143501353}
   - {fileID: 1679924902}
   - {fileID: 680578640}
+  - {fileID: 1778613144}
