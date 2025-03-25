@@ -102,7 +102,14 @@ public class WordUIManager : MonoBehaviour
             
             foreach (var word in selectedWords)
             {
-                collectedWords[word]++;
+                if (collectedWords.ContainsKey(word))
+                {
+                    collectedWords[word]++;
+                }
+                else
+                {
+                    collectedWords[word] = 1;
+                }
             }
             ResetSelection();
         }
@@ -127,7 +134,7 @@ public class WordUIManager : MonoBehaviour
 
     void SelectWord(string word)
     {
-        if (selectedWords.Count < 2 && collectedWords[word] > 0)
+        if (selectedWords.Count < 2 && collectedWords.ContainsKey(word) && collectedWords[word] > 0)
         {
             selectedWords.Add(word);
             collectedWords[word]--;
@@ -140,7 +147,14 @@ public class WordUIManager : MonoBehaviour
     {
         string word = button.GetComponentInChildren<TextMeshProUGUI>().text;
         selectedWords.Remove(word);
-        collectedWords[word]++;
+        if (collectedWords.ContainsKey(word))
+        {
+            collectedWords[word]++;
+        }
+        else
+        {
+            collectedWords[word] = 1;
+        }
         UpdateTopButtons();
         UpdateButtons();
     }
@@ -167,7 +181,9 @@ public class WordUIManager : MonoBehaviour
         {
             string effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
             Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect}");
-
+            string word1 = selectedWords[0];
+            string word2 = selectedWords[1];
+        
             if (AnyObjectInRange())
             {
                 foreach (var enemy in FindObjectsOfType<PatrolEnemy>())
@@ -186,7 +202,7 @@ public class WordUIManager : MonoBehaviour
                 }
                 foreach (var fish in FindObjectsOfType<Fish>())
                 {
-                    fish.ApplyCorrectCombination();
+                    fish.ApplyCorrectCombination(word1, word2);
                 }
 
                 ResetSelection();
@@ -199,8 +215,24 @@ public class WordUIManager : MonoBehaviour
             {
                 Debug.Log("No objects in range to apply the effect.");
             
-                collectedWords[selectedWords[0]]++;
-                collectedWords[selectedWords[1]]++;
+                if (collectedWords.ContainsKey(selectedWords[0]))
+                {
+                    collectedWords[selectedWords[0]]++;
+                }
+                else
+                {
+                    collectedWords[selectedWords[0]] = 1;
+                }
+                
+                if (collectedWords.ContainsKey(selectedWords[1]))
+                {
+                    collectedWords[selectedWords[1]]++;
+                }
+                else
+                {
+                    collectedWords[selectedWords[1]] = 1;
+                }
+
                 ResetSelection();
             }
         }
