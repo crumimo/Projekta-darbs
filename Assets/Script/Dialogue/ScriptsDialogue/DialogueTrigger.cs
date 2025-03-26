@@ -26,7 +26,7 @@ public class DialogueTrigger : MonoBehaviour
                 TryStartDialogue();
             }
             
-            if (canStartDialogue)
+            if (canStartDialogue || requiresNoCombo)
             {
                 canTalk.SetActive(true);
                 cantTalk.SetActive(false);
