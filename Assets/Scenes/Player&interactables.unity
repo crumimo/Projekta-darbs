@@ -2981,6 +2981,7 @@ GameObject:
   - component: {fileID: 288491235}
   - component: {fileID: 288491234}
   - component: {fileID: 288491237}
+  - component: {fileID: 288491238}
   m_Layer: 0
   m_Name: Gates (1)
   m_TagString: Obstacle
@@ -3020,18 +3021,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.07355237, y: 0.3708434}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4.5016227, y: 9.144531}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.866096, y: 14.165742}
   m_EdgeRadius: 0
 --- !u!212 &288491235
 SpriteRenderer:
@@ -3074,8 +3075,8 @@ SpriteRenderer:
   m_SortingLayerID: -1777898329
   m_SortingLayer: 2
   m_SortingOrder: -2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -1070351678, guid: ce6f722ac75b60f43aaec2d87412ad34, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3094,8 +3095,8 @@ Transform:
   m_GameObject: {fileID: 288491233}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.5898574, w: 0.80750746}
-  m_LocalPosition: {x: 53.839428, y: -61.029617, z: 0}
-  m_LocalScale: {x: 2.446266, y: 11.031286, z: 1}
+  m_LocalPosition: {x: 53.25, y: -61.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 245422730}
@@ -3113,6 +3114,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToActivate: 10
+--- !u!95 &288491238
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288491233}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 57736bedfd2ae0943a66425b891f1bcf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &291845896
 GameObject:
   m_ObjectHideFlags: 0
@@ -6507,7 +6529,7 @@ MonoBehaviour:
   m_Intensity: 0.7
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0000000099cae88ca76c0796b32bcbde
+  m_ApplyToSortingLayers: 0000000099cae88ca76c0796
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -6721,7 +6743,7 @@ Transform:
   m_GameObject: {fileID: 979491080}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 211.1, y: -63.7, z: 0}
+  m_LocalPosition: {x: 72.1, y: -70.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7848,7 +7870,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 207.70001, y: -24.400002, z: -10}
+  m_LocalPosition: {x: 68.7, y: -31.2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9504,7 +9526,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 207.70001, y: -24.400002, z: -10}
+  m_LocalPosition: {x: 68.7, y: -31.2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10620,6 +10642,7 @@ GameObject:
   - component: {fileID: 1555213527}
   - component: {fileID: 1555213526}
   - component: {fileID: 1555213529}
+  - component: {fileID: 1555213530}
   m_Layer: 0
   m_Name: Gates
   m_TagString: Obstacle
@@ -10659,18 +10682,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.03985119, y: 0.23911095}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4.5016227, y: 9.144531}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.2051144, y: 8.970295}
   m_EdgeRadius: 0
 --- !u!212 &1555213527
 SpriteRenderer:
@@ -10713,8 +10736,8 @@ SpriteRenderer:
   m_SortingLayerID: -1777898329
   m_SortingLayer: 2
   m_SortingOrder: -2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -1070351678, guid: ce6f722ac75b60f43aaec2d87412ad34, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10733,8 +10756,8 @@ Transform:
   m_GameObject: {fileID: 1555213525}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.15, y: -63.019615, z: 0}
-  m_LocalScale: {x: 2.446266, y: 9.81868, z: 1}
+  m_LocalPosition: {x: -24.33, y: -62.94, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 245422730}
@@ -10752,6 +10775,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToActivate: 10
+--- !u!95 &1555213530
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555213525}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 57736bedfd2ae0943a66425b891f1bcf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1560604144
 GameObject:
   m_ObjectHideFlags: 0

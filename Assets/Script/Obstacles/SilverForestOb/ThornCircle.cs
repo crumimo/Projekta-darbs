@@ -6,6 +6,7 @@ public class ThornCircle : MonoBehaviour
     private Transform playerTransform;
     private float duration;
     private float rotationSpeed;
+    private GameObject barrierObject;
 
     public void Initialize(Transform playerTransform, float duration, float rotationSpeed)
     {
@@ -38,11 +39,20 @@ public class ThornCircle : MonoBehaviour
     {
         if (collision.CompareTag("Obstacle"))
         {
-            Destroy(collision.gameObject); 
+            barrierObject = collision.gameObject;
+            StartCoroutine(DestroyObstacle(barrierObject));
         }
         else if (collision.CompareTag("Enemy"))
         {
             collision.gameObject.SetActive(false);
         }
+    }
+
+    private IEnumerator DestroyObstacle(GameObject barrierObj)
+    {
+        Animator barrierAnim = barrierObj.GetComponent<Animator>();
+        barrierAnim.SetTrigger("Break");
+        yield return new WaitForSeconds(1f);
+        Destroy(barrierObj);
     }
 }
