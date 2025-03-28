@@ -50,18 +50,17 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    public void ApplyEffect(ScriptableObject effect)
+    public void ApplyEffect(string effectName)
     {
-        var applyMethod = effect.GetType().GetMethod("Apply");
-        if (applyMethod != null)
+        float distanceToPlayer = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
+        if (distanceToPlayer > distanceToActivate)
         {
-            applyMethod.Invoke(effect, new object[] { gameObject });
-            Debug.Log($"{effect.GetType().Name} applied to {gameObject.name}");
+            Debug.Log("Player is too far away to apply the effect.");
+            return;
         }
-        else
-        {
-            Debug.LogWarning($"Effect of type {effect.GetType().Name} does not have an Apply method or is not applicable to DialogueTrigger.");
-        }
+
+        Debug.Log("Applying effect: " + effectName);
+        EffectManager.Instance.ApplyEffect(effectName, gameObject);
     }
 
     public void EnableDialogueStart()

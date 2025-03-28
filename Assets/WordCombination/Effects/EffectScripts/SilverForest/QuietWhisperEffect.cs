@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "QuietWhisperEffect", menuName = "Effects/QuietWhisper")]
-public class QuietWhisperEffect : EffectBase
+public class QuietWhisperEffect : ScriptableObject
 {
-    public override void Apply(GameObject target)
+    public void Apply(GameObject target)
     {
         PatrolEnemy enemy = target.GetComponent<PatrolEnemy>();
         if (enemy != null)

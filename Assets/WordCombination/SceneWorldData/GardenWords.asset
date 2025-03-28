@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5b06a38ead33948bb58af9351c31f6, type: 3}
   m_Name: GardenWords
   m_EditorClassIdentifier: 
-  combinations:
-  - word1: 
-    word2: 
-    effect: {fileID: 0}
+  combinations: []

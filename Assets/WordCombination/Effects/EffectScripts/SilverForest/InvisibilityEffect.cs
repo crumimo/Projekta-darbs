@@ -2,11 +2,11 @@ using System.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "InvisibilityEffect", menuName = "Effects/Invisibility")]
-public class InvisibilityEffect : EffectBase
+public class InvisibilityEffect : ScriptableObject
 {
     public float duration;
 
-    public override void Apply(GameObject target)
+    public void Apply(GameObject target)
     {
         Debug.Log("Applying Invisibility Effect");
         PatrolEnemy enemy = target.GetComponent<PatrolEnemy>();
