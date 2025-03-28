@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EchoingRootsEffect", menuName = "Effects/EchoingRoots")]
-public class EchoingRootsEffect : ScriptableObject
+public class EchoingRootsEffect : EffectBase
 {
-    public void Apply(GameObject target)
+    public override void Apply(GameObject target)
     {
         PatrolEnemy enemy = target.GetComponent<PatrolEnemy>();
         if (enemy != null)

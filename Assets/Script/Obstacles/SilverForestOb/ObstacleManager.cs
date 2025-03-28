@@ -4,32 +4,17 @@ public class ObstacleManager : MonoBehaviour
 {
     public float distanceToActivate = 10f;
 
-    public void ApplyEffect(string effectName)
+    public void ApplyEffect(ScriptableObject effect)
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null)
+        var applyMethod = effect.GetType().GetMethod("Apply");
+        if (applyMethod != null)
         {
-            Debug.LogError("Player not found!");
-            return;
-        }
-
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        if (distanceToPlayer > distanceToActivate)
-        {
-            Debug.Log("Player is too far away to apply the effect.");
-            return;
-        }
-
-        Debug.Log("Applying effect: " + effectName);
-
-        // Проверка на эффект Erosion Touch
-        if (effectName == "ErosionTouchEffect")
-        {
-            EffectManager.Instance.ApplyEffect(effectName, gameObject);
+            applyMethod.Invoke(effect, new object[] { gameObject });
+            Debug.Log($"{effect.GetType().Name} applied to {gameObject.name}");
         }
         else
         {
-            EffectManager.Instance.ApplyEffect(effectName, player);
+            Debug.LogWarning($"Effect of type {effect.GetType().Name} does not have an Apply method or is not applicable to ObstacleManager.");
         }
     }
 }

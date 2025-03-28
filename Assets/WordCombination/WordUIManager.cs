@@ -17,17 +17,23 @@ public class WordUIManager : MonoBehaviour
     public Button confirmButton;
 
     [Header("Effect Radius")]
-    public float effectRadius = 10f; 
+    public float effectRadius = 10f;
+
+    [Header("Effect Manager")]
+    public EffectManager effectManager;
 
     private List<string> selectedWords = new();
     private Dictionary<string, int> collectedWords = new();
     private Dictionary<string, int> savedCollectedWords = new();
 
-    private List<WordCollector> trackedWords = new(); 
-    private List<WordCollector> checkpointTrackedWords = new(); 
+    private List<WordCollector> trackedWords = new();
+    private List<WordCollector> checkpointTrackedWords = new();
 
     private Movement playerMovement;
     private EnemyManager enemyManager;
+
+    [Header("Effects Folder")]
+    public string effectsFolder = "Effects"; 
 
     void Awake()
     {
@@ -47,6 +53,19 @@ public class WordUIManager : MonoBehaviour
     {
         playerMovement = FindObjectOfType<Movement>();
         enemyManager = FindObjectOfType<EnemyManager>();
+
+        if (effectManager == null)
+        {
+            Debug.LogError("EffectManager is not assigned!");
+        }
+        else
+        {
+            Debug.Log("EffectManager assigned successfully.");
+        }
+        foreach (var fish in FindObjectsOfType<Fish>())
+        {
+            Debug.Log("Fish found at position: " + fish.transform.position + ", with tag: " + fish.tag);
+        }
     }
 
     void Update()
@@ -65,13 +84,13 @@ public class WordUIManager : MonoBehaviour
 
     public void TrackCollectedWord(WordCollector wordCollector)
     {
-        trackedWords.Add(wordCollector); 
+        trackedWords.Add(wordCollector);
     }
 
     public void SaveCheckpoint()
     {
-        checkpointTrackedWords = new List<WordCollector>(trackedWords); 
-        savedCollectedWords = new Dictionary<string, int>(collectedWords); 
+        checkpointTrackedWords = new List<WordCollector>(trackedWords);
+        savedCollectedWords = new Dictionary<string, int>(collectedWords);
     }
 
     public void RestoreCollectedWordsOnScene()
@@ -83,13 +102,13 @@ public class WordUIManager : MonoBehaviour
                 wordCollector.ResetWord();
             }
         }
-        trackedWords.Clear(); 
+        trackedWords.Clear();
     }
 
     void ToggleWorldPanel()
     {
         worldCanvas.enabled = !worldCanvas.enabled;
-    
+
         if (worldCanvas.enabled)
         {
             playerMovement.DisableMovement();
@@ -99,7 +118,7 @@ public class WordUIManager : MonoBehaviour
         {
             playerMovement.EnableMovement();
             enemyManager.ResumeEnemies();
-            
+
             foreach (var word in selectedWords)
             {
                 if (collectedWords.ContainsKey(word))
@@ -179,34 +198,61 @@ public class WordUIManager : MonoBehaviour
     {
         if (selectedWords.Count == 2)
         {
-            string effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
-            Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect}");
+            EffectBase effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
+            if (effect == null)
+            {
+                Debug.LogError("Effect not found for the given combination.");
+                return;
+            }
+
+            Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect.name}");
             string word1 = selectedWords[0];
             string word2 = selectedWords[1];
-        
-            if (AnyObjectInRange())
+
+            bool objectsInRange = AnyObjectInRange();
+
+            if (objectsInRange)
             {
-                foreach (var enemy in FindObjectsOfType<PatrolEnemy>())
+                if (effect is SpikeCircleEffect)
                 {
-                    enemy.ApplyEffect(effect);
+                    effect.Apply(playerTransform.gameObject);
+                    Debug.Log($"Applying SpikeCircleEffect to Player");
                 }
-                foreach (var dialogueTrigger in FindObjectsOfType<DialogueTrigger>())
+                else
                 {
-                    dialogueTrigger.ApplyEffect(effect);
-                    EffectManager.Instance.ApplyEffect(effect, dialogueTrigger.gameObject);
-                }
-                foreach (var obstacleManager in FindObjectsOfType<ObstacleManager>())
-                { 
-                    obstacleManager.ApplyEffect(effect);
-                    EffectManager.Instance.ApplyEffect(effect, obstacleManager.gameObject);
-                }
-                foreach (var fish in FindObjectsOfType<Fish>())
-                {
-                    fish.ApplyCorrectCombination(word1, word2);
+                    foreach (var enemy in FindObjectsOfType<PatrolEnemy>())
+                    {
+                        if (Vector3.Distance(playerTransform.position, enemy.transform.position) <= effectRadius)
+                        {
+                            effect.Apply(enemy.gameObject);
+                        }
+                    }
+                    foreach (var dialogueTrigger in FindObjectsOfType<DialogueTrigger>())
+                    {
+                        if (Vector3.Distance(playerTransform.position, dialogueTrigger.transform.position) <= effectRadius)
+                        {
+                            effect.Apply(dialogueTrigger.gameObject);
+                        }
+                    }
+                    foreach (var obstacleManager in FindObjectsOfType<ObstacleManager>())
+                    {
+                        if (Vector3.Distance(playerTransform.position, obstacleManager.transform.position) <= effectRadius)
+                        {
+                            effect.Apply(obstacleManager.gameObject);
+                        }
+                    }
+                    foreach (var fish in FindObjectsOfType<Fish>())
+                    {
+                        if (Vector3.Distance(playerTransform.position, fish.transform.position) <= effectRadius && fish.CompareTag("Fish"))
+                        {
+                            Debug.Log("Applying FishBehavior to fish at position: " + fish.transform.position);
+                            effect.Apply(fish.gameObject);
+                        }
+                    }
                 }
 
                 ResetSelection();
-            
+
                 worldCanvas.enabled = false;
                 playerMovement.EnableMovement();
                 enemyManager.ResumeEnemies();
@@ -214,7 +260,7 @@ public class WordUIManager : MonoBehaviour
             else
             {
                 Debug.Log("No objects in range to apply the effect.");
-            
+
                 if (collectedWords.ContainsKey(selectedWords[0]))
                 {
                     collectedWords[selectedWords[0]]++;
@@ -223,7 +269,7 @@ public class WordUIManager : MonoBehaviour
                 {
                     collectedWords[selectedWords[0]] = 1;
                 }
-                
+
                 if (collectedWords.ContainsKey(selectedWords[1]))
                 {
                     collectedWords[selectedWords[1]]++;
@@ -243,8 +289,8 @@ public class WordUIManager : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(playerTransform.position, effectRadius);
         foreach (var collider in colliders)
         {
-            if (collider.GetComponent<PatrolEnemy>() != null || 
-                collider.GetComponent<DialogueTrigger>() != null || 
+            if (collider.GetComponent<PatrolEnemy>() != null ||
+                collider.GetComponent<DialogueTrigger>() != null ||
                 collider.GetComponent<ObstacleManager>() != null)
             {
                 return true;
@@ -271,7 +317,7 @@ public class WordUIManager : MonoBehaviour
     {
         RestoreCollectedWords();
     }
-    
+
     public void ResetCollectedWords()
     {
         foreach (var wordCollector in trackedWords)

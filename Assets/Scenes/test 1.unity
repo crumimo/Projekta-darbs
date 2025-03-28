@@ -6044,14 +6044,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be987d99f6a7194f8dedd2f0d826b68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableEffects:
-  - {fileID: 11400000, guid: 55e3df51c9499724bacd3250ea9bb04a, type: 2}
-  - {fileID: 11400000, guid: 27fbdb928a2e3a74b899a4fdbefc2e12, type: 2}
-  - {fileID: 11400000, guid: dfd17fb68c3298b43841c480b1061290, type: 2}
-  - {fileID: 11400000, guid: afabc5f32c6bebc4d93dc8e7297d10a6, type: 2}
-  - {fileID: 11400000, guid: b7fe063e8868dd0489773eb3e74068ad, type: 2}
-  - {fileID: 11400000, guid: 92334e567b9774a4b90f2c187a17a3a2, type: 2}
-  - {fileID: 11400000, guid: 14b96dc50eb03ab4bae137b94203d93a, type: 2}
 --- !u!4 &1005060322
 Transform:
   m_ObjectHideFlags: 0
@@ -7459,7 +7451,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 66.85679, y: -14.777385, z: -10}
+  m_LocalPosition: {x: 35.316788, y: -14.777385, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8621,7 +8613,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 66.85679, y: -14.777385, z: -10}
+  m_LocalPosition: {x: 35.316788, y: -14.777385, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8997,7 +8989,10 @@ MonoBehaviour:
   - {fileID: 723095984}
   - {fileID: 32837351}
   confirmButton: {fileID: 13810322}
-  effectRadius: 10
+  effectRadius: 15
+  silverForestEffects: {fileID: 1005060321}
+  gardenEffects: {fileID: 1005060321}
+  effectsFolder: Effects
 --- !u!4 &1441669406
 Transform:
   m_ObjectHideFlags: 0
@@ -11258,7 +11253,7 @@ Transform:
   m_GameObject: {fileID: 1705536873}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 60.74, y: -14.48, z: 0.04357604}
+  m_LocalPosition: {x: 29.2, y: -14.48, z: 0.04357604}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15154,8 +15149,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 483937908}
-  - {fileID: 1421780772}
   - {fileID: 1212037389}
+  - {fileID: 1421780772}
+  - {fileID: 1005060322}
   - {fileID: 1173300300}
   - {fileID: 291845897}
   - {fileID: 1516545229}
@@ -15180,4 +15176,3 @@ SceneRoots:
   - {fileID: 143501353}
   - {fileID: 1679924902}
   - {fileID: 680578640}
-  - {fileID: 1005060322}

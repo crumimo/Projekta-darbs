@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ErosionTouchEffect", menuName = "Effects/ErosionTouch")]
-public class ErosionTouchEffect : ScriptableObject
+public class ErosionTouchEffect : EffectBase
 {
-    public void Apply(GameObject target)
+    public override void Apply(GameObject target)
     {
         Debug.Log("Applying Erosion Touch Effect");
         ObstacleManager obstacleManager = target.GetComponent<ObstacleManager>();
