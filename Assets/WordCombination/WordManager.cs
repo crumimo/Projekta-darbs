@@ -6,9 +6,9 @@ public class WordManager : MonoBehaviour
     public static WordManager Instance;
 
     private List<string> collectedWords = new List<string>();
-    private Dictionary<string, string> wordCombinations = new Dictionary<string, string>(); 
+    private Dictionary<string, EffectBase> wordCombinations = new Dictionary<string, EffectBase>(); 
 
-    public SceneWordData sceneWordData; 
+    public SceneWordData[] sceneWordDataArray; 
 
     private void Awake()
     {
@@ -25,12 +25,15 @@ public class WordManager : MonoBehaviour
 
     private void LoadWordCombinations()
     {
-        foreach (var combination in sceneWordData.combinations)
+        foreach (var sceneWordData in sceneWordDataArray)
         {
-            string combinationKey1 = combination.word1 + "+" + combination.word2;
-            string combinationKey2 = combination.word2 + "+" + combination.word1;
-            wordCombinations[combinationKey1] = combination.effectName;
-            wordCombinations[combinationKey2] = combination.effectName;
+            foreach (var combination in sceneWordData.combinations)
+            {
+                string combinationKey1 = combination.word1 + "+" + combination.word2;
+                string combinationKey2 = combination.word2 + "+" + combination.word1;
+                wordCombinations[combinationKey1] = combination.effect;
+                wordCombinations[combinationKey2] = combination.effect;
+            }
         }
     }
 
@@ -57,7 +60,7 @@ public class WordManager : MonoBehaviour
         }
     }
 
-    public string GetEffect(string word1, string word2)
+    public EffectBase GetEffect(string word1, string word2)
     {
         if (wordCombinations == null)
         {
@@ -68,7 +71,7 @@ public class WordManager : MonoBehaviour
         string combination1 = word1 + "+" + word2;
         string combination2 = word2 + "+" + word1;
 
-        if (wordCombinations.TryGetValue(combination1, out string effect) || wordCombinations.TryGetValue(combination2, out effect))
+        if (wordCombinations.TryGetValue(combination1, out EffectBase effect) || wordCombinations.TryGetValue(combination2, out effect))
         {
             return effect;
         }

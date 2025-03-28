@@ -6,7 +6,6 @@ public class Fish : MonoBehaviour
     public Transform playerTransform; // Reference to the player's transform
     public GameObject wordObject; // The word object to be activated
     public float distanceToActivate = 10f; // Distance within which the effect can be activated
-    public SceneWordData sceneWordData; // Reference to the SceneWordData ScriptableObject
 
     [HideInInspector]
     public Vector3 originalPosition; // The original position of the fish
@@ -20,12 +19,6 @@ public class Fish : MonoBehaviour
     {
         originalPosition = transform.position;
         wordObject.SetActive(false); // Hide the word object at the start
-
-        // Ensure sceneWordData is assigned
-        if (sceneWordData == null)
-        {
-            Debug.LogError("SceneWordData is not assigned in the inspector.");
-        }
     }
 
     void Update()
@@ -79,21 +72,7 @@ public class Fish : MonoBehaviour
 
     private bool IsValidCombination(string word1, string word2)
     {
-        if (sceneWordData == null)
-        {
-            Debug.LogError("SceneWordData is not assigned.");
-            return false;
-        }
-
-        foreach (var combination in sceneWordData.combinations)
-        {
-            if ((combination.word1 == word1 && combination.word2 == word2) ||
-                (combination.word1 == word2 && combination.word2 == word1))
-            {
-                return true;
-            }
-        }
-        return false;
+        return WordManager.Instance.GetEffect(word1, word2) != null;
     }
 
     void OnTriggerEnter2D(Collider2D other)

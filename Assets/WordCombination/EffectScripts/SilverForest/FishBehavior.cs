@@ -1,12 +1,22 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "FishBehavior", menuName = "Behaviors/FishBehavior")]
-public class FishBehavior : ScriptableObject
+public class FishBehavior : EffectBase
 {
     public float playerDetectionRadius = 5f; // The radius for detecting the player
     public float safeDistance = 10f; // The distance to move away from the player
     public float speed = 2f; // The speed of the fish movement
     public string wordToSpawn; // The word to spawn
+
+    public override void Apply(GameObject target)
+    {
+        Fish fish = target.GetComponent<Fish>();
+        if (fish != null)
+        {
+            Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            ExecuteBehavior(fish, playerTransform);
+        }
+    }
 
     public void ExecuteBehavior(Fish fish, Transform playerTransform)
     {

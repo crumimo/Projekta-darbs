@@ -2,11 +2,11 @@ using System.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SleepEffect", menuName = "Effects/Sleep")]
-public class SleepEffect : ScriptableObject
+public class SleepEffect : EffectBase
 {
     public float duration;
 
-    public void Apply(GameObject target)
+    public override void Apply(GameObject target)
     {
         Debug.Log("Applying Sleep Effect");
         PatrolEnemy enemy = target.GetComponent<PatrolEnemy>();
