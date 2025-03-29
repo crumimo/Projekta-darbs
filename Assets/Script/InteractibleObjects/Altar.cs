@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Altar : MonoBehaviour
 {
+    [SerializeField] private GameObject sign;
     private bool isPlayerInRange = false; // Флаг нахождения игрока в зоне взаимодействия
 
     void Update()
@@ -22,6 +23,7 @@ public class Altar : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            sign.SetActive(true);
             isPlayerInRange = true;
         }
     }
@@ -30,6 +32,7 @@ public class Altar : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            sign.SetActive(false);
             isPlayerInRange = false;
         }
     }
