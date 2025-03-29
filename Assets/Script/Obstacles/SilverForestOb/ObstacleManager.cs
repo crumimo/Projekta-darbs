@@ -68,8 +68,6 @@ public class ObstacleManager : MonoBehaviour
     public void ResetObstacle()
     {
         gameObject.SetActive(true);
-        // If there is a reset animation, you can trigger it here. 
-        // barrierAnim.SetTrigger("Reset");
     }
     
     public bool CanBeDestroyedByEffect(ScriptableObject effect)

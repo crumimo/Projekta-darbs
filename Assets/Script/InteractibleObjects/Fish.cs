@@ -2,88 +2,95 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour
 {
-    public FishBehavior behavior; // Reference to the ScriptableObject
     public Transform playerTransform; // Reference to the player's transform
+    public float distanceToActivate = 10f; // Distance within which the fish will react
+    public float speed = 2f; // Speed at which the fish moves
+    public float stopDistance = 0.1f; // Distance to stop movement
+    public float returnDistance = 15f; // Distance at which the fish will return to its original position
+
+    private Vector3 originalPosition; // The original position of the fish
+    private bool isReturningToOrigin = false; // Flag for returning to the original position
+    private bool isCorrectCombination = false; // Flag for the correct combination
+    private bool isMovingToPlayer = false; // Flag for moving towards the player
+    private FishBehavior fishBehavior; // Reference to the FishBehavior instance
     public GameObject wordObject; // The word object to be activated
-    public float distanceToActivate = 10f; // Distance within which the effect can be activated
-
-    [HideInInspector]
-    public Vector3 originalPosition; // The original position of the fish
-
-    public bool isCorrectCombination { get; private set; } = false; // Flag for the correct combination
-    public bool isWithinPlayerTrigger { get; private set; } = false; // Flag for being inside the player's trigger collider
-    public bool isReturningToOrigin { get; private set; } = false; // Flag for returning to the original position
-    private bool hasDeliveredWord = false; // Flag to indicate if the fish has already delivered the word
 
     void Start()
     {
         originalPosition = transform.position;
-        wordObject.SetActive(false); // Hide the word object at the start
+        fishBehavior = new FishBehavior();
+        fishBehavior.SetWordObject(wordObject, playerTransform); // Set the word object and player transform in the behavior
+        fishBehavior.SetFish(this); // Set the fish instance in the behavior
     }
 
     void Update()
     {
-        if (!isCorrectCombination && !hasDeliveredWord)
+        if (isMovingToPlayer)
         {
-            behavior.ExecuteBehavior(this, playerTransform);
+            MoveToPosition(playerTransform.position);
+            if (Vector3.Distance(transform.position, playerTransform.position) < stopDistance)
+            {
+                isMovingToPlayer = false;
+                isReturningToOrigin = true; // Start returning to the original position
+            }
         }
         else if (isReturningToOrigin)
         {
             MoveToPosition(originalPosition);
-            if (Vector3.Distance(transform.position, originalPosition) < 0.1f)
+            if (Vector3.Distance(transform.position, originalPosition) < stopDistance)
             {
                 isReturningToOrigin = false;
-                wordObject.SetActive(false); // Hide the word object after returning
+                isCorrectCombination = false; // Reset combination flag after returning
             }
         }
-        else if (!isWithinPlayerTrigger && !hasDeliveredWord)
+        else if (!isCorrectCombination)
         {
-            MoveToPosition(playerTransform.position);
+            float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
+            if (distanceToPlayer < distanceToActivate)
+            {
+                // Player is close, move away from player
+                Vector3 direction = (transform.position - playerTransform.position).normalized;
+                Vector3 targetPosition = transform.position + direction * speed * Time.deltaTime;
+                MoveToPosition(targetPosition);
+            }
+            else if (distanceToPlayer > returnDistance)
+            {
+                // Player is far, return to original position
+                MoveToPosition(originalPosition);
+            }
         }
     }
 
     public void MoveToPosition(Vector3 position)
     {
-        transform.position = Vector3.MoveTowards(transform.position, position, behavior.speed * Time.deltaTime);
-    }
-
-    public void ApplyCorrectCombination(string word1, string word2)
-    {
-        if (IsValidCombination(word1, word2) && !hasDeliveredWord)
+        if (Vector3.Distance(transform.position, position) > stopDistance)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player == null)
-            {
-                Debug.LogError("Player not found!");
-                return;
-            }
-
-            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-            if (distanceToPlayer > distanceToActivate)
-            {
-                Debug.Log("Player is too far away to apply the effect.");
-                return;
-            }
-
-            isCorrectCombination = true;
-            wordObject.SetActive(true); // Activate the word object
+            transform.position = Vector3.MoveTowards(transform.position, position, speed * Time.deltaTime);
         }
     }
 
-    private bool IsValidCombination(string word1, string word2)
+    public void ApplyCorrectCombination()
     {
-        return WordManager.Instance.GetEffect(word1, word2) != null;
+        if (!isCorrectCombination)
+        {
+            isCorrectCombination = true;
+            fishBehavior.ActivateWord(); // Activate the word object after the correct combination
+        }
+    }
+
+    public void StartMovingToPlayer()
+    {
+        isMovingToPlayer = true;
+        isReturningToOrigin = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (isCorrectCombination && other.CompareTag("Player"))
         {
-            isWithinPlayerTrigger = true;
+            isMovingToPlayer = false;
             isReturningToOrigin = true; // Set the flag to return to the original position
-
-            // Set the flag to indicate the fish has delivered the word
-            hasDeliveredWord = true;
         }
     }
 }
