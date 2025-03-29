@@ -1,16 +1,15 @@
+using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ErosionTouchEffect", menuName = "Effects/ErosionTouch")]
+[CreateAssetMenu(fileName = "ErosionTouchEffect", menuName = "Effects/ErosionTouchEffect")]
 public class ErosionTouchEffect : EffectBase
 {
     public override void Apply(GameObject target)
     {
-        Debug.Log("Applying Erosion Touch Effect");
-        ObstacleManager obstacleManager = target.GetComponent<ObstacleManager>();
-        if (obstacleManager != null)
+        var obstacleManager = target.GetComponent<ObstacleManager>();
+        if (obstacleManager != null && obstacleManager.CanBeDestroyedByEffect(this))
         {
-            Destroy(target);
-            Debug.Log("Obstacle destroyed by Erosion Touch Effect");
+            obstacleManager.DisableObstacle();
         }
     }
 }

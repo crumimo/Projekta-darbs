@@ -22,12 +22,18 @@ public class WordUIManager : MonoBehaviour
     [Header("Effect Manager")]
     public EffectManager effectManager;
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioClip[] collectionSounds; // Array of collection sounds
+    private AudioSource audioSource;
+
     private List<string> selectedWords = new();
     private Dictionary<string, int> collectedWords = new();
     private Dictionary<string, int> savedCollectedWords = new();
 
     private List<WordCollector> trackedWords = new();
     private List<WordCollector> checkpointTrackedWords = new();
+    private List<ObstacleManager> trackedObstacles = new(); // Track obstacles
+    private List<ObstacleManager> checkpointTrackedObstacles = new(); // Track obstacles at checkpoint
 
     private Movement playerMovement;
     private EnemyManager enemyManager;
@@ -39,6 +45,12 @@ public class WordUIManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
 
         confirmButton.onClick.AddListener(ConfirmCombination);
         worldCanvas.enabled = false;
@@ -79,6 +91,7 @@ public class WordUIManager : MonoBehaviour
         if (collectedWords.ContainsKey(word)) collectedWords[word] += count;
         else collectedWords[word] = count;
 
+        PlayRandomCollectionSound();
         UpdateButtons();
     }
 
@@ -87,10 +100,18 @@ public class WordUIManager : MonoBehaviour
         trackedWords.Add(wordCollector);
     }
 
+    public void TrackObstacle(ObstacleManager obstacleManager)
+    {
+        trackedObstacles.Add(obstacleManager);
+    }
+
     public void SaveCheckpoint()
     {
         checkpointTrackedWords = new List<WordCollector>(trackedWords);
+        checkpointTrackedObstacles = new List<ObstacleManager>(trackedObstacles);
         savedCollectedWords = new Dictionary<string, int>(collectedWords);
+        Debug.Log("Checkpoint saved: " + string.Join(", ", savedCollectedWords));
+        ObstacleStateManager.SaveCheckpoint(); // Save the state of destroyed obstacles
     }
 
     public void RestoreCollectedWordsOnScene()
@@ -113,6 +134,12 @@ public class WordUIManager : MonoBehaviour
         {
             playerMovement.DisableMovement();
             enemyManager.PauseEnemies();
+
+            // Hide top buttons when the panel is first opened
+            foreach (var btn in topButtons)
+            {
+                btn.gameObject.SetActive(false);
+            }
         }
         else
         {
@@ -134,7 +161,16 @@ public class WordUIManager : MonoBehaviour
         }
     }
 
-    void UpdateButtons()
+    void PlayRandomCollectionSound()
+    {
+        if (collectionSounds.Length > 0)
+        {
+            int randomIndex = Random.Range(0, collectionSounds.Length);
+            audioSource.PlayOneShot(collectionSounds[randomIndex]);
+        }
+    }
+
+    public void UpdateButtons() // Made public
     {
         int i = 0;
         foreach (var pair in collectedWords)
@@ -155,27 +191,33 @@ public class WordUIManager : MonoBehaviour
     {
         if (selectedWords.Count < 2 && collectedWords.ContainsKey(word) && collectedWords[word] > 0)
         {
-            selectedWords.Add(word);
-            collectedWords[word]--;
-            UpdateTopButtons();
-            UpdateButtons();
+            if (!selectedWords.Contains(word))
+            {
+                selectedWords.Add(word);
+                collectedWords[word]--;
+                UpdateTopButtons();
+                UpdateButtons();
+            }
         }
     }
 
     void DeselectWord(Button button)
     {
         string word = button.GetComponentInChildren<TextMeshProUGUI>().text;
-        selectedWords.Remove(word);
-        if (collectedWords.ContainsKey(word))
+        if (!string.IsNullOrEmpty(word))
         {
-            collectedWords[word]++;
+            selectedWords.Remove(word);
+            if (collectedWords.ContainsKey(word))
+            {
+                collectedWords[word]++;
+            }
+            else
+            {
+                collectedWords[word] = 1;
+            }
+            UpdateTopButtons();
+            UpdateButtons();
         }
-        else
-        {
-            collectedWords[word] = 1;
-        }
-        UpdateTopButtons();
-        UpdateButtons();
     }
 
     void UpdateTopButtons()
@@ -189,6 +231,7 @@ public class WordUIManager : MonoBehaviour
             }
             else
             {
+                topButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = string.Empty;
                 topButtons[i].gameObject.SetActive(false);
             }
         }
@@ -302,7 +345,11 @@ public class WordUIManager : MonoBehaviour
     void ResetSelection()
     {
         selectedWords.Clear();
-        foreach (var btn in topButtons) btn.gameObject.SetActive(false);
+        foreach (var btn in topButtons)
+        {
+            btn.GetComponentInChildren<TextMeshProUGUI>().text = string.Empty;
+            btn.gameObject.SetActive(false);
+        }
         UpdateButtons();
     }
 
@@ -316,14 +363,44 @@ public class WordUIManager : MonoBehaviour
     public void ResetToCheckpoint()
     {
         RestoreCollectedWords();
+        ResetCollectedWords();
+        ObstacleStateManager.RestoreCheckpointState(); // Restore obstacles to the checkpoint state
+        ResetTrackedObstacles(); // Reset tracked obstacles
     }
 
     public void ResetCollectedWords()
     {
         foreach (var wordCollector in trackedWords)
         {
-            wordCollector.ResetWord();
+            if (!checkpointTrackedWords.Contains(wordCollector))
+            {
+                wordCollector.ResetWord();
+            }
         }
         trackedWords.Clear();
+    }
+
+    public void ResetTrackedObstacles()
+    {
+        foreach (var obstacleManager in trackedObstacles)
+        {
+            if (!checkpointTrackedObstacles.Contains(obstacleManager))
+            {
+                obstacleManager.ResetObstacle();
+            }
+        }
+        trackedObstacles.Clear();
+    }
+
+    public void ResetUICollectedWords()
+    {
+        collectedWords.Clear();
+        foreach (var btn in wordButtons)
+        {
+            btn.GetComponentInChildren<TextMeshProUGUI>().text = string.Empty;
+            btn.gameObject.SetActive(false);
+        }
+        UpdateButtons();
+        ResetSelection();
     }
 }

@@ -6,7 +6,6 @@ public class ThornCircle : MonoBehaviour
     private Transform playerTransform;
     private float duration;
     private float rotationSpeed;
-    private GameObject barrierObject;
 
     public void Initialize(Transform playerTransform, float duration, float rotationSpeed)
     {
@@ -39,8 +38,11 @@ public class ThornCircle : MonoBehaviour
     {
         if (collision.CompareTag("Obstacle"))
         {
-            barrierObject = collision.gameObject;
-            StartCoroutine(DestroyObstacle(barrierObject));
+            var obstacleManager = collision.GetComponent<ObstacleManager>();
+            if (obstacleManager != null && obstacleManager.CanBeDestroyedByEffect(ScriptableObject.CreateInstance<SpikeCircleEffect>()))
+            {
+                StartCoroutine(DisableObstacle(obstacleManager));
+            }
         }
         else if (collision.CompareTag("Enemy"))
         {
@@ -48,11 +50,9 @@ public class ThornCircle : MonoBehaviour
         }
     }
 
-    private IEnumerator DestroyObstacle(GameObject barrierObj)
+    private IEnumerator DisableObstacle(ObstacleManager obstacleManager)
     {
-        Animator barrierAnim = barrierObj.GetComponent<Animator>();
-        barrierAnim.SetTrigger("Break");
-        yield return new WaitForSeconds(1f);
-        Destroy(barrierObj);
+        obstacleManager.DisableObstacle();
+        yield return null;
     }
 }

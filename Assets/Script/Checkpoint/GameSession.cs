@@ -1,35 +1,41 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameSession : MonoBehaviour
 {
     public static GameSession Instance;
-    public GameState GameState = new GameState();
+
+    public GameState GameState;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void Start()
     {
-        if (GameState.currentCheckpointID != -1)
-        {
-            Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-            playerTransform.position = GameState.PlayerPosition;
-            Debug.Log("Player repositioned to last checkpoint: " + GameState.currentCheckpointID);
+        ObstacleStateManager.RestoreObstacles(); // Restore the state of obstacles
+    }
 
-            // Восстанавливаем собранные слова
-            WordUIManager.Instance.ResetToCheckpoint();
-        }
+    public bool CheckpointActivated(int checkpointID)
+    {
+        return CheckpointManager.IsCheckpointActivated(checkpointID);
+    }
+
+    public void ActivateCheckpoint(int checkpointID)
+    {
+        CheckpointManager.ActivateCheckpoint(checkpointID);
+        ObstacleStateManager.SaveCheckpoint(); // Save the state of destroyed obstacles
+    }
+
+    public void ResetDestroyedObstacles()
+    {
+        ObstacleStateManager.ResetDestroyedObstacles();
+    }
+
+    public void RestoreObstacles()
+    {
+        ObstacleStateManager.RestoreObstacles();
     }
 }

@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     private bool isDead = false;
     private bool isPaused = false;
     private Animator animator;
-    
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -54,6 +54,17 @@ public class Movement : MonoBehaviour
         WordUIManager.Instance.ResetToCheckpoint();
         WordUIManager.Instance.RestoreCollectedWordsOnScene();
         
+        // Ensure UI is updated after death
+        WordUIManager.Instance.UpdateButtons();
+
+        // Reset destroyed obstacles if no checkpoint was activated
+        if (!GameSession.Instance.CheckpointActivated(GameSession.Instance.GameState.currentCheckpointID))
+        {
+            GameSession.Instance.ResetDestroyedObstacles();
+        }
+
+        GameSession.Instance.RestoreObstacles(); // Restore the state of obstacles if no checkpoint was activated
+
         Invoke("Respawn", 1f);
     }
 
