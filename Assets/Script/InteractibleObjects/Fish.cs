@@ -50,7 +50,7 @@ public class Fish : MonoBehaviour
             if (distanceToPlayer < distanceToActivate)
             {
                 // Player is close, move away from player
-                Vector3 direction = (transform.position - playerTransform.position).normalized;
+                Vector3 direction = GetOrthogonalDirection(playerTransform.position);
                 Vector3 targetPosition = transform.position + direction * speed * Time.deltaTime;
                 MoveToPosition(targetPosition);
             }
@@ -91,6 +91,19 @@ public class Fish : MonoBehaviour
         {
             isMovingToPlayer = false;
             isReturningToOrigin = true; // Set the flag to return to the original position
+        }
+    }
+
+    private Vector3 GetOrthogonalDirection(Vector3 targetPosition)
+    {
+        Vector3 direction = (transform.position - targetPosition).normalized;
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            return new Vector3(Mathf.Sign(direction.x), 0, 0); // Move left or right
+        }
+        else
+        {
+            return new Vector3(0, Mathf.Sign(direction.y), 0); // Move up or down
         }
     }
 }
