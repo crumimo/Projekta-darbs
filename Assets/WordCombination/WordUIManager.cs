@@ -366,6 +366,7 @@ public class WordUIManager : MonoBehaviour
         ResetCollectedWords();
         ObstacleStateManager.RestoreCheckpointState(); // Restore obstacles to the checkpoint state
         ResetTrackedObstacles(); // Reset tracked obstacles
+        ResetUICollectedWords(); // Clear the UI word buttons
     }
 
     public void ResetCollectedWords()
