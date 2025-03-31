@@ -10,6 +10,7 @@ public class WordUIManager : MonoBehaviour
     [Header("Panels")]
     public Canvas worldCanvas;
     public Transform playerTransform;
+    [SerializeField] private SpriteRenderer playerVisual;
 
     [Header("Buttons")]
     public Button[] wordButtons;
@@ -132,6 +133,8 @@ public class WordUIManager : MonoBehaviour
 
         if (worldCanvas.enabled)
         {
+            playerVisual.sortingLayerName = "Foreground";
+            playerVisual.sortingOrder = 90;
             playerMovement.DisableMovement();
             enemyManager.PauseEnemies();
 
@@ -143,6 +146,8 @@ public class WordUIManager : MonoBehaviour
         }
         else
         {
+            playerVisual.sortingLayerName = "Middleground";
+            playerVisual.sortingOrder = 0;
             playerMovement.EnableMovement();
             enemyManager.ResumeEnemies();
 
