@@ -4,11 +4,16 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private DialogueUI dialogueUI;
     private Vector2 movement;
     private Rigidbody2D rb;
     private bool isDead = false;
     private bool isPaused = false;
     private Animator animator;
+    
+    public DialogueUI DialogueUI => dialogueUI;
+    
+    public IInteractable Interactable { get; set; }
 
     private void Start()
     {
@@ -18,6 +23,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        if (dialogueUI.IsOpen) return;
         if (!isDead && !isPaused)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -26,6 +32,10 @@ public class Movement : MonoBehaviour
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Interactable?.Interact(this);
         }
     }
 
