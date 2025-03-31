@@ -7,6 +7,7 @@ public class Fish : MonoBehaviour
     public float speed = 2f; // Speed at which the fish moves
     public float stopDistance = 0.1f; // Distance to stop movement
     public float returnDistance = 15f; // Distance at which the fish will return to its original position
+    public float distanceToAcceptCombination = 5f; // Distance within which the fish will accept the combination
 
     private Vector3 originalPosition; // The original position of the fish
     private bool isReturningToOrigin = false; // Flag for returning to the original position
@@ -21,13 +22,16 @@ public class Fish : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         originalPosition = transform.position;
-        fishBehavior = new FishBehavior();
+
+        // Ensure each fish has its own FishBehavior instance
+        fishBehavior = ScriptableObject.CreateInstance<FishBehavior>();
         fishBehavior.SetWordObject(wordObject, playerTransform); // Set the word object and player transform in the behavior
         fishBehavior.SetFish(this); // Set the fish instance in the behavior
     }
 
     void Update()
     {
+
         if (isMovingToPlayer)
         {
             MoveToPosition(playerTransform.position);
@@ -95,9 +99,17 @@ public class Fish : MonoBehaviour
 
     public void ApplyCorrectCombination()
     {
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        if (distanceToPlayer > distanceToAcceptCombination)
+        {
+            Debug.Log("Player is too far away to apply the combination.");
+            return;
+        }
+
         if (!isCorrectCombination)
         {
             isCorrectCombination = true;
+            Debug.Log("Correct combination applied.");
             fishBehavior.ActivateWord(); // Activate the word object after the correct combination
         }
     }
@@ -110,6 +122,8 @@ public class Fish : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log($"OnTriggerEnter2D: {other.name}");
+
         if (isCorrectCombination && other.CompareTag("Player"))
         {
             isMovingToPlayer = false;

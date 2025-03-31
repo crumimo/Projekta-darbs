@@ -3,14 +3,12 @@ using UnityEngine;
 public class FishBehavior : EffectBase
 {
     private GameObject wordObject; // Reference to the word object
-    //private Transform playerTransform; // Reference to the player's transform
     private Fish fish; // Reference to the Fish instance
 
-    public void SetWordObject(GameObject word,Transform player)
+    public void SetWordObject(GameObject word, Transform player)
     {
         wordObject = word;
         wordObject.SetActive(false); // Ensure the word object is initially inactive
-        //playerTransform = player;
     }
 
     public void SetFish(Fish fishInstance)
@@ -23,7 +21,12 @@ public class FishBehavior : EffectBase
         if (wordObject != null)
         {
             wordObject.SetActive(true);
+            Debug.Log("Word object activated.");
             fish.StartMovingToPlayer(); // Start moving the fish to the player
+        }
+        else
+        {
+            Debug.LogError("Word object is null.");
         }
     }
 
@@ -32,7 +35,12 @@ public class FishBehavior : EffectBase
         Fish fish = target.GetComponent<Fish>();
         if (fish != null)
         {
+            Debug.Log("Applying correct combination to fish.");
             fish.ApplyCorrectCombination();
+        }
+        else
+        {
+            Debug.LogError("Fish component not found on target.");
         }
     }
 }
