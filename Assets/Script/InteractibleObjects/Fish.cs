@@ -16,6 +16,7 @@ public class Fish : MonoBehaviour
     public GameObject wordObject; // The word object to be activated
     
     private Animator anim;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -68,7 +69,27 @@ public class Fish : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, position) > stopDistance)
         {
+            Vector3 direction = (position - transform.position).normalized;
+
+            // Set animation parameters based on direction
+            if (direction.x > 0)
+            {
+                anim.SetBool("isSwimmingRight", true);
+                anim.SetBool("isSwimmingLeft", false);
+            }
+            else if (direction.x < 0)
+            {
+                anim.SetBool("isSwimmingRight", false);
+                anim.SetBool("isSwimmingLeft", true);
+            }
+
             transform.position = Vector3.MoveTowards(transform.position, position, speed * Time.deltaTime);
+        }
+        else
+        {
+            // Stop animation when fish stops moving
+            anim.SetBool("isSwimmingRight", false);
+            anim.SetBool("isSwimmingLeft", false);
         }
     }
 
