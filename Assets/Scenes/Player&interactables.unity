@@ -12673,6 +12673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  DialogueUI: {fileID: 0}
 --- !u!212 &979491083
 SpriteRenderer:
   m_ObjectHideFlags: 0

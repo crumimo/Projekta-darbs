@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
+  m_Name: New Dialogue Object
+  m_EditorClassIdentifier: 
+  dialogue:
+  - hi
+  responses:
+  - responseText: nooo
+    dialogueObject: {fileID: 11400000, guid: f16b1e11dc1acd04084f8403f7428dc4, type: 2}
+  - responseText: yesss
+    dialogueObject: {fileID: 11400000, guid: fa50ee9b125c9254f993a5a50ddf95b8, type: 2}
