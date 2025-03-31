@@ -14,9 +14,11 @@ public class Fish : MonoBehaviour
     private bool isMovingToPlayer = false; // Flag for moving towards the player
     private FishBehavior fishBehavior; // Reference to the FishBehavior instance
     public GameObject wordObject; // The word object to be activated
-
+    
+    private Animator anim;
     void Start()
     {
+        anim = GetComponent<Animator>();
         originalPosition = transform.position;
         fishBehavior = new FishBehavior();
         fishBehavior.SetWordObject(wordObject, playerTransform); // Set the word object and player transform in the behavior

@@ -3,14 +3,14 @@ using UnityEngine;
 public class FishBehavior : EffectBase
 {
     private GameObject wordObject; // Reference to the word object
-    private Transform playerTransform; // Reference to the player's transform
+    //private Transform playerTransform; // Reference to the player's transform
     private Fish fish; // Reference to the Fish instance
 
-    public void SetWordObject(GameObject word, Transform player)
+    public void SetWordObject(GameObject word,Transform player)
     {
         wordObject = word;
         wordObject.SetActive(false); // Ensure the word object is initially inactive
-        playerTransform = player;
+        //playerTransform = player;
     }
 
     public void SetFish(Fish fishInstance)
