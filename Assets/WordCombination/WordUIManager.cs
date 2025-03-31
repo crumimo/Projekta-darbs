@@ -39,6 +39,8 @@ public class WordUIManager : MonoBehaviour
     private Movement playerMovement;
     private EnemyManager enemyManager;
 
+    [SerializeField] private Vector3 UIOffset;
+
     [Header("Effects Folder")]
     public string effectsFolder = "Effects"; 
 
@@ -84,7 +86,7 @@ public class WordUIManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) ToggleWorldPanel();
-        if (worldCanvas.enabled) worldCanvas.transform.position = playerTransform.position + new Vector3(0, 2, 0);
+        if (worldCanvas.enabled) worldCanvas.transform.position = playerTransform.position + new Vector3(UIOffset.x, UIOffset.y, UIOffset.z);
     }
 
     public void CollectWord(string word, int count)

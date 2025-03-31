@@ -1687,7 +1687,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -16841,7 +16841,7 @@ Transform:
   m_GameObject: {fileID: 643491818}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: -25.199997, z: 0}
+  m_LocalPosition: {x: 0.26, y: -24.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16881,8 +16881,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.5415998, y: 1.6308999, z: 0}
-    m_Extent: {x: 14.7966, y: 12.430599, z: 0}
+    m_Center: {x: 0.8154001, y: 1.6308999, z: 0}
+    m_Extent: {x: 14.0704, y: 12.430599, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -16897,7 +16897,7 @@ MonoBehaviour:
   - {x: -4.373745, y: -2.9449463, z: 0}
   - {x: 0.019882202, y: -1.0579758, z: 0}
   - {x: 3.719242, y: -3.3006363, z: 0}
-  - {x: 8.838242, y: 1.2202988, z: 0}
+  - {x: 7.3870354, y: 1.1763153, z: 0}
   - {x: 5.22628, y: 4.0762405, z: 0}
   - {x: 4.449974, y: 3.9813957, z: 0}
   - {x: 2.160221, y: 6.561844, z: 0}
@@ -195284,7 +195284,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
