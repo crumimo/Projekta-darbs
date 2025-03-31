@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e893050ab0b08746b4c443d643f25db
+guid: 9daf20c5641c79d499e480196bb4cc06
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,14 +100,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 9daf20c5641c79d499e480196bb4cc06, type: 3}
-      name: Emission
+    secondaryTextures: []
     nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

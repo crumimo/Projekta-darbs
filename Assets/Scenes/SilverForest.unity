@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000004, guid: 9b565ed409f670b4cb8f88f93dcf40f3, type: 2}
+  m_LightingDataAsset: {fileID: 112000004, guid: 31a00c2c36dea5a48a87e5ec53e99580, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -5646,8 +5646,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 6.6135, y: -1.9924507, z: 0}
-    m_Extent: {x: 22.115, y: 19.26445, z: 0}
+    m_Center: {x: 5.8242497, y: -1.9924507, z: 0}
+    m_Extent: {x: 19.82105, y: 19.26445, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -5658,13 +5658,13 @@ MonoBehaviour:
   m_ShapeLightFalloffSize: 7.5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -8.00182, y: 1.518383, z: 0}
-  - {x: -2.7785187, y: -3.684372, z: 0}
-  - {x: -4.6131096, y: -8.7295, z: 0}
+  - {x: -6.4990883, y: 1.7952118, z: 0}
+  - {x: -1.6316948, y: -3.526184, z: 0}
+  - {x: -2.71492, y: -8.927231, z: 0}
   - {x: 0.491642, y: -8.296196, z: 0}
   - {x: 5.1933556, y: -12.902199, z: 0}
   - {x: 12.774651, y: -13.757751, z: 0}
-  - {x: 21.230385, y: -8.84301, z: 0}
+  - {x: 18.14582, y: -8.131195, z: 0}
   - {x: 11.796074, y: -5.027954, z: 0}
   - {x: 8.129837, y: 5.2622643, z: 0}
   - {x: 2.3744316, y: 6.75037, z: 0}
@@ -197657,7 +197657,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.4
   m_Color: {r: 0.7705786, g: 0.93255794, b: 0.9685534, a: 1}
-  m_Intensity: 0.8
+  m_Intensity: 0.6
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000099cae88ca76c0796b32bcbde
