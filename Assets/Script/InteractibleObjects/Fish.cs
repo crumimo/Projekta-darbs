@@ -8,63 +8,60 @@ public class Fish : MonoBehaviour
     public float stopDistance = 0.1f; // Distance to stop movement
     public float returnDistance = 15f; // Distance at which the fish will return to its original position
     public float distanceToAcceptCombination = 5f; // Distance within which the fish will accept the combination
+    public GameObject wordObject; // Reference to the word object
 
     private Vector3 originalPosition; // The original position of the fish
     private bool isReturningToOrigin = false; // Flag for returning to the original position
     private bool isCorrectCombination = false; // Flag for the correct combination
-    private bool isMovingToPlayer = false; // Flag for moving towards the player
-    private FishBehavior fishBehavior; // Reference to the FishBehavior instance
-    public GameObject wordObject; // The word object to be activated
-    
+    private bool isMovingAwayFromPlayer = false; // Flag for moving away from the player
     private Animator anim;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         originalPosition = transform.position;
-
-        // Ensure each fish has its own FishBehavior instance
-        fishBehavior = ScriptableObject.CreateInstance<FishBehavior>();
-        fishBehavior.SetWordObject(wordObject, playerTransform); // Set the word object and player transform in the behavior
-        fishBehavior.SetFish(this); // Set the fish instance in the behavior
+        if (wordObject != null)
+        {
+            wordObject.SetActive(false); // Ensure the word object is initially inactive
+        }
     }
 
     void Update()
     {
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 
-        if (isMovingToPlayer)
+        if (isCorrectCombination)
         {
-            MoveToPosition(playerTransform.position);
-            if (Vector3.Distance(transform.position, playerTransform.position) < stopDistance)
+            // Correct combination applied, return to original position and stay there
+            MoveToPosition(originalPosition);
+            if (Vector3.Distance(transform.position, originalPosition) < stopDistance)
             {
-                isMovingToPlayer = false;
-                isReturningToOrigin = true; // Start returning to the original position
+                isCorrectCombination = false; // Reset combination flag after returning
+                wordObject.SetActive(true); // Show the word object
             }
         }
-        else if (isReturningToOrigin)
+        else if (distanceToPlayer < distanceToActivate)
+        {
+            // Player is close, move away from player
+            isMovingAwayFromPlayer = true;
+            isReturningToOrigin = false;
+            Vector3 direction = GetHorizontalDirection(playerTransform.position);
+            Vector3 targetPosition = transform.position + direction * speed * Time.deltaTime;
+            MoveToPosition(targetPosition);
+        }
+        else if (distanceToPlayer > returnDistance)
+        {
+            // Player is far, return to original position
+            isReturningToOrigin = true;
+            isMovingAwayFromPlayer = false;
+        }
+
+        if (isReturningToOrigin)
         {
             MoveToPosition(originalPosition);
             if (Vector3.Distance(transform.position, originalPosition) < stopDistance)
             {
                 isReturningToOrigin = false;
-                isCorrectCombination = false; // Reset combination flag after returning
-            }
-        }
-        else if (!isCorrectCombination)
-        {
-            float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-
-            if (distanceToPlayer < distanceToActivate)
-            {
-                // Player is close, move away from player
-                Vector3 direction = GetOrthogonalDirection(playerTransform.position);
-                Vector3 targetPosition = transform.position + direction * speed * Time.deltaTime;
-                MoveToPosition(targetPosition);
-            }
-            else if (distanceToPlayer > returnDistance)
-            {
-                // Player is far, return to original position
-                MoveToPosition(originalPosition);
             }
         }
     }
@@ -109,38 +106,23 @@ public class Fish : MonoBehaviour
         if (!isCorrectCombination)
         {
             isCorrectCombination = true;
-            Debug.Log("Correct combination applied.");
-            fishBehavior.ActivateWord(); // Activate the word object after the correct combination
+            Debug.Log("Correct combination applied. Word object should be activated.");
+        
+            if (wordObject != null)
+            {
+                wordObject.SetActive(true);
+                Debug.Log("Word object activated successfully.");
+            }
+            else
+            {
+                Debug.LogError("Word object is null. Cannot activate word object.");
+            }
         }
     }
 
-    public void StartMovingToPlayer()
-    {
-        isMovingToPlayer = true;
-        isReturningToOrigin = false;
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log($"OnTriggerEnter2D: {other.name}");
-
-        if (isCorrectCombination && other.CompareTag("Player"))
-        {
-            isMovingToPlayer = false;
-            isReturningToOrigin = true; // Set the flag to return to the original position
-        }
-    }
-
-    private Vector3 GetOrthogonalDirection(Vector3 targetPosition)
+    private Vector3 GetHorizontalDirection(Vector3 targetPosition)
     {
         Vector3 direction = (transform.position - targetPosition).normalized;
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-        {
-            return new Vector3(Mathf.Sign(direction.x), 0, 0); // Move left or right
-        }
-        else
-        {
-            return new Vector3(0, Mathf.Sign(direction.y), 0); // Move up or down
-        }
+        return new Vector3(Mathf.Sign(direction.x), 0, 0); // Move left or right
     }
 }

@@ -354,7 +354,8 @@ public class WordUIManager : MonoBehaviour
         {
             if (collider.GetComponent<PatrolEnemy>() != null ||
                 collider.GetComponent<DialogueActivator>() != null ||
-                collider.GetComponent<ObstacleManager>() != null)
+                collider.GetComponent<ObstacleManager>() != null ||
+                collider.GetComponent<Fish>() != null) 
             {
                 return true;
             }
