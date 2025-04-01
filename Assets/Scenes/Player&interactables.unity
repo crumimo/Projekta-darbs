@@ -3263,7 +3263,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.341
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5657,7 +5657,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 10, y: -8}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 1401.2, y: 247.04}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &423798115
 GameObject:
@@ -13361,6 +13361,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 334ad8e4835cad144859f75f23c902d6, type: 2}
+  requiresNoCombo: 0
+  requiresQuietWhisper: 0
+  requiresEchoingRoots: 0
+  canTalk: {fileID: 0}
+  cantTalk: {fileID: 0}
+  distanceToActivate: 0
 --- !u!1 &997127267
 GameObject:
   m_ObjectHideFlags: 0
@@ -16406,6 +16412,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 28bd70c3ec5346d42912f85da3030619, type: 2}
+  requiresNoCombo: 0
+  requiresQuietWhisper: 0
+  requiresEchoingRoots: 0
+  canTalk: {fileID: 0}
+  cantTalk: {fileID: 0}
+  distanceToActivate: 0
 --- !u!1 &1262514972
 GameObject:
   m_ObjectHideFlags: 0
@@ -21857,6 +21869,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 619cdada587745342a9c2966c7c591c0, type: 2}
+  requiresNoCombo: 0
+  requiresQuietWhisper: 0
+  requiresEchoingRoots: 0
+  canTalk: {fileID: 0}
+  cantTalk: {fileID: 0}
+  distanceToActivate: 0
 --- !u!1 &1665075626
 GameObject:
   m_ObjectHideFlags: 0
@@ -25077,6 +25095,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 619cdada587745342a9c2966c7c591c0, type: 2}
+  requiresNoCombo: 1
+  requiresQuietWhisper: 1
+  requiresEchoingRoots: 0
+  canTalk: {fileID: 0}
+  cantTalk: {fileID: 0}
+  distanceToActivate: 10
 --- !u!58 &2031893202
 CircleCollider2D:
   m_ObjectHideFlags: 0

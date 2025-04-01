@@ -12,10 +12,10 @@ public class QuietWhisperEffect : EffectBase
         }
         else
         {
-            DialogueTrigger dialogueTrigger = target.GetComponent<DialogueTrigger>();
-            if (dialogueTrigger != null)
+            DialogueActivator dialogueActivator = target.GetComponent<DialogueActivator>();
+            if (dialogueActivator != null)
             {
-                dialogueTrigger.EnableDialogueStart();
+                dialogueActivator.EnableDialogueStart();
             }
         }
     }

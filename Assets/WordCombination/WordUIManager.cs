@@ -290,11 +290,11 @@ public class WordUIManager : MonoBehaviour
                             effect.Apply(enemy.gameObject);
                         }
                     }
-                    foreach (var dialogueTrigger in FindObjectsOfType<DialogueTrigger>())
+                    foreach (var dialogueActivator in FindObjectsOfType<DialogueActivator>())
                     {
-                        if (Vector3.Distance(playerTransform.position, dialogueTrigger.transform.position) <= effectRadius)
+                        if (Vector3.Distance(playerTransform.position, dialogueActivator.transform.position) <= effectRadius)
                         {
-                            effect.Apply(dialogueTrigger.gameObject);
+                            effect.Apply(dialogueActivator.gameObject);
                         }
                     }
                     foreach (var obstacleManager in FindObjectsOfType<ObstacleManager>())
@@ -353,7 +353,7 @@ public class WordUIManager : MonoBehaviour
         foreach (var collider in colliders)
         {
             if (collider.GetComponent<PatrolEnemy>() != null ||
-                collider.GetComponent<DialogueTrigger>() != null ||
+                collider.GetComponent<DialogueActivator>() != null ||
                 collider.GetComponent<ObstacleManager>() != null)
             {
                 return true;

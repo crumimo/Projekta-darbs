@@ -23,14 +23,14 @@ public class TypewriterEffect : MonoBehaviour
     private TMP_Text textLabel;
     private string textToType;
     private string speakerName;
-    private Dictionary<string, AudioClip[]> voiceDictionary;
+    private Dictionary<string, (AudioClip[] clips, int index)> voiceDictionary;
 
     private void Start()
     {
-        voiceDictionary = new Dictionary<string, AudioClip[]>();
+        voiceDictionary = new Dictionary<string, (AudioClip[], int)>();
         foreach (var voice in characterVoices)
         {
-            voiceDictionary[voice.characterName] = voice.voiceClips;
+            voiceDictionary[voice.characterName] = (voice.voiceClips, 0);
         }
     }
 
@@ -93,9 +93,15 @@ public class TypewriterEffect : MonoBehaviour
 
     private void PlayVoiceSound(string speakerName)
     {
-        if (voiceDictionary.TryGetValue(speakerName, out AudioClip[] sounds) && sounds.Length > 0 && audioSource != null)
+        if (voiceDictionary.TryGetValue(speakerName, out var voiceData) && voiceData.clips.Length > 0 && audioSource != null)
         {
-            audioSource.PlayOneShot(sounds[UnityEngine.Random.Range(0, sounds.Length)]);
+            // Воспроизводим звук по порядку
+            AudioClip clipToPlay = voiceData.clips[voiceData.index];
+            audioSource.PlayOneShot(clipToPlay);
+
+            // Увеличиваем индекс и сбрасываем его, если он выходит за границы массива
+            int nextIndex = (voiceData.index + 1) % voiceData.clips.Length;
+            voiceDictionary[speakerName] = (voiceData.clips, nextIndex);
         }
     }
 
