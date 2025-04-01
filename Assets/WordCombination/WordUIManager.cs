@@ -81,6 +81,9 @@ public class WordUIManager : MonoBehaviour
         {
             Debug.Log("Fish found at position: " + fish.transform.position + ", with tag: " + fish.tag);
         }
+
+        // Ensure buttons are updated and active on start
+        RestoreCollectedWords();
     }
 
     void Update()
@@ -119,14 +122,19 @@ public class WordUIManager : MonoBehaviour
 
     public void RestoreCollectedWordsOnScene()
     {
+        // Reactivate words on the scene
         foreach (var wordCollector in trackedWords)
         {
             if (!checkpointTrackedWords.Contains(wordCollector))
             {
-                wordCollector.ResetWord();
+                wordCollector.gameObject.SetActive(true); // Ensure words are reactivated if not saved in checkpoint
             }
         }
-        trackedWords.Clear();
+        trackedWords = new List<WordCollector>(checkpointTrackedWords);
+
+        // Restore collected words to checkpoint state
+        collectedWords = new Dictionary<string, int>(savedCollectedWords);
+        UpdateButtons(); // Update button texts after restoring words on scene
     }
 
     void ToggleWorldPanel()
@@ -177,14 +185,19 @@ public class WordUIManager : MonoBehaviour
         }
     }
 
-    public void UpdateButtons() // Made public
+    public void UpdateButtons()
     {
+        foreach (var btn in wordButtons)
+        {
+            btn.gameObject.SetActive(false); // Deactivate all buttons initially
+        }
+
         int i = 0;
         foreach (var pair in collectedWords)
         {
             if (i < wordButtons.Length)
             {
-                wordButtons[i].gameObject.SetActive(true);
+                wordButtons[i].gameObject.SetActive(true); // Ensure button is active
                 wordButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = $"{pair.Key} x{pair.Value}";
                 int index = i; // Capture the current index
                 wordButtons[i].onClick.RemoveAllListeners(); // Remove any existing listeners
@@ -365,15 +378,32 @@ public class WordUIManager : MonoBehaviour
         collectedWords = new Dictionary<string, int>(savedCollectedWords);
         UpdateButtons();
         ResetSelection();
+        ActivateCollectedWordsUI(); // Ensure the buttons are active after restoring words
+    }
+
+    public void ActivateCollectedWordsUI()
+    {
+        foreach (var pair in collectedWords)
+        {
+            if (pair.Value > 0)
+            {
+                foreach (var btn in wordButtons)
+                {
+                    if (btn.GetComponentInChildren<TextMeshProUGUI>().text.Contains(pair.Key))
+                    {
+                        btn.gameObject.SetActive(true); // Ensure button is active
+                    }
+                }
+            }
+        }
     }
 
     public void ResetToCheckpoint()
     {
         RestoreCollectedWords();
-        ResetCollectedWords();
+        RestoreCollectedWordsOnScene();
         ObstacleStateManager.RestoreCheckpointState(); // Restore obstacles to the checkpoint state
         ResetTrackedObstacles(); // Reset tracked obstacles
-        ResetUICollectedWords(); // Clear the UI word buttons
     }
 
     public void ResetCollectedWords()
@@ -398,17 +428,5 @@ public class WordUIManager : MonoBehaviour
             }
         }
         trackedObstacles.Clear();
-    }
-
-    public void ResetUICollectedWords()
-    {
-        collectedWords.Clear();
-        foreach (var btn in wordButtons)
-        {
-            btn.GetComponentInChildren<TextMeshProUGUI>().text = string.Empty;
-            btn.gameObject.SetActive(false);
-        }
-        UpdateButtons();
-        ResetSelection();
     }
 }
