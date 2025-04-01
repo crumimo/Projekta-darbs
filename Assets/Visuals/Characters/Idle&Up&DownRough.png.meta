@@ -101,9 +101,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 981
+        y: 984
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,9 +122,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 300
-        y: 981
+        y: 984
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,9 +143,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 600
-        y: 981
+        y: 984
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,9 +164,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 900
-        y: 981
+        y: 984
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,34 +181,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle&Up&DownRough_4
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 981
-        width: 300
-        height: 820
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f5e409ac8a37814dbd638e5360b9e67
-      internalID: -214540952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Idle&Up&DownRough_5
       rect:
         serializedVersion: 2
         x: 1500
-        y: 981
+        y: 984
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,9 +206,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1800
-        y: 981
+        y: 984
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,9 +227,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2100
-        y: 981
+        y: 984
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,9 +248,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2400
-        y: 981
+        y: 984
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,9 +269,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2700
-        y: 981
+        y: 984
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,9 +290,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 161
+        y: 167
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,76 +307,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle&Up&DownRough_11
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 161
-        width: 300
-        height: 820
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9495a346683984547b0a74e6fbbbc16f
-      internalID: 1752658975
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle&Up&DownRough_12
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 161
-        width: 300
-        height: 820
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 31809c667bbee5d4b9ef1d16916ab64a
-      internalID: -580649978
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle&Up&DownRough_13
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 161
-        width: 300
-        height: 820
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 271e96ecd47adbf42add8fae367f1bf2
-      internalID: 1273036614
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Idle&Up&DownRough_14
       rect:
         serializedVersion: 2
         x: 1200
-        y: 161
+        y: 167
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -416,9 +332,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1500
-        y: 161
+        y: 167
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,9 +353,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1800
-        y: 161
+        y: 167
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,9 +374,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2100
-        y: 161
+        y: 167
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -479,9 +395,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2400
-        y: 161
+        y: 167
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -500,9 +416,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2700
-        y: 161
+        y: 167
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -521,9 +437,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3000
-        y: 161
+        y: 167
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -542,9 +458,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3300
-        y: 161
+        y: 167
         width: 300
-        height: 820
+        height: 817
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -554,6 +470,90 @@ TextureImporter:
       bones: []
       spriteID: 1a11575fa68376f4188ea171b5ce811d
       internalID: -2144596471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 984
+        width: 300
+        height: 817
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec3900ec57399f45a7301940f082f2a
+      internalID: -214540952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 167
+        width: 300
+        height: 817
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e99d57abf82db74eb4ada216a05648e
+      internalID: 1752658975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_12
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 167
+        width: 300
+        height: 817
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9d5110492a071b4abdf577205f1f7a1
+      internalID: -580649978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle&Up&DownRough_13
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 167
+        width: 300
+        height: 817
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e4c8b3dc957754bb4790a1c0cfe79b
+      internalID: 1273036614
       vertices: []
       indices: 
       edges: []
