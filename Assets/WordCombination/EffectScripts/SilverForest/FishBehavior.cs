@@ -9,6 +9,7 @@ public class FishBehavior : EffectBase
     {
         wordObject = word;
         wordObject.SetActive(false); // Ensure the word object is initially inactive
+        Debug.Log("Word object set and initially deactivated.");
     }
 
     public void SetFish(Fish fishInstance)
@@ -22,7 +23,7 @@ public class FishBehavior : EffectBase
         {
             wordObject.SetActive(true);
             Debug.Log("Word object activated.");
-            fish.StartMovingToPlayer(); // Start moving the fish to the player
+            fish.ApplyCorrectCombination(); // Set the flag to return to the original position
         }
         else
         {
