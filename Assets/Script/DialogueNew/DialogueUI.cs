@@ -1,22 +1,30 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
+    [SerializeField] private TMP_Text speakerNameLabel;
+    [SerializeField] private Image speakerImage;
+   
 
     public bool IsOpen { get; private set; }
     
     private ResponseHandler responseHandler;
     private TypewriterEffect typewriterEffect;
-    
+    private Dictionary<string, AudioClip[]> voiceDictionary;
+
     private void Start()
     {
         typewriterEffect = GetComponent<TypewriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
+
+        voiceDictionary = new Dictionary<string, AudioClip[]>();
         
         CloseDialogueBox();
     }
@@ -35,15 +43,18 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject)
     {
-        for (int i = 0; i < dialogueObject.Dialogue.Length; i++)
+        for (int i = 0; i < dialogueObject.DialogueSegments.Length; i++)
         {
-            string dialogue = dialogueObject.Dialogue[i];
+            DialogueSegment segment = dialogueObject.DialogueSegments[i];
 
-            yield return RunTypingEffect(dialogue);
+            speakerNameLabel.text = segment.speakerName;
+            speakerImage.sprite = segment.speakerSprite;
 
-            textLabel.text = dialogue;
+            yield return RunTypingEffect(segment.sentence, segment.speakerName);
+
+            textLabel.text = segment.sentence;
             
-            if(i == dialogueObject.Dialogue.Length - 1 && dialogueObject.HasResponses) break;
+            if(i == dialogueObject.DialogueSegments.Length - 1 && dialogueObject.HasResponses) break;
 
             yield return null;
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
@@ -59,9 +70,9 @@ public class DialogueUI : MonoBehaviour
         }
     }
 
-    private IEnumerator RunTypingEffect(string dialogue)
+    private IEnumerator RunTypingEffect(string dialogue, string speakerName)
     {
-        typewriterEffect.Run(dialogue, textLabel);
+        typewriterEffect.Run(dialogue, textLabel, speakerName);
 
         while (typewriterEffect.IsRunning)
         {
@@ -79,5 +90,9 @@ public class DialogueUI : MonoBehaviour
         IsOpen = false;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
+        speakerNameLabel.text = string.Empty;
+        speakerImage.sprite = null;
     }
 }
+
+

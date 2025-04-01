@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     private bool skipTyping = false;
 
     public AudioSource audioSource; 
-    public List<CharacterVoice> characterVoices; 
+    //public List<CharacterVoice> characterVoices; 
     private Dictionary<string, AudioClip[]> voiceDictionary; 
 
     void Start()
@@ -30,9 +30,9 @@ public class DialogueManager : MonoBehaviour
         segmentsQueue = new Queue<DialogueSegment>();
         
         voiceDictionary = new Dictionary<string, AudioClip[]>();
-        foreach (var voice in characterVoices)
+        //foreach (var voice in characterVoices)
         {
-            voiceDictionary[voice.characterName] = voice.voiceClips; 
+            //voiceDictionary[voice.characterName] = voice.voiceClips; 
         }
     }
 
@@ -93,11 +93,11 @@ public class DialogueManager : MonoBehaviour
         nameText.text = segment.speakerName;
         speakerImage.sprite = segment.speakerSprite; // Устанавливаем спрайт говорящего
 
-        if (segment.isQuestion)
+        //if (segment.isQuestion)
         {
             DisplayQuestion(segment);
         }
-        else
+        //else
         {
             ClearAnswers();
             StopAllCoroutines();
@@ -142,11 +142,11 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = segment.sentence;
         ClearAnswers();
 
-        foreach (var answer in segment.answers)
+        //foreach (var answer in segment.answers)
         {
-            Button answerButton = Instantiate(answerButtonPrefab, answersContainer);
-            answerButton.GetComponentInChildren<TextMeshProUGUI>().text = answer.text;
-            answerButton.onClick.AddListener(() => OnAnswerSelected(answer));
+            //Button answerButton = Instantiate(answerButtonPrefab, answersContainer);
+            //answerButton.GetComponentInChildren<TextMeshProUGUI>().text = answer.text;
+            //answerButton.onClick.AddListener(() => OnAnswerSelected(answer));
         }
     }
 
@@ -186,9 +186,8 @@ public class DialogueManager : MonoBehaviour
     }
 }
 
-[System.Serializable]
-public class CharacterVoice
-{
-    public string characterName;
-    public AudioClip[] voiceClips; 
-}
+//[System.Serializable]
+//public class CharacterVoice
+
+    //public string characterName;
+    //public AudioClip[] voiceClips; 

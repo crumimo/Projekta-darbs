@@ -7,6 +7,9 @@ using TMPro;
 public class TypewriterEffect : MonoBehaviour
 {
     [SerializeField] private float typewriterSpeed = 50f;
+    [SerializeField] private int lettersPerSound = 4;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private CharacterVoice[] characterVoices;
 
     public bool IsRunning { get; private set; }
 
@@ -18,13 +21,24 @@ public class TypewriterEffect : MonoBehaviour
 
     private Coroutine typingCoroutine;
     private TMP_Text textLabel;
-
     private string textToType;
+    private string speakerName;
+    private Dictionary<string, AudioClip[]> voiceDictionary;
 
-    public void Run(string textToType, TMP_Text textLabel)
+    private void Start()
+    {
+        voiceDictionary = new Dictionary<string, AudioClip[]>();
+        foreach (var voice in characterVoices)
+        {
+            voiceDictionary[voice.characterName] = voice.voiceClips;
+        }
+    }
+
+    public void Run(string textToType, TMP_Text textLabel, string speakerName)
     {
         this.textToType = textToType;
         this.textLabel = textLabel;
+        this.speakerName = speakerName;
 
         typingCoroutine = StartCoroutine(TypeText());
     }
@@ -52,15 +66,18 @@ public class TypewriterEffect : MonoBehaviour
             int lastCharIndex = charIndex;
 
             t += Time.deltaTime * typewriterSpeed;
-
             charIndex = Mathf.FloorToInt(t);
             charIndex = Mathf.Clamp(charIndex, 0, textToType.Length);
 
             for (int i = lastCharIndex; i < charIndex; i++)
             {
                 bool isLast = i >= textToType.Length - 1;
-
                 textLabel.maxVisibleCharacters = i + 1;
+
+                if (i % lettersPerSound == 0 && voiceDictionary.ContainsKey(speakerName))
+                {
+                    PlayVoiceSound(speakerName);
+                }
 
                 if (IsPunctuation(textToType[i], out float waitTime) && !isLast && !IsPunctuation(textToType[i + 1], out _))
                 {
@@ -72,6 +89,14 @@ public class TypewriterEffect : MonoBehaviour
         }
 
         OnTypingCompleted();
+    }
+
+    private void PlayVoiceSound(string speakerName)
+    {
+        if (voiceDictionary.TryGetValue(speakerName, out AudioClip[] sounds) && sounds.Length > 0 && audioSource != null)
+        {
+            audioSource.PlayOneShot(sounds[UnityEngine.Random.Range(0, sounds.Length)]);
+        }
     }
 
     private void OnTypingCompleted()
@@ -106,4 +131,11 @@ public class TypewriterEffect : MonoBehaviour
             WaitTime = waitTime;
         }
     }
+}
+
+[Serializable]
+public class CharacterVoice
+{
+    public string characterName;
+    public AudioClip[] voiceClips;
 }

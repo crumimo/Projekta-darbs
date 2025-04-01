@@ -8065,7 +8065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1207024847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8156,6 +8156,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 38957446}
   textLabel: {fileID: 1103465496}
+  speakerNameLabel: {fileID: 0}
+  speakerImage: {fileID: 0}
+  audioSource: {fileID: 0}
+  lettersPerSound: 4
+  characterVoices: []
 --- !u!114 &1207024852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10120,7 +10125,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.524868
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10145,7 +10150,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.716785, y: -38.097385, z: -10}
+  m_LocalPosition: {x: 73.299995, y: -69.15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10355,6 +10360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldCanvas: {fileID: 813490070}
   playerTransform: {fileID: 1705536874}
+  playerVisual: {fileID: 0}
   wordButtons:
   - {fileID: 1422444852}
   - {fileID: 720451694}
@@ -10367,6 +10373,7 @@ MonoBehaviour:
   effectRadius: 15
   effectManager: {fileID: 1005060321}
   collectionSounds: []
+  UIOffset: {x: 0, y: 0, z: 0}
   effectsFolder: Effects
 --- !u!4 &1441669406
 Transform:
