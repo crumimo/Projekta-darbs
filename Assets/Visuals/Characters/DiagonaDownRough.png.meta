@@ -101,11 +101,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1021
-        width: 500
-        height: 780
+        y: 774
+        width: 600
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,12 +121,12 @@ TextureImporter:
       name: DiagonaDownRough_1
       rect:
         serializedVersion: 2
-        x: 500
-        y: 1021
-        width: 500
-        height: 780
+        x: 600
+        y: 774
+        width: 600
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: DiagonaDownRough_2
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 1021
-        width: 500
-        height: 780
+        x: 1200
+        y: 774
+        width: 600
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: DiagonaDownRough_3
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 1021
-        width: 500
-        height: 780
+        x: 1800
+        y: 774
+        width: 600
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: DiagonaDownRough_4
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 1021
-        width: 500
-        height: 780
+        x: 2400
+        y: 774
+        width: 600
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,12 +205,12 @@ TextureImporter:
       name: DiagonaDownRough_5
       rect:
         serializedVersion: 2
-        x: 2500
-        y: 1021
-        width: 500
-        height: 780
+        x: 3000
+        y: 774
+        width: 600
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,11 +227,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 241
-        width: 500
-        height: 780
+        y: 54
+        width: 600
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,12 +247,12 @@ TextureImporter:
       name: DiagonaDownRough_7
       rect:
         serializedVersion: 2
-        x: 500
-        y: 241
-        width: 500
-        height: 780
+        x: 600
+        y: 54
+        width: 600
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -268,12 +268,12 @@ TextureImporter:
       name: DiagonaDownRough_8
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 241
-        width: 500
-        height: 780
+        x: 1200
+        y: 54
+        width: 600
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,12 +289,12 @@ TextureImporter:
       name: DiagonaDownRough_9
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 241
-        width: 500
-        height: 780
+        x: 1800
+        y: 54
+        width: 600
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -310,12 +310,12 @@ TextureImporter:
       name: DiagonaDownRough_10
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 241
-        width: 500
-        height: 780
+        x: 2400
+        y: 54
+        width: 600
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -331,12 +331,12 @@ TextureImporter:
       name: DiagonaDownRough_11
       rect:
         serializedVersion: 2
-        x: 2500
-        y: 241
-        width: 500
-        height: 780
+        x: 3000
+        y: 54
+        width: 600
+        height: 720
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -363,7 +363,6 @@ TextureImporter:
       DiagonaDownRough_1: -148367752
       DiagonaDownRough_10: -1794289937
       DiagonaDownRough_11: 1961333403
-      DiagonaDownRough_12: -1526213977
       DiagonaDownRough_2: -1487118984
       DiagonaDownRough_3: -204631193
       DiagonaDownRough_4: -1149158072

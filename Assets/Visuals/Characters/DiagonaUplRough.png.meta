@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DiagonalRough_0
+      name: DiagonaUplRough_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1031
-        width: 500
-        height: 770
+        y: 936
+        width: 600
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f577853e8b19384aa9f8d374cf954a9
-      internalID: -62914645
+      spriteID: c671a5f4706024f4485d540b0e9d045e
+      internalID: -490266721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiagonalRough_1
+      name: DiagonaUplRough_1
       rect:
         serializedVersion: 2
-        x: 500
-        y: 1031
-        width: 500
-        height: 770
+        x: 600
+        y: 936
+        width: 600
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b1bfea2187c0dd40b71fe397d3c46e3
-      internalID: 1366156955
+      spriteID: c1559904ad2f9da4881e46de617008e7
+      internalID: -2055729112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiagonalRough_2
+      name: DiagonaUplRough_2
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 1031
-        width: 500
-        height: 770
+        x: 1200
+        y: 936
+        width: 600
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0888e2d50ce92f9469ca859391ea44db
-      internalID: -804810553
+      spriteID: bc9be385ea9e7074b9f963108a11d45f
+      internalID: 1056906710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiagonalRough_3
+      name: DiagonaUplRough_3
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 1031
-        width: 500
-        height: 770
+        x: 1800
+        y: 936
+        width: 600
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18e981461aa27bc498cf9d81d81860aa
-      internalID: 1143459260
+      spriteID: 77f2836cdf91a4249be587bc304a471c
+      internalID: -870875112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiagonalRough_4
+      name: DiagonaUplRough_4
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 1031
-        width: 500
-        height: 770
+        x: 2400
+        y: 936
+        width: 600
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fecfc03916c90bd4b87f7b8c347112d9
-      internalID: 2131578334
+      spriteID: 822f41f3ae5bdcf4e9c53cd4d5a78833
+      internalID: -765924663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiagonalRough_5
+      name: DiagonaUplRough_5
       rect:
         serializedVersion: 2
-        x: 2500
-        y: 1031
-        width: 500
-        height: 770
+        x: 3000
+        y: 936
+        width: 600
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f2202c0f6ba1bc4383357f5ce6c0621
-      internalID: -1068254340
+      spriteID: 3cb1d4193b4ea4246a250b5d472dfd2a
+      internalID: -1717679986
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiagonalRough_6
+      name: DiagonaUplRough_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 261
-        width: 500
-        height: 770
+        y: 176
+        width: 600
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc00475fde8c75846a84f01a3f2c49e9
-      internalID: 1505744793
+      spriteID: 46344af67a57d41479a41b30957bf57e
+      internalID: -90188455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiagonalRough_7
+      name: DiagonaUplRough_7
       rect:
         serializedVersion: 2
-        x: 500
-        y: 261
-        width: 500
-        height: 770
+        x: 600
+        y: 176
+        width: 600
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb4a5d3ff54c4eb46acc2f9aea37b0b4
-      internalID: -1024714052
+      spriteID: 932961ba3f3d391449285223df43b450
+      internalID: 775200383
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiagonalRough_8
+      name: DiagonaUplRough_8
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 261
-        width: 500
-        height: 770
+        x: 1200
+        y: 176
+        width: 600
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,20 +279,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d843bca28cf5024392c1242f2569356
-      internalID: -920481680
+      spriteID: 859ffc967613b4b41af29f856c4b881e
+      internalID: -458907700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiagonalRough_9
+      name: DiagonaUplRough_9
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 261
-        width: 500
-        height: 770
+        x: 1800
+        y: 176
+        width: 600
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,20 +300,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ca4d23c20b09be47819429d8c591eeb
-      internalID: 520972582
+      spriteID: de9a7628c19e4964fa75aadc52dea58c
+      internalID: -401093501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiagonalRough_10
+      name: DiagonaUplRough_10
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 261
-        width: 500
-        height: 770
+        x: 2400
+        y: 176
+        width: 600
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,20 +321,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6e3d1171328aca4186f193d5635430d
-      internalID: -1496257440
+      spriteID: 23dd0dd7550eae5418aaad11b5912915
+      internalID: -1034956431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiagonalRough_11
+      name: DiagonaUplRough_11
       rect:
         serializedVersion: 2
-        x: 2500
-        y: 261
-        width: 500
-        height: 770
+        x: 3000
+        y: 176
+        width: 600
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,8 +342,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f731796a79601441b46e8d129a15aa1
-      internalID: 2131709125
+      spriteID: 4cb7e9ca47d5ad34aaea0458aa554921
+      internalID: -1730523768
       vertices: []
       indices: 
       edges: []
@@ -359,18 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DiagonalRough_0: -62914645
-      DiagonalRough_1: 1366156955
-      DiagonalRough_10: -1496257440
-      DiagonalRough_11: 2131709125
-      DiagonalRough_2: -804810553
-      DiagonalRough_3: 1143459260
-      DiagonalRough_4: 2131578334
-      DiagonalRough_5: -1068254340
-      DiagonalRough_6: 1505744793
-      DiagonalRough_7: -1024714052
-      DiagonalRough_8: -920481680
-      DiagonalRough_9: 520972582
+      DiagonaUplRough_0: -490266721
+      DiagonaUplRough_1: -2055729112
+      DiagonaUplRough_10: -1034956431
+      DiagonaUplRough_11: -1730523768
+      DiagonaUplRough_2: 1056906710
+      DiagonaUplRough_3: -870875112
+      DiagonaUplRough_4: -765924663
+      DiagonaUplRough_5: -1717679986
+      DiagonaUplRough_6: -90188455
+      DiagonaUplRough_7: 775200383
+      DiagonaUplRough_8: -458907700
+      DiagonaUplRough_9: -401093501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: Blanka
+  m_Name: Test
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Blanka
-    sentence: skdjjdjdsbjhcds
-    speakerSprite: {fileID: 0}
+    sentence: Hallo
+    speakerSprite: {fileID: -1149604963, guid: 7adaf53c918cb0f4194305355444ce26, type: 3}
   - speakerName: Blanka
-    sentence: skdjjdjdsbjhcds
-    speakerSprite: {fileID: 0}
-  responses: []
+    sentence: "Whacha d\xF3in"
+    speakerSprite: {fileID: -1149604963, guid: 7adaf53c918cb0f4194305355444ce26, type: 3}
+  responses:
+  - responseText: u stink
+    dialogueObject: {fileID: 11400000, guid: 75bba926c85fb1d4e9888998d80087ce, type: 2}

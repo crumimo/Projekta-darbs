@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: Vekh
+  m_Name: Test2
   m_EditorClassIdentifier: 
-  dialogue: []
+  dialogueSegments:
+  - speakerName: Banka
+    sentence: aaaaaaaaaaaaaaaaa
+    speakerSprite: {fileID: -1149604963, guid: 7adaf53c918cb0f4194305355444ce26, type: 3}
   responses: []
