@@ -19,6 +19,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
 
     [Header("Effect Settings")]
     public float effectRadius = 5f;
+    public EffectDiaryEntry[] effectDiaryEntries;
 
     private Transform player;
     private int currentPointIndex = 0;
@@ -52,7 +53,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     {
         if (isAsleep)
         {
-            return; // Полностью останавливаем патрулирование и действия врага, если он спит
+            return; 
         }
 
         if (isLookingAtPlayer)
@@ -177,6 +178,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     public void ApplyEffect(EffectBase effect)
     {
         effect.Apply(gameObject);
+        AddNotebookEntry(effect);
     }
     public void ApplyEffect(ScriptableObject effect)
     {
@@ -184,6 +186,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
         if (applyMethod != null)
         {
             applyMethod.Invoke(effect, new object[] { gameObject });
+            AddNotebookEntry(effect);
             Debug.Log($"{effect.GetType().Name} applied to {gameObject.name}");
         }
         else
@@ -261,6 +264,18 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
                 {
                     Gizmos.DrawSphere(point.position, 0.2f); 
                 }
+            }
+        }
+    }
+    
+    private void AddNotebookEntry(ScriptableObject effect)
+    {
+        foreach (var entry in effectDiaryEntries)
+        {
+            if (entry.effectName == effect.GetType().Name)
+            {
+                NotebookManager.Instance.AddEntry(entry.effectName, entry.diaryEntryTemplate);
+                break;
             }
         }
     }

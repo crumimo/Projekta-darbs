@@ -5,28 +5,39 @@ using UnityEngine.UI;
 
 public class NotebookManager : MonoBehaviour
 {
-    public GameObject notebookIcon; // Иконка блокнота
-    public GameObject notebookPanel; // Панель блокнота
-    public TextMeshProUGUI notebookContent; // Текстовое поле для содержания блокнота
-    public Button prevPageButton; // Кнопка для перехода к предыдущей странице
-    public Button nextPageButton; // Кнопка для перехода к следующей странице
-    public int maxCharactersPerPage = 500; // Максимальное количество символов на странице
+    public static NotebookManager Instance;
+
+    public GameObject notebookIcon; 
+    public GameObject notebookPanel; 
+    public TextMeshProUGUI notebookContent; 
+    public Button prevPageButton; 
+    public Button nextPageButton; 
+    public int maxCharactersPerPage = 500; 
 
     private Dictionary<string, string> uniqueEntries = new Dictionary<string, string>();
     private List<string> entries = new List<string>();
     private List<string> pages = new List<string>();
     private int currentPage = 0;
-    private List<string> notebookEntries = new List<string>(); // Добавляем эту переменную
+    private List<string> notebookEntries = new List<string>(); 
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
-        // Скрываем панель блокнота при старте
         notebookPanel.SetActive(false);
-
-        // Назначаем обработчик нажатия на иконку блокнота
+        
         notebookIcon.GetComponent<Button>().onClick.AddListener(ToggleNotebook);
         
-        // Назначаем обработчики для кнопок перелистывания страниц
         prevPageButton.onClick.AddListener(PreviousPage);
         nextPageButton.onClick.AddListener(NextPage);
 
@@ -46,7 +57,7 @@ public class NotebookManager : MonoBehaviour
             uniqueEntries[key] = entry;
             entries.Add(entry);
             UpdatePages();
-            currentPage = 0; // Устанавливаем текущую страницу на первую
+            currentPage = 0; 
             UpdateNotebookContent();
         }
     }

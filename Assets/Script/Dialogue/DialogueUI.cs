@@ -96,8 +96,7 @@ public class DialogueUI : MonoBehaviour
     
     public void EndDialogue()
     {
-        // Логика для завершения диалога...
-        OnDialogueEnd?.Invoke(); // Вызов события завершения диалога
+        OnDialogueEnd?.Invoke(); 
     }
 }
 

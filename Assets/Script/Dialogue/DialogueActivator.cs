@@ -14,6 +14,10 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
 
     [SerializeField] private float distanceToActivate;
     private bool isDialogueActive = false;
+
+    [Header("Effect Diary Entries")]
+    public EffectDiaryEntry[] effectDiaryEntries; // Array of effect diary entries
+
     public void UpdateDialogueObject(DialogueObject dialogueObject)
     {
         this.dialogueObject = dialogueObject;
@@ -76,21 +80,38 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
 
         player.DialogueUI.ShowDialogue(dialogueObject);
     }
+
     public void ApplyEffect(EffectBase effect)
     {
         effect.Apply(gameObject);
+        AddNotebookEntry(effect);
     }
+
     public void ApplyEffect(ScriptableObject effect)
     {
         var applyMethod = effect.GetType().GetMethod("Apply");
         if (applyMethod != null)
         {
             applyMethod.Invoke(effect, new object[] { gameObject });
+            AddNotebookEntry(effect);
             Debug.Log($"{effect.GetType().Name} applied to {gameObject.name}");
         }
         else
         {
             Debug.LogWarning($"Effect of type {effect.GetType().Name} does not have an Apply method or is not applicable to DialogueActivator.");
+        }
+    }
+
+    private void AddNotebookEntry(ScriptableObject effect)
+    {
+        foreach (var entry in effectDiaryEntries)
+        {
+            if (entry.effectName == effect.GetType().Name)
+            {
+                NotebookManager.Instance.AddEntry(entry.effectName, entry.diaryEntryTemplate);
+                Debug.Log($"Notebook entry added for effect: {entry.effectName}");
+                break;
+            }
         }
     }
 
@@ -125,8 +146,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         if (dialogueUI != null)
         {
             dialogueUI.ShowDialogue(dialogueObject);
-            isDialogueActive = true; // Устанавливаем флаг в true, когда диалог начинается
-            dialogueUI.OnDialogueEnd += EndDialogue; // Подписываемся на событие завершения диалога
+            isDialogueActive = true; 
+            dialogueUI.OnDialogueEnd += EndDialogue; 
             Debug.Log("Dialogue started.");
         }
         else
@@ -135,13 +156,14 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         }
         canStartDialogue = false;
     }
+
     private void EndDialogue()
     {
-        isDialogueActive = false; // Сбрасываем флаг, когда диалог завершается
+        isDialogueActive = false; 
         DialogueUI dialogueUI = FindObjectOfType<DialogueUI>();
         if (dialogueUI != null)
         {
-            dialogueUI.OnDialogueEnd -= EndDialogue; // Отписываемся от события завершения диалога
+            dialogueUI.OnDialogueEnd -= EndDialogue; 
         }
     }
 }

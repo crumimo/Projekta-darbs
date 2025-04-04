@@ -9,6 +9,9 @@ public class ObstacleManager : MonoBehaviour, IEffectable
     [SerializeField] private bool ErosionTouch = false; 
     [SerializeField] private bool SpikeCircle = false; 
     [SerializeField] private AudioClip destructionSound; // Sound effect for destruction
+
+    [Header("Effect Diary Entries")]
+    public EffectDiaryEntry[] effectDiaryEntries; // Array of effect diary entries
     
     private Animator barrierAnim;
     private AudioSource audioSource;
@@ -32,21 +35,38 @@ public class ObstacleManager : MonoBehaviour, IEffectable
             gameObject.SetActive(true);
         }
     }
+
     public void ApplyEffect(EffectBase effect)
     {
         effect.Apply(gameObject);
+        AddNotebookEntry(effect);
     }
+
     public void ApplyEffect(ScriptableObject effect)
     {
         var applyMethod = effect.GetType().GetMethod("Apply");
         if (applyMethod != null)
         {
             applyMethod.Invoke(effect, new object[] { gameObject });
+            AddNotebookEntry(effect);
             Debug.Log($"{effect.GetType().Name} applied to {gameObject.name}");
         }
         else
         {
             Debug.LogWarning($"Effect of type {effect.GetType().Name} does not have an Apply method or is not applicable to ObstacleManager.");
+        }
+    }
+
+    private void AddNotebookEntry(ScriptableObject effect)
+    {
+        foreach (var entry in effectDiaryEntries)
+        {
+            if (entry.effectName == effect.GetType().Name)
+            {
+                NotebookManager.Instance.AddEntry(entry.effectName, entry.diaryEntryTemplate);
+                Debug.Log($"Notebook entry added for effect: {entry.effectName}");
+                break;
+            }
         }
     }
 

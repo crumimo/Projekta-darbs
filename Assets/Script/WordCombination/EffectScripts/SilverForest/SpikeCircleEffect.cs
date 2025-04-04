@@ -9,15 +9,19 @@ public class SpikeCircleEffect : EffectBase
 
     public override void Apply(GameObject target)
     {
-        Transform playerTransform = target.transform;
-        Debug.Log("Player position for SpikeCircleEffect: " + playerTransform.position);
-
-        GameObject thornCircle = Instantiate(thornCirclePrefab, playerTransform.position, Quaternion.identity);
-        ThornCircle thornCircleScript = thornCircle.GetComponent<ThornCircle>();
-
-        if (thornCircleScript != null)
+        if (target.CompareTag("Player"))
         {
-            thornCircleScript.Initialize(playerTransform, duration, rotationSpeed);
+            Transform playerTransform = target.transform;
+            Debug.Log("Player position for SpikeCircleEffect: " + playerTransform.position);
+
+            GameObject thornCircle = Instantiate(thornCirclePrefab, playerTransform.position, Quaternion.identity);
+            ThornCircle thornCircleScript = thornCircle.GetComponent<ThornCircle>();
+
+            if (thornCircleScript != null)
+            {
+                thornCircleScript.Initialize(playerTransform, duration, rotationSpeed);
+            }
         }
+        Debug.Log($"{this.GetType().Name} applied to {target.name}");
     }
 }

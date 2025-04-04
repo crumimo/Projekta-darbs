@@ -10,6 +10,9 @@ public class Fish : MonoBehaviour, IEffectable
     public float distanceToAcceptCombination = 5f; // Distance within which the fish will accept the combination
     public GameObject wordObject; // Reference to the word object
 
+    [Header("Effect Diary Entries")]
+    public EffectDiaryEntry[] effectDiaryEntries; // Array of effect diary entries
+
     private Vector3 originalPosition; // The original position of the fish
     private bool isReturningToOrigin = false; // Flag for returning to the original position
     private bool isCorrectCombination = false; // Flag for the correct combination
@@ -93,9 +96,11 @@ public class Fish : MonoBehaviour, IEffectable
             anim.SetBool("isSwimmingLeft", false);
         }
     }
+
     public void ApplyEffect(EffectBase effect)
     {
         effect.Apply(gameObject);
+        AddNotebookEntry(effect);
     }
 
     public void ApplyCorrectCombination()
@@ -128,5 +133,18 @@ public class Fish : MonoBehaviour, IEffectable
     {
         Vector3 direction = (transform.position - targetPosition).normalized;
         return new Vector3(Mathf.Sign(direction.x), 0, 0); // Move left or right
+    }
+
+    private void AddNotebookEntry(ScriptableObject effect)
+    {
+        foreach (var entry in effectDiaryEntries)
+        {
+            if (entry.effectName == effect.GetType().Name)
+            {
+                NotebookManager.Instance.AddEntry(entry.effectName, entry.diaryEntryTemplate);
+                Debug.Log($"Notebook entry added for effect: {entry.effectName}");
+                break;
+            }
+        }
     }
 }

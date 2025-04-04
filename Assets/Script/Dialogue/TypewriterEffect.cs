@@ -95,11 +95,9 @@ public class TypewriterEffect : MonoBehaviour
     {
         if (voiceDictionary.TryGetValue(speakerName, out var voiceData) && voiceData.clips.Length > 0 && audioSource != null)
         {
-            // Воспроизводим звук по порядку
             AudioClip clipToPlay = voiceData.clips[voiceData.index];
             audioSource.PlayOneShot(clipToPlay);
-
-            // Увеличиваем индекс и сбрасываем его, если он выходит за границы массива
+            
             int nextIndex = (voiceData.index + 1) % voiceData.clips.Length;
             voiceDictionary[speakerName] = (voiceData.clips, nextIndex);
         }

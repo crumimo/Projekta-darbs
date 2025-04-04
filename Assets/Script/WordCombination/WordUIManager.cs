@@ -78,10 +78,6 @@ public class WordUIManager : MonoBehaviour
         {
             Debug.Log("EffectManager assigned successfully.");
         }
-        foreach (var fish in FindObjectsOfType<Fish>())
-        {
-            Debug.Log("Fish found at position: " + fish.transform.position + ", with tag: " + fish.tag);
-        }
 
         // Ensure buttons are updated and active on start
         RestoreCollectedWords();
@@ -282,13 +278,18 @@ public class WordUIManager : MonoBehaviour
                     effect.Apply(playerTransform.gameObject);
                     Debug.Log($"Applying SpikeCircleEffect to Player");
                 }
-                else
-                {
-                    var effectables = FindObjectsOfType<MonoBehaviour>().OfType<IEffectable>();
 
-                    foreach (var effectable in effectables)
+                var effectables = FindObjectsOfType<MonoBehaviour>().OfType<IEffectable>();
+
+                foreach (var effectable in effectables)
+                {
+                    if (Vector3.Distance(playerTransform.position, ((MonoBehaviour)effectable).transform.position) <= effectRadius)
                     {
-                        if (Vector3.Distance(playerTransform.position, ((MonoBehaviour)effectable).transform.position) <= effectRadius)
+                        if (!(effect is SpikeCircleEffect))
+                        {
+                            effectable.ApplyEffect(effect);
+                        }
+                        else
                         {
                             effectable.ApplyEffect(effect);
                         }
@@ -340,7 +341,6 @@ public class WordUIManager : MonoBehaviour
         }
         return false;
     }
-    
 
     void ResetSelection()
     {
