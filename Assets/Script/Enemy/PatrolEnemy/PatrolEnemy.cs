@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PatrolEnemy : MonoBehaviour
+public class PatrolEnemy : MonoBehaviour, IEffectable
 {
     [Header("Patrol Settings")]
     public Transform[] patrolPoints; // Points to patrol
@@ -174,7 +174,10 @@ public class PatrolEnemy : MonoBehaviour
             }
         }
     }
-
+    public void ApplyEffect(EffectBase effect)
+    {
+        effect.Apply(gameObject);
+    }
     public void ApplyEffect(ScriptableObject effect)
     {
         var applyMethod = effect.GetType().GetMethod("Apply");

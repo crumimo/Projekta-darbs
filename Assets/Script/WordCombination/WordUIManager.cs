@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using System.Linq;
 
 public class WordUIManager : MonoBehaviour
 {
@@ -283,33 +284,13 @@ public class WordUIManager : MonoBehaviour
                 }
                 else
                 {
-                    foreach (var enemy in FindObjectsOfType<PatrolEnemy>())
+                    var effectables = FindObjectsOfType<MonoBehaviour>().OfType<IEffectable>();
+
+                    foreach (var effectable in effectables)
                     {
-                        if (Vector3.Distance(playerTransform.position, enemy.transform.position) <= effectRadius)
+                        if (Vector3.Distance(playerTransform.position, ((MonoBehaviour)effectable).transform.position) <= effectRadius)
                         {
-                            effect.Apply(enemy.gameObject);
-                        }
-                    }
-                    foreach (var dialogueActivator in FindObjectsOfType<DialogueActivator>())
-                    {
-                        if (Vector3.Distance(playerTransform.position, dialogueActivator.transform.position) <= effectRadius)
-                        {
-                            effect.Apply(dialogueActivator.gameObject);
-                        }
-                    }
-                    foreach (var obstacleManager in FindObjectsOfType<ObstacleManager>())
-                    {
-                        if (Vector3.Distance(playerTransform.position, obstacleManager.transform.position) <= effectRadius)
-                        {
-                            effect.Apply(obstacleManager.gameObject);
-                        }
-                    }
-                    foreach (var fish in FindObjectsOfType<Fish>())
-                    {
-                        if (Vector3.Distance(playerTransform.position, fish.transform.position) <= effectRadius && fish.CompareTag("Fish"))
-                        {
-                            Debug.Log("Applying FishBehavior to fish at position: " + fish.transform.position);
-                            effect.Apply(fish.gameObject);
+                            effectable.ApplyEffect(effect);
                         }
                     }
                 }
@@ -352,16 +333,14 @@ public class WordUIManager : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(playerTransform.position, effectRadius);
         foreach (var collider in colliders)
         {
-            if (collider.GetComponent<PatrolEnemy>() != null ||
-                collider.GetComponent<DialogueActivator>() != null ||
-                collider.GetComponent<ObstacleManager>() != null ||
-                collider.GetComponent<Fish>() != null) 
+            if (collider.GetComponent<IEffectable>() != null)
             {
                 return true;
             }
         }
         return false;
     }
+    
 
     void ResetSelection()
     {
