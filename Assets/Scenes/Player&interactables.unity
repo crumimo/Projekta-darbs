@@ -1482,6 +1482,11 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 1710005871}
   effectRadius: 15
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
+  - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
+  - {fileID: 11400000, guid: 7e72af9bd49148540bb165cef15118ae, type: 2}
+  - {fileID: 11400000, guid: 47e305e6cee79d342bc99afb06a4f5c8, type: 2}
   isAsleep: 0
   ignorePlayer: 0
 --- !u!61 &82722067
@@ -1781,6 +1786,7 @@ MonoBehaviour:
   returnDistance: 10
   distanceToAcceptCombination: 15
   wordObject: {fileID: 504655214}
+  effectDiaryEntries: []
 --- !u!1 &108918787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,6 +2058,7 @@ MonoBehaviour:
   canTalk: {fileID: 343513620}
   cantTalk: {fileID: 501418150}
   distanceToActivate: 5
+  effectDiaryEntries: []
 --- !u!58 &138970309
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4486,6 +4493,11 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 420742101}
   effectRadius: 15
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
+  - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
+  - {fileID: 11400000, guid: 7e72af9bd49148540bb165cef15118ae, type: 2}
+  - {fileID: 11400000, guid: 47e305e6cee79d342bc99afb06a4f5c8, type: 2}
   isAsleep: 0
   ignorePlayer: 0
 --- !u!61 &365869320
@@ -6626,6 +6638,7 @@ MonoBehaviour:
   returnDistance: 10
   distanceToAcceptCombination: 15
   wordObject: {fileID: 1718328566}
+  effectDiaryEntries: []
 --- !u!95 &528334098
 Animator:
   serializedVersion: 5
@@ -6845,6 +6858,8 @@ MonoBehaviour:
   returnDistance: 10
   distanceToAcceptCombination: 10
   wordObject: {fileID: 1888688945}
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 98a18ac4aea1fb84fb6b7cd08327c11e, type: 2}
 --- !u!212 &560316092
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7668,6 +7683,7 @@ MonoBehaviour:
   returnDistance: 10
   distanceToAcceptCombination: 15
   wordObject: {fileID: 1709259111}
+  effectDiaryEntries: []
 --- !u!1 &648202305
 GameObject:
   m_ObjectHideFlags: 0
@@ -8601,6 +8617,9 @@ MonoBehaviour:
   ErosionTouch: 0
   SpikeCircle: 1
   destructionSound: {fileID: 8300000, guid: 0be7315229e86274a9094456032c0761, type: 3}
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 71d4b5422311a164a82f925a24b36d0e, type: 2}
+  - {fileID: 11400000, guid: 9120257f13b34d84c9233b553740105a, type: 2}
 --- !u!61 &700787104
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9520,6 +9539,8 @@ MonoBehaviour:
   returnDistance: 10
   distanceToAcceptCombination: 10
   wordObject: {fileID: 1268252648}
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 98a18ac4aea1fb84fb6b7cd08327c11e, type: 2}
 --- !u!212 &771542665
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9745,6 +9766,7 @@ MonoBehaviour:
   returnDistance: 10
   distanceToAcceptCombination: 15
   wordObject: {fileID: 382174248}
+  effectDiaryEntries: []
 --- !u!1 &782910628
 GameObject:
   m_ObjectHideFlags: 0
@@ -12488,6 +12510,9 @@ MonoBehaviour:
   canTalk: {fileID: 0}
   cantTalk: {fileID: 0}
   distanceToActivate: 0
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 4352e398511cf1b488b1e2b3602b86e6, type: 2}
+  - {fileID: 11400000, guid: 7b630195b4917ac49aa3d1b910909da3, type: 2}
 --- !u!1 &997127267
 GameObject:
   m_ObjectHideFlags: 0
@@ -12936,6 +12961,11 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 1316617946}
   effectRadius: 15
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
+  - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
+  - {fileID: 11400000, guid: 7e72af9bd49148540bb165cef15118ae, type: 2}
+  - {fileID: 11400000, guid: 47e305e6cee79d342bc99afb06a4f5c8, type: 2}
   isAsleep: 0
   ignorePlayer: 0
 --- !u!61 &1059468680
@@ -13172,6 +13202,11 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 1972112746}
   effectRadius: 15
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
+  - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
+  - {fileID: 11400000, guid: 7e72af9bd49148540bb165cef15118ae, type: 2}
+  - {fileID: 11400000, guid: 47e305e6cee79d342bc99afb06a4f5c8, type: 2}
   isAsleep: 0
   ignorePlayer: 0
 --- !u!61 &1070943755
@@ -13518,6 +13553,11 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 2075236698}
   effectRadius: 15
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
+  - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
+  - {fileID: 11400000, guid: 7e72af9bd49148540bb165cef15118ae, type: 2}
+  - {fileID: 11400000, guid: 47e305e6cee79d342bc99afb06a4f5c8, type: 2}
   isAsleep: 0
   ignorePlayer: 0
 --- !u!61 &1090612458
@@ -14046,6 +14086,7 @@ MonoBehaviour:
   returnDistance: 10
   distanceToAcceptCombination: 15
   wordObject: {fileID: 23875811}
+  effectDiaryEntries: []
 --- !u!1 &1131587469
 GameObject:
   m_ObjectHideFlags: 0
@@ -14554,6 +14595,9 @@ MonoBehaviour:
   ErosionTouch: 0
   SpikeCircle: 1
   destructionSound: {fileID: 8300000, guid: 0be7315229e86274a9094456032c0761, type: 3}
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 71d4b5422311a164a82f925a24b36d0e, type: 2}
+  - {fileID: 11400000, guid: 9120257f13b34d84c9233b553740105a, type: 2}
 --- !u!61 &1179177143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14727,6 +14771,9 @@ MonoBehaviour:
   canTalk: {fileID: 744779979}
   cantTalk: {fileID: 1110856995}
   distanceToActivate: 5
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 4352e398511cf1b488b1e2b3602b86e6, type: 2}
+  - {fileID: 11400000, guid: 7b630195b4917ac49aa3d1b910909da3, type: 2}
 --- !u!58 &1203028376
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15054,6 +15101,11 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 634754275}
   effectRadius: 15
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
+  - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
+  - {fileID: 11400000, guid: 7e72af9bd49148540bb165cef15118ae, type: 2}
+  - {fileID: 11400000, guid: 47e305e6cee79d342bc99afb06a4f5c8, type: 2}
   isAsleep: 0
   ignorePlayer: 0
 --- !u!61 &1222389389
@@ -15414,11 +15466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObject: {fileID: 11400000, guid: 28bd70c3ec5346d42912f85da3030619, type: 2}
-  events:
-  - name: Chego
-    onPickedResponse:
-      m_PersistentCalls:
-        m_Calls: []
+  events: []
 --- !u!114 &1252593478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15438,6 +15486,9 @@ MonoBehaviour:
   canTalk: {fileID: 1262514972}
   cantTalk: {fileID: 66393831}
   distanceToActivate: 0
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 4352e398511cf1b488b1e2b3602b86e6, type: 2}
+  - {fileID: 11400000, guid: 7b630195b4917ac49aa3d1b910909da3, type: 2}
 --- !u!1 &1262514972
 GameObject:
   m_ObjectHideFlags: 0
@@ -16215,6 +16266,11 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 1676744678}
   effectRadius: 15
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
+  - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
+  - {fileID: 11400000, guid: 7e72af9bd49148540bb165cef15118ae, type: 2}
+  - {fileID: 11400000, guid: 47e305e6cee79d342bc99afb06a4f5c8, type: 2}
   isAsleep: 0
   ignorePlayer: 0
 --- !u!1 &1300733304
@@ -16990,6 +17046,11 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 301894657}
   effectRadius: 15
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
+  - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
+  - {fileID: 11400000, guid: 7e72af9bd49148540bb165cef15118ae, type: 2}
+  - {fileID: 11400000, guid: 47e305e6cee79d342bc99afb06a4f5c8, type: 2}
   isAsleep: 0
   ignorePlayer: 0
 --- !u!1 &1410443622
@@ -17524,6 +17585,9 @@ MonoBehaviour:
   ErosionTouch: 1
   SpikeCircle: 0
   destructionSound: {fileID: 8300000, guid: 0be7315229e86274a9094456032c0761, type: 3}
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 71d4b5422311a164a82f925a24b36d0e, type: 2}
+  - {fileID: 11400000, guid: 9120257f13b34d84c9233b553740105a, type: 2}
 --- !u!61 &1436694893
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17939,6 +18003,8 @@ MonoBehaviour:
   returnDistance: 10
   distanceToAcceptCombination: 10
   wordObject: {fileID: 2071698996}
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 98a18ac4aea1fb84fb6b7cd08327c11e, type: 2}
 --- !u!212 &1458873750
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18721,6 +18787,11 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 1271242495}
   effectRadius: 15
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
+  - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
+  - {fileID: 11400000, guid: 7e72af9bd49148540bb165cef15118ae, type: 2}
+  - {fileID: 11400000, guid: 47e305e6cee79d342bc99afb06a4f5c8, type: 2}
   isAsleep: 0
   ignorePlayer: 0
 --- !u!1 &1513676024
@@ -19567,6 +19638,9 @@ MonoBehaviour:
   ErosionTouch: 0
   SpikeCircle: 1
   destructionSound: {fileID: 8300000, guid: 0be7315229e86274a9094456032c0761, type: 3}
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 71d4b5422311a164a82f925a24b36d0e, type: 2}
+  - {fileID: 11400000, guid: 9120257f13b34d84c9233b553740105a, type: 2}
 --- !u!95 &1555213530
 Animator:
   serializedVersion: 5
@@ -21726,6 +21800,11 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 1618056895}
   effectRadius: 15
+  effectDiaryEntries:
+  - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
+  - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
+  - {fileID: 11400000, guid: 7e72af9bd49148540bb165cef15118ae, type: 2}
+  - {fileID: 11400000, guid: 47e305e6cee79d342bc99afb06a4f5c8, type: 2}
   isAsleep: 0
   ignorePlayer: 0
 --- !u!1 &1824963207
