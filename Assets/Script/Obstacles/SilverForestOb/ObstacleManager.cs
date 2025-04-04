@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ObstacleManager : MonoBehaviour
+public class ObstacleManager : MonoBehaviour, IEffectable
 {
     public int obstacleID; // Unique ID for each obstacle
     public float distanceToActivate = 10f;
@@ -32,7 +32,10 @@ public class ObstacleManager : MonoBehaviour
             gameObject.SetActive(true);
         }
     }
-
+    public void ApplyEffect(EffectBase effect)
+    {
+        effect.Apply(gameObject);
+    }
     public void ApplyEffect(ScriptableObject effect)
     {
         var applyMethod = effect.GetType().GetMethod("Apply");

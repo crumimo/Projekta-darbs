@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DialogueActivator : MonoBehaviour, IInteractable
+public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
 {
     [SerializeField] private DialogueObject dialogueObject;
     [SerializeField] private bool requiresNoCombo = false; 
@@ -76,7 +76,10 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 
         player.DialogueUI.ShowDialogue(dialogueObject);
     }
-
+    public void ApplyEffect(EffectBase effect)
+    {
+        effect.Apply(gameObject);
+    }
     public void ApplyEffect(ScriptableObject effect)
     {
         var applyMethod = effect.GetType().GetMethod("Apply");

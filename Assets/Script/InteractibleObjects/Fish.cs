@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Fish : MonoBehaviour
+public class Fish : MonoBehaviour, IEffectable
 {
     public Transform playerTransform; // Reference to the player's transform
     public float distanceToActivate = 10f; // Distance within which the fish will react
@@ -92,6 +92,10 @@ public class Fish : MonoBehaviour
             anim.SetBool("isSwimmingRight", false);
             anim.SetBool("isSwimmingLeft", false);
         }
+    }
+    public void ApplyEffect(EffectBase effect)
+    {
+        effect.Apply(gameObject);
     }
 
     public void ApplyCorrectCombination()
