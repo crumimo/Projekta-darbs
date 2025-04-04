@@ -11,7 +11,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private TMP_Text speakerNameLabel;
     [SerializeField] private Image speakerImage;
-   
+   public event Action OnDialogueEnd;
 
     public bool IsOpen { get; private set; }
     
@@ -92,6 +92,12 @@ public class DialogueUI : MonoBehaviour
         textLabel.text = string.Empty;
         speakerNameLabel.text = string.Empty;
         speakerImage.sprite = null;
+    }
+    
+    public void EndDialogue()
+    {
+        // Логика для завершения диалога...
+        OnDialogueEnd?.Invoke(); // Вызов события завершения диалога
     }
 }
 

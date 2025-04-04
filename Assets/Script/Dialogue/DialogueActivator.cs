@@ -13,7 +13,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
     [SerializeField] private GameObject cantTalk;
 
     [SerializeField] private float distanceToActivate;
-
+    private bool isDialogueActive = false;
     public void UpdateDialogueObject(DialogueObject dialogueObject)
     {
         this.dialogueObject = dialogueObject;
@@ -21,7 +21,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        if (playerInRange && (canStartDialogue || requiresNoCombo) && Input.GetKeyDown(KeyCode.F))
+        if (playerInRange && (canStartDialogue || requiresNoCombo) && Input.GetKeyDown(KeyCode.F) && !isDialogueActive)
         {
             TryStartDialogue();
         }
@@ -122,6 +122,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         if (dialogueUI != null)
         {
             dialogueUI.ShowDialogue(dialogueObject);
+            isDialogueActive = true; // Устанавливаем флаг в true, когда диалог начинается
+            dialogueUI.OnDialogueEnd += EndDialogue; // Подписываемся на событие завершения диалога
             Debug.Log("Dialogue started.");
         }
         else
@@ -129,5 +131,14 @@ public class DialogueActivator : MonoBehaviour, IInteractable
             Debug.LogError("DialogueManager not found in the scene.");
         }
         canStartDialogue = false;
+    }
+    private void EndDialogue()
+    {
+        isDialogueActive = false; // Сбрасываем флаг, когда диалог завершается
+        DialogueUI dialogueUI = FindObjectOfType<DialogueUI>();
+        if (dialogueUI != null)
+        {
+            dialogueUI.OnDialogueEnd -= EndDialogue; // Отписываемся от события завершения диалога
+        }
     }
 }
