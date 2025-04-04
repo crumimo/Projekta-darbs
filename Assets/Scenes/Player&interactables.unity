@@ -12100,7 +12100,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.1719221, y: 3.378906}
+  m_Size: {x: 3.0037796, y: 1.328125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -22702,7 +22702,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1989248919}
   - {fileID: 109549225}
   - {fileID: 1325045647}
   - {fileID: 1452154571}
@@ -23352,11 +23351,11 @@ Transform:
   m_GameObject: {fileID: 1989248918}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.375954, y: 3.801918, z: 0}
+  m_LocalPosition: {x: 35.655777, y: -107.87453, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1926298946}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1989248920
 MonoBehaviour:
@@ -24485,6 +24484,7 @@ SceneRoots:
   - {fileID: 483937908}
   - {fileID: 1421780772}
   - {fileID: 1212037389}
+  - {fileID: 1989248919}
   - {fileID: 1665075627}
   - {fileID: 191465108}
   - {fileID: 1926298946}

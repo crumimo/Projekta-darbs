@@ -97,253 +97,253 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MCRoughVers2_0
+      name: SidewayRough_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 511
-        width: 769
-        height: 515
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06ab30bfe3008354690ae3377b8132fb
-      internalID: 1864206375
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MCRoughVers2_1
-      rect:
-        serializedVersion: 2
-        x: 770
-        y: 512
-        width: 766
-        height: 514
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1035e6c4eb8d54b4e96c58cdb75baf7e
-      internalID: 568695822
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MCRoughVers2_2
-      rect:
-        serializedVersion: 2
-        x: 1537
-        y: 511
-        width: 767
-        height: 515
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90e39613b9c1bbd458aeac71cb71efef
-      internalID: 497995723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MCRoughVers2_3
-      rect:
-        serializedVersion: 2
-        x: 2305
-        y: 513
-        width: 767
-        height: 513
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e76f5130d108a743a2dde2c3b10250c
-      internalID: 1980182081
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MCRoughVers2_4
-      rect:
-        serializedVersion: 2
-        x: 3073
-        y: 512
-        width: 767
-        height: 514
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55b9277e8da2cb64c91d7a1bb0dc0606
-      internalID: 1355414494
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MCRoughVers2_5
-      rect:
-        serializedVersion: 2
-        x: 3840
-        y: 512
+        x: 768
+        y: 462
         width: 768
-        height: 514
+        height: 370
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5de9335e1d6ae7c4185522cc9dc08369
-      internalID: 1763529300
+      spriteID: 0016cd8b5b68e32448875ba36f880c1b
+      internalID: -2040050233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers2_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2
-        width: 762
-        height: 510
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 926f356acc372354bb115eb14ed97d83
-      internalID: -19063230
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MCRoughVers2_7
-      rect:
-        serializedVersion: 2
-        x: 764
-        y: 2
-        width: 772
-        height: 510
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c5b025b24bd0ede4ca9d47ccf292574a
-      internalID: 949651627
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MCRoughVers2_8
+      name: SidewayRough_2
       rect:
         serializedVersion: 2
         x: 1536
-        y: 2
-        width: 763
-        height: 510
+        y: 462
+        width: 768
+        height: 370
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9841931695ec29f409bd082aea8754ff
-      internalID: 127571730
+      spriteID: f1b6f26e18bc1964880c985b2c10b320
+      internalID: 691834296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers2_9
+      name: SidewayRough_3
       rect:
         serializedVersion: 2
-        x: 2299
-        y: 2
-        width: 773
-        height: 510
+        x: 2304
+        y: 462
+        width: 768
+        height: 370
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2eead53baaa66164d99443a869088632
-      internalID: -1073389121
+      spriteID: d0884f40eca42f546af7598e8490d704
+      internalID: 1868274481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers2_10
+      name: SidewayRough_4
       rect:
         serializedVersion: 2
         x: 3072
-        y: 2
-        width: 760
-        height: 510
+        y: 462
+        width: 768
+        height: 370
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dcce9dd1d63c3c4d8d4db1fd1d1d5e6
-      internalID: 1577415168
+      spriteID: 81dc616b7a7d0454e96e12264edf00a0
+      internalID: -421564211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MCRoughVers2_11
+      name: SidewayRough_5
       rect:
         serializedVersion: 2
-        x: 3832
-        y: 2
-        width: 776
-        height: 510
+        x: 3840
+        y: 462
+        width: 768
+        height: 370
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0b11b02265f2774eae2c5d803cc855f
-      internalID: -216754979
+      spriteID: 8c30ec89d4d19dc45b7ee4924e822d4e
+      internalID: 144062176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SidewayRough_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 768
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d737f449ad1e2241848f90c7362b8c9
+      internalID: -20382868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SidewayRough_9
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 92
+        width: 768
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f40dc796282b22a429ac9b1f29a6216d
+      internalID: 1420119425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SidewayRough_11
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 92
+        width: 768
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f0c20237349ead41bb3b89e7f5f50df
+      internalID: 94214240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SidewayRough_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 462
+        width: 768
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f15c92ea24a14234f9795869fae50423
+      internalID: 1024537418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SidewayRough_7
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 92
+        width: 768
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20806830bc8593f4db5975306ae88532
+      internalID: -674128887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SidewayRough_8
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 92
+        width: 768
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61b0643ae344e614794cd9386c86f400
+      internalID: 1457354138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SidewayRough_10
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 92
+        width: 768
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae4e4161f544e2649a0da20e01037183
+      internalID: -754926950
       vertices: []
       indices: 
       edges: []
@@ -359,18 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MCRoughVers2_0: 1864206375
-      MCRoughVers2_1: 568695822
-      MCRoughVers2_10: 1577415168
-      MCRoughVers2_11: -216754979
-      MCRoughVers2_2: 497995723
-      MCRoughVers2_3: 1980182081
-      MCRoughVers2_4: 1355414494
-      MCRoughVers2_5: 1763529300
-      MCRoughVers2_6: -19063230
-      MCRoughVers2_7: 949651627
-      MCRoughVers2_8: 127571730
-      MCRoughVers2_9: -1073389121
+      SidewayRough_0: 1024537418
+      SidewayRough_1: -2040050233
+      SidewayRough_10: -754926950
+      SidewayRough_11: 94214240
+      SidewayRough_2: 691834296
+      SidewayRough_3: 1868274481
+      SidewayRough_4: -421564211
+      SidewayRough_5: 144062176
+      SidewayRough_6: -20382868
+      SidewayRough_7: -674128887
+      SidewayRough_8: 1457354138
+      SidewayRough_9: 1420119425
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
