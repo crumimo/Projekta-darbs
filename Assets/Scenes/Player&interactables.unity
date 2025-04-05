@@ -1327,6 +1327,7 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 1710005871}
   effectRadius: 15
+  effectDuration: 3
   effectDiaryEntries:
   - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
   - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
@@ -4485,6 +4486,7 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 420742101}
   effectRadius: 15
+  effectDuration: 3
   effectDiaryEntries:
   - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
   - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
@@ -10478,7 +10480,7 @@ Transform:
   m_GameObject: {fileID: 979491080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 81.8, y: -10, z: 0}
+  m_LocalPosition: {x: 169.51, y: -30.44, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11315,6 +11317,7 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 1316617946}
   effectRadius: 15
+  effectDuration: 3
   effectDiaryEntries:
   - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
   - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
@@ -11551,6 +11554,7 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 1972112746}
   effectRadius: 15
+  effectDuration: 3
   effectDiaryEntries:
   - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
   - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
@@ -11901,6 +11905,7 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 2075236698}
   effectRadius: 15
+  effectDuration: 3
   effectDiaryEntries:
   - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
   - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
@@ -12934,7 +12939,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78.4, y: -68.45, z: -10}
+  m_LocalPosition: {x: 166.11, y: -88.89, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13108,6 +13113,7 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 634754275}
   effectRadius: 15
+  effectDuration: 3
   effectDiaryEntries:
   - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
   - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
@@ -14270,6 +14276,7 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 1676744678}
   effectRadius: 15
+  effectDuration: 3
   effectDiaryEntries:
   - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
   - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
@@ -15137,6 +15144,7 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 301894657}
   effectRadius: 15
+  effectDuration: 3
   effectDiaryEntries:
   - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
   - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
@@ -15378,7 +15386,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78.4, y: -68.45, z: -10}
+  m_LocalPosition: {x: 166.11, y: -88.89, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16721,6 +16729,7 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 1271242495}
   effectRadius: 15
+  effectDuration: 3
   effectDiaryEntries:
   - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
   - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
@@ -19599,6 +19608,7 @@ MonoBehaviour:
     m_Bits: 64
   visionMeshFilter: {fileID: 1618056895}
   effectRadius: 15
+  effectDuration: 3
   effectDiaryEntries:
   - {fileID: 11400000, guid: 1cdbd6dab00ee3a438bf8ad27527877c, type: 2}
   - {fileID: 11400000, guid: 28a8635deddad7c4bb1b1464e88a506d, type: 2}
