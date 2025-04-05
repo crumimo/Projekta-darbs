@@ -687,7 +687,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "45dc777115a74eba935ddb96e1216485",
     "m_Id": 0,
-    "m_DisplayName": "GlowTexture",
+    "m_DisplayName": "GlowTex",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -730,10 +730,10 @@
     "m_Guid": {
         "m_GuidSerialized": "15a122b6-51ba-4177-a448-588c0049e71f"
     },
-    "m_Name": "GlowTexture",
+    "m_Name": "GlowTex",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "GlowTexture",
-    "m_DefaultReferenceName": "_GlowTexture",
+    "m_RefNameGeneratedByDisplayName": "GlowTex",
+    "m_DefaultReferenceName": "_GlowTex",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,

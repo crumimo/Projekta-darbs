@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 135b00f1ad151d54e84df424e1785cbc
+guid: 8a51177905c3c89468d44074812a7913
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,106 +97,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SilverJellyfish_0
+      name: Plants_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 105
-        width: 788
-        height: 1568
+        x: 142
+        y: 65
+        width: 685
+        height: 2379
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4517b60ead5def4409d0fec6f1b87978
-      internalID: 1283060097
+      spriteID: cbdf927578dd72143a4f5b784b890649
+      internalID: 427971592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SilverJellyfish_1
+      name: Plants_1
       rect:
         serializedVersion: 2
-        x: 1017
+        x: 1040
+        y: 1426
+        width: 512
+        height: 834
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f424f6638629a994db55cb8d87fe6520
+      internalID: 400443346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plants_2
+      rect:
+        serializedVersion: 2
+        x: 1636
+        y: 1431
+        width: 469
+        height: 752
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60657f61e04355f4a8115264fea67bae
+      internalID: -465952083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plants_7
+      rect:
+        serializedVersion: 2
+        x: 953
         y: 103
-        width: 813
-        height: 1570
+        width: 238
+        height: 1128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db40e774a0a13a548b109b43eed1e2c2
-      internalID: 1844060141
+      spriteID: 63d2a9ff07f7ed044be723e836b54cbf
+      internalID: -1925914695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SilverJellyfish_2
+      name: Plants_8
       rect:
         serializedVersion: 2
-        x: 1921
-        y: 96
-        width: 882
-        height: 1577
+        x: 1357
+        y: 876
+        width: 1195
+        height: 409
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa27bc2a02550b74fb242c670ed3c073
-      internalID: -1464407912
+      spriteID: 5fd176b7894b9d0459e47afef5ff2f7d
+      internalID: 1395613727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SilverJellyfish_3
+      name: Plants_9
       rect:
         serializedVersion: 2
-        x: 2858
-        y: 93
-        width: 931
-        height: 1580
+        x: 2719
+        y: 76
+        width: 1640
+        height: 1654
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e80c4a1a85701f40a1177b7ac12de60
-      internalID: 877742116
+      spriteID: c9832dfdc274a974996f39c38de9dee4
+      internalID: -779877923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SilverJellyfish_4
+      name: Plants_10
       rect:
         serializedVersion: 2
-        x: 3887
-        y: 107
-        width: 783
-        height: 1576
+        x: 1328
+        y: 47
+        width: 1343
+        height: 674
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c93ba9438941dd4cb5d49f0e658fdfd
-      internalID: 3301375
+      spriteID: 7796513dce994f3459b3b1bbed425ff4
+      internalID: -2010457208
       vertices: []
       indices: 
       edges: []
@@ -212,11 +254,32 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SilverJellyfish_0: 1283060097
-      SilverJellyfish_1: 1844060141
-      SilverJellyfish_2: -1464407912
-      SilverJellyfish_3: 877742116
-      SilverJellyfish_4: 3301375
+      Plants_0: 427971592
+      Plants_1: 400443346
+      Plants_10: -2010457208
+      Plants_11: 1477762892
+      Plants_12: -196380662
+      Plants_13: 189742066
+      Plants_14: 429436857
+      Plants_15: 1335055150
+      Plants_16: 1765484523
+      Plants_17: -1206548516
+      Plants_18: 2005199086
+      Plants_19: -289311115
+      Plants_2: -465952083
+      Plants_20: -883221946
+      Plants_21: -2042237131
+      Plants_22: 1292157709
+      Plants_23: -1492313392
+      Plants_24: -475400031
+      Plants_25: -1365093686
+      Plants_3: -416335492
+      Plants_4: 721628699
+      Plants_5: 1577191294
+      Plants_6: -955578668
+      Plants_7: -1925914695
+      Plants_8: 1395613727
+      Plants_9: -779877923
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

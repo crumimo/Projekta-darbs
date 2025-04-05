@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 135b00f1ad151d54e84df424e1785cbc
+guid: 1b4441d1ccec53a4e8d6fae542907f4f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SilverJellyfish_0
+      name: SilverJellyfishEmission_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 105
-        width: 788
-        height: 1568
+        x: 64
+        y: 104
+        width: 793
+        height: 1571
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4517b60ead5def4409d0fec6f1b87978
-      internalID: 1283060097
+      spriteID: 5c6c01617aadaf742b8a5c0c22c27cf2
+      internalID: -1353561714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SilverJellyfish_1
+      name: SilverJellyfishEmission_1
       rect:
         serializedVersion: 2
-        x: 1017
-        y: 103
-        width: 813
-        height: 1570
+        x: 1013
+        y: 101
+        width: 818
+        height: 1574
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,40 +132,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db40e774a0a13a548b109b43eed1e2c2
-      internalID: 1844060141
+      spriteID: 2ad0484dcd1d1464ea869d53de111d52
+      internalID: 1530628333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SilverJellyfish_2
+      name: SilverJellyfishEmission_2
       rect:
         serializedVersion: 2
-        x: 1921
-        y: 96
-        width: 882
-        height: 1577
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa27bc2a02550b74fb242c670ed3c073
-      internalID: -1464407912
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SilverJellyfish_3
-      rect:
-        serializedVersion: 2
-        x: 2858
-        y: 93
-        width: 931
+        x: 1920
+        y: 92
+        width: 884
         height: 1580
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -174,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e80c4a1a85701f40a1177b7ac12de60
-      internalID: 877742116
+      spriteID: a7c099ea3e6ee4c49a5d2329d1f9509f
+      internalID: 1667812921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SilverJellyfish_4
+      name: SilverJellyfishEmission_3
       rect:
         serializedVersion: 2
-        x: 3887
-        y: 107
-        width: 783
-        height: 1576
+        x: 2857
+        y: 92
+        width: 933
+        height: 1583
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,8 +174,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c93ba9438941dd4cb5d49f0e658fdfd
-      internalID: 3301375
+      spriteID: 82489b5af98425149bb39c8265b807bf
+      internalID: 1358763580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SilverJellyfishEmission_5
+      rect:
+        serializedVersion: 2
+        x: 3887
+        y: 104
+        width: 784
+        height: 1582
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc54374c9e61a4d489b7594fbf56f5b6
+      internalID: 2058595950
       vertices: []
       indices: 
       edges: []
@@ -212,11 +212,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SilverJellyfish_0: 1283060097
-      SilverJellyfish_1: 1844060141
-      SilverJellyfish_2: -1464407912
-      SilverJellyfish_3: 877742116
-      SilverJellyfish_4: 3301375
+      SilverJellyfishEmission_0: -1353561714
+      SilverJellyfishEmission_1: 1530628333
+      SilverJellyfishEmission_2: 1667812921
+      SilverJellyfishEmission_3: 1358763580
+      SilverJellyfishEmission_4: 1675040410
+      SilverJellyfishEmission_5: 2058595950
+      SilverJellyfishEmission_6: -2071116505
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
