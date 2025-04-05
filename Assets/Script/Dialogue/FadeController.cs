@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class FadeController : MonoBehaviour
 {
-    public Image fadeImage; // Черный экран для затемнения и высветления
-    public float fadeDuration = 1f; // Длительность эффекта затемнения
+    public Image fadeImage; 
+    public float fadeDuration = 1f; 
 
     private void Awake()
     {
@@ -17,7 +17,6 @@ public class FadeController : MonoBehaviour
 
     private void Start()
     {
-        // Убедимся, что черный экран изначально невидим
         fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0);
         fadeImage.gameObject.SetActive(false);
     }

@@ -11,7 +11,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private TMP_Text speakerNameLabel;
     [SerializeField] private Image speakerImage;
-    [SerializeField] private FadeController fadeController; // Ссылка на контроллер затемнения
+    [SerializeField] private FadeController fadeController; 
     public event Action OnDialogueEnd;
 
     public bool IsOpen { get; private set; }
@@ -25,7 +25,7 @@ public class DialogueUI : MonoBehaviour
         typewriterEffect = GetComponent<TypewriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
 
-        responseHandler.OnResponseSelected += HandleResponseSelected; // Подписываемся на событие
+        responseHandler.OnResponseSelected += HandleResponseSelected; 
 
         voiceDictionary = new Dictionary<string, AudioClip[]>();
 
@@ -40,16 +40,12 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator ShowDialogueWithFade(DialogueObject dialogueObject)
     {
-        // Выполняем затемнение перед открытием диалога
         yield return StartCoroutine(fadeController.FadeIn());
-
-        // Включаем диалоговую канву
+        
         dialogueBox.SetActive(true);
-
-        // Выполняем высветление после открытия диалога
+        
         yield return StartCoroutine(fadeController.FadeOut());
-
-        // Запускаем диалог
+        
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
 
@@ -89,7 +85,6 @@ public class DialogueUI : MonoBehaviour
 
     private void HandleResponseSelected(DialogueObject responseDialogueObject)
     {
-        // Останавливаем текущий диалог и запускаем новый без эффектов
         StopAllCoroutines();
         StartCoroutine(StepThroughDialogue(responseDialogueObject));
     }
@@ -116,13 +111,10 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator CloseDialogueBoxWithFade()
     {
-        // Выполняем затемнение перед закрытием диалога
         yield return StartCoroutine(fadeController.FadeIn());
-
-        // Выключаем диалоговую канву
+        
         dialogueBox.SetActive(false);
-
-        // Выполняем высветление после закрытия диалога
+        
         yield return StartCoroutine(fadeController.FadeOut());
 
         IsOpen = false;

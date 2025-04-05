@@ -15,7 +15,7 @@ public class ResponseHandler : MonoBehaviour
 
     private List<GameObject> tempResponseButtons = new List<GameObject>();
 
-    public event Action<DialogueObject> OnResponseSelected; // Добавляем событие
+    public event Action<DialogueObject> OnResponseSelected; 
 
     private void Start()
     {
@@ -67,16 +67,6 @@ public class ResponseHandler : MonoBehaviour
 
         responseEvents = null;
 
-        OnResponseSelected?.Invoke(response.DialogueObject); // Вызываем событие
-
-        // Удаляем вызов ShowDialogue, чтобы избежать повторного запуска диалога
-        // if (response.DialogueObject)
-        // {
-        //     dialogueUI.ShowDialogue(response.DialogueObject);
-        // }
-        // else
-        // {
-        //     dialogueUI.CloseDialogueBox();
-        // }
+        OnResponseSelected?.Invoke(response.DialogueObject); 
     }
 }

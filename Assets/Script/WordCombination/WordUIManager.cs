@@ -141,7 +141,7 @@ public class WordUIManager : MonoBehaviour
     {
         if (worldCanvas.enabled)
         {
-            StartCoroutine(FadeOut(worldCanvasGroup, 1f, () =>
+            StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
             {
                 worldCanvas.enabled = false;
                 playerVisual.sortingLayerName = "Middleground";
@@ -166,7 +166,7 @@ public class WordUIManager : MonoBehaviour
         else
         {
             worldCanvas.enabled = true;
-            StartCoroutine(FadeIn(worldCanvasGroup, 1f, () =>
+            StartCoroutine(FadeIn(worldCanvasGroup, 0.5f, () =>
             {
                 playerVisual.sortingLayerName = "Foreground";
                 playerVisual.sortingOrder = 90;
@@ -339,7 +339,7 @@ public class WordUIManager : MonoBehaviour
 
                 ResetSelection();
 
-                StartCoroutine(FadeOut(worldCanvasGroup, 1f, () =>
+                StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
                 {
                     worldCanvas.enabled = false;
                     playerMovement.EnableMovement();
