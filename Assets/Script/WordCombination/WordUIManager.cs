@@ -299,6 +299,8 @@ public class WordUIManager : MonoBehaviour
     {
         if (selectedWords.Count == 2)
         {
+            playerVisual.sortingLayerName = "Middleground";
+            playerVisual.sortingOrder = 0;
             EffectBase effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
             if (effect == null)
             {
