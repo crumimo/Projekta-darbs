@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -14,6 +15,8 @@ public class ResponseHandler : MonoBehaviour
 
     private List<GameObject> tempResponseButtons = new List<GameObject>();
 
+    public event Action<DialogueObject> OnResponseSelected; // Добавляем событие
+
     private void Start()
     {
         dialogueUI = GetComponent<DialogueUI>();
@@ -23,7 +26,7 @@ public class ResponseHandler : MonoBehaviour
     {
         this.responseEvents = responseEvents;
     }
-    
+
     public void ShowResponses(Response[] responses)
     {
         float responseBoxHeight = 0;
@@ -32,12 +35,12 @@ public class ResponseHandler : MonoBehaviour
         {
             Response response = responses[i];
             int responseIndex = i;
-            
+
             GameObject responseButton = Instantiate(responseButtonTemplate.gameObject, responseContainer);
             responseButton.gameObject.SetActive(true);
             responseButton.GetComponent<TMP_Text>().text = response.ResponseText;
             responseButton.GetComponent<Button>().onClick.AddListener(() => OnPickedResponse(response, responseIndex));
-            
+
             tempResponseButtons.Add(responseButton);
 
             responseBoxHeight += responseButtonTemplate.sizeDelta.y;
@@ -64,13 +67,16 @@ public class ResponseHandler : MonoBehaviour
 
         responseEvents = null;
 
-        if (response.DialogueObject)
-        {
-            dialogueUI.ShowDialogue(response.DialogueObject);
-        }
-        else
-        {
-            dialogueUI.CloseDialogueBox();
-        }
+        OnResponseSelected?.Invoke(response.DialogueObject); // Вызываем событие
+
+        // Удаляем вызов ShowDialogue, чтобы избежать повторного запуска диалога
+        // if (response.DialogueObject)
+        // {
+        //     dialogueUI.ShowDialogue(response.DialogueObject);
+        // }
+        // else
+        // {
+        //     dialogueUI.CloseDialogueBox();
+        // }
     }
 }

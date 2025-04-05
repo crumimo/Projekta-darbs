@@ -11,10 +11,11 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private TMP_Text speakerNameLabel;
     [SerializeField] private Image speakerImage;
-   public event Action OnDialogueEnd;
+    [SerializeField] private FadeController fadeController; // Ссылка на контроллер затемнения
+    public event Action OnDialogueEnd;
 
     public bool IsOpen { get; private set; }
-    
+
     private ResponseHandler responseHandler;
     private TypewriterEffect typewriterEffect;
     private Dictionary<string, AudioClip[]> voiceDictionary;
@@ -24,15 +25,31 @@ public class DialogueUI : MonoBehaviour
         typewriterEffect = GetComponent<TypewriterEffect>();
         responseHandler = GetComponent<ResponseHandler>();
 
+        responseHandler.OnResponseSelected += HandleResponseSelected; // Подписываемся на событие
+
         voiceDictionary = new Dictionary<string, AudioClip[]>();
-        
-        CloseDialogueBox();
+
+        CloseDialogueBoxInstant();
     }
 
     public void ShowDialogue(DialogueObject dialogueObject)
     {
         IsOpen = true;
+        StartCoroutine(ShowDialogueWithFade(dialogueObject));
+    }
+
+    private IEnumerator ShowDialogueWithFade(DialogueObject dialogueObject)
+    {
+        // Выполняем затемнение перед открытием диалога
+        yield return StartCoroutine(fadeController.FadeIn());
+
+        // Включаем диалоговую канву
         dialogueBox.SetActive(true);
+
+        // Выполняем высветление после открытия диалога
+        yield return StartCoroutine(fadeController.FadeOut());
+
+        // Запускаем диалог
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
 
@@ -53,8 +70,8 @@ public class DialogueUI : MonoBehaviour
             yield return RunTypingEffect(segment.sentence, segment.speakerName);
 
             textLabel.text = segment.sentence;
-            
-            if(i == dialogueObject.DialogueSegments.Length - 1 && dialogueObject.HasResponses) break;
+
+            if (i == dialogueObject.DialogueSegments.Length - 1 && dialogueObject.HasResponses) break;
 
             yield return null;
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
@@ -66,8 +83,15 @@ public class DialogueUI : MonoBehaviour
         }
         else
         {
-            CloseDialogueBox();
+            StartCoroutine(CloseDialogueBoxWithFade());
         }
+    }
+
+    private void HandleResponseSelected(DialogueObject responseDialogueObject)
+    {
+        // Останавливаем текущий диалог и запускаем новый без эффектов
+        StopAllCoroutines();
+        StartCoroutine(StepThroughDialogue(responseDialogueObject));
     }
 
     private IEnumerator RunTypingEffect(string dialogue, string speakerName)
@@ -87,17 +111,39 @@ public class DialogueUI : MonoBehaviour
 
     public void CloseDialogueBox()
     {
+        StartCoroutine(CloseDialogueBoxWithFade());
+    }
+
+    private IEnumerator CloseDialogueBoxWithFade()
+    {
+        // Выполняем затемнение перед закрытием диалога
+        yield return StartCoroutine(fadeController.FadeIn());
+
+        // Выключаем диалоговую канву
+        dialogueBox.SetActive(false);
+
+        // Выполняем высветление после закрытия диалога
+        yield return StartCoroutine(fadeController.FadeOut());
+
+        IsOpen = false;
+        textLabel.text = string.Empty;
+        speakerNameLabel.text = string.Empty;
+        speakerImage.sprite = null;
+
+        OnDialogueEnd?.Invoke();
+    }
+
+    public void CloseDialogueBoxInstant()
+    {
         IsOpen = false;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
         speakerNameLabel.text = string.Empty;
         speakerImage.sprite = null;
     }
-    
+
     public void EndDialogue()
     {
-        OnDialogueEnd?.Invoke(); 
+        OnDialogueEnd?.Invoke();
     }
 }
-
-
