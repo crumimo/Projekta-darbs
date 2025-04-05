@@ -122,10 +122,6 @@ public class Fish : MonoBehaviour, IEffectable
                 wordObject.SetActive(true);
                 Debug.Log("Word object activated successfully.");
             }
-            else
-            {
-                Debug.LogError("Word object is null. Cannot activate word object.");
-            }
         }
     }
 

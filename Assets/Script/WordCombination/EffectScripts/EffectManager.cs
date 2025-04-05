@@ -31,6 +31,8 @@ public class EffectManager : MonoBehaviour
 
         ApplyEffect(effect, target);
     }
+    
+    
 
     public void ApplyEffect(ScriptableObject effect, GameObject target)
     {

@@ -2,21 +2,26 @@ using UnityEngine;
 
 public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
 {
+    public enum DialogueRequirement
+    {
+        NoCombo,
+        QuietWhisper,
+        EchoingRoots
+    }
+
+    [SerializeField] private DialogueRequirement startRequirement = DialogueRequirement.NoCombo;
     [SerializeField] private DialogueObject dialogueObject;
-    [SerializeField] private bool requiresNoCombo = false; 
-    [SerializeField] private bool requiresQuietWhisper = false; 
-    [SerializeField] private bool requiresEchoingRoots = false; 
     private bool canStartDialogue = false;
     private bool playerInRange = false;
 
     [SerializeField] private GameObject canTalk;
     [SerializeField] private GameObject cantTalk;
 
-    [SerializeField] private float distanceToActivate;
+    [SerializeField] private float distanceToActivate = 2f;
     private bool isDialogueActive = false;
 
     [Header("Effect Diary Entries")]
-    public EffectDiaryEntry[] effectDiaryEntries; // Array of effect diary entries
+    public EffectDiaryEntry[] effectDiaryEntries;
 
     public void UpdateDialogueObject(DialogueObject dialogueObject)
     {
@@ -25,7 +30,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
 
     private void Update()
     {
-        if (playerInRange && (canStartDialogue || requiresNoCombo) && Input.GetKeyDown(KeyCode.F) && !isDialogueActive)
+        if (playerInRange && Input.GetKeyDown(KeyCode.F) && !isDialogueActive)
         {
             TryStartDialogue();
         }
@@ -37,18 +42,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         {
             player.Interactable = this;
             playerInRange = true;
-
-            if (canStartDialogue || requiresNoCombo)
-            {
-                canTalk.SetActive(true);
-                cantTalk.SetActive(false);
-            }
-
-            if (!canStartDialogue)
-            {
-                cantTalk.SetActive(true);
-                canTalk.SetActive(false);
-            }
+            UpdateTalkIndicators();
         }
     }
 
@@ -56,19 +50,39 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     {
         if (other.CompareTag("Player") && other.TryGetComponent(out Movement player))
         {
-            if (player.Interactable is DialogueActivator dialogueActivator && dialogueActivator == this)
+            if (player.Interactable == this)
             {
                 player.Interactable = null;
             }
-            playerInRange = false;
 
+            playerInRange = false;
             cantTalk.SetActive(false);
+            canTalk.SetActive(false);
+        }
+    }
+
+    private void UpdateTalkIndicators()
+    {
+        if (CheckComboRequirements())
+        {
+            canTalk.SetActive(true);
+            cantTalk.SetActive(false);
+        }
+        else
+        {
+            cantTalk.SetActive(true);
             canTalk.SetActive(false);
         }
     }
 
     public void Interact(Movement player)
     {
+        if (!CheckComboRequirements())
+        {
+            Debug.Log("Cannot start dialogue — combo not met.");
+            return;
+        }
+
         foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
         {
             if (responseEvents.DialogueObject == dialogueObject)
@@ -79,12 +93,20 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         }
 
         player.DialogueUI.ShowDialogue(dialogueObject);
+        isDialogueActive = true;
+
+        DialogueUI dialogueUI = FindObjectOfType<DialogueUI>();
+        if (dialogueUI != null)
+        {
+            dialogueUI.OnDialogueEnd += EndDialogue;
+        }
     }
 
     public void ApplyEffect(EffectBase effect)
     {
         effect.Apply(gameObject);
         AddNotebookEntry(effect);
+        CheckEffectRequirements(effect.GetType().Name);
     }
 
     public void ApplyEffect(ScriptableObject effect)
@@ -95,10 +117,16 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             applyMethod.Invoke(effect, new object[] { gameObject });
             AddNotebookEntry(effect);
             Debug.Log($"{effect.GetType().Name} applied to {gameObject.name}");
+            CheckEffectRequirements(effect.GetType().Name);
         }
-        else
+    }
+
+    private void CheckEffectRequirements(string effectName)
+    {
+        if ((startRequirement == DialogueRequirement.QuietWhisper && effectName == "QuietWhisperEffect") ||
+            (startRequirement == DialogueRequirement.EchoingRoots && effectName == "EchoingRootsEffect"))
         {
-            Debug.LogWarning($"Effect of type {effect.GetType().Name} does not have an Apply method or is not applicable to DialogueActivator.");
+            EnableDialogueStart();
         }
     }
 
@@ -118,6 +146,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     public void EnableDialogueStart()
     {
         canStartDialogue = true;
+        UpdateTalkIndicators();
         Debug.Log("Dialogue can be started by pressing F.");
     }
 
@@ -126,44 +155,57 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         float distanceToPlayer = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
         if (distanceToPlayer > distanceToActivate)
         {
-            Debug.Log("Player is too far away to start the dialogue.");
+            Debug.Log("Player is too far to start dialogue.");
             return;
         }
 
-        StartDialogue();
+        if (CheckComboRequirements())
+        {
+            StartDialogue();
+        }
+        else
+        {
+            Debug.Log("Combo requirement not met. Dialogue won't start.");
+        }
+    }
+
+    private bool CheckComboRequirements()
+    {
+        Debug.Log($"Start requirement: {startRequirement}, Can Start Dialogue: {canStartDialogue}");
+
+        switch (startRequirement)
+        {
+            case DialogueRequirement.NoCombo:
+                return true;
+
+            case DialogueRequirement.QuietWhisper:
+            case DialogueRequirement.EchoingRoots:
+                return canStartDialogue;
+
+            default:
+                return false;
+        }
     }
 
     private void StartDialogue()
     {
-        if (!requiresNoCombo && !canStartDialogue)
-        {
-            Debug.Log("Combination is required to start this dialogue.");
-            return;
-        }
-
-        Debug.Log("Starting dialogue: " + dialogueObject.name);
         DialogueUI dialogueUI = FindObjectOfType<DialogueUI>();
         if (dialogueUI != null)
         {
             dialogueUI.ShowDialogue(dialogueObject);
-            isDialogueActive = true; 
-            dialogueUI.OnDialogueEnd += EndDialogue; 
-            Debug.Log("Dialogue started.");
-        }
-        else
-        {
-            Debug.LogError("DialogueManager not found in the scene.");
+            isDialogueActive = true;
+            dialogueUI.OnDialogueEnd += EndDialogue;
         }
         canStartDialogue = false;
     }
 
     private void EndDialogue()
     {
-        isDialogueActive = false; 
+        isDialogueActive = false;
         DialogueUI dialogueUI = FindObjectOfType<DialogueUI>();
         if (dialogueUI != null)
         {
-            dialogueUI.OnDialogueEnd -= EndDialogue; 
+            dialogueUI.OnDialogueEnd -= EndDialogue;
         }
     }
 }

@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
+using System;
 
 public class WordUIManager : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class WordUIManager : MonoBehaviour
 
     [Header("Panels")]
     public Canvas worldCanvas;
+    public CanvasGroup worldCanvasGroup; // Добавляем CanvasGroup
     public Transform playerTransform;
     [SerializeField] private SpriteRenderer playerVisual;
 
@@ -136,40 +139,78 @@ public class WordUIManager : MonoBehaviour
 
     void ToggleWorldPanel()
     {
-        worldCanvas.enabled = !worldCanvas.enabled;
-
         if (worldCanvas.enabled)
         {
-            playerVisual.sortingLayerName = "Foreground";
-            playerVisual.sortingOrder = 90;
-            playerMovement.DisableMovement();
-            enemyManager.PauseEnemies();
-
-            // Hide top buttons when the panel is first opened
-            foreach (var btn in topButtons)
+            StartCoroutine(FadeOut(worldCanvasGroup, 1f, () =>
             {
-                btn.gameObject.SetActive(false);
-            }
+                worldCanvas.enabled = false;
+                playerVisual.sortingLayerName = "Middleground";
+                playerVisual.sortingOrder = 0;
+                playerMovement.EnableMovement();
+                enemyManager.ResumeEnemies();
+
+                foreach (var word in selectedWords)
+                {
+                    if (collectedWords.ContainsKey(word))
+                    {
+                        collectedWords[word]++;
+                    }
+                    else
+                    {
+                        collectedWords[word] = 1;
+                    }
+                }
+                ResetSelection();
+            }));
         }
         else
         {
-            playerVisual.sortingLayerName = "Middleground";
-            playerVisual.sortingOrder = 0;
-            playerMovement.EnableMovement();
-            enemyManager.ResumeEnemies();
-
-            foreach (var word in selectedWords)
+            worldCanvas.enabled = true;
+            StartCoroutine(FadeIn(worldCanvasGroup, 1f, () =>
             {
-                if (collectedWords.ContainsKey(word))
+                playerVisual.sortingLayerName = "Foreground";
+                playerVisual.sortingOrder = 90;
+                playerMovement.DisableMovement();
+                enemyManager.PauseEnemies();
+
+                // Hide top buttons when the panel is first opened
+                foreach (var btn in topButtons)
                 {
-                    collectedWords[word]++;
+                    btn.gameObject.SetActive(false);
                 }
-                else
-                {
-                    collectedWords[word] = 1;
-                }
-            }
-            ResetSelection();
+            }));
+        }
+    }
+
+    IEnumerator FadeIn(CanvasGroup canvasGroup, float duration, Action onComplete = null)
+    {
+        float elapsedTime = 0;
+        while (elapsedTime < duration)
+        {
+            canvasGroup.alpha = Mathf.Clamp01(elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        canvasGroup.alpha = 1;
+        if (onComplete != null)
+        {
+            onComplete();
+        }
+    }
+
+    IEnumerator FadeOut(CanvasGroup canvasGroup, float duration, Action onComplete = null)
+    {
+        float elapsedTime = 0;
+        while (elapsedTime < duration)
+        {
+            canvasGroup.alpha = 1 - Mathf.Clamp01(elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        canvasGroup.alpha = 0;
+        if (onComplete != null)
+        {
+            onComplete();
         }
     }
 
@@ -177,7 +218,7 @@ public class WordUIManager : MonoBehaviour
     {
         if (collectionSounds.Length > 0)
         {
-            int randomIndex = Random.Range(0, collectionSounds.Length);
+            int randomIndex = UnityEngine.Random.Range(0, collectionSounds.Length);
             audioSource.PlayOneShot(collectionSounds[randomIndex]);
         }
     }
@@ -298,9 +339,12 @@ public class WordUIManager : MonoBehaviour
 
                 ResetSelection();
 
-                worldCanvas.enabled = false;
-                playerMovement.EnableMovement();
-                enemyManager.ResumeEnemies();
+                StartCoroutine(FadeOut(worldCanvasGroup, 1f, () =>
+                {
+                    worldCanvas.enabled = false;
+                    playerMovement.EnableMovement();
+                    enemyManager.ResumeEnemies();
+                }));
             }
             else
             {

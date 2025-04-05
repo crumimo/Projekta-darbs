@@ -41,7 +41,7 @@ public class FishBehavior : EffectBase
         }
         else
         {
-            Debug.LogError("Fish component not found on target.");
+            //Debug.LogError("Fish component not found on target.");
         }
     }
 }
