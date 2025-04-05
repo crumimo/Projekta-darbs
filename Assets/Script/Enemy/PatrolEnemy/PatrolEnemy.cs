@@ -19,6 +19,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
 
     [Header("Effect Settings")]
     public float effectRadius = 5f;
+    [SerializeField] private float effectDuration = 3f;
     public EffectDiaryEntry[] effectDiaryEntries;
 
     private Transform player;
@@ -219,7 +220,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
         isLookingAtPlayer = true;
 
         // Wait for 1 second
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(effectDuration);
 
         // Check if the player is in the vision cone
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
