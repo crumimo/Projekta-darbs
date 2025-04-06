@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: U stink
+  m_Name: Blanka001
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Blanka
-    sentence: how ru'de...
-    speakerSprite: {fileID: -1149604963, guid: 7adaf53c918cb0f4194305355444ce26, type: 3}
-  responses: []
+    sentence: Whatcha looking at, u need any help?
+    speakerSprite: {fileID: -237883397, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
+  responses:
+  - responseText: Yes
+    dialogueObject: {fileID: 11400000, guid: 683e39d5c44091e4ebeae79153805679, type: 2}
+  - responseText: No
+    dialogueObject: {fileID: 11400000, guid: 511061373b343ed4f95aa4b4385af4e2, type: 2}

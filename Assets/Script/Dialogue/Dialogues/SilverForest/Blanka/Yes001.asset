@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
+  m_Name: Yes001
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - speakerName: Blanka
+    sentence: Press WASD to move
+    speakerSprite: {fileID: -237883397, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
+  - speakerName: Blanka
+    sentence: "E to open song menu \nF to interact\nM to open  map"
+    speakerSprite: {fileID: -237883397, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
+  - speakerName: Blanka
+    sentence: Talk to me again if u need any help
+    speakerSprite: {fileID: -237883397, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
+  responses:
+  - responseText: Thank you^^
+    dialogueObject: {fileID: 11400000, guid: 871445a54f1e3fa4da296fcc70050d1f, type: 2}
