@@ -38,4 +38,9 @@ public class GameSession : MonoBehaviour
     {
         ObstacleStateManager.RestoreObstacles();
     }
+
+    public void RestoreCheckpointState()
+    {
+        ObstacleStateManager.RestoreCheckpointState(); // Восстановление состояния препятствий из чекпоинта
+    }
 }

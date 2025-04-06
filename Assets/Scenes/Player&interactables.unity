@@ -1814,7 +1814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &136105455
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2536,7 +2536,7 @@ PrefabInstance:
       objectReference: {fileID: 1421780771}
     - target: {fileID: 8132462228368141839, guid: 171026e4254051542af7985b94a3c478, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8132462228368141839, guid: 171026e4254051542af7985b94a3c478, type: 3}
       propertyPath: m_SortingLayerID
@@ -7655,7 +7655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371fade69a07d774d9de968c1309948a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleID: 0
+  obstacleID: 3
   distanceToActivate: 10
   ErosionTouch: 0
   SpikeCircle: 1
@@ -13088,7 +13088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371fade69a07d774d9de968c1309948a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleID: 1
+  obstacleID: 11
   distanceToActivate: 10
   ErosionTouch: 0
   SpikeCircle: 1
@@ -16151,7 +16151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371fade69a07d774d9de968c1309948a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleID: 0
+  obstacleID: 2
   distanceToActivate: 10
   ErosionTouch: 1
   SpikeCircle: 0
@@ -18247,7 +18247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371fade69a07d774d9de968c1309948a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleID: 0
+  obstacleID: 1
   distanceToActivate: 10
   ErosionTouch: 0
   SpikeCircle: 1
