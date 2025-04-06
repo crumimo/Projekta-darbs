@@ -47,6 +47,6 @@ public static class ObstacleStateManager
     public static void RestoreCheckpointState()
     {
         destroyedObstacles = new HashSet<int>(checkpointDestroyedObstacles);
-        RestoreObstacles();  // Добавлено для восстановления состояния препятствий после восстановления из чекпоинта
+        RestoreObstacles();  
     }
 }
