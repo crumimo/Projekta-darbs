@@ -139,6 +139,7 @@ public class WordUIManager : MonoBehaviour
 
     void ToggleWorldPanel()
     {
+        playerMovement.DisableMovement();
         if (worldCanvas.enabled)
         {
             StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>

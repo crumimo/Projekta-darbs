@@ -100,6 +100,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         {
             dialogueUI.OnDialogueEnd += EndDialogue;
         }
+
+        player.DisableMovement();  // Остановить движение игрока
     }
 
     public void ApplyEffect(EffectBase effect)
@@ -118,6 +120,10 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             AddNotebookEntry(effect);
             Debug.Log($"{effect.GetType().Name} applied to {gameObject.name}");
             CheckEffectRequirements(effect.GetType().Name);
+        }
+        else
+        {
+            Debug.LogWarning($"Effect of type {effect.GetType().Name} does not have an Apply method or is not applicable to DialogueActivator.");
         }
     }
 
@@ -195,6 +201,12 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             dialogueUI.ShowDialogue(dialogueObject);
             isDialogueActive = true;
             dialogueUI.OnDialogueEnd += EndDialogue;
+
+            var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+            if (player != null)
+            {
+                player.DisableMovement();  // Остановить движение игрока
+            }
         }
         canStartDialogue = false;
     }
@@ -206,6 +218,12 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         if (dialogueUI != null)
         {
             dialogueUI.OnDialogueEnd -= EndDialogue;
+        }
+
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+        if (player != null)
+        {
+            player.EnableMovement();  // Возобновить движение игрока
         }
     }
 }
