@@ -317,7 +317,7 @@ public class WordUIManager : MonoBehaviour
 
             if (objectsInRange)
             {
-                if (effect is SpikeCircleEffect)
+                if (effect is SpikeCircleEffect || effect is GaleStrideEffect)
                 {
                     effect.Apply(playerTransform.gameObject);
                     Debug.Log($"Applying SpikeCircleEffect to Player");

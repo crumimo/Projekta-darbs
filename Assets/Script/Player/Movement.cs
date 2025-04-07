@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
     [SerializeField] private DialogueUI dialogueUI;
     private Vector2 movement;
     private Rigidbody2D rb;
