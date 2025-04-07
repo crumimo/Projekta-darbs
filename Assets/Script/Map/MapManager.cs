@@ -17,6 +17,7 @@ public class MapManager : MonoBehaviour
     public FadeController fadeController; // Fade in and fade out controller
     private bool mapVisible = false;
     private bool isMapTransitioning = false;
+    private bool isMapActivated = false; // Flag to track if the map is activated
 
     private Movement playerMovement; // Player movement script
 
@@ -30,7 +31,7 @@ public class MapManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M) && !isMapTransitioning)
+        if (isMapActivated && Input.GetKeyDown(KeyCode.M) && !isMapTransitioning)
         {
             ToggleMap();
         }
@@ -99,5 +100,10 @@ public class MapManager : MonoBehaviour
 
         // Update the last player position
         lastPlayerPosition = playerTransform.position;
+    }
+
+    public void ActivateMap()
+    {
+        isMapActivated = true; // Activate the map
     }
 }

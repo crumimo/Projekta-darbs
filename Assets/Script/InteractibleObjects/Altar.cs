@@ -3,13 +3,20 @@ using UnityEngine;
 public class Altar : MonoBehaviour
 {
     [SerializeField] private GameObject sign;
-    private bool isPlayerInRange = false; // Флаг нахождения игрока в зоне взаимодействия
+    private bool isPlayerInRange = false; // Flag to track if the player is in the interaction zone
+    private MapManager mapManager; // Reference to the MapManager
+
+    private void Start()
+    {
+        mapManager = FindObjectOfType<MapManager>(); // Find the MapManager in the scene
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && isPlayerInRange)
         {
             ActivateCollectedWords();
+            mapManager.ActivateMap(); // Activate the map when interacting with the altar
         }
     }
 
