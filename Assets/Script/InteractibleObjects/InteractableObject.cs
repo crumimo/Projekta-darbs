@@ -1,7 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
+    [SerializeField] private GameObject hintPanel;
+    [SerializeField] private TextMeshProUGUI text;
     public Sprite openedSprite; // Спрайт для открытого состояния
     public GameObject wordObject; // Объект слова, который будет активироваться
     public GameObject spriteChild; // Дочерний объект, содержащий SpriteRenderer
@@ -41,6 +44,8 @@ public class InteractableObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            text.text = "Press F to interact";
+            hintPanel.SetActive(true);
             isPlayerInRange = true;
         }
     }
@@ -49,6 +54,8 @@ public class InteractableObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            hintPanel.SetActive(false);
+            text.text = "";
             isPlayerInRange = false;
         }
     }
