@@ -36,6 +36,8 @@ public class InteractableObject : MonoBehaviour
         if (spriteRenderer != null)
         {
             spriteRenderer.sprite = openedSprite; // Меняем спрайт дочернего объекта
+            hintPanel.SetActive(false);
+            text.text = "";
         }
         wordObject.SetActive(true); // Отображаем объект слова
     }
