@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fc00fb588e4b245a66a5e899242716, type: 3}
   m_Name: FlourishingVeilEffect
   m_EditorClassIdentifier: 
+  shieldPrefab: {fileID: 2727193748304355871, guid: 9cdf6514d44d29c4f91fdd6989f5a540, type: 3}
+  duration: 5

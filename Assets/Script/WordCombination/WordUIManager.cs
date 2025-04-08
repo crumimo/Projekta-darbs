@@ -12,7 +12,7 @@ public class WordUIManager : MonoBehaviour
 
     [Header("Panels")]
     public Canvas worldCanvas;
-    public CanvasGroup worldCanvasGroup; // Добавляем CanvasGroup
+    public CanvasGroup worldCanvasGroup; 
     public Transform playerTransform;
     [SerializeField] private SpriteRenderer playerVisual;
 
@@ -297,84 +297,95 @@ public class WordUIManager : MonoBehaviour
     }
 
     void ConfirmCombination()
+{
+    if (selectedWords.Count == 2)
     {
-        if (selectedWords.Count == 2)
+        playerVisual.sortingLayerName = "Middleground";
+        playerVisual.sortingOrder = 0;
+        EffectBase effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
+        if (effect == null)
         {
-            playerVisual.sortingLayerName = "Middleground";
-            playerVisual.sortingOrder = 0;
-            EffectBase effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
-            if (effect == null)
-            {
-                Debug.LogError("Effect not found for the given combination.");
-                return;
-            }
+            Debug.LogError("Effect not found for the given combination.");
+            return;
+        }
 
-            Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect.name}");
-            string word1 = selectedWords[0];
-            string word2 = selectedWords[1];
+        Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect.name}");
 
+        if (effect is SpikeCircleEffect || effect is GaleStrideEffect || effect is FlourishingVeilEffect)
+        {
+            ApplyEffectToPlayer(effect);
+        }
+        else
+        {
             bool objectsInRange = AnyObjectInRange();
-
             if (objectsInRange)
             {
-                if (effect is SpikeCircleEffect || effect is GaleStrideEffect)
-                {
-                    effect.Apply(playerTransform.gameObject);
-                    Debug.Log($"Applying SpikeCircleEffect to Player");
-                }
-
-                var effectables = FindObjectsOfType<MonoBehaviour>().OfType<IEffectable>();
-
-                foreach (var effectable in effectables)
-                {
-                    if (Vector3.Distance(playerTransform.position, ((MonoBehaviour)effectable).transform.position) <= effectRadius)
-                    {
-                        if (!(effect is SpikeCircleEffect))
-                        {
-                            effectable.ApplyEffect(effect);
-                        }
-                        else
-                        {
-                            effectable.ApplyEffect(effect);
-                        }
-                    }
-                }
-
-                ResetSelection();
-
-                StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
-                {
-                    worldCanvas.enabled = false;
-                    playerMovement.EnableMovement();
-                    enemyManager.ResumeEnemies();
-                }));
+                ApplyEffectToObjects(effect);
             }
             else
             {
                 Debug.Log("No objects in range to apply the effect.");
-
-                if (collectedWords.ContainsKey(selectedWords[0]))
-                {
-                    collectedWords[selectedWords[0]]++;
-                }
-                else
-                {
-                    collectedWords[selectedWords[0]] = 1;
-                }
-
-                if (collectedWords.ContainsKey(selectedWords[1]))
-                {
-                    collectedWords[selectedWords[1]]++;
-                }
-                else
-                {
-                    collectedWords[selectedWords[1]] = 1;
-                }
-
-                ResetSelection();
+                ReturnWordsToCollection();
             }
         }
+
+        ResetSelection();
     }
+}
+
+private void ApplyEffectToPlayer(EffectBase effect)
+{
+    effect.Apply(playerTransform.gameObject);
+    Debug.Log($"Applying {effect.name} to Player");
+
+    StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
+    {
+        worldCanvas.enabled = false;
+        playerMovement.EnableMovement();
+        enemyManager.ResumeEnemies();
+    }));
+}
+
+private void ApplyEffectToObjects(EffectBase effect)
+{
+    var effectables = FindObjectsOfType<MonoBehaviour>().OfType<IEffectable>();
+
+    foreach (var effectable in effectables)
+    {
+        if (Vector3.Distance(playerTransform.position, ((MonoBehaviour)effectable).transform.position) <= effectRadius)
+        {
+            effectable.ApplyEffect(effect);
+        }
+    }
+
+    StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
+    {
+        worldCanvas.enabled = false;
+        playerMovement.EnableMovement();
+        enemyManager.ResumeEnemies();
+    }));
+}
+
+private void ReturnWordsToCollection()
+{
+    if (collectedWords.ContainsKey(selectedWords[0]))
+    {
+        collectedWords[selectedWords[0]]++;
+    }
+    else
+    {
+        collectedWords[selectedWords[0]] = 1;
+    }
+
+    if (collectedWords.ContainsKey(selectedWords[1]))
+    {
+        collectedWords[selectedWords[1]]++;
+    }
+    else
+    {
+        collectedWords[selectedWords[1]] = 1;
+    }
+}
 
     bool AnyObjectInRange()
     {

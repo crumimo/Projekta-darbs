@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -43,8 +41,15 @@ public class HideAndSeekEnemyRefactored : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-                Debug.Log("Found ya!");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                if (!Shield.isShieldActive) // Check if shield is not active
+                {
+                    Debug.Log("Found ya!");
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
+                else
+                {
+                    Debug.Log("Player is shielded, enemy cannot see them.");
+                }
             }
         }
     }
