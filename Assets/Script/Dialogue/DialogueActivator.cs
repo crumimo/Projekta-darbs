@@ -56,10 +56,9 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             {
                 player.Interactable = null;
             }
-
-            playerInRange = false;
-            text.text = "";
             hintPanel.SetActive(false);
+            text.text = "";
+            playerInRange = false;
         }
     }
 
@@ -67,12 +66,12 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     {
         if (CheckComboRequirements())
         {
-            text.text = "I can talk to them now";
+            text.text = "I can talk with them now";
             hintPanel.SetActive(true);
         }
         else
         {
-            text.text = "I can't talk to them now";
+            text.text = "I can't talk with them without right melody";
             hintPanel.SetActive(true);
         }
     }
@@ -93,7 +92,9 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
                 break;
             }
         }
-
+        
+        hintPanel.SetActive(false);
+        text.text = "";
         player.DialogueUI.ShowDialogue(dialogueObject);
         isDialogueActive = true;
 
@@ -229,5 +230,6 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         {
             player.EnableMovement();  // Возобновить движение игрока
         }
+        UpdateTalkIndicators();
     }
 }

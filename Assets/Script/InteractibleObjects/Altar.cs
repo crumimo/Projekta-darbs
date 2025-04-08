@@ -44,8 +44,8 @@ public class Altar : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            text.text = "";
             hintPanel.SetActive(false);
+            text.text = "";
             isPlayerInRange = false;
         }
     }

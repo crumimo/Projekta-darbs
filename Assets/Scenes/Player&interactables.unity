@@ -7846,8 +7846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73887be5f02db1b40998c2955f8d45ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintPanel: {fileID: 0}
-  text: {fileID: 0}
+  hintPanel: {fileID: 712148354}
+  text: {fileID: 715744889}
   openedSprite: {fileID: 1327690571, guid: 58551b0214132ac4b8053e655fa8e359, type: 3}
   wordObject: {fileID: 102425871}
   spriteChild: {fileID: 1445186815}
@@ -8425,7 +8425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 256
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1600, y: 1000}
   m_ScreenMatchMode: 0
@@ -8515,10 +8515,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: It seems thy dont want to talk now...
+  m_text: '*Insert ur card data here*'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d063a205978973a468c674e0a5898e15, type: 2}
+  m_sharedMaterial: {fileID: 7713805597115250223, guid: d063a205978973a468c674e0a5898e15, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8542,8 +8542,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11009,8 +11009,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73887be5f02db1b40998c2955f8d45ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintPanel: {fileID: 0}
-  text: {fileID: 0}
+  hintPanel: {fileID: 712148354}
+  text: {fileID: 715744889}
   openedSprite: {fileID: 1327690571, guid: 58551b0214132ac4b8053e655fa8e359, type: 3}
   wordObject: {fileID: 1984456541}
   spriteChild: {fileID: 1402193479}
@@ -11514,7 +11514,7 @@ Transform:
   m_GameObject: {fileID: 979491080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.1, y: -54.2, z: 0}
+  m_LocalPosition: {x: 32.3, y: -56.8, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -13487,7 +13487,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 3
+  m_PixelsPerUnitMultiplier: 10
 --- !u!222 &1137280454
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14049,7 +14049,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.699999, y: -112.65, z: -10}
+  m_LocalPosition: {x: 28.9, y: -115.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16972,7 +16972,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.699999, y: -112.65, z: -10}
+  m_LocalPosition: {x: 28.9, y: -115.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19299,7 +19299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed76f26719b50c42ba949c140e106be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRequirement: 0
+  startRequirement: 1
   dialogueObject: {fileID: 11400000, guid: 47193e4fc6814664e9ace876e0402730, type: 2}
   hintPanel: {fileID: 712148354}
   text: {fileID: 715744889}
@@ -21028,8 +21028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73887be5f02db1b40998c2955f8d45ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintPanel: {fileID: 0}
-  text: {fileID: 0}
+  hintPanel: {fileID: 712148354}
+  text: {fileID: 715744889}
   openedSprite: {fileID: 35320488, guid: 58551b0214132ac4b8053e655fa8e359, type: 3}
   wordObject: {fileID: 1282285455}
   spriteChild: {fileID: 99256357}
@@ -24906,8 +24906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73887be5f02db1b40998c2955f8d45ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintPanel: {fileID: 0}
-  text: {fileID: 0}
+  hintPanel: {fileID: 712148354}
+  text: {fileID: 715744889}
   openedSprite: {fileID: 35320488, guid: 58551b0214132ac4b8053e655fa8e359, type: 3}
   wordObject: {fileID: 1273704162}
   spriteChild: {fileID: 1838264732}
