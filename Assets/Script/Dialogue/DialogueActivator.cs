@@ -6,7 +6,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     {
         NoCombo,
         QuietWhisper,
-        EchoingRoots
+        EchoingRoots,
+        WhisperingPetals
     }
 
     [SerializeField] private DialogueRequirement startRequirement = DialogueRequirement.NoCombo;
@@ -126,11 +127,12 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             Debug.LogWarning($"Effect of type {effect.GetType().Name} does not have an Apply method or is not applicable to DialogueActivator.");
         }
     }
-
+    
     private void CheckEffectRequirements(string effectName)
     {
         if ((startRequirement == DialogueRequirement.QuietWhisper && effectName == "QuietWhisperEffect") ||
-            (startRequirement == DialogueRequirement.EchoingRoots && effectName == "EchoingRootsEffect"))
+            (startRequirement == DialogueRequirement.EchoingRoots && effectName == "EchoingRootsEffect") ||
+            (startRequirement == DialogueRequirement.WhisperingPetals && effectName == "WhisperingPetalsEffect"))
         {
             EnableDialogueStart();
         }
@@ -186,6 +188,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
 
             case DialogueRequirement.QuietWhisper:
             case DialogueRequirement.EchoingRoots:
+            case DialogueRequirement.WhisperingPetals:
                 return canStartDialogue;
 
             default:
