@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
+  m_Name: Questions
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - speakerName: Vekh
+    sentence: Whatcha want to hear?
+    speakerSprite: {fileID: 1349759722, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+  responses:
+  - responseText: What does drift mean?
+    dialogueObject: {fileID: 11400000, guid: f0b251f2067ebc441a5fddd117ce519d, type: 2}
+  - responseText: What does mist mean?
+    dialogueObject: {fileID: 11400000, guid: 25f59b1b9836687419cdf6e1525fbed0, type: 2}
+  - responseText: Why you so grumpy?
+    dialogueObject: {fileID: 11400000, guid: 8b1364633afca4645b11787cdb124528, type: 2}

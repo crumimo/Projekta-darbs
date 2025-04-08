@@ -10,15 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: FirstEncounter
+  m_Name: Questions
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: Maya
-    sentence: I never thought that i will see another mermaid
-    speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
-  - speakerName: Maya
-    sentence: It seems that your're not from these lands
-    speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Maya
     sentence: How can we help you?
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}

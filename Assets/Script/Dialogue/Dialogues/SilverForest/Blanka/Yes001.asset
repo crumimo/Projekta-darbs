@@ -15,13 +15,13 @@ MonoBehaviour:
   dialogueSegments:
   - speakerName: Blanka
     sentence: Press WASD to move
-    speakerSprite: {fileID: -237883397, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
+    speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Blanka
     sentence: "E to open song menu \nF to interact\nM to open  map"
-    speakerSprite: {fileID: -237883397, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
+    speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Blanka
     sentence: Talk to me again if u need any help
-    speakerSprite: {fileID: -237883397, guid: 7727cd5d05ccbb74f9ec114a4951a05a, type: 3}
+    speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   responses:
   - responseText: Thank you^^
     dialogueObject: {fileID: 11400000, guid: 871445a54f1e3fa4da296fcc70050d1f, type: 2}
