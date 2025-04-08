@@ -1,8 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class Altar : MonoBehaviour
 {
-    [SerializeField] private GameObject sign;
+
+    [SerializeField] private GameObject hintPanel;
+    [SerializeField] private TextMeshProUGUI text;
     private bool isPlayerInRange = false; // Flag to track if the player is in the interaction zone
     private MapManager mapManager; // Reference to the MapManager
 
@@ -10,6 +13,7 @@ public class Altar : MonoBehaviour
     {
         mapManager = FindObjectOfType<MapManager>(); // Find the MapManager in the scene
     }
+
 
     void Update()
     {
@@ -30,7 +34,8 @@ public class Altar : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            sign.SetActive(true);
+            text.text = "Press F to interact";
+            hintPanel.SetActive(true);
             isPlayerInRange = true;
         }
     }
@@ -39,7 +44,8 @@ public class Altar : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            sign.SetActive(false);
+            text.text = "";
+            hintPanel.SetActive(false);
             isPlayerInRange = false;
         }
     }

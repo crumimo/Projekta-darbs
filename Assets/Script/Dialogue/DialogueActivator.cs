@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
@@ -15,8 +16,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     private bool canStartDialogue = false;
     private bool playerInRange = false;
 
-    [SerializeField] private GameObject canTalk;
-    [SerializeField] private GameObject cantTalk;
+    [SerializeField] private GameObject hintPanel;
+    [SerializeField] private TextMeshProUGUI text;
 
     [SerializeField] private float distanceToActivate = 2f;
     private bool isDialogueActive = false;
@@ -57,8 +58,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             }
 
             playerInRange = false;
-            cantTalk.SetActive(false);
-            canTalk.SetActive(false);
+            text.text = "";
+            hintPanel.SetActive(false);
         }
     }
 
@@ -66,13 +67,13 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     {
         if (CheckComboRequirements())
         {
-            canTalk.SetActive(true);
-            cantTalk.SetActive(false);
+            text.text = "I can talk to them now";
+            hintPanel.SetActive(true);
         }
         else
         {
-            cantTalk.SetActive(true);
-            canTalk.SetActive(false);
+            text.text = "I can't talk to them now";
+            hintPanel.SetActive(true);
         }
     }
 
