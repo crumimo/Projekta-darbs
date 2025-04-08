@@ -7,6 +7,7 @@ public class HideAndSeekEnemyRefactored : MonoBehaviour
     [SerializeField] private float GoDuration;
     [SerializeField] private float StopDuration;
     [SerializeField] private SpriteRenderer sprite;
+    private bool playerGotHit = false;
 
     private bool canMove;
 
@@ -52,5 +53,9 @@ public class HideAndSeekEnemyRefactored : MonoBehaviour
                 }
             }
         }
+    }
+    public void ResetEnemyState()
+    {
+        playerGotHit = false;
     }
 }
