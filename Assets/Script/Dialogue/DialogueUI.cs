@@ -40,12 +40,34 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator ShowDialogueWithFade(DialogueObject dialogueObject)
     {
+        // Предустановить первое изображение и имя говорящего
+        if (dialogueObject.DialogueSegments.Length > 0)
+        {
+            DialogueSegment firstSegment = dialogueObject.DialogueSegments[0];
+
+            speakerNameLabel.text = firstSegment.speakerName;
+
+            if (firstSegment.speakerSprite != null)
+            {
+                speakerImage.sprite = firstSegment.speakerSprite;
+                speakerImage.color = Color.white; // Сделать спрайт видимым
+            }
+            else
+            {
+                speakerImage.sprite = null;
+                speakerImage.color = new Color(1, 1, 1, 0); // Сделать изображение прозрачным
+            }
+        }
+
+        // Анимация появления диалогового окна
         yield return StartCoroutine(fadeController.FadeIn());
-        
+
         dialogueBox.SetActive(true);
-        
+
+        // Анимация завершения показа
         yield return StartCoroutine(fadeController.FadeOut());
-        
+
+        // Начинаем диалог
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
 
@@ -61,7 +83,17 @@ public class DialogueUI : MonoBehaviour
             DialogueSegment segment = dialogueObject.DialogueSegments[i];
 
             speakerNameLabel.text = segment.speakerName;
-            speakerImage.sprite = segment.speakerSprite;
+
+            if (segment.speakerSprite != null)
+            {
+                speakerImage.sprite = segment.speakerSprite;
+                speakerImage.color = Color.white; // Убедитесь, что спрайт становится видимым
+            }
+            else
+            {
+                speakerImage.sprite = null;
+                speakerImage.color = new Color(1, 1, 1, 0); // Сделать спикер невидимым
+            }
 
             yield return RunTypingEffect(segment.sentence, segment.speakerName);
 

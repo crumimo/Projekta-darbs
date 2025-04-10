@@ -52,12 +52,21 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     {
         if (other.CompareTag("Player") && other.TryGetComponent(out Movement player))
         {
-            if (player.Interactable == this)
+            if (player != null && player.Interactable == this)
             {
                 player.Interactable = null;
             }
-            hintPanel.SetActive(false);
-            text.text = "";
+
+            if (hintPanel != null) 
+            {
+                hintPanel.SetActive(false);
+            }
+
+            if (text != null) 
+            {
+                text.text = "";
+            }
+
             playerInRange = false;
         }
     }
