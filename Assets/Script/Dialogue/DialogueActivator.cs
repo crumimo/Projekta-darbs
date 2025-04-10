@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
 {
@@ -13,6 +14,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
 
     [SerializeField] private DialogueRequirement startRequirement = DialogueRequirement.NoCombo;
     [SerializeField] private DialogueObject dialogueObject;
+    [SerializeField] private CanvasGroup hintPanelCanvasGroup;
     private bool canStartDialogue = false;
     private bool playerInRange = false;
 
@@ -57,15 +59,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
                 player.Interactable = null;
             }
 
-            if (hintPanel != null) 
-            {
-                hintPanel.SetActive(false);
-            }
-
-            if (text != null) 
-            {
-                text.text = "";
-            }
+            StopAllCoroutines(); 
+            StartCoroutine(FadeOutHintPanel());
 
             playerInRange = false;
         }
@@ -76,13 +71,46 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         if (CheckComboRequirements())
         {
             text.text = "I can talk with them now";
-            hintPanel.SetActive(true);
         }
         else
         {
             text.text = "I can't talk with them without right melody";
-            hintPanel.SetActive(true);
         }
+
+        StopAllCoroutines(); 
+        StartCoroutine(FadeInHintPanel());
+    }
+    
+    private IEnumerator FadeInHintPanel()
+    {
+        hintPanel.SetActive(true); 
+        float duration = 0.5f; 
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            hintPanelCanvasGroup.alpha = Mathf.Lerp(0, 1, elapsedTime / duration);
+            yield return null;
+        }
+
+        hintPanelCanvasGroup.alpha = 1;
+    }
+    
+    private IEnumerator FadeOutHintPanel()
+    {
+        float duration = 0.5f; 
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            hintPanelCanvasGroup.alpha = Mathf.Lerp(1, 0, elapsedTime / duration);
+            yield return null;
+        }
+
+        hintPanelCanvasGroup.alpha = 0;
+        hintPanel.SetActive(false); 
     }
 
     public void Interact(Movement player)
@@ -113,7 +141,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             dialogueUI.OnDialogueEnd += EndDialogue;
         }
 
-        player.DisableMovement();  // Остановить движение игрока
+        player.DisableMovement();  
     }
 
     public void ApplyEffect(EffectBase effect)
@@ -219,7 +247,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
             if (player != null)
             {
-                player.DisableMovement();  // Остановить движение игрока
+                player.DisableMovement();  
             }
         }
         canStartDialogue = false;
@@ -237,7 +265,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
         if (player != null)
         {
-            player.EnableMovement();  // Возобновить движение игрока
+            player.EnableMovement();  
         }
         UpdateTalkIndicators();
     }
