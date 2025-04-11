@@ -3,15 +3,14 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
-    [SerializeField] private GameObject hintPanel;
-    [SerializeField] private TextMeshProUGUI text;
-    public Sprite openedSprite; // Спрайт для открытого состояния
-    public GameObject wordObject; // Объект слова, который будет активироваться
-    public GameObject spriteChild; // Дочерний объект, содержащий SpriteRenderer
+    [SerializeField] private HintPanelController hintPanelController; 
+    public Sprite openedSprite; 
+    public GameObject wordObject; 
+    public GameObject spriteChild; 
 
-    private SpriteRenderer spriteRenderer; // Спрайт рендерер дочернего объекта
-    private bool isOpened = false; // Флаг состояния (открыт или закрыт)
-    private bool isPlayerInRange = false; // Флаг нахождения игрока в зоне взаимодействия
+    private SpriteRenderer spriteRenderer; 
+    private bool isOpened = false;
+    private bool isPlayerInRange = false; 
 
     void Start()
     {
@@ -19,7 +18,7 @@ public class InteractableObject : MonoBehaviour
         {
             spriteRenderer = spriteChild.GetComponent<SpriteRenderer>();
         }
-        wordObject.SetActive(false); // Скроем объект слова при старте
+        wordObject.SetActive(false); 
     }
 
     void Update()
@@ -32,22 +31,20 @@ public class InteractableObject : MonoBehaviour
 
     void OpenObject()
     {
-        isOpened = true;
+        isOpened = true; 
         if (spriteRenderer != null)
         {
-            spriteRenderer.sprite = openedSprite; // Меняем спрайт дочернего объекта
-            hintPanel.SetActive(false);
-            text.text = "";
+            spriteRenderer.sprite = openedSprite; 
         }
-        wordObject.SetActive(true); // Отображаем объект слова
+        wordObject.SetActive(true); 
+        hintPanelController.Hide(); 
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isOpened)
         {
-            text.text = "Press F to interact";
-            hintPanel.SetActive(true);
+            hintPanelController.Show("Press F to interact"); 
             isPlayerInRange = true;
         }
     }
@@ -56,8 +53,11 @@ public class InteractableObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            hintPanel.SetActive(false);
-            text.text = "";
+            if (!isOpened)
+            {
+                hintPanelController.Hide(); 
+            }
+
             isPlayerInRange = false;
         }
     }

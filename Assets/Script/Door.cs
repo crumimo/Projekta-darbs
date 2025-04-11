@@ -1,29 +1,29 @@
-using TMPro;
+using System.Collections;
 using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    private bool canEnter;
+    private bool canEnter; 
 
-    [SerializeField] private GameObject hintPanel;
-    [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private Transform destination;
+    [SerializeField] private HintPanelController hintPanelController; 
+    [SerializeField] private Transform destination; 
+    [SerializeField] private FadeController fadeController; 
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void Update()
     {
+        
         if (canEnter && Input.GetKeyDown(KeyCode.F))
         {
-            hintPanel.SetActive(false);
-            text.text = "";
-            Movement playerPos = FindObjectOfType<Movement>();
-            playerPos.transform.position = destination.position;
+            StartCoroutine(EnterDoorWithFade());
         }
-        
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         if (other.CompareTag("Player"))
         {
-            hintPanel.SetActive(true);
-            text.text = "Press F to enter";
-            canEnter = true;
+            hintPanelController.Show("Press F to enter"); 
+            canEnter = true; 
         }
     }
 
@@ -31,9 +31,25 @@ public class Door : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            hintPanel.SetActive(false);
-            text.text = "";
-            canEnter = false;
-        } 
+            hintPanelController.Hide(); 
+            canEnter = false; 
+        }
+    }
+
+    private IEnumerator EnterDoorWithFade()
+    {
+        hintPanelController.Hide();
+        
+        yield return StartCoroutine(fadeController.FadeIn());
+        
+        Movement playerPos = FindObjectOfType<Movement>();
+        if (playerPos != null)
+        {
+            playerPos.transform.position = destination.position;
+        }
+        
+        yield return new WaitForSeconds(0.5f);
+        
+        yield return StartCoroutine(fadeController.FadeOut());
     }
 }

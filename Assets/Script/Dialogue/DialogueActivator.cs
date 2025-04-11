@@ -14,12 +14,9 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
 
     [SerializeField] private DialogueRequirement startRequirement = DialogueRequirement.NoCombo;
     [SerializeField] private DialogueObject dialogueObject;
-    [SerializeField] private CanvasGroup hintPanelCanvasGroup;
+    [SerializeField] private HintPanelController hintPanelController; 
     private bool canStartDialogue = false;
     private bool playerInRange = false;
-
-    [SerializeField] private GameObject hintPanel;
-    [SerializeField] private TextMeshProUGUI text;
 
     [SerializeField] private float distanceToActivate = 2f;
     private bool isDialogueActive = false;
@@ -59,9 +56,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
                 player.Interactable = null;
             }
 
-            StopAllCoroutines(); 
-            StartCoroutine(FadeOutHintPanel());
-
+            hintPanelController.Hide(); 
             playerInRange = false;
         }
     }
@@ -70,47 +65,12 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     {
         if (CheckComboRequirements())
         {
-            text.text = "I can talk with them now";
+            hintPanelController.Show("I can talk with them now");
         }
         else
         {
-            text.text = "I can't talk with them without right melody";
+            hintPanelController.Show("I can't talk with them without right melody");
         }
-
-        StopAllCoroutines(); 
-        StartCoroutine(FadeInHintPanel());
-    }
-    
-    private IEnumerator FadeInHintPanel()
-    {
-        hintPanel.SetActive(true); 
-        float duration = 0.5f; 
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            hintPanelCanvasGroup.alpha = Mathf.Lerp(0, 1, elapsedTime / duration);
-            yield return null;
-        }
-
-        hintPanelCanvasGroup.alpha = 1;
-    }
-    
-    private IEnumerator FadeOutHintPanel()
-    {
-        float duration = 0.5f; 
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            hintPanelCanvasGroup.alpha = Mathf.Lerp(1, 0, elapsedTime / duration);
-            yield return null;
-        }
-
-        hintPanelCanvasGroup.alpha = 0;
-        hintPanel.SetActive(false); 
     }
 
     public void Interact(Movement player)
@@ -129,9 +89,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
                 break;
             }
         }
-        
-        hintPanel.SetActive(false);
-        text.text = "";
+
+        hintPanelController.Hide(); 
         player.DialogueUI.ShowDialogue(dialogueObject);
         isDialogueActive = true;
 
