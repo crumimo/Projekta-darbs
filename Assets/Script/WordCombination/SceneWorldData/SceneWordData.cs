@@ -11,5 +11,6 @@ public class WordCombination
 {
     public string word1;
     public string word2;
-    public EffectBase effect; 
+    public EffectBase effect;
+    public AudioClip effectSound;
 }

@@ -6,7 +6,7 @@ public class WordManager : MonoBehaviour
     public static WordManager Instance;
 
     private List<string> collectedWords = new List<string>();
-    private Dictionary<string, EffectBase> wordCombinations = new Dictionary<string, EffectBase>(); 
+    private Dictionary<string, WordCombination> wordCombinations = new Dictionary<string, WordCombination>();
 
     public SceneWordData[] sceneWordDataArray; 
 
@@ -31,8 +31,9 @@ public class WordManager : MonoBehaviour
             {
                 string combinationKey1 = combination.word1 + "+" + combination.word2;
                 string combinationKey2 = combination.word2 + "+" + combination.word1;
-                wordCombinations[combinationKey1] = combination.effect;
-                wordCombinations[combinationKey2] = combination.effect;
+
+                wordCombinations[combinationKey1] = combination;
+                wordCombinations[combinationKey2] = combination;
             }
         }
     }
@@ -62,18 +63,27 @@ public class WordManager : MonoBehaviour
 
     public EffectBase GetEffect(string word1, string word2)
     {
-        if (wordCombinations == null)
-        {
-            Debug.LogError("wordCombinations is not initialized.");
-            return null;
-        }
-
         string combination1 = word1 + "+" + word2;
         string combination2 = word2 + "+" + word1;
 
-        if (wordCombinations.TryGetValue(combination1, out EffectBase effect) || wordCombinations.TryGetValue(combination2, out effect))
+        if (wordCombinations.TryGetValue(combination1, out WordCombination combination) ||
+            wordCombinations.TryGetValue(combination2, out combination))
         {
-            return effect;
+            return combination.effect;
+        }
+
+        return null;
+    }
+
+    public AudioClip GetEffectSound(string word1, string word2)
+    {
+        string combination1 = word1 + "+" + word2;
+        string combination2 = word2 + "+" + word1;
+
+        if (wordCombinations.TryGetValue(combination1, out WordCombination combination) ||
+            wordCombinations.TryGetValue(combination2, out combination))
+        {
+            return combination.effectSound;
         }
 
         return null;

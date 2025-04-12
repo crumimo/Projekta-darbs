@@ -295,43 +295,58 @@ public class WordUIManager : MonoBehaviour
             }
         }
     }
+    
+    private void PlayEffectSound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+    }
 
     void ConfirmCombination()
-{
-    if (selectedWords.Count == 2)
     {
-        playerVisual.sortingLayerName = "Middleground";
-        playerVisual.sortingOrder = 0;
-        EffectBase effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
-        if (effect == null)
+        if (selectedWords.Count == 2)
         {
-            Debug.LogError("Effect not found for the given combination.");
-            return;
-        }
+            playerVisual.sortingLayerName = "Middleground";
+            playerVisual.sortingOrder = 0;
+            
+            EffectBase effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
+            AudioClip effectSound = WordManager.Instance.GetEffectSound(selectedWords[0], selectedWords[1]);
 
-        Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect.name}");
-
-        if (effect is SpikeCircleEffect || effect is GaleStrideEffect || effect is FlourishingVeilEffect)
-        {
-            ApplyEffectToPlayer(effect);
-        }
-        else
-        {
-            bool objectsInRange = AnyObjectInRange();
-            if (objectsInRange)
+            if (effect == null)
             {
-                ApplyEffectToObjects(effect);
+                Debug.LogError("Effect not found for the given combination.");
+                return;
+            }
+
+            Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect.name}");
+
+            if (effect is SpikeCircleEffect || effect is GaleStrideEffect || effect is FlourishingVeilEffect)
+            {
+                ApplyEffectToPlayer(effect);
+                
+                PlayEffectSound(effectSound);
             }
             else
             {
-                Debug.Log("No objects in range to apply the effect.");
-                ReturnWordsToCollection();
+                bool objectsInRange = AnyObjectInRange();
+                if (objectsInRange)
+                {
+                    ApplyEffectToObjects(effect);
+                    
+                    PlayEffectSound(effectSound);
+                }
+                else
+                {
+                    Debug.Log("No objects in range to apply the effect.");
+                    ReturnWordsToCollection();
+                }
             }
-        }
 
-        ResetSelection();
+            ResetSelection();
+        }
     }
-}
 
 private void ApplyEffectToPlayer(EffectBase effect)
 {
