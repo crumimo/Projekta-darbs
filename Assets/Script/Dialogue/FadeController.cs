@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class FadeController : MonoBehaviour
 {
-    public Image fadeImage; 
-    public float fadeDuration = 1f; 
+    public Image fadeImage;
+    public float fadeDuration = 1f;
 
     private void Awake()
     {
@@ -17,41 +17,50 @@ public class FadeController : MonoBehaviour
 
     private void Start()
     {
-        fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0);
+        SetAlpha(0f); 
         fadeImage.gameObject.SetActive(false);
     }
 
     public IEnumerator FadeIn()
     {
         fadeImage.gameObject.SetActive(true);
+
         float elapsedTime = 0f;
-        Color color = fadeImage.color;
 
         while (elapsedTime < fadeDuration)
         {
             float alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
-            fadeImage.color = new Color(color.r, color.g, color.b, alpha);
+            SetAlpha(alpha);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        fadeImage.color = new Color(color.r, color.g, color.b, 1);
+        SetAlpha(1f);
     }
 
     public IEnumerator FadeOut()
     {
         float elapsedTime = 0f;
-        Color color = fadeImage.color;
 
         while (elapsedTime < fadeDuration)
         {
             float alpha = 1 - Mathf.Clamp01(elapsedTime / fadeDuration);
-            fadeImage.color = new Color(color.r, color.g, color.b, alpha);
+            SetAlpha(alpha);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        fadeImage.color = new Color(color.r, color.g, color.b, 0);
+        SetAlpha(0f);
         fadeImage.gameObject.SetActive(false);
+    }
+
+    private void SetAlpha(float alpha)
+    {
+        if (fadeImage != null)
+        {
+            Color color = fadeImage.color;
+            color.a = alpha;
+            fadeImage.color = color;
+        }
     }
 }

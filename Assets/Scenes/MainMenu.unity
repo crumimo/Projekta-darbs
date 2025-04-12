@@ -405,7 +405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &407847337
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1222,12 +1222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ac493b25953394d839c2a6677ef968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingBarObject: {fileID: 407847336}
-  loadingBar: {fileID: 403640986}
   objectsToHide:
   - {fileID: 237601648}
   persistentGameplay: Player&interactables
   levelScene: SilverForest
+  fadeController: {fileID: 1502834618}
 --- !u!4 &1502834617
 Transform:
   m_ObjectHideFlags: 0
@@ -1337,7 +1336,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!224 &1509199072
 RectTransform:
