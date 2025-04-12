@@ -96,6 +96,15 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
         // Move to the next point
         Transform targetPoint = patrolPoints[currentPointIndex];
         transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, moveSpeed * Time.deltaTime);
+        
+        if (transform.position.x > targetPoint.position.x)
+        {
+            animator.SetTrigger("Left");
+        }
+        else
+        {
+            animator.SetTrigger("Right");
+        }
 
         // Check if reached the point
         if (Vector2.Distance(transform.position, targetPoint.position) < 0.1f)
