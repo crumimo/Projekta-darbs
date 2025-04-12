@@ -57,12 +57,14 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     {
         if (isAsleep)
         {
+            animator.SetBool("Idle", false);
             animator.SetBool("Sleep", true);
             return; 
         }
 
         if (isLookingAtPlayer)
         {
+            animator.SetBool("Idle", false);
             animator.SetBool("Sleep", false);
             // Maintain the look at player for a while
             return;
@@ -70,11 +72,13 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
 
         if (isWaiting)
         {
+            animator.SetBool("Idle", true);
             animator.SetBool("Sleep", false);
             Idle();
         }
         else
         {
+            animator.SetBool("Idle", false);
             animator.SetBool("Sleep", false);
             Patrol();
         }
