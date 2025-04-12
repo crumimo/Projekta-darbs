@@ -16,28 +16,28 @@ MonoBehaviour:
   - word1: Drift
     word2: Mist
     effect: {fileID: 11400000, guid: afabc5f32c6bebc4d93dc8e7297d10a6, type: 2}
-    effectSound: {fileID: 8300000, guid: 028c0565cf59fbd4fae7a4ed5ab3f4d5, type: 3}
+    effectSound: {fileID: 8300000, guid: 8318717a5713bf643b5de9096889a1f1, type: 3}
   - word1: Mist
     word2: Lull
     effect: {fileID: 11400000, guid: 92334e567b9774a4b90f2c187a17a3a2, type: 2}
-    effectSound: {fileID: 8300000, guid: 43ed075c1bbbf73429d02c7d849235f1, type: 3}
+    effectSound: {fileID: 8300000, guid: ed7c79c47eb840b4081450fe6e6bfa12, type: 3}
   - word1: Thorn
     word2: Drift
     effect: {fileID: 11400000, guid: 14b96dc50eb03ab4bae137b94203d93a, type: 2}
-    effectSound: {fileID: 8300000, guid: d793d68b1e903044ea1a12c858207509, type: 3}
+    effectSound: {fileID: 8300000, guid: 04c1c605780328d4d9603816061d8c74, type: 3}
   - word1: Thorn
     word2: Mist
     effect: {fileID: 11400000, guid: 27fbdb928a2e3a74b899a4fdbefc2e12, type: 2}
-    effectSound: {fileID: 8300000, guid: 47eda3310845d8646aed9b345e04ddec, type: 3}
+    effectSound: {fileID: 8300000, guid: 98cbd3e47ba49f7458c524e3f4fef90a, type: 3}
   - word1: Thorn
     word2: Lull
     effect: {fileID: 11400000, guid: 55e3df51c9499724bacd3250ea9bb04a, type: 2}
-    effectSound: {fileID: 8300000, guid: cddf7513a94e7964d838bb10c66dc04b, type: 3}
+    effectSound: {fileID: 8300000, guid: 7edf39f0f9aaa3443a95824938ebb8cb, type: 3}
   - word1: Drift
     word2: Lull
     effect: {fileID: 11400000, guid: b7fe063e8868dd0489773eb3e74068ad, type: 2}
-    effectSound: {fileID: 8300000, guid: dbe56e4dc3d426442a3d667ead1a7ef1, type: 3}
+    effectSound: {fileID: 8300000, guid: 7b9edd8033f1e73448401eb3c7a0f8da, type: 3}
   - word1: Thorn
     word2: Lull
     effect: {fileID: 11400000, guid: dfd17fb68c3298b43841c480b1061290, type: 2}
-    effectSound: {fileID: 8300000, guid: 8f12f5a53207c644da62749c698f306b, type: 3}
+    effectSound: {fileID: 8300000, guid: 7edf39f0f9aaa3443a95824938ebb8cb, type: 3}
