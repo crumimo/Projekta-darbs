@@ -35,9 +35,12 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
 
     public bool ignorePlayer = false; // Variable to ignore player
 
+    private Animator animator;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = GetComponent<Animator>();
 
         // Set initial target rotation
         targetRotation = transform.rotation;
@@ -54,21 +57,25 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     {
         if (isAsleep)
         {
+            animator.SetBool("Sleep", true);
             return; 
         }
 
         if (isLookingAtPlayer)
         {
+            animator.SetBool("Sleep", false);
             // Maintain the look at player for a while
             return;
         }
 
         if (isWaiting)
         {
+            animator.SetBool("Sleep", false);
             Idle();
         }
         else
         {
+            animator.SetBool("Sleep", false);
             Patrol();
         }
 
