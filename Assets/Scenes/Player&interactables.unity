@@ -11176,7 +11176,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 500
   m_TargetDisplay: 0
 --- !u!224 &877112921
 RectTransform:
@@ -26672,6 +26672,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8695484348150885504, guid: 57d358c6fdd9a05498e2b9f28eb34311, type: 3}
+      propertyPath: fadeDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695484348150885504, guid: 57d358c6fdd9a05498e2b9f28eb34311, type: 3}
+      propertyPath: fadeController
+      value: 
+      objectReference: {fileID: 1665075629}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

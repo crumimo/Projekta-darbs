@@ -6,18 +6,20 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private GameObject settingsPanel; 
-    [SerializeField] private float fadeDuration = 0.5f; 
+    [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private float fadeDuration = 0.5f;
+    
+    [SerializeField] private FadeController fadeController;
 
-    private CanvasGroup canvasGroup; 
-    private bool isPaused = false; 
+    private CanvasGroup canvasGroup;
+    private bool isPaused = false;
 
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
-        HideInstant(); 
-        settingsPanel.SetActive(false); 
-        Time.timeScale = 1; 
+        HideInstant();
+        settingsPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private void Update()
@@ -38,7 +40,7 @@ public class PauseManager : MonoBehaviour
     public void PauseGame()
     {
         isPaused = true;
-        settingsPanel.SetActive(false); 
+        settingsPanel.SetActive(false);
         StopAllCoroutines();
         StartCoroutine(FadeIn());
         Time.timeScale = 0;
@@ -49,30 +51,37 @@ public class PauseManager : MonoBehaviour
         isPaused = false;
         StopAllCoroutines();
         StartCoroutine(FadeOut());
-        Time.timeScale = 1; 
+        Time.timeScale = 1;
     }
 
     public void OpenSettings()
     {
-        settingsPanel.SetActive(true); 
+        settingsPanel.SetActive(true);
         gameObject.SetActive(false);
     }
 
     public void CloseSettings()
     {
-        settingsPanel.SetActive(false); 
+        settingsPanel.SetActive(false);
         gameObject.SetActive(true);
     }
-
+    
     public void GoToMainMenu()
     {
         Time.timeScale = 1; 
-        SceneManager.LoadScene("MainMenu"); 
+        StartCoroutine(GoToMainMenuWithFade());
+    }
+
+    private IEnumerator GoToMainMenuWithFade()
+    {
+        yield return StartCoroutine(fadeController.FadeIn());
+        
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void ExitGame()
     {
-        Time.timeScale = 1; 
+        Time.timeScale = 1;
 #if UNITY_EDITOR
         Debug.Log("Игра завершена (работает только в сборке)");
 #else
@@ -82,7 +91,7 @@ public class PauseManager : MonoBehaviour
 
     private void HideInstant()
     {
-        canvasGroup.alpha = 0; 
+        canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
     }
@@ -93,7 +102,7 @@ public class PauseManager : MonoBehaviour
 
         while (elapsedTime < fadeDuration)
         {
-            elapsedTime += Time.unscaledDeltaTime; 
+            elapsedTime += Time.unscaledDeltaTime;
             canvasGroup.alpha = Mathf.Lerp(0, 1, elapsedTime / fadeDuration);
             yield return null;
         }
@@ -109,7 +118,7 @@ public class PauseManager : MonoBehaviour
 
         while (elapsedTime < fadeDuration)
         {
-            elapsedTime += Time.unscaledDeltaTime; 
+            elapsedTime += Time.unscaledDeltaTime;
             canvasGroup.alpha = Mathf.Lerp(1, 0, elapsedTime / fadeDuration);
             yield return null;
         }
