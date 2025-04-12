@@ -10,17 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: Blanka001
+  m_Name: Home
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Blanka
-    sentence: A mermaid?
+    sentence: Sorry i havent been outside of Silver Forest since my birth
     speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Blanka
-    sentence: But how could you get here...
+    sentence: But maybe u'll find someone that can help you
     speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Blanka
-    sentence: Do you need any help?
+    sentence: Just don't forget to use right melody to talk with them
+    speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+  - speakerName: Blanka
+    sentence: Anything else?
     speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   responses:
   - responseText: Yes

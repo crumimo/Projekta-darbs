@@ -14,6 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Blanka
-    sentence: blah blah blah
+    sentence: What would you like to know?
     speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
-  responses: []
+  responses:
+  - responseText: About controls
+    dialogueObject: {fileID: 11400000, guid: d0d6e02ac30936f46a85ea721d5e3d24, type: 2}
+  - responseText: About this place
+    dialogueObject: {fileID: 11400000, guid: a773fb46d79df01448c71f34e02c4a1b, type: 2}
+  - responseText: About you
+    dialogueObject: {fileID: 11400000, guid: 3253855b5c742fe4ea576a27dce77286, type: 2}
+  - responseText: How to get home
+    dialogueObject: {fileID: 11400000, guid: 195e69bb15b4f2b46af968b724a89a95, type: 2}

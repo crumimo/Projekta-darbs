@@ -10,18 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: Yes001
+  m_Name: Controls
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Blanka
-    sentence: Press WASD to move
+    sentence: 'WASD to move
+
+      E to open song menu
+
+      F to interact'
     speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Blanka
-    sentence: "E to open song menu \nF to interact\nM to open  map"
+    sentence: In the song menu you can combine collected words into songs with different
+      effects
     speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Blanka
-    sentence: Talk to me again if u need any help
+    sentence: Anything else?
     speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   responses:
-  - responseText: Thank you^^
+  - responseText: Yes
     dialogueObject: {fileID: 11400000, guid: 871445a54f1e3fa4da296fcc70050d1f, type: 2}
+  - responseText: No
+    dialogueObject: {fileID: 11400000, guid: 511061373b343ed4f95aa4b4385af4e2, type: 2}
