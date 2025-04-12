@@ -7,8 +7,9 @@ public class MainMenuManager : MonoBehaviour
 {
     [Header("Main menu objects")]
     [SerializeField] private GameObject[] objectsToHide;
+    [SerializeField] private GameObject settingsPanel;   
 
-    [Header("Scene to load")] 
+    [Header("Scene to load")]
     [SerializeField] private string persistentGameplay = "Player&interactables";
     [SerializeField] private string levelScene = "SilverForest";
 
@@ -21,6 +22,7 @@ public class MainMenuManager : MonoBehaviour
     private void Awake()
     {
         mainMenuScene = SceneManager.GetActiveScene().name;
+        settingsPanel.SetActive(false); 
     }
 
     public void StartGame()
@@ -39,11 +41,39 @@ public class MainMenuManager : MonoBehaviour
         StartCoroutine(LoadScenesWithFade());
     }
 
+    public void OpenSettings()
+    {
+        SetObjectsActive(objectsToHide, false);
+        settingsPanel.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        settingsPanel.SetActive(false);
+        SetObjectsActive(objectsToHide, true);
+    }
+
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        
+        Debug.Log("Игра завершена (работает только в сборке)!");
+#else
+        // Если игра запущена в сборке
+        Application.Quit();
+#endif
+    }
+
     private void HideMenu()
     {
-        foreach (GameObject obj in objectsToHide)
+        SetObjectsActive(objectsToHide, false);
+    }
+
+    private void SetObjectsActive(GameObject[] objects, bool isActive)
+    {
+        foreach (GameObject obj in objects)
         {
-            obj.SetActive(false);
+            obj.SetActive(isActive);
         }
     }
 
