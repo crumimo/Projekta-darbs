@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class FadeController : MonoBehaviour
 {
     public Image fadeImage;
-    public float fadeDuration = 1f;
+    public float fadeDuration = 0.5f;
 
     private void Awake()
     {
