@@ -1315,7 +1315,7 @@ GameObject:
   - component: {fileID: 82722070}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5492,7 +5492,7 @@ GameObject:
   - component: {fileID: 366565159}
   m_Layer: 0
   m_Name: EnemyPatrol (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7217,7 +7217,7 @@ GameObject:
   - component: {fileID: 542911545}
   m_Layer: 0
   m_Name: EnemyPatrol (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11785,7 +11785,7 @@ GameObject:
   - component: {fileID: 852885170}
   m_Layer: 0
   m_Name: EnemyPatrol (3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14091,7 +14091,7 @@ GameObject:
   - component: {fileID: 1059468683}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14851,7 +14851,7 @@ GameObject:
   - component: {fileID: 1090612461}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16447,7 +16447,7 @@ GameObject:
   - component: {fileID: 1222389392}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17868,7 +17868,7 @@ GameObject:
   - component: {fileID: 1291894996}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18740,7 +18740,7 @@ GameObject:
   - component: {fileID: 1378767028}
   m_Layer: 0
   m_Name: EnemyPatrol (6)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18944,7 +18944,7 @@ GameObject:
   - component: {fileID: 1401298559}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20582,7 +20582,7 @@ GameObject:
   - component: {fileID: 1488131858}
   m_Layer: 0
   m_Name: EnemyPatrol (5)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20836,7 +20836,7 @@ GameObject:
   - component: {fileID: 1504385156}
   m_Layer: 0
   m_Name: EnemyPatrol (7)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20938,7 +20938,7 @@ GameObject:
   - component: {fileID: 1513291548}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21785,7 +21785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -22319,7 +22319,7 @@ GameObject:
   - component: {fileID: 1585872321}
   m_Layer: 0
   m_Name: EnemyPatrol (4)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24737,7 +24737,7 @@ GameObject:
   - component: {fileID: 1756274682}
   m_Layer: 0
   m_Name: EnemyPatrol (8)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25232,7 +25232,7 @@ GameObject:
   - component: {fileID: 1821658741}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
