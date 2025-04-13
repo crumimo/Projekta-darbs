@@ -407,16 +407,6 @@ private bool ApplyEffectToObjects(EffectBase effect)
 
     foreach (var effectable in effectables)
     {
-        // Проверяем, является ли объект определённым типом, чтобы выбрать нужный эффект
-        if (effectable is DialogueActivator)
-        {
-            effect = new EchoingRootsEffect(); // Применяем EchoingRootsEffect для DialogueActivator
-        }
-        else if (effectable is FishBehavior)
-        {
-            effect = new FishBehavior(); // Применяем FishBehavior для рыб
-        }
-
         // Применяем выбранный эффект
         if (Vector3.Distance(playerTransform.position, ((MonoBehaviour)effectable).transform.position) <= effectRadius)
         {
