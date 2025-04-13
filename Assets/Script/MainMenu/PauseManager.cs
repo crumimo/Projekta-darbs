@@ -18,7 +18,7 @@ public class PauseManager : MonoBehaviour
     {
         canvasGroup = GetComponent<CanvasGroup>();
         HideInstant();
-        settingsPanel.SetActive(false);
+        settingsPanel.SetActive(false); 
         Time.timeScale = 1;
     }
 
@@ -57,13 +57,11 @@ public class PauseManager : MonoBehaviour
     public void OpenSettings()
     {
         settingsPanel.SetActive(true);
-        gameObject.SetActive(false);
     }
 
     public void CloseSettings()
     {
         settingsPanel.SetActive(false);
-        gameObject.SetActive(true);
     }
     
     public void GoToMainMenu()
@@ -126,5 +124,36 @@ public class PauseManager : MonoBehaviour
         canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
+    }
+    
+    public void ResetToLastCheckpoint()
+    {
+        Time.timeScale = 1; // Resume normal time temporarily to apply changes
+
+        // Retrieve the saved checkpoint data
+        GameState gameState = GameSession.Instance.GameState;
+        if (gameState.currentCheckpointID >= 0)
+        {
+            // Restore player position
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                player.transform.position = gameState.PlayerPosition;
+            }
+        
+            // Restore obstacles and other game states
+            CheckpointManager.RestoreObstacles();
+            WordUIManager.Instance.RestoreCollectedWordsOnScene();
+            ObstacleStateManager.RestoreCheckpointState();
+
+            Debug.Log("Player reset to last checkpoint: " + gameState.currentCheckpointID);
+        }
+        else
+        {
+            Debug.LogWarning("No checkpoint data available to reset the player.");
+        }
+
+        // Resume the game and close the pause menu
+        ResumeGame();
     }
 }

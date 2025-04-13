@@ -30,6 +30,9 @@ public class WordUIManager : MonoBehaviour
     [Header("Sound Effects")]
     [SerializeField] private AudioClip[] collectionSounds; // Array of collection sounds
     private AudioSource audioSource;
+    
+    [Header("Diary Entries")]
+    [SerializeField] private List<EffectDiaryEntry> effectDiaryEntries;
 
     private List<string> selectedWords = new();
     private Dictionary<string, int> collectedWords = new();
@@ -310,7 +313,8 @@ public class WordUIManager : MonoBehaviour
         {
             playerVisual.sortingLayerName = "Middleground";
             playerVisual.sortingOrder = 0;
-            
+
+           
             EffectBase effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
             AudioClip effectSound = WordManager.Instance.GetEffectSound(selectedWords[0], selectedWords[1]);
 
@@ -322,29 +326,53 @@ public class WordUIManager : MonoBehaviour
 
             Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect.name}");
 
+            bool effectApplied = false;
+            
             if (effect is SpikeCircleEffect || effect is GaleStrideEffect || effect is FlourishingVeilEffect)
             {
                 ApplyEffectToPlayer(effect);
-                
                 PlayEffectSound(effectSound);
+                effectApplied = true;
             }
             else
             {
                 bool objectsInRange = AnyObjectInRange();
                 if (objectsInRange)
                 {
-                    ApplyEffectToObjects(effect);
-                    
-                    PlayEffectSound(effectSound);
+                    effectApplied = ApplyEffectToObjects(effect); 
+                    if (effectApplied)
+                    {
+                        PlayEffectSound(effectSound);
+                    }
                 }
                 else
                 {
                     Debug.Log("No objects in range to apply the effect.");
-                    ReturnWordsToCollection();
+                    ReturnWordsToCollection(); 
                 }
+            }
+            
+            if (effectApplied)
+            {
+                AddDiaryEntryForEffect(effect.name);
             }
 
             ResetSelection();
+        }
+    }
+    
+    private void AddDiaryEntryForEffect(string effectName)
+    {
+        EffectDiaryEntry diaryEntry = effectDiaryEntries.FirstOrDefault(entry => entry.effectName == effectName);
+
+        if (diaryEntry != null)
+        {
+            NotebookManager.Instance.AddEntry(effectName, diaryEntry.diaryEntryTemplate); 
+            Debug.Log($"Diary entry added: {diaryEntry.diaryEntryTemplate}");
+        }
+        else
+        {
+            Debug.LogWarning($"No diary entry found for effect: {effectName}");
         }
     }
 
@@ -361,28 +389,33 @@ private void ApplyEffectToPlayer(EffectBase effect)
     }));
 }
 
-private void ApplyEffectToObjects(EffectBase effect)
+private bool ApplyEffectToObjects(EffectBase effect)
 {
     var effectables = FindObjectsOfType<MonoBehaviour>().OfType<IEffectable>();
+    bool effectApplied = false;
 
     foreach (var effectable in effectables)
     {
         if (Vector3.Distance(playerTransform.position, ((MonoBehaviour)effectable).transform.position) <= effectRadius)
         {
             effectable.ApplyEffect(effect);
+            effectApplied = true;
         }
     }
 
-    StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
+    if (!effectApplied)
     {
-        worldCanvas.enabled = false;
-        playerMovement.EnableMovement();
-        enemyManager.ResumeEnemies();
-    }));
+        Debug.LogWarning("Effect could not be applied to any object.");
+        ReturnWordsToCollection(); 
+    }
+
+    return effectApplied;
 }
+
 
 private void ReturnWordsToCollection()
 {
+    
     if (collectedWords.ContainsKey(selectedWords[0]))
     {
         collectedWords[selectedWords[0]]++;
@@ -400,6 +433,9 @@ private void ReturnWordsToCollection()
     {
         collectedWords[selectedWords[1]] = 1;
     }
+
+    Debug.Log("Words returned to inventory.");
+    UpdateButtons();
 }
 
     bool AnyObjectInRange()

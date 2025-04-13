@@ -20,9 +20,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
 
     [SerializeField] private float distanceToActivate = 2f;
     private bool isDialogueActive = false;
-
-    [Header("Effect Diary Entries")]
-    public EffectDiaryEntry[] effectDiaryEntries;
+    
 
     public void UpdateDialogueObject(DialogueObject dialogueObject)
     {
@@ -106,7 +104,6 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     public void ApplyEffect(EffectBase effect)
     {
         effect.Apply(gameObject);
-        AddNotebookEntry(effect);
         CheckEffectRequirements(effect.GetType().Name);
     }
 
@@ -116,7 +113,6 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         if (applyMethod != null)
         {
             applyMethod.Invoke(effect, new object[] { gameObject });
-            AddNotebookEntry(effect);
             Debug.Log($"{effect.GetType().Name} applied to {gameObject.name}");
             CheckEffectRequirements(effect.GetType().Name);
         }
@@ -133,19 +129,6 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             (startRequirement == DialogueRequirement.WhisperingPetals && effectName == "WhisperingPetalsEffect"))
         {
             EnableDialogueStart();
-        }
-    }
-
-    private void AddNotebookEntry(ScriptableObject effect)
-    {
-        foreach (var entry in effectDiaryEntries)
-        {
-            if (entry.effectName == effect.GetType().Name)
-            {
-                NotebookManager.Instance.AddEntry(entry.effectName, entry.diaryEntryTemplate);
-                Debug.Log($"Notebook entry added for effect: {entry.effectName}");
-                break;
-            }
         }
     }
 
