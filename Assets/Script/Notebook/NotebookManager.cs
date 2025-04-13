@@ -49,7 +49,15 @@ public class NotebookManager : MonoBehaviour
     {
         bool isActive = notebookPanel.activeSelf;
         notebookPanel.SetActive(!isActive);
-        Time.timeScale = 0;
+
+        if (notebookPanel.activeSelf)
+        {
+            Time.timeScale = 0; 
+        }
+        else
+        {
+            Time.timeScale = 1; 
+        }
     }
 
     public void AddEntry(string key, string entry)
