@@ -5,13 +5,16 @@ using TMPro;
 
 public class Checkpoint : MonoBehaviour
 {
+    [SerializeField] private Sprite activeSprite;
     public int checkpointID;
     private bool isActive = false;
     public TextMeshProUGUI checkpointNotification;
+    private SpriteRenderer sprite;
 
     private void Start()
     {
         checkpointNotification.enabled = false;
+        sprite = GetComponent<SpriteRenderer>();
 
         if (CheckpointManager.IsCheckpointActivated(checkpointID))
         {
@@ -23,6 +26,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Player") && !isActive)
         {
+            sprite.sprite = activeSprite;
             isActive = true;
             SaveCheckpoint(other.transform);
             Debug.Log("Checkpoint activated: " + checkpointID);
