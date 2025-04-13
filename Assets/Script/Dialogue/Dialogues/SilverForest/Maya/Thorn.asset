@@ -14,12 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Maya
-    sentence: Be careful with it
+    sentence: So dangerous, it's easy to hurt yourself
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Maya
-    sentence: 
+    sentence: 'But it can also protect you
+
+'
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Maya
-    sentence: 
+    sentence: Just like a rose, gorgeous and menacing at the same time
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
-  responses: []
+  - speakerName: Maya
+    sentence: Anything else?
+    speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+  responses:
+  - responseText: yes
+    dialogueObject: {fileID: 11400000, guid: 4eae367f84a3dff4b9995e22f4bec2dd, type: 2}
+  - responseText: no
+    dialogueObject: {fileID: 11400000, guid: 0df61ccab4e397d479c53dbcb8b2691a, type: 2}

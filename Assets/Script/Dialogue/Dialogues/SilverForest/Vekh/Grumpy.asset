@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Grumpy
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: Vekh
-    sentence: idi nahuj
+  - speakerName: 
+    sentence: '*Vekh ignores you*'
     speakerSprite: {fileID: 1349759722, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   responses: []

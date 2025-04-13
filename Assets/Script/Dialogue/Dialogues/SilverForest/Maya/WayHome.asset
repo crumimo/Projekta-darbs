@@ -14,15 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Maya
-    sentence: Unfortunately i don't know how to get there
+    sentence: I see, i also wanted to go home
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Maya
-    sentence: But there's only one exit out of this place
-    speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
-  - speakerName: Maya
-    sentence: Here, ull need this
+    sentence: "Here, take this. \nHer name is isopoda"
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: 
-    sentence: '*Special tools acquired*'
+    sentence: '*She hands you a curious looking creature*'
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
-  responses: []
+  - speakerName: Maya
+    sentence: It will help you get to the Garden, that awaits you on your way home
+    speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+  - speakerName: Maya
+    sentence: But that's all i can do
+    speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+  - speakerName: Maya
+    sentence: Anything else?
+    speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+  responses:
+  - responseText: yes
+    dialogueObject: {fileID: 11400000, guid: 4eae367f84a3dff4b9995e22f4bec2dd, type: 2}
+  - responseText: no
+    dialogueObject: {fileID: 11400000, guid: 0df61ccab4e397d479c53dbcb8b2691a, type: 2}
