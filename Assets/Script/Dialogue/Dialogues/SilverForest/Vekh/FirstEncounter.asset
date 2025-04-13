@@ -19,21 +19,10 @@ MonoBehaviour:
 '
     speakerSprite: {fileID: 1349759722, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Vekh
-    sentence: "Wh- Who are you??! \nWhat are you doing in my house!???"
-    speakerSprite: {fileID: 1349759722, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
-  - speakerName: Vekh
     sentence: Just go away
     speakerSprite: {fileID: 1349759722, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
-  - speakerName: Vekh
-    sentence: '...
-
-'
-    speakerSprite: {fileID: 1349759722, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
-  - speakerName: Vekh
-    sentence: Will you go away if i tell you something interesting?
-    speakerSprite: {fileID: 1349759722, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   responses:
-  - responseText: Yesss
+  - responseText: No
     dialogueObject: {fileID: 11400000, guid: ee2a86ca9f6f75c4bb00f5687a298d5a, type: 2}
-  - responseText: Nope
-    dialogueObject: {fileID: 11400000, guid: 8b1364633afca4645b11787cdb124528, type: 2}
+  - responseText: Okay...
+    dialogueObject: {fileID: 11400000, guid: 3f994a64a48430340b41b167c1637f65, type: 2}

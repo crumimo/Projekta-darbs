@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Vekh
-    sentence: Whatcha want to hear?
+    sentence: ...
     speakerSprite: {fileID: 1349759722, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   responses:
-  - responseText: What does drift mean?
+  - responseText: About drift
     dialogueObject: {fileID: 11400000, guid: f0b251f2067ebc441a5fddd117ce519d, type: 2}
-  - responseText: What does mist mean?
+  - responseText: About mist
     dialogueObject: {fileID: 11400000, guid: 25f59b1b9836687419cdf6e1525fbed0, type: 2}
   - responseText: Why you so grumpy?
     dialogueObject: {fileID: 11400000, guid: 8b1364633afca4645b11787cdb124528, type: 2}

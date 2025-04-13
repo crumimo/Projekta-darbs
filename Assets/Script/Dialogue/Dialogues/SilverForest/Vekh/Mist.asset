@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Vekh
-    sentence: Murky cloth hides everything from your gaze
+    sentence: To hide
     speakerSprite: {fileID: 1349759722, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Vekh
-    sentence: There's something mysterious about it
-    speakerSprite: {fileID: 1349759722, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
-  - speakerName: Vekh
-    sentence: Does hidden things still exist?
-    speakerSprite: {fileID: 1349759722, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
-  - speakerName: Vekh
-    sentence: Or it eats them away
+    sentence: a thing
     speakerSprite: {fileID: 1349759722, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   responses: []

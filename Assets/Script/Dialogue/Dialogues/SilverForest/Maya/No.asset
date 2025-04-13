@@ -10,16 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: Questions
+  m_Name: No
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: Maya
-    sentence: How can we help?
+  - speakerName: 
+    sentence: '*Maya gives you a warm smile*'
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
-  responses:
-  - responseText: How can i get back home?
-    dialogueObject: {fileID: 11400000, guid: b13990b6071d30b4fa813497da544462, type: 2}
-  - responseText: About thorn
-    dialogueObject: {fileID: 11400000, guid: 8cd1022e3ad1e8743b42c8686f2c5043, type: 2}
-  - responseText: About you
-    dialogueObject: {fileID: 11400000, guid: 90b4a80d80ec2234c915b303c37d28dc, type: 2}
+  - speakerName: Maya
+    sentence: May the Queen protect you
+    speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+  responses: []
