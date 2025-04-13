@@ -124,11 +124,17 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     
     private void CheckEffectRequirements(string effectName)
     {
+        Debug.Log($"Checking requirements for effect: {effectName}, Start Requirement: {startRequirement}");
         if ((startRequirement == DialogueRequirement.QuietWhisper && effectName == "QuietWhisperEffect") ||
             (startRequirement == DialogueRequirement.EchoingRoots && effectName == "EchoingRootsEffect") ||
             (startRequirement == DialogueRequirement.WhisperingPetals && effectName == "WhisperingPetalsEffect"))
         {
             EnableDialogueStart();
+            Debug.Log($"Effect {effectName} matched requirement {startRequirement}, dialogue start enabled.");
+        }
+        else
+        {
+            Debug.LogWarning($"Effect {effectName} did not match requirement {startRequirement}.");
         }
     }
 
