@@ -22,6 +22,7 @@ public class NotebookManager : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1;
         if (Instance == null)
         {
             Instance = this;
@@ -48,6 +49,7 @@ public class NotebookManager : MonoBehaviour
     {
         bool isActive = notebookPanel.activeSelf;
         notebookPanel.SetActive(!isActive);
+        Time.timeScale = 0;
     }
 
     public void AddEntry(string key, string entry)
