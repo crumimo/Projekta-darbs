@@ -126,7 +126,7 @@ TextureImporter:
         width: 1423
         height: 1057
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,7 +147,7 @@ TextureImporter:
         width: 1418
         height: 1246
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,6 +155,27 @@ TextureImporter:
       bones: []
       spriteID: a4f2e245a5ce1e142a031ad4aebba443
       internalID: -1134218312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPCDialogue_3
+      rect:
+        serializedVersion: 2
+        x: 1777
+        y: 632
+        width: 1016
+        height: 685
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7646c1b2a9bc0d3419e2c635787622cc
+      internalID: -1896832245
       vertices: []
       indices: 
       edges: []
@@ -173,6 +194,7 @@ TextureImporter:
       NPCDialogue_0: 1670136974
       NPCDialogue_1: 1349759722
       NPCDialogue_2: -1134218312
+      NPCDialogue_3: -1896832245
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

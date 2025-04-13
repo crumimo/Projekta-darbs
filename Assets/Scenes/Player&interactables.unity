@@ -9570,7 +9570,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 23.500305, y: 21.324348, z: 23.50026, w: 23.989943}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -12937,7 +12937,7 @@ Transform:
   m_GameObject: {fileID: 979491080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 349.7, y: -60.6, z: 0}
+  m_LocalPosition: {x: 45.6, y: -79.7, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -14997,8 +14997,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51aa5a8616205614d92ed2f8652a0f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintPanel: {fileID: 712148354}
-  text: {fileID: 715744889}
+  hintPanelController: {fileID: 712148360}
+  hintMessage: Press F to interact
+  firstInteractionMessage: You found the altar! Words have been renewed. Map is available
+    to M.
+  messageDisplayDuration: 5
 --- !u!1 &1110856995
 GameObject:
   m_ObjectHideFlags: 0
@@ -16128,7 +16131,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 346.30002, y: -119.05, z: -10}
+  m_LocalPosition: {x: 42.199997, y: -138.15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19342,7 +19345,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 346.30002, y: -119.05, z: -10}
+  m_LocalPosition: {x: 42.199997, y: -138.15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29166,7 +29169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8644696896403185322, guid: 57d358c6fdd9a05498e2b9f28eb34311, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8695484348150885504, guid: 57d358c6fdd9a05498e2b9f28eb34311, type: 3}
       propertyPath: fadeDuration
@@ -29191,10 +29194,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7720526941008994492, guid: 57d358c6fdd9a05498e2b9f28eb34311, type: 3}
       insertIndex: 0
       addedObject: {fileID: 2020060036}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9038219267260527653, guid: 57d358c6fdd9a05498e2b9f28eb34311, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d358c6fdd9a05498e2b9f28eb34311, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -18,7 +18,10 @@ MonoBehaviour:
 
       E to open song menu
 
-      F to interact'
+      F to interact
+
+      Esc
+      to pause game'
     speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Blanka
     sentence: In the song menu you can combine collected words into songs with different

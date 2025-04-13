@@ -3,50 +3,94 @@ using UnityEngine;
 
 public class Altar : MonoBehaviour
 {
-
-    [SerializeField] private GameObject hintPanel;
-    [SerializeField] private TextMeshProUGUI text;
-    private bool isPlayerInRange = false; // Flag to track if the player is in the interaction zone
-    private MapManager mapManager; // Reference to the MapManager
+    [SerializeField] private HintPanelController hintPanelController; 
+    [SerializeField] private string hintMessage = "Press F to interact";
+    [SerializeField] private string firstInteractionMessage = "Words and map activated!"; 
+    [SerializeField] private float messageDisplayDuration = 3f; 
+    private bool isPlayerInRange = false; 
+    private bool hasShownFirstMessage = false; 
+    private string currentHintText = ""; 
+    private MapManager mapManager; 
 
     private void Start()
     {
-        mapManager = FindObjectOfType<MapManager>(); // Find the MapManager in the scene
+        mapManager = FindObjectOfType<MapManager>(); 
     }
 
-
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && isPlayerInRange)
         {
-            ActivateCollectedWords();
-            mapManager.ActivateMap(); // Activate the map when interacting with the altar
+            if (!hasShownFirstMessage)
+            {
+                ActivateCollectedWords();
+                mapManager.ActivateMap(); 
+                ShowHint(firstInteractionMessage); 
+                hasShownFirstMessage = true; 
+                Invoke(nameof(SwitchToHintMessage), messageDisplayDuration); 
+            }
+            else
+            {
+                ActivateCollectedWords(); 
+                Debug.Log("Words refreshed.");
+            }
         }
     }
 
-    void ActivateCollectedWords()
+    private void ActivateCollectedWords()
     {
         Debug.Log("Activating all collected words.");
-        WordUIManager.Instance.ResetCollectedWords();
+        WordUIManager.Instance.ResetCollectedWords(); 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            text.text = "Press F to interact";
-            hintPanel.SetActive(true);
             isPlayerInRange = true;
+
+            if (!hasShownFirstMessage)
+            {
+                ShowHint(hintMessage); 
+            }
+            else
+            {
+                ShowHint(hintMessage); 
+            }
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            hintPanel.SetActive(false);
-            text.text = "";
             isPlayerInRange = false;
+            
+            HideHintPanel();
+        }
+    }
+
+    private void ShowHint(string message)
+    {
+        currentHintText = message;
+        hintPanelController.Show(message);
+    }
+
+    private void HideHintPanel()
+    {
+        hintPanelController.Hide();
+        currentHintText = ""; 
+    }
+
+    private void SwitchToHintMessage()
+    {
+        if (isPlayerInRange) 
+        {
+            ShowHint(hintMessage);
+        }
+        else
+        {
+            HideHintPanel();
         }
     }
 }
