@@ -14997,8 +14997,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51aa5a8616205614d92ed2f8652a0f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintPanel: {fileID: 712148354}
-  text: {fileID: 715744889}
+  hintPanelController: {fileID: 712148360}
+  hintMessage: Press F to interact
+  firstInteractionMessage: Words and map activated!
+  messageDisplayDuration: 3
 --- !u!1 &1110856995
 GameObject:
   m_ObjectHideFlags: 0
