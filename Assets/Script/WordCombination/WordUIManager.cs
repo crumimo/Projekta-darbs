@@ -308,58 +308,69 @@ public class WordUIManager : MonoBehaviour
     }
 
     void ConfirmCombination()
+{
+    if (selectedWords.Count == 2)
     {
-        if (selectedWords.Count == 2)
+        playerVisual.sortingLayerName = "Middleground";
+        playerVisual.sortingOrder = 0;
+
+        EffectBase effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
+        AudioClip effectSound = WordManager.Instance.GetEffectSound(selectedWords[0], selectedWords[1]);
+
+        if (effect == null)
         {
-            playerVisual.sortingLayerName = "Middleground";
-            playerVisual.sortingOrder = 0;
+            Debug.LogError("Effect not found for the given combination.");
+            return;
+        }
 
-           
-            EffectBase effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
-            AudioClip effectSound = WordManager.Instance.GetEffectSound(selectedWords[0], selectedWords[1]);
+        Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect.name}");
 
-            if (effect == null)
+        bool effectApplied = false;
+
+        
+        if (effect is SpikeCircleEffect || effect is GaleStrideEffect || effect is FlourishingVeilEffect)
+        {
+            ApplyEffectToPlayer(effect);
+            PlayEffectSound(effectSound);
+            effectApplied = true;
+        }
+        else
+        {
+            bool objectsInRange = AnyObjectInRange();
+            if (objectsInRange)
             {
-                Debug.LogError("Effect not found for the given combination.");
-                return;
-            }
-
-            Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect.name}");
-
-            bool effectApplied = false;
-            
-            if (effect is SpikeCircleEffect || effect is GaleStrideEffect || effect is FlourishingVeilEffect)
-            {
-                ApplyEffectToPlayer(effect);
-                PlayEffectSound(effectSound);
-                effectApplied = true;
+                effectApplied = ApplyEffectToObjects(effect);
+                if (effectApplied)
+                {
+                    PlayEffectSound(effectSound);
+                }
             }
             else
             {
-                bool objectsInRange = AnyObjectInRange();
-                if (objectsInRange)
-                {
-                    effectApplied = ApplyEffectToObjects(effect); 
-                    if (effectApplied)
-                    {
-                        PlayEffectSound(effectSound);
-                    }
-                }
-                else
-                {
-                    Debug.Log("No objects in range to apply the effect.");
-                    ReturnWordsToCollection(); 
-                }
+                Debug.Log("No objects in range to apply the effect.");
+                ReturnWordsToCollection();
             }
-            
-            if (effectApplied)
-            {
-                AddDiaryEntryForEffect(effect.name);
-            }
-
-            ResetSelection();
         }
+
+        if (effectApplied)
+        {
+            AddDiaryEntryForEffect(effect.name);
+            
+            StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
+            {
+                worldCanvas.enabled = false;
+                playerMovement.EnableMovement();
+                enemyManager.ResumeEnemies();
+            }));
+        }
+        else
+        {
+            Debug.LogWarning("Effect was not applied. Panel remains open.");
+        }
+
+        ResetSelection();
     }
+}
     
     private void AddDiaryEntryForEffect(string effectName)
     {
