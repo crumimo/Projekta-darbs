@@ -142,6 +142,7 @@ public class WordUIManager : MonoBehaviour
 
     void ToggleWorldPanel()
     {
+        enemyManager.PauseEnemies();
         playerMovement.DisableMovement();
         if (worldCanvas.enabled)
         {
