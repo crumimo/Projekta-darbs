@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            hintPanelController.Show("Press F to enter"); 
+            hintPanelController.Show("Press F to interact"); 
             canEnter = true; 
         }
     }

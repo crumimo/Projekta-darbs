@@ -63,6 +63,11 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     {
         if (CheckComboRequirements())
         {
+            if(CompareTag("Lore"))
+            {
+                hintPanelController.Show("Press F to interact");
+                return;
+            }
             hintPanelController.Show("I can talk with them now");
         }
         else

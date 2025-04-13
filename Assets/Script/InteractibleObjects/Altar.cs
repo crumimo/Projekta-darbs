@@ -5,7 +5,7 @@ public class Altar : MonoBehaviour
 {
     [SerializeField] private HintPanelController hintPanelController; 
     [SerializeField] private string hintMessage = "Press F to interact";
-    [SerializeField] private string firstInteractionMessage = "Words and map activated!"; 
+    [SerializeField] private string firstInteractionMessage = "Words restored and map activated!"; 
     [SerializeField] private float messageDisplayDuration = 3f; 
     private bool isPlayerInRange = false; 
     private bool hasShownFirstMessage = false; 
