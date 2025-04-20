@@ -90,9 +90,9 @@ public class WordManager : MonoBehaviour
     
     public Sprite GetCombinationSprite(string word1, string word2)
     {
-        foreach (var sceneWordData in sceneWordDataArray) // Проходим по каждому SceneWordData в массиве
+        foreach (var sceneWordData in sceneWordDataArray) 
         {
-            foreach (var combination in sceneWordData.combinations) // Проходим по комбинациям в текущем SceneWordData
+            foreach (var combination in sceneWordData.combinations) 
             {
                 if ((combination.word1 == word1 && combination.word2 == word2) ||
                     (combination.word1 == word2 && combination.word2 == word1))
@@ -101,6 +101,6 @@ public class WordManager : MonoBehaviour
                 }
             }
         }
-        return null; // Вернуть null, если комбинация не найдена
+        return null; 
     }
 }
