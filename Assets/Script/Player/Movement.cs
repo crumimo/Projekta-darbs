@@ -56,27 +56,29 @@ public class Movement : MonoBehaviour
     public void Die()
     {
         isDead = true;
-        
         movement = Vector2.zero;
         rb.velocity = Vector2.zero;
         animator.SetTrigger("Die");
 
+        
         WordUIManager.Instance.ResetToCheckpoint();
         WordUIManager.Instance.RestoreCollectedWordsOnScene();
-        
-        // Ensure UI is updated after death
         WordUIManager.Instance.UpdateButtons();
 
-        // Reset destroyed obstacles if no checkpoint was activated
+        
         if (!GameSession.Instance.CheckpointActivated(GameSession.Instance.GameState.currentCheckpointID))
         {
+            EnemyStateManager.FullReset(); 
             GameSession.Instance.ResetDestroyedObstacles();
         }
-
-        GameSession.Instance.RestoreObstacles(); // Restore the state of obstacles if no checkpoint was activated
-
+        else
+        {
+            EnemyStateManager.RestoreCheckpointState(); 
+        }
+        
         Invoke("Respawn", 1f);
     }
+
 
     private void Respawn()
     {
@@ -84,9 +86,6 @@ public class Movement : MonoBehaviour
         GameState gameState = GameSession.Instance.GameState;
         transform.position = gameState.PlayerPosition;
         animator.SetTrigger("Respawn");
-
-        EnemyManager enemyManager = FindObjectOfType<EnemyManager>();
-        enemyManager.ResetEnemies();
     }
 
     public void EnableMovement()

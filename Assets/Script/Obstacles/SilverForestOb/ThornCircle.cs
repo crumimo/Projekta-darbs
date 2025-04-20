@@ -67,7 +67,11 @@ public class ThornCircle : MonoBehaviour
         }
         else if (collision.CompareTag("Enemy"))
         {
-            collision.gameObject.SetActive(false);
+            var enemy = collision.GetComponent<PatrolEnemy>();
+            if (enemy != null)
+            {
+                enemy.KillEnemy();
+            }
         }
     }
 

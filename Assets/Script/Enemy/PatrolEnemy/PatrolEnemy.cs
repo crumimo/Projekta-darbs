@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PatrolEnemy : MonoBehaviour, IEffectable
 {
+    public int enemyID;
     [Header("Patrol Settings")]
     public Transform[] patrolPoints; // Points to patrol
     public float moveSpeed = 2f; // Movement speed
@@ -58,6 +59,16 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
         {
             visionMeshFilter = GetComponentInChildren<MeshFilter>();
         }
+        
+        if (EnemyStateManager.IsEnemySleep(enemyID))
+        {
+            ApplyPermanentSleep();
+        }
+        if (EnemyStateManager.IsEnemyKilled(enemyID))
+        {
+            KillEnemy();
+        }
+
     }
 
     private void Update()
@@ -289,7 +300,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
             Debug.Log($"{gameObject.name} cannot fall asleep.");
             return;
         }
-
+        EnemyStateManager.MarkEnemyAsSleep(enemyID);
         permanentSleep = true;
         visionMeshFilter.gameObject.SetActive(false);
         
@@ -302,5 +313,35 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
         {
             Debug.Log($"{gameObject.name} is now in permanent sleep, but no associated word found.");
         }
+    }
+    
+    public void ResetEnemy()
+    {
+        gameObject.SetActive(true);
+        
+        isAsleep = false;
+        permanentSleep = false;
+        isLookingAtPlayer = false;
+        playerGotHit = false;
+        
+        if (visionMeshFilter != null)
+        {
+            visionMeshFilter.gameObject.SetActive(true);
+        }
+    
+        if (associatedWord != null)
+        {
+            associatedWord.SetActive(false);
+        }
+        
+        currentPointIndex = 0;
+        isWaiting = false;
+        waitTimer = 0f;
+    }
+    
+    public void KillEnemy()
+    {
+        EnemyStateManager.MarkEnemyAsKilled(enemyID);
+        gameObject.SetActive(false);
     }
 }

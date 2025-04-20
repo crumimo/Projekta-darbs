@@ -15,9 +15,13 @@ public class GameSession : MonoBehaviour
 
     private void Start()
     {
-        ObstacleStateManager.RestoreObstacles(); // Restore the state of obstacles
+        ObstacleStateManager.RestoreObstacles(); 
+        EnemyStateManager.RestoreEnemy();// Restore the state of obstacles
     }
-
+    public bool HasAnyCheckpoint()
+    {
+        return GameState.currentCheckpointID != 0; 
+    }
     public bool CheckpointActivated(int checkpointID)
     {
         return CheckpointManager.IsCheckpointActivated(checkpointID);
@@ -26,21 +30,33 @@ public class GameSession : MonoBehaviour
     public void ActivateCheckpoint(int checkpointID)
     {
         CheckpointManager.ActivateCheckpoint(checkpointID);
-        ObstacleStateManager.SaveCheckpoint(); // Save the state of destroyed obstacles
+        ObstacleStateManager.SaveCheckpoint();
+        EnemyStateManager.SaveCheckpoint();
     }
 
     public void ResetDestroyedObstacles()
     {
         ObstacleStateManager.ResetDestroyedObstacles();
     }
+    
+    public void ResetEnemy()
+    {
+        EnemyStateManager.ResetEnemyStates();
+    }
 
     public void RestoreObstacles()
     {
         ObstacleStateManager.RestoreObstacles();
     }
+    
+    public void RestoreEnemy()
+    {
+        EnemyStateManager.RestoreEnemy();
+    }
 
     public void RestoreCheckpointState()
     {
         ObstacleStateManager.RestoreCheckpointState(); 
+        EnemyStateManager.RestoreCheckpointState();
     }
 }
