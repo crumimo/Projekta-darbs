@@ -18,6 +18,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     public MeshFilter visionMeshFilter;
 
     [Header("Effect Settings")]
+    public bool canSleep = true; 
     public bool permanentSleep = false;
 
     [Header("Word Settings")]
@@ -283,13 +284,23 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     
     public void ApplyPermanentSleep()
     {
+        if (!canSleep)
+        {
+            Debug.Log($"{gameObject.name} cannot fall asleep.");
+            return;
+        }
+
         permanentSleep = true;
         visionMeshFilter.gameObject.SetActive(false);
         
         if (associatedWord != null)
         {
             associatedWord.SetActive(true);
+            Debug.Log($"{gameObject.name} is now in permanent sleep, activating associated word.");
         }
-       
+        else
+        {
+            Debug.Log($"{gameObject.name} is now in permanent sleep, but no associated word found.");
+        }
     }
 }

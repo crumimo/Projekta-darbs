@@ -1629,6 +1629,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 1710005871}
+  canSleep: 1
   permanentSleep: 0
   associatedWord: {fileID: 0}
   isAsleep: 0
@@ -5103,6 +5104,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 420742101}
+  canSleep: 1
   permanentSleep: 0
   associatedWord: {fileID: 0}
   isAsleep: 0
@@ -5307,7 +5309,7 @@ GameObject:
   - component: {fileID: 366565159}
   m_Layer: 0
   m_Name: EnemyPatrol (2)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7273,7 +7275,7 @@ GameObject:
   - component: {fileID: 542911545}
   m_Layer: 0
   m_Name: EnemyPatrol (1)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11668,7 +11670,7 @@ GameObject:
   - component: {fileID: 852885170}
   m_Layer: 0
   m_Name: EnemyPatrol (3)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14073,6 +14075,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 1246635551}
+  canSleep: 1
   permanentSleep: 0
   associatedWord: {fileID: 0}
   isAsleep: 0
@@ -14266,6 +14269,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 1316617946}
+  canSleep: 1
   permanentSleep: 0
   associatedWord: {fileID: 0}
   isAsleep: 0
@@ -14473,7 +14477,7 @@ GameObject:
   - component: {fileID: 1070943758}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14522,6 +14526,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 1972112746}
+  canSleep: 1
   permanentSleep: 0
   associatedWord: {fileID: 407494175}
   isAsleep: 0
@@ -15025,6 +15030,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 2075236698}
+  canSleep: 1
   permanentSleep: 0
   associatedWord: {fileID: 0}
   isAsleep: 0
@@ -16814,6 +16820,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 634754275}
+  canSleep: 1
   permanentSleep: 0
   associatedWord: {fileID: 0}
   isAsleep: 0
@@ -18452,6 +18459,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 1676744678}
+  canSleep: 1
   permanentSleep: 0
   associatedWord: {fileID: 0}
   isAsleep: 0
@@ -19145,7 +19153,7 @@ GameObject:
   - component: {fileID: 1378767028}
   m_Layer: 0
   m_Name: EnemyPatrol (6)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19388,6 +19396,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 301894657}
+  canSleep: 1
   permanentSleep: 0
   associatedWord: {fileID: 0}
   isAsleep: 0
@@ -20802,7 +20811,7 @@ GameObject:
   - component: {fileID: 1488131858}
   m_Layer: 0
   m_Name: EnemyPatrol (5)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21056,7 +21065,7 @@ GameObject:
   - component: {fileID: 1504385156}
   m_Layer: 0
   m_Name: EnemyPatrol (7)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21330,6 +21339,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 1271242495}
+  canSleep: 1
   permanentSleep: 0
   associatedWord: {fileID: 0}
   isAsleep: 0
@@ -22469,7 +22479,7 @@ GameObject:
   - component: {fileID: 1585872321}
   m_Layer: 0
   m_Name: EnemyPatrol (4)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23291,7 +23301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663782614}
   m_Layer: 0
-  m_Name: EnemyPatrol (3)
+  m_Name: EnemyNotSleep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24235,6 +24245,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 570113011}
+  canSleep: 0
   permanentSleep: 0
   associatedWord: {fileID: 0}
   isAsleep: 0
@@ -24489,7 +24500,7 @@ GameObject:
   - component: {fileID: 1756274682}
   m_Layer: 0
   m_Name: EnemyPatrol (8)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24819,7 +24830,7 @@ GameObject:
   - component: {fileID: 1793484851}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24888,6 +24899,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 1136102799}
+  canSleep: 1
   permanentSleep: 0
   associatedWord: {fileID: 0}
   isAsleep: 0
@@ -25243,6 +25255,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   visionMeshFilter: {fileID: 1618056895}
+  canSleep: 1
   permanentSleep: 0
   associatedWord: {fileID: 0}
   isAsleep: 0
