@@ -6,7 +6,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     [Header("Patrol Settings")]
     public Transform[] patrolPoints; // Points to patrol
     public float moveSpeed = 2f; // Movement speed
-    public float waitTime = 2f; // Time to wait at each point
+    public float waitTime = 2f;
 
     [Header("Vision Settings")]
     public float visionAngle = 45f; // Vision angle when moving
@@ -18,8 +18,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     public MeshFilter visionMeshFilter;
 
     [Header("Effect Settings")]
-    public float effectRadius = 5f;
-    [SerializeField] private float effectDuration = 3f;
+    public bool permanentSleep = false;
 
     private Transform player;
     private int currentPointIndex = 0;
@@ -54,6 +53,13 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
 
     private void Update()
     {
+        if (isAsleep || permanentSleep) 
+        {
+            animator.SetBool("Idle", false);
+            animator.SetBool("Sleep", true);
+            return; 
+        }
+        
         if (isAsleep)
         {
             animator.SetBool("Idle", false);
@@ -237,7 +243,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
         isLookingAtPlayer = true;
 
         // Wait for 1 second
-        yield return new WaitForSeconds(effectDuration);
+        yield return new WaitForSeconds(1f);
 
         // Check if the player is in the vision cone
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -269,6 +275,9 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
 
         // Reset flag
         isLookingAtPlayer = false;
+
+        // Complete the coroutine
+        yield break;
     }
 
     private void OnDrawGizmos()
@@ -284,5 +293,12 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
                 }
             }
         }
+    }
+    
+    public void ApplyPermanentSleep()
+    {
+        permanentSleep = true;
+        visionMeshFilter.gameObject.SetActive(false);
+        Debug.Log($"{gameObject.name} is now in permanent sleep.");
     }
 }
