@@ -31,9 +31,8 @@ public class WordUIManager : MonoBehaviour
     [SerializeField] private AudioClip[] collectionSounds; 
     private AudioSource audioSource;
 
-    [Header("Image Display")]
-    public Image combinationImage;
-    private Coroutine imageFadeCoroutine;
+    [Header("Combination Icon Manager")]
+    public CombinationIconManager combinationIconManager; 
     
     private List<string> selectedWords = new();
     private Dictionary<string, int> collectedWords = new();
@@ -74,7 +73,6 @@ public class WordUIManager : MonoBehaviour
 
     void Start()
     { 
-        combinationImage.gameObject.SetActive(false); 
         
         playerMovement = FindObjectOfType<Movement>();
         enemyManager = FindObjectOfType<EnemyManager>();
@@ -165,6 +163,7 @@ public class WordUIManager : MonoBehaviour
                         collectedWords[word] = 1;
                     }
                 }
+                combinationIconManager.ResetCombinationIcon();
                 ResetSelection();
             }));
         }
@@ -200,44 +199,6 @@ public class WordUIManager : MonoBehaviour
         {
             onComplete();
         }
-    }
-    
-    IEnumerator FadeInImage(Image image, float duration = 0.5f)
-    {
-        image.gameObject.SetActive(true); 
-        Color color = image.color;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            color.a = Mathf.Clamp01(elapsedTime / duration); 
-            image.color = color;
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        color.a = 1f;
-        image.color = color; 
-        imageFadeCoroutine = null; 
-    }
-
-    IEnumerator FadeOutImage(Image image, float duration = 0.5f)
-    {
-        Color color = image.color;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            color.a = 1f - Mathf.Clamp01(elapsedTime / duration); 
-            image.color = color;
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        color.a = 0f;
-        image.color = color; 
-        image.gameObject.SetActive(false); 
-        imageFadeCoroutine = null; 
     }
     
     IEnumerator FadeOut(CanvasGroup canvasGroup, float duration, Action onComplete = null)
@@ -297,45 +258,10 @@ public class WordUIManager : MonoBehaviour
                 collectedWords[word]--;
                 UpdateTopButtons();
                 UpdateButtons();
-                
-                if (selectedWords.Count == 2)
-                {
-                    DisplayCombinationImage(); 
-                }
             }
             
         }
         
-    }
-    
-    void DisplayCombinationImage()
-    {
-        string word1 = selectedWords[0];
-        string word2 = selectedWords[1];
-        Sprite combinationSprite = WordManager.Instance.GetCombinationSprite(word1, word2);
-
-        if (combinationSprite != null)
-        {
-            combinationImage.sprite = combinationSprite;
-            
-            if (imageFadeCoroutine != null)
-            {
-                StopCoroutine(imageFadeCoroutine); 
-            }
-
-            imageFadeCoroutine = StartCoroutine(FadeInImage(combinationImage));
-        }
-        else
-        {
-            Debug.LogWarning($"No sprite found for combination: {word1} + {word2}");
-            
-            if (imageFadeCoroutine != null)
-            {
-                StopCoroutine(imageFadeCoroutine); 
-            }
-
-            imageFadeCoroutine = StartCoroutine(FadeOutImage(combinationImage));
-        }
     }
 
     void DeselectWord(Button button)
@@ -372,19 +298,16 @@ public class WordUIManager : MonoBehaviour
                 topButtons[i].gameObject.SetActive(false);
             }
         }
-        
-        if (selectedWords.Count == 2)
+
+        if (selectedWords.Count == 2 && !string.IsNullOrEmpty(selectedWords[0]) && !string.IsNullOrEmpty(selectedWords[1]))
         {
-            DisplayCombinationImage(); 
+            string word1 = selectedWords[0];
+            string word2 = selectedWords[1];
+            combinationIconManager.DisplayCombinationIcon(word1, word2);
         }
         else
         {
-            if (imageFadeCoroutine != null)
-            {
-                StopCoroutine(imageFadeCoroutine); 
-            }
-
-            imageFadeCoroutine = StartCoroutine(FadeOutImage(combinationImage)); 
+            combinationIconManager.DisplayCombinationIcon(null, null); // Скрываем иконку
         }
     }
 
@@ -401,6 +324,12 @@ public class WordUIManager : MonoBehaviour
 {
     if (selectedWords.Count == 2)
     {
+        string word1 = selectedWords[0];
+        string word2 = selectedWords[1];
+
+        // Отмечаем комбинацию как использованную
+        combinationIconManager.MarkCombinationAsUsed(word1, word2);
+        
         playerVisual.sortingLayerName = "Middleground";
         playerVisual.sortingOrder = 0;
 
@@ -456,7 +385,7 @@ public class WordUIManager : MonoBehaviour
         {
             Debug.LogWarning("Effect was not applied. Panel remains open.");
         }
-
+        combinationIconManager.ResetCombinationIcon();
         ResetSelection();
     }
 }
@@ -546,7 +475,6 @@ private void ReturnWordsToCollection()
             btn.gameObject.SetActive(false);
         }
         UpdateButtons();
-        combinationImage.gameObject.SetActive(false);
     }
 
     public void RestoreCollectedWords()
