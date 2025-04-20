@@ -17,7 +17,7 @@ MonoBehaviour:
     word2: Mist
     effect: {fileID: 11400000, guid: afabc5f32c6bebc4d93dc8e7297d10a6, type: 2}
     effectSound: {fileID: 8300000, guid: 8318717a5713bf643b5de9096889a1f1, type: 3}
-    combinationSprite: {fileID: -1008463274, guid: 799238fcc2636e249b79c7809aab6ffc, type: 3}
+    combinationSprite: {fileID: 21300000, guid: 1578184eaac35a949a14dfacbc461331, type: 3}
   - word1: Mist
     word2: Lull
     effect: {fileID: 11400000, guid: 92334e567b9774a4b90f2c187a17a3a2, type: 2}
@@ -27,7 +27,7 @@ MonoBehaviour:
     word2: Drift
     effect: {fileID: 11400000, guid: 14b96dc50eb03ab4bae137b94203d93a, type: 2}
     effectSound: {fileID: 8300000, guid: 04c1c605780328d4d9603816061d8c74, type: 3}
-    combinationSprite: {fileID: -838966530, guid: 799238fcc2636e249b79c7809aab6ffc, type: 3}
+    combinationSprite: {fileID: 21300000, guid: 2ca1e0253ee4365459e8121a0092d191, type: 3}
   - word1: Thorn
     word2: Mist
     effect: {fileID: 11400000, guid: 27fbdb928a2e3a74b899a4fdbefc2e12, type: 2}
