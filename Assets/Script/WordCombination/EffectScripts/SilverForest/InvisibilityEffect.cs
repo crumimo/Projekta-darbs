@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "InvisibilityEffect", menuName = "Effects/Invisibility")]
 public class InvisibilityEffect : EffectBase
 {
-    public float duration;
+    public float duration = 4f;
 
     public override void Apply(GameObject target)
     {
@@ -28,13 +28,30 @@ public class InvisibilityEffect : EffectBase
 
             // Make enemy ignore the player
             enemy.ignorePlayer = true;
+            
+            yield return new WaitForSeconds(duration - 1f); 
+            
+            float blinkDuration = 1f; 
+            float elapsedTime = 0f;
 
-            yield return new WaitForSeconds(duration);
-
+            while (elapsedTime < blinkDuration)
+            {
+                float alpha = Mathf.PingPong(elapsedTime * 3f, 0.5f) + 0.5f; 
+                playerSpriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+                
+                elapsedTime += Time.deltaTime;
+                yield return null; 
+            }
+            
             playerSpriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1f);
-
-            // Restore enemy's ability to see the player
+            
             enemy.ignorePlayer = false;
+
+            Debug.Log("Invisibility Effect ended and state reset.");
+        }
+        else
+        {
+            Debug.LogWarning("Player SpriteRenderer not found!");
         }
     }
 }
