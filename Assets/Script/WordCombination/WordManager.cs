@@ -4,7 +4,6 @@ using UnityEngine;
 public class WordManager : MonoBehaviour
 {
     public static WordManager Instance;
-
     private List<string> collectedWords = new List<string>();
     private Dictionary<string, WordCombination> wordCombinations = new Dictionary<string, WordCombination>();
 
@@ -87,5 +86,21 @@ public class WordManager : MonoBehaviour
         }
 
         return null;
+    }
+    
+    public Sprite GetCombinationSprite(string word1, string word2)
+    {
+        foreach (var sceneWordData in sceneWordDataArray) // Проходим по каждому SceneWordData в массиве
+        {
+            foreach (var combination in sceneWordData.combinations) // Проходим по комбинациям в текущем SceneWordData
+            {
+                if ((combination.word1 == word1 && combination.word2 == word2) ||
+                    (combination.word1 == word2 && combination.word2 == word1))
+                {
+                    return combination.combinationSprite;
+                }
+            }
+        }
+        return null; // Вернуть null, если комбинация не найдена
     }
 }

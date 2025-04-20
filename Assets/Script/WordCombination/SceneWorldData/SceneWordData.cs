@@ -13,4 +13,5 @@ public class WordCombination
     public string word2;
     public EffectBase effect;
     public AudioClip effectSound;
+    public Sprite combinationSprite; 
 }

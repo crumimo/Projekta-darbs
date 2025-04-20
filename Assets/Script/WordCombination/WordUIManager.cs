@@ -28,20 +28,21 @@ public class WordUIManager : MonoBehaviour
     public EffectManager effectManager;
 
     [Header("Sound Effects")]
-    [SerializeField] private AudioClip[] collectionSounds; // Array of collection sounds
+    [SerializeField] private AudioClip[] collectionSounds; 
     private AudioSource audioSource;
-    
-    [Header("Diary Entries")]
-    [SerializeField] private List<EffectDiaryEntry> effectDiaryEntries;
 
+    [Header("Image Display")]
+    public Image combinationImage;
+    private Coroutine imageFadeCoroutine;
+    
     private List<string> selectedWords = new();
     private Dictionary<string, int> collectedWords = new();
     private Dictionary<string, int> savedCollectedWords = new();
 
     private List<WordCollector> trackedWords = new();
     private List<WordCollector> checkpointTrackedWords = new();
-    private List<ObstacleManager> trackedObstacles = new(); // Track obstacles
-    private List<ObstacleManager> checkpointTrackedObstacles = new(); // Track obstacles at checkpoint
+    private List<ObstacleManager> trackedObstacles = new(); 
+    private List<ObstacleManager> checkpointTrackedObstacles = new(); 
 
     private Movement playerMovement;
     private EnemyManager enemyManager;
@@ -72,7 +73,9 @@ public class WordUIManager : MonoBehaviour
     }
 
     void Start()
-    {
+    { 
+        combinationImage.gameObject.SetActive(false); 
+        
         playerMovement = FindObjectOfType<Movement>();
         enemyManager = FindObjectOfType<EnemyManager>();
 
@@ -84,8 +87,7 @@ public class WordUIManager : MonoBehaviour
         {
             Debug.Log("EffectManager assigned successfully.");
         }
-
-        // Ensure buttons are updated and active on start
+        
         RestoreCollectedWords();
     }
 
@@ -120,24 +122,22 @@ public class WordUIManager : MonoBehaviour
         checkpointTrackedObstacles = new List<ObstacleManager>(trackedObstacles);
         savedCollectedWords = new Dictionary<string, int>(collectedWords);
         Debug.Log("Checkpoint saved: " + string.Join(", ", savedCollectedWords));
-        ObstacleStateManager.SaveCheckpoint(); // Save the state of destroyed obstacles
+        ObstacleStateManager.SaveCheckpoint(); 
     }
 
     public void RestoreCollectedWordsOnScene()
     {
-        // Reactivate words on the scene
         foreach (var wordCollector in trackedWords)
         {
             if (!checkpointTrackedWords.Contains(wordCollector))
             {
-                wordCollector.gameObject.SetActive(true); // Ensure words are reactivated if not saved in checkpoint
+                wordCollector.gameObject.SetActive(true); 
             }
         }
         trackedWords = new List<WordCollector>(checkpointTrackedWords);
-
-        // Restore collected words to checkpoint state
+        
         collectedWords = new Dictionary<string, int>(savedCollectedWords);
-        UpdateButtons(); // Update button texts after restoring words on scene
+        UpdateButtons(); 
     }
 
     void ToggleWorldPanel()
@@ -177,8 +177,7 @@ public class WordUIManager : MonoBehaviour
                 playerVisual.sortingOrder = 90;
                 playerMovement.DisableMovement();
                 enemyManager.PauseEnemies();
-
-                // Hide top buttons when the panel is first opened
+                
                 foreach (var btn in topButtons)
                 {
                     btn.gameObject.SetActive(false);
@@ -202,7 +201,45 @@ public class WordUIManager : MonoBehaviour
             onComplete();
         }
     }
+    
+    IEnumerator FadeInImage(Image image, float duration = 0.5f)
+    {
+        image.gameObject.SetActive(true); 
+        Color color = image.color;
+        float elapsedTime = 0f;
 
+        while (elapsedTime < duration)
+        {
+            color.a = Mathf.Clamp01(elapsedTime / duration); 
+            image.color = color;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        color.a = 1f;
+        image.color = color; 
+        imageFadeCoroutine = null; 
+    }
+
+    IEnumerator FadeOutImage(Image image, float duration = 0.5f)
+    {
+        Color color = image.color;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            color.a = 1f - Mathf.Clamp01(elapsedTime / duration); 
+            image.color = color;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        color.a = 0f;
+        image.color = color; 
+        image.gameObject.SetActive(false); 
+        imageFadeCoroutine = null; 
+    }
+    
     IEnumerator FadeOut(CanvasGroup canvasGroup, float duration, Action onComplete = null)
     {
         float elapsedTime = 0;
@@ -260,7 +297,44 @@ public class WordUIManager : MonoBehaviour
                 collectedWords[word]--;
                 UpdateTopButtons();
                 UpdateButtons();
+                
+                if (selectedWords.Count == 2)
+                {
+                    DisplayCombinationImage(); 
+                }
             }
+            
+        }
+        
+    }
+    
+    void DisplayCombinationImage()
+    {
+        string word1 = selectedWords[0];
+        string word2 = selectedWords[1];
+        Sprite combinationSprite = WordManager.Instance.GetCombinationSprite(word1, word2);
+
+        if (combinationSprite != null)
+        {
+            combinationImage.sprite = combinationSprite;
+            
+            if (imageFadeCoroutine != null)
+            {
+                StopCoroutine(imageFadeCoroutine); 
+            }
+
+            imageFadeCoroutine = StartCoroutine(FadeInImage(combinationImage));
+        }
+        else
+        {
+            Debug.LogWarning($"No sprite found for combination: {word1} + {word2}");
+            
+            if (imageFadeCoroutine != null)
+            {
+                StopCoroutine(imageFadeCoroutine); 
+            }
+
+            imageFadeCoroutine = StartCoroutine(FadeOutImage(combinationImage));
         }
     }
 
@@ -278,7 +352,7 @@ public class WordUIManager : MonoBehaviour
             {
                 collectedWords[word] = 1;
             }
-            UpdateTopButtons();
+            UpdateTopButtons(); 
             UpdateButtons();
         }
     }
@@ -298,7 +372,22 @@ public class WordUIManager : MonoBehaviour
                 topButtons[i].gameObject.SetActive(false);
             }
         }
+        
+        if (selectedWords.Count == 2)
+        {
+            DisplayCombinationImage(); 
+        }
+        else
+        {
+            if (imageFadeCoroutine != null)
+            {
+                StopCoroutine(imageFadeCoroutine); 
+            }
+
+            imageFadeCoroutine = StartCoroutine(FadeOutImage(combinationImage)); 
+        }
     }
+
     
     private void PlayEffectSound(AudioClip clip)
     {
@@ -355,7 +444,6 @@ public class WordUIManager : MonoBehaviour
 
         if (effectApplied)
         {
-            AddDiaryEntryForEffect(effect.name);
             
             StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
             {
@@ -372,21 +460,6 @@ public class WordUIManager : MonoBehaviour
         ResetSelection();
     }
 }
-    
-    private void AddDiaryEntryForEffect(string effectName)
-    {
-        EffectDiaryEntry diaryEntry = effectDiaryEntries.FirstOrDefault(entry => entry.effectName == effectName);
-
-        if (diaryEntry != null)
-        {
-            NotebookManager.Instance.AddEntry(effectName, diaryEntry.diaryEntryTemplate); 
-            Debug.Log($"Diary entry added: {diaryEntry.diaryEntryTemplate}");
-        }
-        else
-        {
-            Debug.LogWarning($"No diary entry found for effect: {effectName}");
-        }
-    }
 
 private void ApplyEffectToPlayer(EffectBase effect)
 {
@@ -473,6 +546,7 @@ private void ReturnWordsToCollection()
             btn.gameObject.SetActive(false);
         }
         UpdateButtons();
+        combinationImage.gameObject.SetActive(false);
     }
 
     public void RestoreCollectedWords()
@@ -480,7 +554,7 @@ private void ReturnWordsToCollection()
         collectedWords = new Dictionary<string, int>(savedCollectedWords);
         UpdateButtons();
         ResetSelection();
-        ActivateCollectedWordsUI(); // Ensure the buttons are active after restoring words
+        ActivateCollectedWordsUI(); 
     }
 
     public void ActivateCollectedWordsUI()
