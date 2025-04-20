@@ -20,6 +20,9 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     [Header("Effect Settings")]
     public bool permanentSleep = false;
 
+    [Header("Word Settings")]
+    public GameObject associatedWord;
+    
     private Transform player;
     private int currentPointIndex = 0;
     private float waitTimer = 0f;
@@ -37,6 +40,11 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
 
     private void Start()
     {
+        if (associatedWord != null)
+        {
+            associatedWord.SetActive(false);
+        }
+        
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
 
@@ -195,7 +203,6 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
                 if (hit.collider != null && hit.collider.CompareTag("Player") && !playerGotHit)
                 {
                     playerGotHit = true;
-                    Debug.Log("Enemy detected player!");
                     player.GetComponent<Movement>().Die();
                 }
             }
@@ -211,11 +218,6 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
         if (applyMethod != null)
         {
             applyMethod.Invoke(effect, new object[] { gameObject });
-            Debug.Log($"{effect.GetType().Name} applied to {gameObject.name}");
-        }
-        else
-        {
-            Debug.LogWarning($"Effect of type {effect.GetType().Name} does not have an Apply method or is not applicable to PatrolEnemy.");
         }
     }
 
@@ -235,15 +237,13 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
         Vector2 directionToPlayer = (player.position - transform.position).normalized;
         float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        // Log the rotation action
-        Debug.Log("Enemy rotated to face the player.");
+        
 
         // Set flag to maintain look at player
         isLookingAtPlayer = true;
 
         // Wait for 1 second
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
 
         // Check if the player is in the vision cone
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -255,29 +255,15 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, visionDistance, playerLayer);
                 if (hit.collider != null && hit.collider.CompareTag("Player"))
                 {
-                    Debug.Log("Player detected by Lull Drift combination.");
                     player.GetComponent<Movement>().Die();
                 }
-                else
-                {
-                    Debug.Log("Player is not in the vision cone after Lull Drift combination.");
-                }
-            }
-            else
-            {
-                Debug.Log("Player is outside the vision angle.");
             }
         }
-        else
-        {
-            Debug.Log("Player is outside the vision distance.");
-        }
+        
 
-        // Reset flag
+        
         isLookingAtPlayer = false;
-
-        // Complete the coroutine
-        yield break;
+        
     }
 
     private void OnDrawGizmos()
@@ -299,6 +285,11 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     {
         permanentSleep = true;
         visionMeshFilter.gameObject.SetActive(false);
-        Debug.Log($"{gameObject.name} is now in permanent sleep.");
+        
+        if (associatedWord != null)
+        {
+            associatedWord.SetActive(true);
+        }
+       
     }
 }
