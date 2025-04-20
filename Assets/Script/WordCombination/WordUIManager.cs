@@ -347,7 +347,7 @@ public class WordUIManager : MonoBehaviour
         bool effectApplied = false;
 
         
-        if (effect is SpikeCircleEffect || effect is GaleStrideEffect || effect is FlourishingVeilEffect)
+        if (effect is SpikeCircleEffect)
         {
             ApplyEffectToPlayer(effect);
             PlayEffectSound(effectSound);
