@@ -17,12 +17,12 @@ MonoBehaviour:
     word2: Mist
     effect: {fileID: 11400000, guid: afabc5f32c6bebc4d93dc8e7297d10a6, type: 2}
     effectSound: {fileID: 8300000, guid: 8318717a5713bf643b5de9096889a1f1, type: 3}
-    combinationSprite: {fileID: 21300000, guid: 1578184eaac35a949a14dfacbc461331, type: 3}
+    combinationSprite: {fileID: 21300000, guid: 73a223f789de3234197c0102fd9b8c57, type: 3}
   - word1: Mist
     word2: Lull
     effect: {fileID: 11400000, guid: 92334e567b9774a4b90f2c187a17a3a2, type: 2}
     effectSound: {fileID: 8300000, guid: ed7c79c47eb840b4081450fe6e6bfa12, type: 3}
-    combinationSprite: {fileID: -1260422707, guid: 799238fcc2636e249b79c7809aab6ffc, type: 3}
+    combinationSprite: {fileID: 21300000, guid: 09d24fbc2b4eaef43a95b22b6e5508ab, type: 3}
   - word1: Thorn
     word2: Drift
     effect: {fileID: 11400000, guid: 14b96dc50eb03ab4bae137b94203d93a, type: 2}
@@ -32,14 +32,14 @@ MonoBehaviour:
     word2: Mist
     effect: {fileID: 11400000, guid: 27fbdb928a2e3a74b899a4fdbefc2e12, type: 2}
     effectSound: {fileID: 8300000, guid: 98cbd3e47ba49f7458c524e3f4fef90a, type: 3}
-    combinationSprite: {fileID: -1798484775, guid: 799238fcc2636e249b79c7809aab6ffc, type: 3}
+    combinationSprite: {fileID: 21300000, guid: 1578184eaac35a949a14dfacbc461331, type: 3}
   - word1: Thorn
     word2: Lull
     effect: {fileID: 11400000, guid: 55e3df51c9499724bacd3250ea9bb04a, type: 2}
     effectSound: {fileID: 8300000, guid: 7edf39f0f9aaa3443a95824938ebb8cb, type: 3}
-    combinationSprite: {fileID: -1790854786, guid: 799238fcc2636e249b79c7809aab6ffc, type: 3}
+    combinationSprite: {fileID: 21300000, guid: f44d5640acd5d6143aa17b9d14b127d6, type: 3}
   - word1: Drift
     word2: Lull
     effect: {fileID: 11400000, guid: b7fe063e8868dd0489773eb3e74068ad, type: 2}
     effectSound: {fileID: 8300000, guid: 7b9edd8033f1e73448401eb3c7a0f8da, type: 3}
-    combinationSprite: {fileID: -1541663568, guid: 799238fcc2636e249b79c7809aab6ffc, type: 3}
+    combinationSprite: {fileID: 21300000, guid: 5546d7ac71fa0b8458d4e732a36c2f65, type: 3}
