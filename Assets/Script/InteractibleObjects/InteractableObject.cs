@@ -1,16 +1,21 @@
 using TMPro;
 using UnityEngine;
 
-public class InteractableObject : MonoBehaviour
+public class InteractableObject : MonoBehaviour, IEffectable
 {
     [SerializeField] private HintPanelController hintPanelController; 
     public Sprite openedSprite; 
     public GameObject wordObject; 
     public GameObject spriteChild; 
 
+    [Header("Effect Settings")]
+    public bool requiresEffect = false; 
+    public EffectBase requiredEffect; 
+
     private SpriteRenderer spriteRenderer; 
     private bool isOpened = false;
     private bool isPlayerInRange = false; 
+    private bool effectApplied = false; 
 
     void Start()
     {
@@ -25,6 +30,12 @@ public class InteractableObject : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && !isOpened && isPlayerInRange)
         {
+            if (requiresEffect && !effectApplied)
+            {
+                hintPanelController.Show("I need to destroy this..");
+                return;
+            }
+            
             OpenObject();
         }
     }
@@ -44,7 +55,14 @@ public class InteractableObject : MonoBehaviour
     {
         if (other.CompareTag("Player") && !isOpened)
         {
-            hintPanelController.Show("Press F to interact"); 
+            if (requiresEffect && !effectApplied)
+            {
+                hintPanelController.Show("I need to destroy this.."); 
+            }
+            else
+            {
+                hintPanelController.Show("Press F to interact"); 
+            }
             isPlayerInRange = true;
         }
     }
@@ -59,6 +77,15 @@ public class InteractableObject : MonoBehaviour
             }
 
             isPlayerInRange = false;
+        }
+    }
+    
+    public void ApplyEffect(EffectBase effect)
+    {
+        if (requiresEffect && effect == requiredEffect)
+        {
+            effectApplied = true;
+            hintPanelController.Show("Press F to interact");
         }
     }
 }

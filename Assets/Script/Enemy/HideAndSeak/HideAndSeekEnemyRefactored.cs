@@ -42,15 +42,7 @@ public class HideAndSeekEnemyRefactored : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-                if (!Shield.isShieldActive) // Check if shield is not active
-                {
-                    Debug.Log("Found ya!");
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                }
-                else
-                {
-                    Debug.Log("Player is shielded, enemy cannot see them.");
-                }
             }
         }
     }
