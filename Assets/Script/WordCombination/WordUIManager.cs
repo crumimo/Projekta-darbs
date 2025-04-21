@@ -326,8 +326,7 @@ public class WordUIManager : MonoBehaviour
     {
         string word1 = selectedWords[0];
         string word2 = selectedWords[1];
-
-        // Отмечаем комбинацию как использованную
+        
         combinationIconManager.MarkCombinationAsUsed(word1, word2);
         
         playerVisual.sortingLayerName = "Middleground";
@@ -532,5 +531,14 @@ private void ReturnWordsToCollection()
             }
         }
         trackedObstacles.Clear();
+    }
+    public void ClearCollectedWords()
+    {
+        collectedWords.Clear();
+        selectedWords.Clear();
+        UpdateButtons();
+        UpdateTopButtons();
+        combinationIconManager.ResetCombinationIcon();
+        Debug.Log("All collected words have been cleared.");
     }
 }

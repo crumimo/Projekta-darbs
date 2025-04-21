@@ -87,4 +87,12 @@ public static class EnemyStateManager
         killedEnemies = new HashSet<int>(checkpointKilledEnemies);
         RestoreEnemy();
     }
+    
+    public static void MarkEnemyAsAwake(int enemyID)
+    {
+        if (sleepEnemy.Contains(enemyID))
+        {
+            sleepEnemy.Remove(enemyID);
+        }
+    }
 }
