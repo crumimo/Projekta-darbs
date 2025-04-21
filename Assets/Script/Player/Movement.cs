@@ -68,12 +68,18 @@ public class Movement : MonoBehaviour
         
         if (!GameSession.Instance.CheckpointActivated(GameSession.Instance.GameState.currentCheckpointID))
         {
-            EnemyStateManager.FullReset(); 
+            EnemyStateManager.FullReset();
             GameSession.Instance.ResetDestroyedObstacles();
+            foreach (Fish fish in GameObject.FindObjectsOfType<Fish>())
+            {
+                fish.ResetFishState(); 
+            }
         }
+
         else
         {
             EnemyStateManager.RestoreCheckpointState(); 
+            FishStateManager.RestoreCheckpointState();
         }
         
         Invoke("Respawn", 1f);
@@ -86,6 +92,7 @@ public class Movement : MonoBehaviour
         GameState gameState = GameSession.Instance.GameState;
         transform.position = gameState.PlayerPosition;
         animator.SetTrigger("Respawn");
+        FishStateManager.RestoreCheckpointState();
     }
 
     public void EnableMovement()

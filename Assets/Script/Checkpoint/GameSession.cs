@@ -15,6 +15,7 @@ public class GameSession : MonoBehaviour
 
     private void Start()
     {
+        FishStateManager.RestoreCheckpointState();
         ObstacleStateManager.RestoreObstacles(); 
         EnemyStateManager.RestoreEnemy();// Restore the state of obstacles
     }

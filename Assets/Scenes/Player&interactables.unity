@@ -2633,6 +2633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80eb34c4d2bb6c0498442d074f0d5856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishID: 3
   playerTransform: {fileID: 979491084}
   distanceToActivate: 4
   speed: 5
@@ -7298,6 +7299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80eb34c4d2bb6c0498442d074f0d5856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishID: 10
   playerTransform: {fileID: 979491084}
   distanceToActivate: 4
   speed: 5
@@ -7820,6 +7822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80eb34c4d2bb6c0498442d074f0d5856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishID: 0
   playerTransform: {fileID: 979491084}
   distanceToActivate: 4
   speed: 5
@@ -11275,6 +11278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80eb34c4d2bb6c0498442d074f0d5856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishID: 1
   playerTransform: {fileID: 979491084}
   distanceToActivate: 4
   speed: 5
@@ -20787,6 +20791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80eb34c4d2bb6c0498442d074f0d5856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishID: 2
   playerTransform: {fileID: 979491084}
   distanceToActivate: 4
   speed: 5
@@ -28102,6 +28107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80eb34c4d2bb6c0498442d074f0d5856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishID: 4
   playerTransform: {fileID: 979491084}
   distanceToActivate: 4
   speed: 5

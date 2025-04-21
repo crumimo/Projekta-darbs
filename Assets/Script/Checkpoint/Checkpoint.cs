@@ -43,6 +43,7 @@ public class Checkpoint : MonoBehaviour
         ObstacleStateManager.SaveCheckpoint();
         EnemyStateManager.SaveCheckpoint();// Save the state of destroyed obstacles
         WordUIManager.Instance.SaveCheckpoint();
+        FishStateManager.SaveCheckpoint();
     }
 
     private IEnumerator ShowCheckpointNotification()

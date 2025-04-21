@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour, IEffectable
 {
+    public int fishID;
     public Transform playerTransform; // Reference to the player's transform
     public float distanceToActivate = 10f; // Distance within which the fish will react
     public float speed = 2f; // Speed at which the fish moves
@@ -20,10 +21,11 @@ public class Fish : MonoBehaviour, IEffectable
     {
         anim = GetComponent<Animator>();
         originalPosition = transform.position;
-        if (wordObject != null)
-        {
-            wordObject.SetActive(false); // Ensure the word object is initially inactive
-        }
+
+        bool isCollected = FishStateManager.IsWordCollected(fishID);
+        wordObject.SetActive(isCollected);
+    
+        Debug.Log($"Fish {fishID} started. Word active: {wordObject.activeSelf}");
     }
 
     void Update()
@@ -119,11 +121,25 @@ public class Fish : MonoBehaviour, IEffectable
                 Debug.Log("Word object activated successfully.");
             }
         }
+        if (!FishStateManager.IsWordCollected(gameObject.GetInstanceID()))
+        {
+            FishStateManager.MarkWordCollected(gameObject.GetInstanceID());
+            wordObject.SetActive(true);
+        }
     }
 
     private Vector3 GetHorizontalDirection(Vector3 targetPosition)
     {
         Vector3 direction = (transform.position - targetPosition).normalized;
         return new Vector3(Mathf.Sign(direction.x), 0, 0); // Move left or right
+    }
+    
+    public void ResetFishState()
+    {
+        isCorrectCombination = false; 
+        isMovingAwayFromPlayer = false; 
+        isReturningToOrigin = true; 
+
+        wordObject.SetActive(false); 
     }
 }
