@@ -5,6 +5,7 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] public float speed;
     [SerializeField] private DialogueUI dialogueUI;
+    [SerializeField] private float accelerationSmoothFactor = 5f;
     private Vector2 movement;
     private Rigidbody2D rb;
     private bool isDead = false;
@@ -28,28 +29,32 @@ public class Movement : MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
-
-            animator.SetFloat("Horizontal", movement.x);
-            animator.SetFloat("Vertical", movement.y);
+            
+            float dampTime = 0.20f;
+            animator.SetFloat("Horizontal", movement.x, dampTime, Time.deltaTime);
+            animator.SetFloat("Vertical", movement.y, dampTime, Time.deltaTime);
             animator.SetFloat("Speed", movement.sqrMagnitude);
         }
+    
         if (Input.GetKeyDown(KeyCode.F))
         {
             Interactable?.Interact(this);
         }
     }
 
+
     private void FixedUpdate()
     {
         if (!isDead && !isPaused)
         {
+            Vector2 targetVelocity = movement.normalized * speed;
+            rb.velocity = Vector2.Lerp(rb.velocity, targetVelocity, accelerationSmoothFactor * Time.fixedDeltaTime);
+            
             if (movement != Vector2.zero)
             {
                 animator.SetFloat("LastHorizontal", movement.x);
                 animator.SetFloat("LastVertical", movement.y);
             }
-            
-            rb.MovePosition(rb.position + movement.normalized * (speed * Time.fixedDeltaTime));
         }
     }
 
