@@ -1,0 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+[CreateAssetMenu(fileName = "WhisperseedEffect", menuName = "Effects/Whisperseed")]
+public class Whisperseed : EffectBase
+{
+    public override void Apply(GameObject target)
+    {
+       
+         
+    }
+}

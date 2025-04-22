@@ -13,21 +13,33 @@ MonoBehaviour:
   m_Name: GardenWords
   m_EditorClassIdentifier: 
   combinations:
-  - word1: Bloom
-    word2: Gust
-    effect: {fileID: 11400000, guid: 68ea7f2e1d3d4fa4c9c23fd54c15daa6, type: 2}
-  - word1: Bloom
-    word2: Vine
-    effect: {fileID: 11400000, guid: ac505383f748d44498aaad820854e9f9, type: 2}
-  - word1: Bloom
-    word2: Dew
-    effect: {fileID: 11400000, guid: ed89c953b469b004bb8cce6033a21acc, type: 2}
   - word1: Gust
-    word2: Dew
-    effect: {fileID: 11400000, guid: 109dc90c1468a0f47b28d2e52917992d, type: 2}
-  - word1: Vine
-    word2: Dew
-    effect: {fileID: 11400000, guid: 1637fc6051e8a454db12deafa61a9b29, type: 2}
+    word2: Bloom
+    effect: {fileID: 11400000, guid: c895cdd3af2fe8c4789433d53ab6461f, type: 2}
+    effectSound: {fileID: 0}
+    combinationSprite: {fileID: 0}
   - word1: Gust
-    word2: Vine
-    effect: {fileID: 11400000, guid: 50ee44d7ff5b1ee4988818c366452c87, type: 2}
+    word2: Sun
+    effect: {fileID: 11400000, guid: f1587ed5b4b7eac4093640067579b48c, type: 2}
+    effectSound: {fileID: 0}
+    combinationSprite: {fileID: 0}
+  - word1: Mold
+    word2: Sun
+    effect: {fileID: 11400000, guid: 916a9da5fd814014d917cf19c636a63c, type: 2}
+    effectSound: {fileID: 0}
+    combinationSprite: {fileID: 0}
+  - word1: Sun
+    word2: Bloom
+    effect: {fileID: 11400000, guid: 136a69568247ebc448abf229b6e3ba63, type: 2}
+    effectSound: {fileID: 0}
+    combinationSprite: {fileID: 0}
+  - word1: Gust
+    word2: Mold
+    effect: {fileID: 11400000, guid: 626ff1d4b574e34498b4b1de1f5d405b, type: 2}
+    effectSound: {fileID: 0}
+    combinationSprite: {fileID: 0}
+  - word1: Bloom
+    word2: Mold
+    effect: {fileID: 11400000, guid: 78d1ff3e518b892418daf8620262244d, type: 2}
+    effectSound: {fileID: 0}
+    combinationSprite: {fileID: 0}
