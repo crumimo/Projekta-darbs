@@ -12,6 +12,10 @@ public class InteractableObject : MonoBehaviour, IEffectable
     public bool requiresEffect = false; 
     public EffectBase requiredEffect; 
 
+    [Header("Hint Messages")]
+    [SerializeField] private string requiredEffectHintMessage = "I need to destroy this..";
+    [SerializeField] private string interactHintMessage = "Press F to interact";
+    
     private SpriteRenderer spriteRenderer; 
     private bool isOpened = false;
     private bool isPlayerInRange = false; 
@@ -32,7 +36,7 @@ public class InteractableObject : MonoBehaviour, IEffectable
         {
             if (requiresEffect && !effectApplied)
             {
-                hintPanelController.Show("I need to destroy this..");
+                hintPanelController.Show(requiredEffectHintMessage);
                 return;
             }
             
@@ -57,11 +61,11 @@ public class InteractableObject : MonoBehaviour, IEffectable
         {
             if (requiresEffect && !effectApplied)
             {
-                hintPanelController.Show("I need to destroy this.."); 
+                hintPanelController.Show(requiredEffectHintMessage);
             }
             else
             {
-                hintPanelController.Show("Press F to interact"); 
+                hintPanelController.Show(interactHintMessage); 
             }
             isPlayerInRange = true;
         }
@@ -85,7 +89,9 @@ public class InteractableObject : MonoBehaviour, IEffectable
         if (requiresEffect && effect == requiredEffect)
         {
             effectApplied = true;
-            hintPanelController.Show("Press F to interact");
+            hintPanelController.Show(interactHintMessage); 
         }
     }
+    
+    
 }

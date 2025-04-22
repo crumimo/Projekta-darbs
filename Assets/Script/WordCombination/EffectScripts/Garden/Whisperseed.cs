@@ -8,7 +8,11 @@ public class Whisperseed : EffectBase
 {
     public override void Apply(GameObject target)
     {
-       
-         
+        var interactableObject = target.GetComponent<InteractableObject>();
+        if (interactableObject != null)
+        {
+            interactableObject.ApplyEffect(this);
+            return;
+        }
     }
 }
