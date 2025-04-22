@@ -8643,6 +8643,9 @@ MonoBehaviour:
   spriteChild: {fileID: 1476908908}
   requiresEffect: 1
   requiredEffect: {fileID: 11400000, guid: 27fbdb928a2e3a74b899a4fdbefc2e12, type: 2}
+  requiredEffectHintMessage: I need to destroy this..
+  interactHintMessage: Press F to interact
+  interactableID: 0
 --- !u!1 &607963252
 GameObject:
   m_ObjectHideFlags: 0
@@ -9579,6 +9582,9 @@ MonoBehaviour:
   spriteChild: {fileID: 1445186815}
   requiresEffect: 0
   requiredEffect: {fileID: 0}
+  requiredEffectHintMessage: I need to destroy this..
+  interactHintMessage: Press F to interact
+  interactableID: 0
 --- !u!1 &673079666
 GameObject:
   m_ObjectHideFlags: 0
@@ -12782,6 +12788,9 @@ MonoBehaviour:
   spriteChild: {fileID: 1402193479}
   requiresEffect: 0
   requiredEffect: {fileID: 0}
+  requiredEffectHintMessage: I need to destroy this..
+  interactHintMessage: Press F to interact
+  interactableID: 0
 --- !u!1 &907386803
 GameObject:
   m_ObjectHideFlags: 0
@@ -18921,6 +18930,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1325045647}
   - component: {fileID: 1325045650}
+  - component: {fileID: 1325045651}
   - component: {fileID: 1325045648}
   - component: {fileID: 1325045649}
   m_Layer: 0
@@ -19088,6 +19098,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combinationImage: {fileID: 690933203}
+--- !u!114 &1325045651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325045646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08e8d1cbf211fd4ba0c1821308bbb84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 979491084}
+  playerMovement: {fileID: 979491082}
+  enemyManager: {fileID: 70227724}
+  combinationIconManager: {fileID: 1325045650}
+  audioSource: {fileID: 1325045649}
+  effectRadius: 10
 --- !u!1 &1338231960
 GameObject:
   m_ObjectHideFlags: 0
@@ -19421,6 +19449,9 @@ MonoBehaviour:
   spriteChild: {fileID: 97243663}
   requiresEffect: 0
   requiredEffect: {fileID: 0}
+  requiredEffectHintMessage: I need to destroy this..
+  interactHintMessage: Press F to interact
+  interactableID: 0
 --- !u!1 &1378767027
 GameObject:
   m_ObjectHideFlags: 0
@@ -22094,6 +22125,9 @@ MonoBehaviour:
   spriteChild: {fileID: 1903982817}
   requiresEffect: 0
   requiredEffect: {fileID: 0}
+  requiredEffectHintMessage: I need to destroy this..
+  interactHintMessage: Press F to interact
+  interactableID: 0
 --- !u!1 &1531102642
 GameObject:
   m_ObjectHideFlags: 0
@@ -23984,6 +24018,9 @@ MonoBehaviour:
   spriteChild: {fileID: 99256357}
   requiresEffect: 0
   requiredEffect: {fileID: 0}
+  requiredEffectHintMessage: I need to destroy this..
+  interactHintMessage: Press F to interact
+  interactableID: 0
 --- !u!1 &1685212782
 GameObject:
   m_ObjectHideFlags: 0
@@ -29494,6 +29531,9 @@ MonoBehaviour:
   spriteChild: {fileID: 1838264732}
   requiresEffect: 0
   requiredEffect: {fileID: 0}
+  requiredEffectHintMessage: I need to destroy this..
+  interactHintMessage: Press F to interact
+  interactableID: 0
 --- !u!1 &2134174506
 GameObject:
   m_ObjectHideFlags: 0
