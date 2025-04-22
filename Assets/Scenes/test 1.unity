@@ -4172,6 +4172,7 @@ GameObject:
   - component: {fileID: 1014659249}
   - component: {fileID: 1014659248}
   - component: {fileID: 1014659247}
+  - component: {fileID: 1014659250}
   m_Layer: 0
   m_Name: Word UI Manager
   m_TagString: Untagged
@@ -4337,6 +4338,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combinationImage: {fileID: 2110801987}
+--- !u!114 &1014659250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014659245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08e8d1cbf211fd4ba0c1821308bbb84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 146020762}
+  playerMovement: {fileID: 146020767}
+  enemyManager: {fileID: 1569172340}
+  combinationIconManager: {fileID: 1014659249}
+  audioSource: {fileID: 1014659247}
+  effectRadius: 10
 --- !u!1 &1024260608
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,7 +58,7 @@ public class EffectApplicationManager : MonoBehaviour
         
         bool effectApplied = false;
         
-        if (effect is SpikeCircleEffect)
+        if (effect is SpikeCircleEffect || effect is GaleStride)
         {
             ApplyEffectToPlayer(effect);
             PlayEffectSound(effectSound);
