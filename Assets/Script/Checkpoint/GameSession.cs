@@ -4,25 +4,29 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     public static GameSession Instance;
-
     public GameState GameState;
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance == null) 
+            Instance = this;
+        else 
+            Destroy(gameObject);
     }
 
     private void Start()
     {
         FishStateManager.RestoreCheckpointState();
         ObstacleStateManager.RestoreObstacles(); 
-        EnemyStateManager.RestoreEnemy();// Restore the state of obstacles
+        EnemyStateManager.RestoreEnemy(); 
+        InteractableStateManager.RestoreCheckpointState(); 
     }
+    
     public bool HasAnyCheckpoint()
     {
         return GameState.currentCheckpointID != 0; 
     }
+    
     public bool CheckpointActivated(int checkpointID)
     {
         return CheckpointManager.IsCheckpointActivated(checkpointID);
@@ -33,6 +37,7 @@ public class GameSession : MonoBehaviour
         CheckpointManager.ActivateCheckpoint(checkpointID);
         ObstacleStateManager.SaveCheckpoint();
         EnemyStateManager.SaveCheckpoint();
+        InteractableStateManager.SaveCheckpoint();
     }
 
     public void ResetDestroyedObstacles()
@@ -59,5 +64,6 @@ public class GameSession : MonoBehaviour
     {
         ObstacleStateManager.RestoreCheckpointState(); 
         EnemyStateManager.RestoreCheckpointState();
+        InteractableStateManager.RestoreCheckpointState();
     }
 }

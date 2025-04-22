@@ -6,7 +6,9 @@ public class InteractableObject : MonoBehaviour, IEffectable
     [SerializeField] private HintPanelController hintPanelController; 
     public Sprite openedSprite; 
     public GameObject wordObject; 
-    public GameObject spriteChild; 
+    public GameObject spriteChild;
+    private Sprite initialSprite;
+
 
     [Header("Effect Settings")]
     public bool requiresEffect = false; 
@@ -15,6 +17,9 @@ public class InteractableObject : MonoBehaviour, IEffectable
     [Header("Hint Messages")]
     [SerializeField] private string requiredEffectHintMessage = "I need to destroy this..";
     [SerializeField] private string interactHintMessage = "Press F to interact";
+    
+    [Header("State Settings")]
+    public int interactableID;
     
     private SpriteRenderer spriteRenderer; 
     private bool isOpened = false;
@@ -26,10 +31,26 @@ public class InteractableObject : MonoBehaviour, IEffectable
         if (spriteChild != null)
         {
             spriteRenderer = spriteChild.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                initialSprite = spriteRenderer.sprite;
+            }
         }
-        wordObject.SetActive(false); 
+        if (InteractableStateManager.IsInteractableOpened(interactableID))
+        {
+            ForceOpen();
+        }
+        else
+        {
+            isOpened = false;
+            wordObject.SetActive(false);
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.sprite = initialSprite;
+            }
+        }
     }
-
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && !isOpened && isPlayerInRange)
@@ -53,9 +74,24 @@ public class InteractableObject : MonoBehaviour, IEffectable
         }
         wordObject.SetActive(true); 
         hintPanelController.Hide(); 
+        InteractableStateManager.MarkInteractableOpened(interactableID);
+    }
+    
+    public void ForceOpen()
+    {
+        if (!isOpened)
+        {
+            isOpened = true;
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.sprite = openedSprite;
+            }
+            wordObject.SetActive(true);
+            hintPanelController.Hide();
+        }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !isOpened)
         {
@@ -71,7 +107,7 @@ public class InteractableObject : MonoBehaviour, IEffectable
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -79,7 +115,6 @@ public class InteractableObject : MonoBehaviour, IEffectable
             {
                 hintPanelController.Hide(); 
             }
-
             isPlayerInRange = false;
         }
     }
@@ -93,5 +128,15 @@ public class InteractableObject : MonoBehaviour, IEffectable
         }
     }
     
-    
+    public void ResetInteractableObject()
+    {
+        isOpened = false;
+        effectApplied = false;
+        wordObject.SetActive(false);
+        hintPanelController.Hide();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = initialSprite;
+        }
+    }
 }

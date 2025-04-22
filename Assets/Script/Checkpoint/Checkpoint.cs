@@ -41,9 +41,10 @@ public class Checkpoint : MonoBehaviour
         gameState.currentCheckpointID = checkpointID;
         CheckpointManager.ActivateCheckpoint(checkpointID);
         ObstacleStateManager.SaveCheckpoint();
-        EnemyStateManager.SaveCheckpoint();// Save the state of destroyed obstacles
+        EnemyStateManager.SaveCheckpoint(); 
         WordUIManager.Instance.SaveCheckpoint();
         FishStateManager.SaveCheckpoint();
+        InteractableStateManager.SaveCheckpoint(); 
     }
 
     private IEnumerator ShowCheckpointNotification()

@@ -42,7 +42,6 @@ public class Movement : MonoBehaviour
         }
     }
 
-
     private void FixedUpdate()
     {
         if (!isDead && !isPaused)
@@ -65,31 +64,35 @@ public class Movement : MonoBehaviour
         rb.velocity = Vector2.zero;
         animator.SetTrigger("Die");
 
-        
         WordUIManager.Instance.ResetToCheckpoint();
         WordUIManager.Instance.RestoreCollectedWordsOnScene();
         WordUIManager.Instance.UpdateButtons();
-
         
         if (!GameSession.Instance.CheckpointActivated(GameSession.Instance.GameState.currentCheckpointID))
         {
             EnemyStateManager.FullReset();
             GameSession.Instance.ResetDestroyedObstacles();
+            InteractableStateManager.ResetInteractableStates();
+            
+            foreach (InteractableObject obj in GameObject.FindObjectsOfType<InteractableObject>())
+            {
+                obj.ResetInteractableObject();
+            }
+        
             foreach (Fish fish in GameObject.FindObjectsOfType<Fish>())
             {
-                fish.ResetFishState(); 
+                fish.ResetFishState();
             }
         }
-
         else
         {
-            EnemyStateManager.RestoreCheckpointState(); 
+            EnemyStateManager.RestoreCheckpointState();
             FishStateManager.RestoreCheckpointState();
+            InteractableStateManager.RestoreCheckpointState();
         }
-        
+    
         Invoke("Respawn", 1f);
     }
-
 
     private void Respawn()
     {
@@ -97,8 +100,15 @@ public class Movement : MonoBehaviour
         GameState gameState = GameSession.Instance.GameState;
         transform.position = gameState.PlayerPosition;
         animator.SetTrigger("Respawn");
+        
         FishStateManager.RestoreCheckpointState();
+        
+        if (GameSession.Instance.CheckpointActivated(gameState.currentCheckpointID))
+        {
+            InteractableStateManager.RestoreCheckpointState();
+        }
     }
+
 
     public void EnableMovement()
     {
