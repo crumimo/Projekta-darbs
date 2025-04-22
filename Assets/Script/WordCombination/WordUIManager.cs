@@ -321,111 +321,30 @@ public class WordUIManager : MonoBehaviour
     }
 
     void ConfirmCombination()
-{
-    if (selectedWords.Count == 2)
     {
-        string word1 = selectedWords[0];
-        string word2 = selectedWords[1];
-        
-        combinationIconManager.MarkCombinationAsUsed(word1, word2);
-        
-        playerVisual.sortingLayerName = "Middleground";
-        playerVisual.sortingOrder = 0;
-
-        EffectBase effect = WordManager.Instance.GetEffect(selectedWords[0], selectedWords[1]);
-        AudioClip effectSound = WordManager.Instance.GetEffectSound(selectedWords[0], selectedWords[1]);
-
-        if (effect == null)
+        if (selectedWords.Count == 2)
         {
-            Debug.LogError("Effect not found for the given combination.");
-            return;
-        }
-
-        Debug.Log($"Confirmed combination: {selectedWords[0]} + {selectedWords[1]} = {effect.name}");
-
-        bool effectApplied = false;
-
-        
-        if (effect is SpikeCircleEffect)
-        {
-            ApplyEffectToPlayer(effect);
-            PlayEffectSound(effectSound);
-            effectApplied = true;
-        }
-        else
-        {
-            bool objectsInRange = AnyObjectInRange();
-            if (objectsInRange)
-            {
-                effectApplied = ApplyEffectToObjects(effect);
-                if (effectApplied)
+            EffectApplicationManager.Instance.ApplyCombinationEffect(
+                selectedWords,
+                onEffectApplied: () =>
                 {
-                    PlayEffectSound(effectSound);
+                    StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
+                    {
+                        worldCanvas.enabled = false;
+                        playerMovement.EnableMovement();
+                        enemyManager.ResumeEnemies();
+                    }));
+                },
+                onEffectFailed: () =>
+                {
+                    ReturnWordsToCollection();
                 }
-            }
-            else
-            {
-                Debug.Log("No objects in range to apply the effect.");
-                ReturnWordsToCollection();
-            }
-        }
-
-        if (effectApplied)
-        {
-            
-            StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
-            {
-                worldCanvas.enabled = false;
-                playerMovement.EnableMovement();
-                enemyManager.ResumeEnemies();
-            }));
-        }
-        else
-        {
-            Debug.LogWarning("Effect was not applied. Panel remains open.");
-        }
-        combinationIconManager.ResetCombinationIcon();
-        ResetSelection();
-    }
-}
-
-private void ApplyEffectToPlayer(EffectBase effect)
-{
-    effect.Apply(playerTransform.gameObject);
-    Debug.Log($"Applying {effect.name} to Player");
-
-    StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
-    {
-        worldCanvas.enabled = false;
-        playerMovement.EnableMovement();
-        enemyManager.ResumeEnemies();
-    }));
-}
-
-private bool ApplyEffectToObjects(EffectBase effect)
-{
-    var effectables = FindObjectsOfType<MonoBehaviour>().OfType<IEffectable>();
-    bool effectApplied = false;
-
-    foreach (var effectable in effectables)
-    {
-        // Применяем выбранный эффект
-        if (Vector3.Distance(playerTransform.position, ((MonoBehaviour)effectable).transform.position) <= effectRadius)
-        {
-            effectable.ApplyEffect(effect);
-            Debug.Log($"{effect.GetType().Name} applied to {((MonoBehaviour)effectable).name}.");
-            effectApplied = true;
+            );
+            ResetSelection();
         }
     }
 
-    if (!effectApplied)
-    {
-        Debug.LogWarning("Effect could not be applied to any object.");
-        ReturnWordsToCollection(); 
-    }
 
-    return effectApplied;
-}
 
 private void ReturnWordsToCollection()
 {
