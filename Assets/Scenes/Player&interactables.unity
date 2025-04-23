@@ -4106,10 +4106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed76f26719b50c42ba949c140e106be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRequirement: 2
+  requiresEffect: 1
+  requiredEffect: {fileID: 11400000, guid: b7fe063e8868dd0489773eb3e74068ad, type: 2}
   dialogueObject: {fileID: 11400000, guid: 47193e4fc6814664e9ace876e0402730, type: 2}
   hintPanelController: {fileID: 712148360}
-  distanceToActivate: 0
+  distanceToActivate: 3
 --- !u!58 &255942049
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13898,7 +13899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed76f26719b50c42ba949c140e106be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRequirement: 1
+  requiresEffect: 1
+  requiredEffect: {fileID: 11400000, guid: b7fe063e8868dd0489773eb3e74068ad, type: 2}
   dialogueObject: {fileID: 11400000, guid: 334ad8e4835cad144859f75f23c902d6, type: 2}
   hintPanelController: {fileID: 712148360}
   distanceToActivate: 2
@@ -16431,7 +16433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed76f26719b50c42ba949c140e106be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRequirement: 0
+  requiresEffect: 0
+  requiredEffect: {fileID: 0}
   dialogueObject: {fileID: 11400000, guid: e8a033abd4114174293786f396fb0da6, type: 2}
   hintPanelController: {fileID: 712148360}
   distanceToActivate: 2
@@ -17604,7 +17607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed76f26719b50c42ba949c140e106be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRequirement: 2
+  requiresEffect: 1
+  requiredEffect: {fileID: 11400000, guid: 55e3df51c9499724bacd3250ea9bb04a, type: 2}
   dialogueObject: {fileID: 11400000, guid: 28bd70c3ec5346d42912f85da3030619, type: 2}
   hintPanelController: {fileID: 712148360}
   distanceToActivate: 2
@@ -22532,10 +22536,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed76f26719b50c42ba949c140e106be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRequirement: 0
+  requiresEffect: 0
+  requiredEffect: {fileID: 0}
   dialogueObject: {fileID: 11400000, guid: 47193e4fc6814664e9ace876e0402730, type: 2}
   hintPanelController: {fileID: 712148360}
-  distanceToActivate: 0
+  distanceToActivate: 2
 --- !u!58 &1552170184
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -29276,7 +29281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2095641447
 Transform:
   m_ObjectHideFlags: 0
@@ -29352,7 +29357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed76f26719b50c42ba949c140e106be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRequirement: 1
+  requiresEffect: 0
+  requiredEffect: {fileID: 0}
   dialogueObject: {fileID: 11400000, guid: 47193e4fc6814664e9ace876e0402730, type: 2}
   hintPanelController: {fileID: 712148360}
   distanceToActivate: 0
