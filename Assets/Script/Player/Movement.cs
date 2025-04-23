@@ -73,6 +73,8 @@ public class Movement : MonoBehaviour
             EnemyStateManager.FullReset();
             GameSession.Instance.ResetDestroyedObstacles();
             InteractableStateManager.ResetInteractableStates();
+            ObstacleStateManager.RestoreObstacles();
+            ObstacleStateManager.ResetSwitchedObstacles();
             
             foreach (InteractableObject obj in GameObject.FindObjectsOfType<InteractableObject>())
             {

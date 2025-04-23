@@ -11,9 +11,5 @@ public class VerdantSurge : EffectBase
             dualObstacle.ToggleObstacles(); 
             Debug.Log("VerdantSurgeEffect applied to DualObstacle.");
         }
-        else
-        {
-            Debug.LogWarning("VerdantSurgeEffect failed - target does not have DualObstacle component.");
-        }
     }
 }

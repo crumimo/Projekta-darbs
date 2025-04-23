@@ -486,7 +486,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObstacle: {fileID: 1142072801}
   inactiveObstacle: {fileID: 1682138229}
-  activationRadius: 5
+  activationRadius: 10
+  obstacleID: 2
 --- !u!4 &15615791
 Transform:
   m_ObjectHideFlags: 0
@@ -7663,7 +7664,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1149604963, guid: 7adaf53c918cb0f4194305355444ce26, type: 3}
-  m_Color: {r: 0.8392124, g: 0.8378401, b: 0.4295198, a: 1}
+  m_Color: {r: 0.24856424, g: 0.24856424, b: 0.06457775, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

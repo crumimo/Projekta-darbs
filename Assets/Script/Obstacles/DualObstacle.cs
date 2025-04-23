@@ -11,7 +11,7 @@ public class DualObstacle : MonoBehaviour, IEffectable
     [Header("Activation Settings")]
     public float activationRadius = 5f; 
 
-    
+    public int obstacleID;
     void Start()
     {
         UpdateObstacleState();
@@ -25,10 +25,13 @@ public class DualObstacle : MonoBehaviour, IEffectable
 
     public void ToggleObstacles()
     {
-        isSwitched = !isSwitched; 
+        isSwitched = !isSwitched;
         UpdateObstacleState();
+        
+        ObstacleStateManager.MarkObstacleSwitchedState(obstacleID, isSwitched);
         Debug.Log($"Obstacle state switched: {isSwitched}");
     }
+
 
     public void ApplyEffect(EffectBase effect)
     {
@@ -48,11 +51,14 @@ public class DualObstacle : MonoBehaviour, IEffectable
                     Debug.Log("Player is too far from obstacle. Effect not applied.");
                 }
             }
-            else
-            {
-                Debug.LogWarning("Player not found.");
-            }
         }
     }
+    
+    public void ApplySwitchedState(bool isSwitched)
+    {
+        this.isSwitched = isSwitched;
+        UpdateObstacleState();
+    }
+
 
 }

@@ -5,6 +5,9 @@ public static class ObstacleStateManager
 {
     private static HashSet<int> destroyedObstacles = new HashSet<int>();
     private static HashSet<int> checkpointDestroyedObstacles = new HashSet<int>();
+    
+    private static Dictionary<int, bool> switchedObstacles = new Dictionary<int, bool>();
+    private static Dictionary<int, bool> checkpointSwitchedObstacles = new Dictionary<int, bool>();
 
     public static void MarkObstacleAsDestroyed(int obstacleID)
     {
@@ -22,6 +25,7 @@ public static class ObstacleStateManager
     public static void SaveCheckpoint()
     {
         checkpointDestroyedObstacles = new HashSet<int>(destroyedObstacles);
+        checkpointSwitchedObstacles = new Dictionary<int, bool>(switchedObstacles);
     }
 
     public static void ResetDestroyedObstacles()
@@ -42,11 +46,34 @@ public static class ObstacleStateManager
                 obstacle.ResetObstacle();
             }
         }
+        foreach (var dual in GameObject.FindObjectsOfType<DualObstacle>())
+        {
+            if (switchedObstacles.TryGetValue(dual.obstacleID, out bool isSwitched))
+            {
+                dual.ApplySwitchedState(isSwitched);
+            }
+            else
+            {
+                dual.ApplySwitchedState(false);
+            }
+        }
     }
+
 
     public static void RestoreCheckpointState()
     {
         destroyedObstacles = new HashSet<int>(checkpointDestroyedObstacles);
+        switchedObstacles = new Dictionary<int, bool>(checkpointSwitchedObstacles);
         RestoreObstacles();  
+    }
+    
+    public static void ResetSwitchedObstacles()
+    {
+        switchedObstacles.Clear();
+    }
+
+    public static void MarkObstacleSwitchedState(int obstacleID, bool isSwitched)
+    {
+        switchedObstacles[obstacleID] = isSwitched;
     }
 }
