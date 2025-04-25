@@ -3,29 +3,58 @@ using UnityEngine;
 
 public class HideAndSeekEnemy : MonoBehaviour
 {
-    public float greenLightDuration = 5f; // Длительность зеленого света
-    public float redLightDuration = 3f; // Длительность красного света
-    public SpriteRenderer spriteRenderer; // Ссылка на SpriteRenderer врага
-    public Color greenLightColor = Color.green; // Цвет зеленого света
-    public Color redLightColor = Color.red; // Цвет красного света
-    public LayerMask obstacleLayer; // Слой укрытий и препятствий
-    public LayerMask ignoreLayer; // Слой для игнорирования (включая слой врага)
-    private bool isGreenLight = true; // Текущее состояние света
+    [Header("Light Settings")]
+    public float greenLightDuration = 5f;        
+    public float redLightDuration = 3f; 
+    public SpriteRenderer spriteRenderer;    
+    public Color greenLightColor = Color.green;   
+    public Color redLightColor = Color.red;       
+
+    [Header("Vision Settings")]
+    public LayerMask obstacleLayer;   
+    
+    [Header("Vision Area Display")]
+    public Material visionAreaMaterial;
+    public Color visionActiveColor = new Color(1f, 0f, 0f, 0.3f);
+    
+    private bool isGreenLight = true;       
     private Transform player;
+    private PolygonCollider2D polyCollider; 
+    
+    private Mesh visionMesh;
+    private MeshFilter visionMeshFilter;
+    private MeshRenderer visionMeshRenderer;
+
+    private void Awake()
+    {
+        polyCollider = GetComponent<PolygonCollider2D>();
+        if (polyCollider == null)
+        {
+            return;
+        }
+        
+        GameObject visionAreaGO = new GameObject("VisionAreaDisplay");
+        visionAreaGO.transform.SetParent(transform);
+       
+        visionAreaGO.transform.localPosition = polyCollider.offset;
+        visionAreaGO.transform.localRotation = Quaternion.identity;
+
+        visionMeshFilter = visionAreaGO.AddComponent<MeshFilter>();
+        visionMeshRenderer = visionAreaGO.AddComponent<MeshRenderer>();
+        visionMeshRenderer.material = visionAreaMaterial;
+
+        visionMesh = new Mesh();
+        visionMeshFilter.mesh = visionMesh;
+        UpdateVisionMesh();
+    }
 
     private void Start()
     {
         if (spriteRenderer == null)
-        {
             spriteRenderer = GetComponent<SpriteRenderer>();
-        }
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (player == null)
-        {
-            Debug.LogError("Player not found in the scene.");
-        }
 
         StartCoroutine(SwitchLight());
     }
@@ -36,64 +65,84 @@ public class HideAndSeekEnemy : MonoBehaviour
         {
             if (isGreenLight)
             {
-                // Зеленый свет
                 spriteRenderer.color = greenLightColor;
-                Debug.Log("Green light - Players can move");
                 yield return new WaitForSeconds(greenLightDuration);
             }
             else
             {
-                // Красный свет
                 spriteRenderer.color = redLightColor;
-                Debug.Log("Red light - Players must stop");
                 yield return new WaitForSeconds(redLightDuration);
             }
-
             isGreenLight = !isGreenLight;
         }
     }
 
     private void Update()
     {
-        if (!isGreenLight)
+        if (visionMeshRenderer != null)
         {
-            CheckPlayerVisibility();
-        }
-    }
-
-    private void CheckPlayerVisibility()
-    {
-        if (player == null)
-        {
-            Debug.LogError("Player not assigned.");
-            return;
-        }
-
-        Vector3 directionToPlayer = (player.position - transform.position).normalized;
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        Debug.DrawRay(transform.position, directionToPlayer * distanceToPlayer, Color.red);
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, distanceToPlayer, ~ignoreLayer);
-
-        if (hit.collider != null)
-        {
-            Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
-
-            if (hit.collider.CompareTag("Player"))
+            if (!isGreenLight)
             {
-                Debug.Log("Player caught while red light! Restarting scene...");
-                RestartScene();
+                visionMeshRenderer.enabled = true;
+                visionAreaMaterial.color = visionActiveColor;
+            }
+            else
+            {
+                visionMeshRenderer.enabled = false;
             }
         }
-        else
+    }
+    
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (!isGreenLight && other.CompareTag("Player"))
         {
-            Debug.Log("Raycast did not hit anything.");
+            if (!IsPlayerCovered(other.transform))
+            {
+                Movement movement = other.GetComponent<Movement>();
+                if (movement != null)
+                {
+                    movement.Die();
+                }
+            }
         }
     }
-
-    private void RestartScene()
+    
+    private bool IsPlayerCovered(Transform playerTransform)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        if (playerTransform == null)
+            return false;
+        Vector2 checkPoint = playerTransform.position;
+        Collider2D coverCollider = Physics2D.OverlapPoint(checkPoint, obstacleLayer);
+        return coverCollider != null;
+    }
+    
+    private void UpdateVisionMesh()
+    {
+        if (polyCollider == null || polyCollider.points.Length < 3)
+            return;
+
+        Vector2[] points = polyCollider.points;
+        int count = points.Length;
+        Vector3[] vertices = new Vector3[count];
+        
+        Vector3 scale = transform.lossyScale;
+        for (int i = 0; i < count; i++)
+        {
+            vertices[i] = new Vector3(points[i].x * scale.x, points[i].y * scale.y, 0f);
+        }
+        
+        int[] triangles = new int[(count - 2) * 3];
+        for (int i = 0; i < count - 2; i++)
+        {
+            triangles[i * 3] = 0;
+            triangles[i * 3 + 1] = i + 1;
+            triangles[i * 3 + 2] = i + 2;
+        }
+
+        visionMesh.Clear();
+        visionMesh.vertices = vertices;
+        visionMesh.triangles = triangles;
+        visionMesh.RecalculateNormals();
     }
 }
