@@ -6,12 +6,12 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     private PatrolEnemy[] patrolEnemies;
-    private HideAndSeekEnemyRefactored[] hideAndSeekEnemies;
+    private HideAndSeekEnemyEye[] hideAndSeekEnemies;
     
     private void Start()
     {
         patrolEnemies = FindObjectsOfType<PatrolEnemy>();
-        hideAndSeekEnemies = FindObjectsOfType<HideAndSeekEnemyRefactored>();
+        hideAndSeekEnemies = FindObjectsOfType<HideAndSeekEnemyEye>();
     }
 
     public void ResetEnemies()
