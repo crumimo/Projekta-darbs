@@ -19,6 +19,7 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
     private MeshFilter visionMeshFilter;
     private MeshRenderer visionMeshRenderer;
     private Coroutine switchLightCoroutine;
+    private bool effectApplied = false;
 
     void Awake()
     {
@@ -43,7 +44,8 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        if (player != null && Time.timeScale != 0)
+        
+        if (player != null && Time.timeScale != 0 && !effectApplied)
             switchLightCoroutine = StartCoroutine(SwitchLight());
     }
 
@@ -69,7 +71,7 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
     {
         if (visionMeshRenderer != null)
         {
-            if (!isGreenLight)
+            if (!isGreenLight && !effectApplied)
             {
                 visionMeshRenderer.enabled = true;
                 visionAreaMaterial.color = visionActiveColor;
@@ -122,7 +124,7 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
         visionMesh.triangles = triangles;
         visionMesh.RecalculateNormals();
     }
-    
+
     void OnDisable()
     {
         if (Time.timeScale == 0)
@@ -136,7 +138,7 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
 
     void OnEnable()
     {
-        if (switchLightCoroutine == null && player != null && Time.timeScale != 0)
+        if (!effectApplied && switchLightCoroutine == null && player != null && Time.timeScale != 0)
             switchLightCoroutine = StartCoroutine(SwitchLight());
     }
 
@@ -147,21 +149,32 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
             StopCoroutine(switchLightCoroutine);
             switchLightCoroutine = null;
         }
+        effectApplied = false;
         isGreenLight = true;
         spriteRenderer.sprite = closedEyeSprite;
         if (visionMeshRenderer != null)
             visionMeshRenderer.enabled = false;
         if (player != null && Time.timeScale != 0)
             switchLightCoroutine = StartCoroutine(SwitchLight());
+        enabled = true;
     }
 
     public void ApplyEffect(EffectBase effect)
     {
         StopEye();
     }
+
     public void StopEye()
     {
-        ResetEnemyState();
+        effectApplied = true;
+        if (switchLightCoroutine != null)
+        {
+            StopCoroutine(switchLightCoroutine);
+            switchLightCoroutine = null;
+        }
+        spriteRenderer.sprite = closedEyeSprite;
+        if (visionMeshRenderer != null)
+            visionMeshRenderer.enabled = false;
         enabled = false;
     }
 }

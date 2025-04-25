@@ -2804,6 +2804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebeb38d548b8332438deb93b4bf9272f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyID: 0
   enemyEye: {fileID: 53609376}
 --- !u!61 &547444556
 BoxCollider2D:
@@ -8410,7 +8411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fb9a69c2f86024dae16f99f8492e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyID: 0
+  enemyID: 2
   patrolPoints:
   - {fileID: 1074081572}
   moveSpeed: 2
