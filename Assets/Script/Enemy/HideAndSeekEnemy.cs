@@ -4,22 +4,24 @@ using UnityEngine;
 public class HideAndSeekEnemy : MonoBehaviour
 {
     [Header("Light Settings")]
-    public float greenLightDuration = 5f;        
-    public float redLightDuration = 3f; 
-    public SpriteRenderer spriteRenderer;    
-    public Color greenLightColor = Color.green;   
-    public Color redLightColor = Color.red;       
+    public float greenLightDuration = 5f;
+    public float redLightDuration = 3f;
+    public SpriteRenderer spriteRenderer;
+    
+    [Header("Enemy Sprites")]
+    public Sprite openEyeSprite;
+    public Sprite closedEyeSprite;
 
     [Header("Vision Settings")]
-    public LayerMask obstacleLayer;   
-    
+    public LayerMask obstacleLayer;
+
     [Header("Vision Area Display")]
     public Material visionAreaMaterial;
     public Color visionActiveColor = new Color(1f, 0f, 0f, 0.3f);
-    
-    private bool isGreenLight = true;       
+
+    private bool isGreenLight = true;
     private Transform player;
-    private PolygonCollider2D polyCollider; 
+    private PolygonCollider2D polyCollider;
     
     private Mesh visionMesh;
     private MeshFilter visionMeshFilter;
@@ -28,14 +30,10 @@ public class HideAndSeekEnemy : MonoBehaviour
     private void Awake()
     {
         polyCollider = GetComponent<PolygonCollider2D>();
-        if (polyCollider == null)
-        {
-            return;
-        }
-        
+        if (polyCollider == null) return;
+
         GameObject visionAreaGO = new GameObject("VisionAreaDisplay");
         visionAreaGO.transform.SetParent(transform);
-       
         visionAreaGO.transform.localPosition = polyCollider.offset;
         visionAreaGO.transform.localRotation = Quaternion.identity;
 
@@ -54,7 +52,7 @@ public class HideAndSeekEnemy : MonoBehaviour
             spriteRenderer = GetComponent<SpriteRenderer>();
 
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        if (player == null)
+        if (player == null) return;
 
         StartCoroutine(SwitchLight());
     }
@@ -65,12 +63,12 @@ public class HideAndSeekEnemy : MonoBehaviour
         {
             if (isGreenLight)
             {
-                spriteRenderer.color = greenLightColor;
+                spriteRenderer.sprite = closedEyeSprite;
                 yield return new WaitForSeconds(greenLightDuration);
             }
             else
             {
-                spriteRenderer.color = redLightColor;
+                spriteRenderer.sprite = openEyeSprite;
                 yield return new WaitForSeconds(redLightDuration);
             }
             isGreenLight = !isGreenLight;
@@ -110,8 +108,7 @@ public class HideAndSeekEnemy : MonoBehaviour
     
     private bool IsPlayerCovered(Transform playerTransform)
     {
-        if (playerTransform == null)
-            return false;
+        if (playerTransform == null) return false;
         Vector2 checkPoint = playerTransform.position;
         Collider2D coverCollider = Physics2D.OverlapPoint(checkPoint, obstacleLayer);
         return coverCollider != null;
@@ -119,8 +116,7 @@ public class HideAndSeekEnemy : MonoBehaviour
     
     private void UpdateVisionMesh()
     {
-        if (polyCollider == null || polyCollider.points.Length < 3)
-            return;
+        if (polyCollider == null || polyCollider.points.Length < 3) return;
 
         Vector2[] points = polyCollider.points;
         int count = points.Length;
