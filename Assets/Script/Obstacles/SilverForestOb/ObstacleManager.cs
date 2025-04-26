@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class ObstacleManager : MonoBehaviour, IEffectable
 {
-    public int obstacleID; // Unique ID for each obstacle
+    public int obstacleID; 
     public float distanceToActivate = 10f;
     
+    [Header("Destruction Options")]
     [SerializeField] private bool ErosionTouch = false; 
     [SerializeField] private bool SpikeCircle = false; 
-    [SerializeField] private AudioClip destructionSound; // Sound effect for destruction
+    [SerializeField] private bool Pureflare = false; 
+    [SerializeField] private AudioClip destructionSound; 
     
     private Animator barrierAnim;
     private AudioSource audioSource;
@@ -21,8 +23,7 @@ public class ObstacleManager : MonoBehaviour, IEffectable
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
-
-        // Check if the obstacle was previously destroyed
+        
         if (ObstacleStateManager.IsObstacleDestroyed(obstacleID))
         {
             gameObject.SetActive(false);
@@ -37,26 +38,11 @@ public class ObstacleManager : MonoBehaviour, IEffectable
     {
         effect.Apply(gameObject);
     }
-
-    public void ApplyEffect(ScriptableObject effect)
-    {
-        var applyMethod = effect.GetType().GetMethod("Apply");
-        if (applyMethod != null)
-        {
-            applyMethod.Invoke(effect, new object[] { gameObject });
-            Debug.Log($"{effect.GetType().Name} applied to {gameObject.name}");
-        }
-        else
-        {
-            Debug.LogWarning($"Effect of type {effect.GetType().Name} does not have an Apply method or is not applicable to ObstacleManager.");
-        }
-    }
     
-
     public void DisableObstacle()
     {
         ObstacleStateManager.MarkObstacleAsDestroyed(obstacleID);
-        WordUIManager.Instance.TrackObstacle(this); // Track obstacle
+        WordUIManager.Instance.TrackObstacle(this); 
         barrierAnim.SetTrigger("Break");
         if (destructionSound != null)
         {
@@ -79,13 +65,11 @@ public class ObstacleManager : MonoBehaviour, IEffectable
     public bool CanBeDestroyedByEffect(ScriptableObject effect)
     {
         if (effect is ErosionTouchEffect && ErosionTouch)
-        {
             return true;
-        }
         if (effect is SpikeCircleEffect && SpikeCircle)
-        {
             return true;
-        }
+        if (effect is Pureflare && Pureflare) 
+            return true;
         return false;
     }
 }
