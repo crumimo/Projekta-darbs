@@ -5,11 +5,20 @@ public class VerdantSurge : EffectBase
 {
     public override void Apply(GameObject target)
     {
-        DualObstacle dualObstacle = target.GetComponent<DualObstacle>();
+        var dualObstacle = target.GetComponent<DualObstacle>();
         if (dualObstacle != null)
         {
-            dualObstacle.ToggleObstacles(); 
-            Debug.Log("VerdantSurgeEffect applied to DualObstacle.");
+            dualObstacle.ToggleObstacles();
+            Debug.Log("VerdantSurgeEffect applied to DualObstacle on " + target.name);
+            return;
+        }
+        
+        var killZone = target.GetComponent<KillZone>();
+        if (killZone != null)
+        {
+            killZone.DisableZone();
+            Debug.Log("VerdantSurgeEffect disabled KillZone on " + target.name);
+            return;
         }
     }
 }
