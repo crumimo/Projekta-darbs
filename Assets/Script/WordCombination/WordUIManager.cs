@@ -330,6 +330,8 @@ public class WordUIManager : MonoBehaviour
                 {
                     StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
                     {
+                        playerVisual.sortingLayerName = "Middleground";
+                        playerVisual.sortingOrder = 0;
                         worldCanvas.enabled = false;
                         playerMovement.EnableMovement();
                         enemyManager.ResumeEnemies();
