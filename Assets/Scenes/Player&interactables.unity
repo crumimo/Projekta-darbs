@@ -14213,7 +14213,7 @@ Transform:
   m_GameObject: {fileID: 979491080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1, y: -42, z: 0}
+  m_LocalPosition: {x: 1.4, y: -36.5, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -17904,7 +17904,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3000002, y: -100.45, z: -10}
+  m_LocalPosition: {x: -2, y: -94.95, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21060,7 +21060,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3000002, y: -100.45, z: -10}
+  m_LocalPosition: {x: -2, y: -94.95, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25480,7 +25480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1738119978}
   - component: {fileID: 1738119980}
-  - component: {fileID: 1738119979}
+  - component: {fileID: 1738119981}
   m_Layer: 10
   m_Name: DoorInside
   m_TagString: Untagged
@@ -25497,14 +25497,29 @@ Transform:
   m_GameObject: {fileID: 1738119977}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.14986204, w: 0.98870695}
-  m_LocalPosition: {x: 130.25, y: -10.15, z: 0}
+  m_LocalPosition: {x: 160.42, y: -10.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1187814650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 17.238}
---- !u!61 &1738119979
-BoxCollider2D:
+--- !u!114 &1738119980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738119977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78980f2fcecd77a4f8164d3e251583d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintPanelController: {fileID: 712148360}
+  destination: {fileID: 2139365157}
+  fadeController: {fileID: 1665075629}
+--- !u!58 &1738119981
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -25532,37 +25547,12 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.0859752, y: 0.556528}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 7.9435015, y: 7.303499}
-  m_EdgeRadius: 0
---- !u!114 &1738119980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738119977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78980f2fcecd77a4f8164d3e251583d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hintPanelController: {fileID: 712148360}
-  destination: {fileID: 2139365157}
-  fadeController: {fileID: 1665075629}
+  m_Radius: 1.86
 --- !u!1 &1741003149
 GameObject:
   m_ObjectHideFlags: 0
