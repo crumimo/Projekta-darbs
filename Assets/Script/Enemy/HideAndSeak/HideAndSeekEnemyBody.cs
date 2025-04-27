@@ -1,25 +1,34 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HideAndSeekEnemyBody : MonoBehaviour, IEffectable
 {
     public int enemyID;
     private bool effectApplied = false;
-    public HideAndSeekEnemyEye enemyEye;
+    
+    public List<HideAndSeekEnemyEye> enemyEyes;  
 
     public void ApplyCombinationEffect(EffectBase effect)
     {
         if (effectApplied)
             return;
+        
         if (effect is Pureflare)
         {
-            gameObject.SetActive(false);
-            if (enemyEye != null)
-                enemyEye.StopEye();
+            gameObject.SetActive(false);  
+            if (enemyEyes != null)
+            {
+                foreach (var eye in enemyEyes)
+                {
+                    if (eye != null)
+                        eye.StopEye();  
+                }
+            }
             effectApplied = true;
             EnemyStateManager.MarkEnemyAsSleep(enemyID);
         }
     }
-
+    
     public void ApplyEffect(EffectBase effect)
     {
         ApplyCombinationEffect(effect);
@@ -36,15 +45,21 @@ public class HideAndSeekEnemyBody : MonoBehaviour, IEffectable
         gameObject.SetActive(false);
         EnemyStateManager.MarkEnemyAsSleep(enemyID);
     }
-
+    
     public void ResetEnemy()
     {
         gameObject.SetActive(true);
         effectApplied = false;
-        if (enemyEye != null)
+        if (enemyEyes != null)
         {
-            enemyEye.ResetEnemyState();
-            enemyEye.enabled = true;
+            foreach (var eye in enemyEyes)
+            {
+                if (eye != null)
+                {
+                    eye.ResetEnemyState();
+                    eye.enabled = true;
+                }
+            }
         }
     }
 }
