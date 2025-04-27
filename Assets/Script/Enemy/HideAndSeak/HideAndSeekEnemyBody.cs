@@ -6,16 +6,25 @@ public class HideAndSeekEnemyBody : MonoBehaviour, IEffectable
     public int enemyID;
     private bool effectApplied = false;
     
+    [Header("Disable Effect Options")]
+    
+    public bool disableWithPureflare = true;
+    
+    public bool disableWithWhisperseed = false;
+    public bool bodyDisabledByEffect = false;
+
     public List<HideAndSeekEnemyEye> enemyEyes;  
 
     public void ApplyCombinationEffect(EffectBase effect)
     {
         if (effectApplied)
             return;
-        
-        if (effect is Pureflare)
+    
+        if ((effect is Pureflare && disableWithPureflare) ||
+            (effect is Whisperseed && disableWithWhisperseed))
         {
-            gameObject.SetActive(false);  
+            gameObject.SetActive(false);
+            bodyDisabledByEffect = true; 
             if (enemyEyes != null)
             {
                 foreach (var eye in enemyEyes)
@@ -28,6 +37,7 @@ public class HideAndSeekEnemyBody : MonoBehaviour, IEffectable
             EnemyStateManager.MarkEnemyAsSleep(enemyID);
         }
     }
+
     
     public void ApplyEffect(EffectBase effect)
     {
@@ -49,6 +59,7 @@ public class HideAndSeekEnemyBody : MonoBehaviour, IEffectable
     public void ResetEnemy()
     {
         gameObject.SetActive(true);
+        bodyDisabledByEffect = false;
         effectApplied = false;
         if (enemyEyes != null)
         {
@@ -62,6 +73,7 @@ public class HideAndSeekEnemyBody : MonoBehaviour, IEffectable
             }
         }
     }
+
     
     public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
     {

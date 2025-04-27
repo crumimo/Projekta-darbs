@@ -3,14 +3,22 @@ using UnityEngine;
 
 public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
 {
+    [Header("Timing Settings")]
     public float greenLightDuration = 5f;
     public float redLightDuration = 3f;
+    
+    [Header("Visual Settings")]
     public SpriteRenderer spriteRenderer;
     public Sprite openEyeSprite;
     public Sprite closedEyeSprite;
-    public LayerMask obstacleLayer;
     public Material visionAreaMaterial;
     public Color visionActiveColor = new Color(1f, 0f, 0f, 0.3f);
+
+    [Header("Collision Settings")]
+    public LayerMask obstacleLayer;
+
+    [Header("Mode Settings")]
+    public bool alwaysWatch = false;
 
     private bool isGreenLight = true;
     private Transform player;
@@ -20,6 +28,10 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
     private MeshRenderer visionMeshRenderer;
     private Coroutine switchLightCoroutine;
     private bool effectApplied = false;
+    
+    private bool forceVisionOff = false;
+    
+    private HideAndSeekEnemyBody parentEnemyBody;
 
     void Awake()
     {
@@ -37,6 +49,7 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
             visionMeshFilter.mesh = visionMesh;
             UpdateVisionMesh();
         }
+        parentEnemyBody = GetComponentInParent<HideAndSeekEnemyBody>();
     }
 
     void Start()
@@ -44,9 +57,21 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
-        
-        if (player != null && Time.timeScale != 0 && !effectApplied)
+
+        if (alwaysWatch)
+        {
+            isGreenLight = false;
+            spriteRenderer.sprite = openEyeSprite;
+            if (visionMeshRenderer != null)
+            {
+                visionMeshRenderer.enabled = true;
+                visionAreaMaterial.color = visionActiveColor;
+            }
+        }
+        else if (player != null && Time.timeScale != 0 && !effectApplied)
+        {
             switchLightCoroutine = StartCoroutine(SwitchLight());
+        }
     }
 
     IEnumerator SwitchLight()
@@ -69,16 +94,41 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
 
     void Update()
     {
-        if (visionMeshRenderer != null)
+        if (forceVisionOff)
         {
-            if (!isGreenLight && !effectApplied)
+            if (visionMeshRenderer != null)
+                visionMeshRenderer.enabled = false;
+            return;
+        }
+        
+        if (parentEnemyBody != null && !parentEnemyBody.gameObject.activeInHierarchy)
+        {
+            if (visionMeshRenderer != null)
+                visionMeshRenderer.enabled = false;
+            return;
+        }
+
+        if (alwaysWatch)
+        {
+            if (visionMeshRenderer != null)
             {
                 visionMeshRenderer.enabled = true;
                 visionAreaMaterial.color = visionActiveColor;
             }
-            else
+        }
+        else
+        {
+            if (visionMeshRenderer != null)
             {
-                visionMeshRenderer.enabled = false;
+                if (!isGreenLight && !effectApplied)
+                {
+                    visionMeshRenderer.enabled = true;
+                    visionAreaMaterial.color = visionActiveColor;
+                }
+                else
+                {
+                    visionMeshRenderer.enabled = false;
+                }
             }
         }
     }
@@ -138,23 +188,39 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
 
     void OnEnable()
     {
-        if (!effectApplied && switchLightCoroutine == null && player != null && Time.timeScale != 0)
+        if (parentEnemyBody != null && !parentEnemyBody.gameObject.activeInHierarchy)
+        {
+            if (visionMeshRenderer != null)
+                visionMeshRenderer.enabled = false;
+            return;
+        }
+        if (!alwaysWatch && !effectApplied && switchLightCoroutine == null && player != null && Time.timeScale != 0)
             switchLightCoroutine = StartCoroutine(SwitchLight());
     }
 
     public void ResetEnemyState()
     {
+        forceVisionOff = false;
+        
+        if (parentEnemyBody != null && !parentEnemyBody.gameObject.activeInHierarchy)
+        {
+            return;
+        }
+    
         if (switchLightCoroutine != null)
         {
             StopCoroutine(switchLightCoroutine);
             switchLightCoroutine = null;
         }
         effectApplied = false;
-        isGreenLight = true;
-        spriteRenderer.sprite = closedEyeSprite;
+        isGreenLight = alwaysWatch ? false : true;
+        spriteRenderer.sprite = alwaysWatch ? openEyeSprite : closedEyeSprite;
         if (visionMeshRenderer != null)
-            visionMeshRenderer.enabled = false;
-        if (player != null && Time.timeScale != 0)
+            visionMeshRenderer.enabled = alwaysWatch;
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+            col.enabled = true;
+        if (!alwaysWatch && player != null && Time.timeScale != 0)
             switchLightCoroutine = StartCoroutine(SwitchLight());
         enabled = true;
     }
@@ -167,6 +233,7 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
     public void StopEye()
     {
         effectApplied = true;
+        forceVisionOff = true;
         if (switchLightCoroutine != null)
         {
             StopCoroutine(switchLightCoroutine);
@@ -175,9 +242,12 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
         spriteRenderer.sprite = closedEyeSprite;
         if (visionMeshRenderer != null)
             visionMeshRenderer.enabled = false;
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+            col.enabled = false;
         enabled = false;
     }
-    
+
     public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
     {
         return Vector3.Distance(transform.position, playerPosition) <= effectRadius;

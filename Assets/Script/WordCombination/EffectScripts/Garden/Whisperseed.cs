@@ -14,5 +14,11 @@ public class Whisperseed : EffectBase
             interactableObject.ApplyEffect(this);
             return;
         }
+        
+        HideAndSeekEnemyBody body = target.GetComponent<HideAndSeekEnemyBody>();
+        if (body != null) 
+        {
+            body.ApplyCombinationEffect(this);
+        }
     }
 }
