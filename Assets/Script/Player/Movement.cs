@@ -75,6 +75,7 @@ public class Movement : MonoBehaviour
             InteractableStateManager.ResetInteractableStates();
             ObstacleStateManager.RestoreObstacles();
             ObstacleStateManager.ResetSwitchedObstacles();
+            ObstacleStateManager.RestoreNests();
             
             foreach (InteractableObject obj in GameObject.FindObjectsOfType<InteractableObject>())
             {

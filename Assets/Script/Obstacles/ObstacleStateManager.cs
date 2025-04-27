@@ -70,6 +70,14 @@ public static class ObstacleStateManager
         }
 
     }
+    
+    public static void RestoreNests()
+    {
+        foreach (var nest in GameObject.FindObjectsOfType<HollowNestController>(true))
+        {
+            nest.ResetNest();
+        }
+    }
 
 
     public static void RestoreCheckpointState()

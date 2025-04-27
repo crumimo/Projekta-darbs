@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class HollowNestController : MonoBehaviour, IEffectable
 {
+    [Header("Nest Settings")]
+    public int nestID;
     public GameObject nestVisual;
     public Transform effectCenter;
 
@@ -12,11 +14,20 @@ public class HollowNestController : MonoBehaviour, IEffectable
             nestVisual.SetActive(false);
         }
     }
+    
     public void ActivateNest()
     {
         if(nestVisual != null)
         {
             nestVisual.SetActive(true);
+        }
+    }
+    
+    public void ResetNest()
+    {
+        if(nestVisual != null)
+        {
+            nestVisual.SetActive(false);
         }
     }
     
