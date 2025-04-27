@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class KillZone : MonoBehaviour, IEffectable
 {
+    [Header("Zone ID for Saving State")]
+    public int zoneID;  
+
     [Header("Effect Settings (Parent)")]
     [SerializeField] private Collider2D effectCollider;
 
     [Header("Damage Settings (Forwarded from Child)")]
-    [SerializeField] private float slowMultiplier = 0.5f;  
-    [SerializeField] private float deathDelay = 2f;       
+    [SerializeField] private float slowMultiplier = 0.5f;
+    [SerializeField] private float deathDelay = 2f;
 
     private Movement playerMovement;
     private float originalSpeed;
@@ -53,7 +56,7 @@ public class KillZone : MonoBehaviour, IEffectable
             playerMovement.Die();
         }
     }
-    
+
     public void ApplyEffect(EffectBase effect)
     {
         if (effect is VerdantSurge)
@@ -87,14 +90,22 @@ public class KillZone : MonoBehaviour, IEffectable
             playerMovement = null;
         }
         gameObject.SetActive(false);
+        
+        ObstacleStateManager.MarkObstacleAsDestroyed(zoneID);
+        Debug.Log($"KillZone '{gameObject.name}' disabled and saved with ID {zoneID}.");
+    }
+    
+    public void ResetZone()
+    {
+        gameObject.SetActive(true);
+        Debug.Log($"KillZone '{gameObject.name}' reset/enabled.");
     }
     
     public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
     {
-        Vector2 zoneCenter = effectCollider != null ? effectCollider.bounds.center : transform.position;
-        float distance = Vector2.Distance(zoneCenter, playerPosition);
-        Debug.Log($"{gameObject.name}: KillZone center = {zoneCenter}, playerPosition = {playerPosition}, distance = {distance:F2}, effectRadius = {effectRadius}");
+        Vector2 center = effectCollider != null ? (Vector2)effectCollider.bounds.center : (Vector2)transform.position;
+        float distance = Vector2.Distance(center, playerPosition);
+        Debug.Log($"{gameObject.name}: KillZone center = {center}, player = {playerPosition}, distance = {distance:F2}, radius = {effectRadius}");
         return distance <= effectRadius;
     }
-
 }

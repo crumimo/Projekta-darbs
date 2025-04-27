@@ -57,6 +57,18 @@ public static class ObstacleStateManager
                 dual.ApplySwitchedState(false);
             }
         }
+        foreach (var kz in GameObject.FindObjectsOfType<KillZone>(true))
+        {
+            if (destroyedObstacles.Contains(kz.zoneID))
+            {
+                kz.gameObject.SetActive(false);
+            }
+            else
+            {
+                kz.ResetZone();
+            }
+        }
+
     }
 
 
