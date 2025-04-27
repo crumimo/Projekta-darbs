@@ -142,4 +142,8 @@ public class Fish : MonoBehaviour, IEffectable
 
         wordObject.SetActive(false); 
     }
+    public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
+    {
+        return Vector3.Distance(transform.position, playerPosition) <= effectRadius;
+    }
 }

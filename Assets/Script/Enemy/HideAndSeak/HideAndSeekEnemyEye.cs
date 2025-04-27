@@ -177,4 +177,9 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
             visionMeshRenderer.enabled = false;
         enabled = false;
     }
+    
+    public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
+    {
+        return Vector3.Distance(transform.position, playerPosition) <= effectRadius;
+    }
 }

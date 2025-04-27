@@ -60,5 +60,8 @@ public class DualObstacle : MonoBehaviour, IEffectable
         UpdateObstacleState();
     }
 
-
+    public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
+    {
+        return Vector3.Distance(transform.position, playerPosition) <= effectRadius;
+    }
 }

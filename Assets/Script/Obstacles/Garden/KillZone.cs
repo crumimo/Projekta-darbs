@@ -88,4 +88,13 @@ public class KillZone : MonoBehaviour, IEffectable
         }
         gameObject.SetActive(false);
     }
+    
+    public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
+    {
+        Vector2 zoneCenter = effectCollider != null ? effectCollider.bounds.center : transform.position;
+        float distance = Vector2.Distance(zoneCenter, playerPosition);
+        Debug.Log($"{gameObject.name}: KillZone center = {zoneCenter}, playerPosition = {playerPosition}, distance = {distance:F2}, effectRadius = {effectRadius}");
+        return distance <= effectRadius;
+    }
+
 }

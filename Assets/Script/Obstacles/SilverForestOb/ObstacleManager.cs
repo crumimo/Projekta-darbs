@@ -72,4 +72,9 @@ public class ObstacleManager : MonoBehaviour, IEffectable
             return true;
         return false;
     }
+    
+    public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
+    {
+        return Vector3.Distance(transform.position, playerPosition) <= effectRadius;
+    }
 }
