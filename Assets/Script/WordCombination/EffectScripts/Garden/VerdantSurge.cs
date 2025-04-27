@@ -16,9 +16,11 @@ public class VerdantSurge : EffectBase
         var killZone = target.GetComponent<KillZone>();
         if (killZone != null)
         {
-            killZone.DisableZone();
-            Debug.Log("VerdantSurgeEffect disabled KillZone on " + target.name);
+            killZone.ApplyEffect(this);
+            Debug.Log("VerdantSurgeEffect applied to KillZone on " + target.name);
             return;
         }
+        
+        Debug.Log("VerdantSurgeEffect: Target " + target.name + " does not have DualObstacle or KillZone.");
     }
 }

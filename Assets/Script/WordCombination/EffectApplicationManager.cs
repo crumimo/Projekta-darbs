@@ -104,22 +104,35 @@ public class EffectApplicationManager : MonoBehaviour
     {
         var effectables = FindObjectsOfType<MonoBehaviour>().OfType<IEffectable>();
         bool effectApplied = false;
-        
+    
         foreach (var effectable in effectables)
         {
-            if (Vector3.Distance(playerTransform.position, ((MonoBehaviour)effectable).transform.position) <= effectRadius)
+            bool inRange;
+            if (effect is VerdantSurge && effectable is KillZone)
+            {
+                inRange = true;
+            }
+            else
+            {
+                inRange = Vector3.Distance(playerTransform.position, ((MonoBehaviour)effectable).transform.position) <= effectRadius;
+            }
+        
+            if (inRange)
             {
                 effectable.ApplyEffect(effect);
                 Debug.Log($"{effect.GetType().Name} applied to {((MonoBehaviour)effectable).name}");
                 effectApplied = true;
             }
         }
-        
+    
         if (!effectApplied)
+        {
             Debug.LogWarning("The effect was not applied to any objects.");
-        
+        }
+    
         return effectApplied;
     }
+
     
     private bool AnyObjectInRange()
     {

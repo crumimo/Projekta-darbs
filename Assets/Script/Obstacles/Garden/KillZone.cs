@@ -3,15 +3,18 @@ using UnityEngine;
 
 public class KillZone : MonoBehaviour, IEffectable
 {
+    [Header("Effect Settings (Parent)")]
+    [SerializeField] private Collider2D effectCollider;
+
+    [Header("Damage Settings (Forwarded from Child)")]
     [SerializeField] private float slowMultiplier = 0.5f;  
-    [SerializeField] private float deathDelay = 2f;         
+    [SerializeField] private float deathDelay = 2f;       
 
     private Movement playerMovement;
     private float originalSpeed;
     private Coroutine deathRoutine;
-
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnDamageTriggerEnter(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -24,8 +27,8 @@ public class KillZone : MonoBehaviour, IEffectable
             }
         }
     }
-    
-    private void OnTriggerExit2D(Collider2D collision)
+
+    public void OnDamageTriggerExit(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -51,17 +54,38 @@ public class KillZone : MonoBehaviour, IEffectable
         }
     }
     
-    public void DisableZone()
-    {
-        gameObject.SetActive(false);
-        Debug.Log(gameObject.name + " has been disabled by VerdantSurgeEffect.");
-    }
-    
     public void ApplyEffect(EffectBase effect)
     {
         if (effect is VerdantSurge)
         {
-            DisableZone();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null)
+            {
+                return;
+            }
+            if (effectCollider == null)
+            {
+                return;
+            }
+            if (effectCollider.OverlapPoint(player.transform.position))
+            {
+                DisableZone();
+            }
         }
+    }
+    
+    public void DisableZone()
+    {
+        if (deathRoutine != null)
+        {
+            StopCoroutine(deathRoutine);
+            deathRoutine = null;
+        }
+        if (playerMovement != null)
+        {
+            playerMovement.speed = originalSpeed;
+            playerMovement = null;
+        }
+        gameObject.SetActive(false);
     }
 }
