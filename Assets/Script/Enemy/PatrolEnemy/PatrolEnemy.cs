@@ -21,7 +21,9 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     [Header("Effect Settings")]
     public bool canSleep = true; 
     public bool permanentSleep = false;
+    private bool isDead = false;
 
+    
     [Header("Word Settings")]
     public GameObject associatedWord;
     
@@ -327,9 +329,17 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     
     public void KillEnemy()
     {
-        EnemyStateManager.MarkEnemyAsKilled(enemyID);
-        gameObject.SetActive(false);
+        EnemyStateManager.MarkEnemyAsSleep(enemyID);
+        permanentSleep = true;
+        visionMeshFilter.gameObject.SetActive(false);
+    
+        if (associatedWord != null)
+        {
+            associatedWord.SetActive(true);
+        }
+        animator.Play("Death");
     }
+
     
     public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
     {
