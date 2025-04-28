@@ -18,7 +18,17 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     [SerializeField] private float distanceToActivate = 2f;
     private bool isDialogueActive = false;
     
+    private string currentHint = "";
 
+    
+    private void Start()
+    {
+        if (!requiresEffect)
+        {
+            canStartDialogue = true;
+        }
+    }
+    
     public void UpdateDialogueObject(DialogueObject dialogueObject)
     {
         this.dialogueObject = dialogueObject;
@@ -38,7 +48,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         {
             player.Interactable = this;
             playerInRange = true;
-            UpdateTalkIndicators();
+            UpdateTalkIndicators(true); 
         }
     }
 
@@ -51,29 +61,40 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
                 player.Interactable = null;
             }
 
-            hintPanelController.Hide(); 
+            hintPanelController.Hide();
             playerInRange = false;
+            
+            currentHint = "";
         }
     }
 
-    private void UpdateTalkIndicators()
+
+    private void UpdateTalkIndicators(bool forceUpdate = false)
     {
+        string newHint = "";
+    
         if (requiresEffect && !effectApplied)
         {
-            hintPanelController.Show("I need a specific effect to communicate.");
-            return;
+            newHint = "I need a specific effect to communicate.";
         }
-
-        if (CheckComboRequirements())
+        else if (CheckComboRequirements())
         {
-            hintPanelController.Show("I can talk with them now");
+            newHint = "I can talk with them now";
         }
         else
         {
-            hintPanelController.Show("I can't talk with them without the right melody.");
+            newHint = "I can't talk with them without the right melody.";
         }
+    
+        if(!forceUpdate && newHint == currentHint)
+        {
+            return;
+        }
+    
+        currentHint = newHint;
+        hintPanelController.Show(newHint);
     }
-
+    
     public void ApplyEffect(EffectBase effect)
     {
         effect.Apply(gameObject);
@@ -85,15 +106,10 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         if (requiresEffect && requiredEffect != null && appliedEffect == requiredEffect)
         {
             effectApplied = true;  
-            EnableDialogueStart();
-            Debug.Log($"Effect {appliedEffect.name} matched the required effect. Dialogue start enabled.");
         }
-        else
-        {
-            Debug.LogWarning($"Applied effect {appliedEffect.name} did not match the required effect.");
-        }
+        UpdateTalkIndicators();
     }
-
+    
     public void EnableDialogueStart()
     {
         canStartDialogue = true;
@@ -114,22 +130,12 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         {
             StartDialogue();
         }
-        else
-        {
-            Debug.Log("Combo requirement not met. Dialogue won't start.");
-        }
     }
 
     private bool CheckComboRequirements()
     {
-        if (requiresEffect && !effectApplied)
-        {
-            return false;
-        }
-
-        return canStartDialogue;
+        return !requiresEffect || effectApplied;
     }
-
 
     private void StartDialogue()
     {

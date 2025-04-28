@@ -4496,8 +4496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed76f26719b50c42ba949c140e106be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiresEffect: 1
-  requiredEffect: {fileID: 11400000, guid: b7fe063e8868dd0489773eb3e74068ad, type: 2}
+  requiresEffect: 0
+  requiredEffect: {fileID: 0}
   dialogueObject: {fileID: 11400000, guid: 47193e4fc6814664e9ace876e0402730, type: 2}
   hintPanelController: {fileID: 712148360}
   distanceToActivate: 3
@@ -4985,7 +4985,7 @@ Transform:
   m_GameObject: {fileID: 291845896}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4, y: -58.45, z: 0}
+  m_LocalPosition: {x: -142.2, y: -143.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19415,7 +19415,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: -98.55, z: -10}
+  m_LocalPosition: {x: -143.3, y: -183.70001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22510,7 +22510,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: -98.55, z: -10}
+  m_LocalPosition: {x: -143.3, y: -183.70001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
