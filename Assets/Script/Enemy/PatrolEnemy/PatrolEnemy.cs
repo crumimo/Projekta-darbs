@@ -224,14 +224,6 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     {
         effect.Apply(gameObject);
     }
-    public void ApplyEffect(ScriptableObject effect)
-    {
-        var applyMethod = effect.GetType().GetMethod("Apply");
-        if (applyMethod != null)
-        {
-            applyMethod.Invoke(effect, new object[] { gameObject });
-        }
-    }
 
     public void ResetEnemyState()
     {
@@ -271,9 +263,6 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
                 }
             }
         }
-        
-
-        
         isLookingAtPlayer = false;
         
     }
@@ -303,17 +292,14 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
         EnemyStateManager.MarkEnemyAsSleep(enemyID);
         permanentSleep = true;
         visionMeshFilter.gameObject.SetActive(false);
-        
+    
         if (associatedWord != null)
         {
             associatedWord.SetActive(true);
-            Debug.Log($"{gameObject.name} is now in permanent sleep, activating associated word.");
         }
-        else
-        {
-            Debug.Log($"{gameObject.name} is now in permanent sleep, but no associated word found.");
-        }
+        animator.Play("Sleep");
     }
+
     
     public void ResetEnemy()
     {
