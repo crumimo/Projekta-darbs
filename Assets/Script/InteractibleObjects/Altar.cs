@@ -33,10 +33,10 @@ public class Altar : MonoBehaviour
 
             if (!hasShownFirstMessage)
             {
-                ActivateCollectedWords();
+                ActivateCollectedWords(); 
                 ActivateAllEnemies();
                 mapManager.ActivateMap();
-                WordUIManager.Instance.ClearCollectedWords();
+                WordUIManager.Instance.ClearCollectedWords(); 
                 ShowHint(firstInteractionMessage + $" ({maxUses - currentUses - 1} uses left)");
                 hasShownFirstMessage = true;
                 Invoke(nameof(SwitchToHintMessage), messageDisplayDuration);
@@ -51,13 +51,14 @@ public class Altar : MonoBehaviour
 
             currentUses++;
         }
-    }
 
+    }
 
     private void ActivateCollectedWords()
     {
         Debug.Log("Activating all collected words.");
         WordUIManager.Instance.ResetCollectedWords(); 
+        
     }
     
     private void ActivateAllEnemies()
@@ -98,8 +99,7 @@ public class Altar : MonoBehaviour
             }
         }
     }
-
-
+    
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

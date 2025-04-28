@@ -127,16 +127,24 @@ public class WordUIManager : MonoBehaviour
     {
         foreach (var wordCollector in trackedWords)
         {
-            if (!checkpointTrackedWords.Contains(wordCollector))
+            wordCollector.gameObject.SetActive(true);
+            wordCollector.ResetWord();
+        }
+        foreach (var wordCollector in checkpointTrackedWords)
+        {
+            if (wordCollector != null)
             {
-                wordCollector.gameObject.SetActive(true); 
+                wordCollector.gameObject.SetActive(true);
+                wordCollector.ResetWord();
             }
         }
-        trackedWords = new List<WordCollector>(checkpointTrackedWords);
-        
+        trackedWords = checkpointTrackedWords.Concat(trackedWords).Distinct().ToList();
+    
         collectedWords = new Dictionary<string, int>(savedCollectedWords);
-        UpdateButtons(); 
+        UpdateButtons();
     }
+
+
 
     void ToggleWorldPanel()
     {
@@ -307,7 +315,7 @@ public class WordUIManager : MonoBehaviour
         }
         else
         {
-            combinationIconManager.DisplayCombinationIcon(null, null); // Скрываем иконку
+            combinationIconManager.DisplayCombinationIcon(null, null); 
         }
     }
 
@@ -345,33 +353,31 @@ public class WordUIManager : MonoBehaviour
             ResetSelection();
         }
     }
-
-
-
-private void ReturnWordsToCollection()
-{
     
-    if (collectedWords.ContainsKey(selectedWords[0]))
+    private void ReturnWordsToCollection()
     {
-        collectedWords[selectedWords[0]]++;
-    }
-    else
-    {
-        collectedWords[selectedWords[0]] = 1;
-    }
+    
+        if (collectedWords.ContainsKey(selectedWords[0]))
+        {
+            collectedWords[selectedWords[0]]++;
+        }
+        else
+        {
+            collectedWords[selectedWords[0]] = 1;
+        }
 
-    if (collectedWords.ContainsKey(selectedWords[1]))
-    {
-        collectedWords[selectedWords[1]]++;
-    }
-    else
-    {
-        collectedWords[selectedWords[1]] = 1;
-    }
+        if (collectedWords.ContainsKey(selectedWords[1]))
+        {
+            collectedWords[selectedWords[1]]++;
+        }
+        else
+        {
+            collectedWords[selectedWords[1]] = 1;
+        }
 
-    Debug.Log("Words returned to inventory.");
-    UpdateButtons();
-}
+        Debug.Log("Words returned to inventory.");
+        UpdateButtons();
+    }
 
     bool AnyObjectInRange()
     {
@@ -415,7 +421,7 @@ private void ReturnWordsToCollection()
                 {
                     if (btn.GetComponentInChildren<TextMeshProUGUI>().text.Contains(pair.Key))
                     {
-                        btn.gameObject.SetActive(true); // Ensure button is active
+                        btn.gameObject.SetActive(true); 
                     }
                 }
             }
@@ -426,21 +432,21 @@ private void ReturnWordsToCollection()
     {
         RestoreCollectedWords();
         RestoreCollectedWordsOnScene();
-        ObstacleStateManager.RestoreCheckpointState(); // Restore obstacles to the checkpoint state
-        ResetTrackedObstacles(); // Reset tracked obstacles
+        ObstacleStateManager.RestoreCheckpointState(); 
+        ResetTrackedObstacles(); 
     }
 
     public void ResetCollectedWords()
     {
         foreach (var wordCollector in trackedWords)
         {
-            if (!checkpointTrackedWords.Contains(wordCollector))
-            {
-                wordCollector.ResetWord();
-            }
+            wordCollector.ResetWord();
+            wordCollector.gameObject.SetActive(true);
         }
         trackedWords.Clear();
     }
+
+
 
     public void ResetTrackedObstacles()
     {
