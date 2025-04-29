@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
+  m_Name: DeadKnight
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - speakerName: 
+    sentence: '*Skeleton of a human covered in armour*'
+    speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
+  - speakerName: 
+    sentence: '*There are no bite marks on bones, nobody ate him...
+
+      such a
+      waste of delicious flesh*'
+    speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
+  - speakerName: 
+    sentence: '*And i can''t even take anything from him*'
+    speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
+  - speakerName: 
+    sentence: '*Useless*'
+    speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
+  responses: []

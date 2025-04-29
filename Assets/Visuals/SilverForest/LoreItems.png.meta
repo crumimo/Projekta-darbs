@@ -100,12 +100,12 @@ TextureImporter:
       name: LoreItems_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 766
-        width: 137
-        height: 490
+        x: 65
+        y: 769
+        width: 392
+        height: 493
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,12 +121,12 @@ TextureImporter:
       name: LoreItems_4
       rect:
         serializedVersion: 2
-        x: 480
-        y: 19
-        width: 518
-        height: 1179
+        x: 529
+        y: 34
+        width: 587
+        height: 1204
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: LoreItems_5
       rect:
         serializedVersion: 2
-        x: 1247
-        y: 596
-        width: 414
-        height: 524
+        x: 1267
+        y: 726
+        width: 452
+        height: 526
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,43 +160,64 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LoreItems_7
+      name: LoreItems_6
       rect:
         serializedVersion: 2
-        x: 1754
-        y: 68
-        width: 1176
-        height: 1038
+        x: 2087
+        y: 51
+        width: 684
+        height: 1132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ded722f03b093c41be5d6372439af95
-      internalID: 1662950085
+      spriteID: 0aa41479ca921cc409733ec38b77f5cc
+      internalID: -1117598519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LoreItems_12
+      name: LoreItems_8
       rect:
         serializedVersion: 2
-        x: 342
-        y: 766
-        width: 115
-        height: 271
+        x: 77
+        y: 244
+        width: 416
+        height: 497
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 565c7d8fefb5aac40a5d2e3f6814cba1
-      internalID: -609116847
+      spriteID: 777877afda4665b43958af02aef68f8a
+      internalID: -484280246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoreItems_10
+      rect:
+        serializedVersion: 2
+        x: 1309
+        y: 26
+        width: 700
+        height: 679
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20e39157c11b874b9c86282392433e2
+      internalID: 1062641272
       vertices: []
       indices: 
       edges: []
@@ -215,9 +236,6 @@ TextureImporter:
       LoreItems_0: -1977043252
       LoreItems_1: -657221955
       LoreItems_10: 1062641272
-      LoreItems_11: 499870157
-      LoreItems_12: -609116847
-      LoreItems_13: -457184500
       LoreItems_2: 1919542298
       LoreItems_3: -1381553860
       LoreItems_4: 483599673

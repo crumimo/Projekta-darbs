@@ -10,22 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: Statues
+  m_Name: Spear
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: Traces of the past
-    sentence: Mother? Idol? or perhaps God-like being?
+  - speakerName: 
+    sentence: '*Golden spear my parents made*'
     speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
-  - speakerName: Traces of the past
-    sentence: Nobody needed her
+  - speakerName: 
+    sentence: '*There''s a message attached to golden leaves.
+
+      But parts of
+      it are missing...*'
     speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
-  - speakerName: Traces of the past
-    sentence: And yet, a statue still stands
+  - speakerName: 
+    sentence: 'Our dear daughter '
     speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
-  - speakerName: Traces of the past
-    sentence: She tried to makes everyones life easier
+  - speakerName: 
+    sentence: Don't be afraid, we've sent...
     speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
-  - speakerName: Traces of the past
-    sentence: Tried to make these lands a better home
+  - speakerName: 
+    sentence: We don't know ... but ... hope that u'll find a way back home
+    speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
+  - speakerName: 
+    sentence: '*Looks like they also don''t know what happened*'
     speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
   responses: []

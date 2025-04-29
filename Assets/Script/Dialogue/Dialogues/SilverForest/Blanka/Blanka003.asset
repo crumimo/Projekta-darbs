@@ -10,24 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: Controls
+  m_Name: Blanka003
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Blanka
-    sentence: 'WASD to move
+    sentence: 'Have u already tried to create a melody?
 
-      E to open song menu
-
-      F to interact
-
-      Esc
-      to pause game'
+      Just combine any two
+      words you find'
     speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
   - speakerName: Blanka
-    sentence: Anything else?
+    sentence: They can help you to do anything
     speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
-  responses:
-  - responseText: Yes
-    dialogueObject: {fileID: 11400000, guid: 871445a54f1e3fa4da296fcc70050d1f, type: 2}
-  - responseText: No
-    dialogueObject: {fileID: 11400000, guid: 511061373b343ed4f95aa4b4385af4e2, type: 2}
+  - speakerName: Blanka
+    sentence: Oh, why i'm saying all this?
+    speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+  - speakerName: Blanka
+    sentence: I just enjoy your soft voice...
+    speakerSprite: {fileID: 1670136974, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+  responses: []
