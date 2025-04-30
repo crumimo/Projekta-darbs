@@ -207,13 +207,15 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
 
         Vector2 directionToPlayer = (player.position - transform.position).normalized;
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        
+        float effectiveVisionDistance = visionDistance * transform.lossyScale.x;
 
-        if (distanceToPlayer < visionDistance)
+        if (distanceToPlayer < effectiveVisionDistance)
         {
             float angleToPlayer = Vector3.Angle(transform.right, directionToPlayer);
             if (angleToPlayer < currentVisionAngle / 2)
             {
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, visionDistance, playerLayer);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, effectiveVisionDistance, playerLayer);
                 if (hit.collider != null && hit.collider.CompareTag("Player") && !playerGotHit)
                 {
                     playerGotHit = true;
@@ -222,6 +224,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
             }
         }
     }
+
     public void ApplyEffect(EffectBase effect)
     {
         effect.Apply(gameObject);

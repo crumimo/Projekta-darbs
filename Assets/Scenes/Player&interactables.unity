@@ -3061,7 +3061,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &191465108
 Transform:
   m_ObjectHideFlags: 0
@@ -15980,7 +15980,7 @@ Transform:
   m_GameObject: {fileID: 979491080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 138.7, y: 44.9, z: 0}
+  m_LocalPosition: {x: -1.7, y: -41.2, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -17302,8 +17302,8 @@ GameObject:
   - component: {fileID: 1070943757}
   - component: {fileID: 1070943756}
   - component: {fileID: 1070943755}
-  - component: {fileID: 1070943754}
   - component: {fileID: 1070943758}
+  - component: {fileID: 1070943759}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Enemy
@@ -17327,39 +17327,6 @@ Transform:
   - {fileID: 1972112744}
   m_Father: {fileID: 1862911172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1070943754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070943752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6fb9a69c2f86024dae16f99f8492e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyID: 99
-  patrolPoints:
-  - {fileID: 1542861433}
-  - {fileID: 1551995297}
-  - {fileID: 1415831041}
-  moveSpeed: 2
-  waitTime: 2
-  visionAngle: 45
-  visionAngleIdle: 90
-  visionDistance: 5
-  rotationSpeed: 2
-  visionChangeSpeed: 2
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  visionMeshFilter: {fileID: 1972112746}
-  canSleep: 0
-  permanentSleep: 0
-  associatedWord: {fileID: 407494175}
-  isAsleep: 0
-  ignorePlayer: 0
 --- !u!61 &1070943755
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17505,6 +17472,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1070943759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070943752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6fb9a69c2f86024dae16f99f8492e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyID: 99
+  patrolPoints:
+  - {fileID: 1542861433}
+  - {fileID: 1551995297}
+  - {fileID: 1415831041}
+  moveSpeed: 2
+  waitTime: 2
+  visionAngle: 45
+  visionAngleIdle: 90
+  visionDistance: 5
+  rotationSpeed: 2
+  visionChangeSpeed: 2
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  visionMeshFilter: {fileID: 1972112746}
+  canSleep: 0
+  permanentSleep: 0
+  associatedWord: {fileID: 407494175}
+  isAsleep: 0
+  ignorePlayer: 0
 --- !u!1 &1077094203
 GameObject:
   m_ObjectHideFlags: 0
@@ -19991,7 +19991,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -98.700005, z: -10}
+  m_LocalPosition: {x: -143.9, y: -184.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23115,7 +23115,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -98.700005, z: -10}
+  m_LocalPosition: {x: -143.9, y: -184.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27644,7 +27644,7 @@ GameObject:
   - component: {fileID: 1745783156}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
