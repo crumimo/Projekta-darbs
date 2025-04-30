@@ -305,27 +305,51 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
     
     public void ResetEnemy()
     {
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+            if (animator == null)
+            {
+                Debug.LogError($"Animator не найден на {gameObject.name}");
+            }
+        }
+
+        if (visionMeshFilter == null)
+        {
+            visionMeshFilter = GetComponentInChildren<MeshFilter>();
+            if (visionMeshFilter == null)
+            {
+                Debug.LogError($"VisionMeshFilter не найден на {gameObject.name}");
+            }
+        }
+        
         gameObject.SetActive(true);
         
         isAsleep = false;
         permanentSleep = false;
         isLookingAtPlayer = false;
         playerGotHit = false;
+        isWaiting = false;
+        waitTimer = 0f;
+        currentPointIndex = 0;
         
         if (visionMeshFilter != null)
         {
             visionMeshFilter.gameObject.SetActive(true);
         }
-    
+        
         if (associatedWord != null)
         {
             associatedWord.SetActive(false);
         }
         
-        currentPointIndex = 0;
-        isWaiting = false;
-        waitTimer = 0f;
+        if (animator != null)
+        {
+            animator.Rebind();
+            animator.Update(0f);
+        }
     }
+
     
     public void KillEnemy()
     {
