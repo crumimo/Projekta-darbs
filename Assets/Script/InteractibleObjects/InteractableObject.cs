@@ -8,6 +8,7 @@ public class InteractableObject : MonoBehaviour, IEffectable
     public GameObject wordObject; 
     public GameObject spriteChild;
     private Sprite initialSprite;
+    private AudioSource interactableAudio;
 
 
     [Header("Effect Settings")]
@@ -28,6 +29,7 @@ public class InteractableObject : MonoBehaviour, IEffectable
 
     void Start()
     {
+        interactableAudio = GetComponent<AudioSource>();
         if (spriteChild != null)
         {
             spriteRenderer = spriteChild.GetComponent<SpriteRenderer>();
@@ -75,6 +77,10 @@ public class InteractableObject : MonoBehaviour, IEffectable
         wordObject.SetActive(true); 
         hintPanelController.Hide(); 
         InteractableStateManager.MarkInteractableOpened(interactableID);
+        if (interactableAudio != null)
+        {
+            interactableAudio.Play();
+        }
     }
     
     public void ForceOpen()
