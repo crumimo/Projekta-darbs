@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PatrolEnemy : MonoBehaviour, IEffectable
 {
+    private AudioSource enemyAudio;
     public int enemyID;
     [Header("Patrol Settings")]
     public Transform[] patrolPoints; // Points to patrol
@@ -69,6 +70,11 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
         if (EnemyStateManager.IsEnemyKilled(enemyID))
         {
             KillEnemy();
+        }
+        enemyAudio = GetComponent<AudioSource>();
+        if (enemyAudio != null)
+        {
+            enemyAudio.Play();
         }
 
     }
@@ -297,6 +303,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
         EnemyStateManager.MarkEnemyAsSleep(enemyID);
         permanentSleep = true;
         visionMeshFilter.gameObject.SetActive(false);
+        enemyAudio.Stop();
     
         if (associatedWord != null)
         {
@@ -326,8 +333,12 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
             }
         }
         
-        gameObject.SetActive(true);
+        if (enemyAudio != null)
+        {
+            enemyAudio.Play();
+        }
         
+        gameObject.SetActive(true);
         isAsleep = false;
         permanentSleep = false;
         isLookingAtPlayer = false;
@@ -365,6 +376,7 @@ public class PatrolEnemy : MonoBehaviour, IEffectable
             associatedWord.SetActive(true);
         }
         animator.Play("Death");
+        enemyAudio.Stop();
     }
 
     
