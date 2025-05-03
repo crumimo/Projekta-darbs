@@ -68,6 +68,10 @@ public static class ObstacleStateManager
                 kz.ResetZone();
             }
         }
+        foreach (var activator in GameObject.FindObjectsOfType<KillZoneActivator>(true))
+        {
+            activator.ResetActivator();
+        }
 
     }
     
