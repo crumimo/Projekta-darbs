@@ -33,11 +33,12 @@ public class HollowNestController : MonoBehaviour, IEffectable
     
     public void ApplyEffect(EffectBase effect)
     {
-        if(effect is HollowNest)
+        if (effect is HollowNest)
         {
             ActivateNest();
         }
     }
+
     
     public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
     {

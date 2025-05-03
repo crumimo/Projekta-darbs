@@ -3833,7 +3833,7 @@ Transform:
   m_GameObject: {fileID: 659550692}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 93.3, y: -25.7, z: 0}
+  m_LocalPosition: {x: 93.3, y: -63.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4641,13 +4641,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854868676}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28, y: -0.9000244, z: 0.028972}
-  m_LocalScale: {x: 4.0666823, y: 8.204175, z: 3.1471}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7085991, w: 0.70561135}
+  m_LocalPosition: {x: -34.4628, y: -0.9274, z: 0.028972}
+  m_LocalScale: {x: 4.0666823, y: 37.063667, z: 3.1471}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1572450548}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.242}
 --- !u!61 &854868678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8591,7 +8591,7 @@ Transform:
   m_GameObject: {fileID: 1572450547}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 1.6, z: 0.028972}
+  m_LocalPosition: {x: -11.9, y: 1.6, z: 0.028972}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8630,7 +8630,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -26.104277, y: -1.4204245}
+  m_Offset: {x: -35.574524, y: -1.4204245}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8641,7 +8641,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.805309, y: 11.163935}
+  m_Size: {x: 46.759613, y: 11.163935}
   m_EdgeRadius: 0
 --- !u!114 &1572450550
 MonoBehaviour:
@@ -8655,7 +8655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde50a84427fc154a91e2e32d08d9d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nestID: 0
+  nestID: 50
   nestVisual: {fileID: 854868676}
   effectCenter: {fileID: 854868677}
 --- !u!1 &1576519687

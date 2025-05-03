@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
+public class HideAndSeekEnemyEye : MonoBehaviour
 {
     [Header("Timing Settings")]
     public float greenLightDuration = 5f;
@@ -226,10 +226,7 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
         enabled = true;
     }
 
-    public void ApplyEffect(EffectBase effect)
-    {
-        StopEye();
-    }
+    
 
     public void StopEye()
     {
@@ -247,10 +244,5 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
         if (col != null)
             col.enabled = false;
         enabled = false;
-    }
-
-    public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
-    {
-        return Vector3.Distance(transform.position, playerPosition) <= effectRadius;
     }
 }

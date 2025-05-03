@@ -104,25 +104,30 @@ public class EffectApplicationManager : MonoBehaviour
     {
         var effectables = FindObjectsOfType<MonoBehaviour>().OfType<IEffectable>();
         bool effectApplied = false;
-    
+
         foreach (var effectable in effectables)
         {
-            // Для каждого объекта вызываем его собственную проверку, находится ли игрок в зоне эффекта
+            MonoBehaviour mb = effectable as MonoBehaviour;
+            if (effect is HollowNest && mb.GetComponent<HideAndSeekEnemyEye>() != null)
+            {
+                Debug.Log($"{mb.name} is an enemy eye, skipping HollowNest effect.");
+                continue;
+            }
             if (effectable.CanReceiveEffect(playerTransform.position, effectRadius, effect))
             {
                 effectable.ApplyEffect(effect);
-                Debug.Log($"{effect.GetType().Name} applied to {((MonoBehaviour)effectable).name}");
+                Debug.Log($"{effect.GetType().Name} applied to {mb.name}");
                 effectApplied = true;
             }
             else
             {
-                Debug.Log($"{((MonoBehaviour)effectable).name} is out of range (using its own logic).");
+                Debug.Log($"{mb.name} is out of range (using its own logic).");
             }
         }
-    
+
         if (!effectApplied)
             Debug.LogWarning("The effect was not applied to any objects.");
-    
+
         return effectApplied;
     }
 
