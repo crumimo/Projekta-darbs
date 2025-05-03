@@ -5920,7 +5920,7 @@ Transform:
   m_GameObject: {fileID: 1071225302}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -924.31, y: -574.03, z: 0}
+  m_LocalPosition: {x: -878.6, y: -634.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7874,7 +7874,7 @@ MonoBehaviour:
   zoneID: 30
   effectCollider: {fileID: 2001151288}
   slowMultiplier: 0.1
-  deathDelay: 10
+  deathDelay: 3
 --- !u!61 &1422484250
 BoxCollider2D:
   m_ObjectHideFlags: 0

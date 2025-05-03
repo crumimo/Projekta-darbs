@@ -35,10 +35,6 @@ public class KillZone : MonoBehaviour, IEffectable
     {
         if (collision.CompareTag("Player"))
         {
-            if (playerMovement != null)
-            {
-                playerMovement.speed = originalSpeed;
-            }
             if (deathRoutine != null)
             {
                 StopCoroutine(deathRoutine);
@@ -47,6 +43,7 @@ public class KillZone : MonoBehaviour, IEffectable
             playerMovement = null;
         }
     }
+
 
     private IEnumerator DeathCountdown()
     {

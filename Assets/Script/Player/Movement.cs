@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -6,12 +7,15 @@ public class Movement : MonoBehaviour
     [SerializeField] public float speed;
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] private float accelerationSmoothFactor = 5f;
+    private HashSet<System.Type> activeEffects = new HashSet<System.Type>();
     private Vector2 movement;
     private Rigidbody2D rb;
     private bool isDead = false;
     private bool isPaused = false;
     private Animator animator;
-    
+    private float baseSpeed;
+    private float baseAnimSpeed;
+
     public DialogueUI DialogueUI => dialogueUI;
     
     public IInteractable Interactable { get; set; }
@@ -20,6 +24,8 @@ public class Movement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        baseSpeed = speed;           // запомнили исходную скорость
+        baseAnimSpeed = animator.speed; // обычно = 1
     }
 
     private void Update()
@@ -56,6 +62,17 @@ public class Movement : MonoBehaviour
             }
         }
     }
+    
+    private void ClearAllEffects()
+    {
+        if (HasActiveEffect<GaleStride>())
+        {
+            speed /= 2f; // или используй конкретное значение, если оно фиксированное
+            animator.speed /= 2f;
+            UnregisterActiveEffect<GaleStride>();
+        }
+    }
+
 
     public void Die()
     {
@@ -63,6 +80,8 @@ public class Movement : MonoBehaviour
         movement = Vector2.zero;
         rb.velocity = Vector2.zero;
         animator.SetTrigger("Die");
+        
+        ClearAllEffects();
 
         WordUIManager.Instance.ResetToCheckpoint();
         WordUIManager.Instance.RestoreCollectedWordsOnScene();
@@ -93,13 +112,19 @@ public class Movement : MonoBehaviour
             FishStateManager.RestoreCheckpointState();
             InteractableStateManager.RestoreCheckpointState();
         }
-    
+        speed = 5f; // или любое твое стандартное значение
+        animator.speed = 1f;
+        StopAllCoroutines();
+
         Invoke("Respawn", 1f);
     }
 
     private void Respawn()
     {
         isDead = false;
+        speed = baseSpeed;
+        animator.speed = baseAnimSpeed;
+        StopAllCoroutines();
         GameState gameState = GameSession.Instance.GameState;
         transform.position = gameState.PlayerPosition;
         animator.SetTrigger("Respawn");
@@ -125,4 +150,21 @@ public class Movement : MonoBehaviour
         movement = Vector2.zero;
         rb.velocity = Vector2.zero;
     }
+    
+
+    public void RegisterActiveEffect<T>() where T : EffectBase
+    {
+        activeEffects.Add(typeof(T));
+    }
+
+    public void UnregisterActiveEffect<T>() where T : EffectBase
+    {
+        activeEffects.Remove(typeof(T));
+    }
+
+    public bool HasActiveEffect<T>() where T : EffectBase
+    {
+        return activeEffects.Contains(typeof(T));
+    }
+
 }

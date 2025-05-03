@@ -12,31 +12,31 @@ public class GaleStride : EffectBase
 
     public override void Apply(GameObject target)
     {
-        // Get the Movement and Animator components from the target (player)
         Movement playerMovement = target.GetComponent<Movement>();
         Animator playerAnimator = target.GetComponent<Animator>();
 
         if (playerMovement != null)
         {
-            // Save the original movement speed
+            if (playerMovement.HasActiveEffect<GaleStride>())
+            {
+                Debug.Log("GaleStride is already active, skipping duplicate application.");
+                return;
+            }
+
+            playerMovement.RegisterActiveEffect<GaleStride>();
+
             float originalSpeed = playerMovement.speed;
-            // Increase the player's speed
             playerMovement.speed = originalSpeed * speedMultiplier;
 
-            // Optionally, adjust the player's animation speed
             if (playerAnimator != null)
             {
-                // Save the original animator speed
                 float originalAnimSpeed = playerAnimator.speed;
-                // Increase the animator speed accordingly
                 playerAnimator.speed = originalAnimSpeed * speedMultiplier;
-                
-                // Start a coroutine to restore both speed and animator speed after the duration
+            
                 playerMovement.StartCoroutine(RestoreSpeedAfterDelay(playerMovement, originalSpeed, playerAnimator, originalAnimSpeed));
             }
             else
             {
-                // If no Animator is found, restore only the movement speed
                 playerMovement.StartCoroutine(RestoreSpeedAfterDelay(playerMovement, originalSpeed));
             }
         }
@@ -46,19 +46,20 @@ public class GaleStride : EffectBase
         }
     }
 
+
     private IEnumerator RestoreSpeedAfterDelay(Movement playerMovement, float originalSpeed, Animator playerAnimator = null, float originalAnimSpeed = 1f)
     {
         yield return new WaitForSeconds(duration);
-        
+
         if (playerMovement != null)
         {
-            // Restore the original movement speed
             playerMovement.speed = originalSpeed;
+            playerMovement.UnregisterActiveEffect<GaleStride>();
         }
         if (playerAnimator != null)
         {
-            // Restore the original animator speed
             playerAnimator.speed = originalAnimSpeed;
         }
     }
+
 }
