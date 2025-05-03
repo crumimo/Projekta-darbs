@@ -54,6 +54,7 @@ public class HideAndSeekEnemyEye : MonoBehaviour, IEffectable
 
     void Start()
     {
+        visionMeshRenderer.sortingLayerName = "Foreground";
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
