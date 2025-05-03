@@ -7872,8 +7872,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoneID: 30
   effectCollider: {fileID: 1422484252}
-  slowMultiplier: 0.5
-  deathDelay: 10
+  slowMultiplier: 0.1
+  deathDelay: 2
 --- !u!61 &1422484252
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8842,6 +8842,7 @@ GameObject:
   - component: {fileID: 1580484413}
   - component: {fileID: 1580484415}
   - component: {fileID: 1580484414}
+  - component: {fileID: 1580484416}
   m_Layer: 0
   m_Name: Zone
   m_TagString: Untagged
@@ -8961,6 +8962,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1580484416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580484412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 083d0da8531de8b41820efa34a30eca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1590397682
 GameObject:
   m_ObjectHideFlags: 0
