@@ -139,6 +139,7 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator CloseDialogueBoxWithFade()
     {
+        SoundManager.Instance.EndDialogue();
         yield return StartCoroutine(fadeController.FadeIn());
         
         dialogueBox.SetActive(false);
@@ -151,6 +152,8 @@ public class DialogueUI : MonoBehaviour
         speakerImage.sprite = null;
 
         OnDialogueEnd?.Invoke();
+        
+
     }
 
     public void CloseDialogueBoxInstant()

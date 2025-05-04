@@ -19,6 +19,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     private bool isDialogueActive = false;
     
     private string currentHint = "";
+    public AudioClip dialogueMusicClip;
 
     
     private void Start()
@@ -142,6 +143,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         DialogueUI dialogueUI = FindObjectOfType<DialogueUI>();
         if (dialogueUI != null)
         {
+            SoundManager.Instance.StartDialogue(dialogueMusicClip);
             dialogueUI.ShowDialogue(dialogueObject);
             isDialogueActive = true;
             dialogueUI.OnDialogueEnd += EndDialogue;
