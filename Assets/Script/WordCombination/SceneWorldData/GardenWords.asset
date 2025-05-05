@@ -17,29 +17,29 @@ MonoBehaviour:
     word2: Bloom
     effect: {fileID: 11400000, guid: c895cdd3af2fe8c4789433d53ab6461f, type: 2}
     effectSound: {fileID: 0}
-    combinationSprite: {fileID: 0}
+    combinationSprite: {fileID: 21300000, guid: c7ddfc55882aa5c4394fe271e50dbbdc, type: 3}
   - word1: Gust
     word2: Sun
     effect: {fileID: 11400000, guid: f1587ed5b4b7eac4093640067579b48c, type: 2}
     effectSound: {fileID: 0}
-    combinationSprite: {fileID: 0}
+    combinationSprite: {fileID: 21300000, guid: 224aa62d436a8f746ad019cfa9a0238e, type: 3}
   - word1: Mold
     word2: Sun
     effect: {fileID: 11400000, guid: 916a9da5fd814014d917cf19c636a63c, type: 2}
     effectSound: {fileID: 0}
-    combinationSprite: {fileID: 0}
+    combinationSprite: {fileID: 21300000, guid: 799dab610c202ff439e3aa72a2f3ac3d, type: 3}
   - word1: Sun
     word2: Bloom
     effect: {fileID: 11400000, guid: 136a69568247ebc448abf229b6e3ba63, type: 2}
     effectSound: {fileID: 0}
-    combinationSprite: {fileID: 0}
+    combinationSprite: {fileID: 21300000, guid: c6a44c6fc294dca4ca4f6467fad72abf, type: 3}
   - word1: Gust
     word2: Mold
     effect: {fileID: 11400000, guid: 626ff1d4b574e34498b4b1de1f5d405b, type: 2}
     effectSound: {fileID: 0}
-    combinationSprite: {fileID: 0}
+    combinationSprite: {fileID: 21300000, guid: 864517debe8996746807fdc09cb8b56d, type: 3}
   - word1: Bloom
     word2: Mold
     effect: {fileID: 11400000, guid: 78d1ff3e518b892418daf8620262244d, type: 2}
     effectSound: {fileID: 0}
-    combinationSprite: {fileID: 0}
+    combinationSprite: {fileID: 21300000, guid: 6bf27f9997272b641afa63d5377d55d6, type: 3}
