@@ -127,24 +127,44 @@ public class WordUIManager : MonoBehaviour
     {
         foreach (var wordCollector in trackedWords)
         {
-            wordCollector.gameObject.SetActive(true);
-            wordCollector.ResetWord();
+            if (wordCollector != null)
+            {
+                string word = wordCollector.word;
+                
+                if (savedCollectedWords != null && savedCollectedWords.ContainsKey(word) && savedCollectedWords[word] > 0)
+                {
+                    wordCollector.gameObject.SetActive(false);
+                }
+                else
+                {
+                    wordCollector.gameObject.SetActive(true);
+                    wordCollector.ResetWord();
+                }
+            }
         }
+        
         foreach (var wordCollector in checkpointTrackedWords)
         {
             if (wordCollector != null)
             {
-                wordCollector.gameObject.SetActive(true);
-                wordCollector.ResetWord();
+                string word = wordCollector.word;
+                if (savedCollectedWords != null && savedCollectedWords.ContainsKey(word) && savedCollectedWords[word] > 0)
+                {
+                    wordCollector.gameObject.SetActive(false);
+                }
+                else
+                {
+                    wordCollector.gameObject.SetActive(true);
+                    wordCollector.ResetWord();
+                }
             }
         }
+        
         trackedWords = checkpointTrackedWords.Concat(trackedWords).Distinct().ToList();
-    
+        
         collectedWords = new Dictionary<string, int>(savedCollectedWords);
         UpdateButtons();
     }
-
-
 
     void ToggleWorldPanel()
     {

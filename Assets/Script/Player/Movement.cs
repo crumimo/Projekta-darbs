@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -112,25 +113,38 @@ public class Movement : MonoBehaviour
             FishStateManager.RestoreCheckpointState();
             InteractableStateManager.RestoreCheckpointState();
         }
-        speed = 5f; // или любое твое стандартное значение
+        speed = 5f; 
         animator.speed = 1f;
         StopAllCoroutines();
 
-        Invoke("Respawn", 1f);
+        StartCoroutine(HandleRespawn());
     }
 
-    private void Respawn()
+    private IEnumerator HandleRespawn()
     {
+        FadeController fade = FindObjectOfType<FadeController>();
+        
+        if (fade != null)
+        {
+            yield return StartCoroutine(fade.FadeIn());
+        }
+        
         isDead = false;
         speed = baseSpeed;
         animator.speed = baseAnimSpeed;
-        StopAllCoroutines();
+    
         GameState gameState = GameSession.Instance.GameState;
         transform.position = gameState.PlayerPosition;
         animator.SetTrigger("Respawn");
         
-        FishStateManager.RestoreCheckpointState();
+        yield return new WaitForSeconds(0.2f);
         
+        if (fade != null)
+        {
+            yield return StartCoroutine(fade.FadeOut());
+        }
+        
+        FishStateManager.RestoreCheckpointState();
         if (GameSession.Instance.CheckpointActivated(gameState.currentCheckpointID))
         {
             InteractableStateManager.RestoreCheckpointState();
