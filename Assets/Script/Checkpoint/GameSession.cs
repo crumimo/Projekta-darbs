@@ -66,4 +66,11 @@ public class GameSession : MonoBehaviour
         EnemyStateManager.RestoreCheckpointState();
         InteractableStateManager.RestoreCheckpointState();
     }
+    
+    public void ResetGameState()
+    {
+        GameState.PlayerPosition = Vector3.zero; 
+        GameState.currentCheckpointID = -1;
+    }
+
 }

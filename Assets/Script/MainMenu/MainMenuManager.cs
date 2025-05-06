@@ -28,6 +28,17 @@ public class MainMenuManager : MonoBehaviour
     public void StartGame()
     {
         HideMenu();
+        
+        CheckpointManager.ResetCheckpoints();
+        
+        if (GameSession.Instance != null)
+        {
+            GameSession.Instance.GameState = new GameState
+            {
+                PlayerPosition = Vector3.zero,   
+                currentCheckpointID = -1         
+            };
+        }
 
         AsyncOperation persistentLoad = SceneManager.LoadSceneAsync(persistentGameplay, LoadSceneMode.Additive);
         AsyncOperation levelLoad = SceneManager.LoadSceneAsync(levelScene, LoadSceneMode.Additive);
@@ -40,6 +51,7 @@ public class MainMenuManager : MonoBehaviour
 
         StartCoroutine(LoadScenesWithFade());
     }
+
 
     public void OpenSettings()
     {

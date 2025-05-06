@@ -35,11 +35,10 @@ public static class CheckpointManager
         }
     }
 
-    public static void SaveCheckpoint()
+    public static void ResetCheckpoints()
     {
-        foreach (var obstacle in destroyedObstacles)
-        {
-            // Additional logic to save the state of each destroyed obstacle, if needed
-        }
+        activatedCheckpoints.Clear();
+        destroyedObstacles.Clear();
     }
+
 }

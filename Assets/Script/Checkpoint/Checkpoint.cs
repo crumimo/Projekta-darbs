@@ -19,8 +19,11 @@ public class Checkpoint : MonoBehaviour
         if (CheckpointManager.IsCheckpointActivated(checkpointID))
         {
             isActive = true;
+            // Обновляем спрайт, чтобы показать, что чекпоинт активен
+            sprite.sprite = activeSprite;
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
