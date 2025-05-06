@@ -3704,6 +3704,7 @@ MonoBehaviour:
   dialogueObject: {fileID: 11400000, guid: 47193e4fc6814664e9ace876e0402730, type: 2}
   hintPanelController: {fileID: 1135582661}
   distanceToActivate: 3
+  dialogueMusicClip: {fileID: 0}
 --- !u!58 &644708473
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3800,7 +3801,7 @@ Transform:
   m_GameObject: {fileID: 644708470}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -902, y: -565, z: 0}
+  m_LocalPosition: {x: -901.5, y: -624.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

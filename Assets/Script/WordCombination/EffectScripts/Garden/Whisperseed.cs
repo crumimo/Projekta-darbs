@@ -8,6 +8,20 @@ public class Whisperseed : EffectBase
 {
     public override void Apply(GameObject target)
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            return;
+        }
+        
+        float requiredDistance = 3f;
+        float distance = Vector3.Distance(player.transform.position, target.transform.position);
+        
+        if (distance > requiredDistance)
+        {
+            return;
+        }
+        
         var interactableObject = target.GetComponent<InteractableObject>();
         if (interactableObject != null)
         {
@@ -16,7 +30,7 @@ public class Whisperseed : EffectBase
         }
         
         HideAndSeekEnemyBody body = target.GetComponent<HideAndSeekEnemyBody>();
-        if (body != null) 
+        if (body != null)
         {
             body.ApplyCombinationEffect(this);
         }
