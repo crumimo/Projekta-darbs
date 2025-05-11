@@ -14,6 +14,14 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     [SerializeField] private HintPanelController hintPanelController; 
     private bool canStartDialogue = false;
     private bool playerInRange = false;
+    
+    [Header("Dialogue NPC Settings")]
+    public GameObject dialogueNpcPrefab;  
+    // Контейнер в канве, куда будет инстанцироваться NPC (создайте пустой UI-элемент в канве)
+    public Transform dialogueNpcContainer;
+
+    // Для хранения созданного экземпляра, чтобы можно было его потом удалить
+    private GameObject currentNpcInstance;
 
     [SerializeField] private float distanceToActivate = 2f;
     private bool isDialogueActive = false;
@@ -155,6 +163,24 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             }
         }
         canStartDialogue = false;
+        
+        if (dialogueNpcPrefab != null && dialogueNpcContainer != null)
+        {
+            // Если нужно, удаляем предыдущий экземпляр
+            if (currentNpcInstance != null)
+            {
+                Destroy(currentNpcInstance);
+            }
+            // Создаем префаб в качестве дочернего объекта dialogueNpcContainer
+            currentNpcInstance = Instantiate(dialogueNpcPrefab, dialogueNpcContainer);
+            // Если требуется, приведите его RectTransform к нужным размерам и положению:
+            RectTransform rect = currentNpcInstance.GetComponent<RectTransform>();
+            if (rect != null)
+            {
+                rect.anchoredPosition = Vector2.zero;
+                rect.localScale = Vector3.one;
+            }
+        }
     }
 
     private void EndDialogue()
@@ -172,6 +198,10 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             player.EnableMovement();  
         }
         UpdateTalkIndicators();
+        if (currentNpcInstance != null)
+        {
+            Destroy(currentNpcInstance);
+        }
     }
     
     public void Interact(Movement player)
