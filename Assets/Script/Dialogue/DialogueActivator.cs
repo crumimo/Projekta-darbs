@@ -17,10 +17,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     
     [Header("Dialogue NPC Settings")]
     public GameObject dialogueNpcPrefab;  
-    // Контейнер в канве, куда будет инстанцироваться NPC (создайте пустой UI-элемент в канве)
     public Transform dialogueNpcContainer;
-
-    // Для хранения созданного экземпляра, чтобы можно было его потом удалить
     private GameObject currentNpcInstance;
 
     [SerializeField] private float distanceToActivate = 2f;
@@ -76,8 +73,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             currentHint = "";
         }
     }
-
-
+    
     private void UpdateTalkIndicators(bool forceUpdate = false)
     {
         string newHint = "";
@@ -106,8 +102,20 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     
     public void ApplyEffect(EffectBase effect)
     {
+        if (!requiresEffect)
+        {
+            StartCoroutine(ShowTemporaryHint("Nothing happened", 2f));
+            return;
+        }
         effect.Apply(gameObject);
         CheckEffectRequirements(effect);
+    }
+    
+    private IEnumerator ShowTemporaryHint(string message, float delay)
+    {
+        hintPanelController.Show(message);
+        yield return new WaitForSeconds(delay);
+        hintPanelController.Hide();
     }
 
     private void CheckEffectRequirements(EffectBase appliedEffect)
@@ -166,14 +174,13 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         
         if (dialogueNpcPrefab != null && dialogueNpcContainer != null)
         {
-            // Если нужно, удаляем предыдущий экземпляр
             if (currentNpcInstance != null)
             {
                 Destroy(currentNpcInstance);
             }
-            // Создаем префаб в качестве дочернего объекта dialogueNpcContainer
+            
             currentNpcInstance = Instantiate(dialogueNpcPrefab, dialogueNpcContainer);
-            // Если требуется, приведите его RectTransform к нужным размерам и положению:
+            
             RectTransform rect = currentNpcInstance.GetComponent<RectTransform>();
             if (rect != null)
             {

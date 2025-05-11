@@ -26,38 +26,35 @@ public class EffectApplicationManager : MonoBehaviour
             Destroy(gameObject);
     }
     
-    /// <summary>
-    /// Applies the effect corresponding to the selected word combination.
-    /// onEffectApplied is called after the effect is successfully applied.
-    /// onEffectFailed is called in case of failure (e.g. if no effect is found or no objects are within range).
-    /// </summary>
     public void ApplyCombinationEffect(List<string> selectedWords, Action onEffectApplied, Action onEffectFailed)
     {
         if (selectedWords == null || selectedWords.Count != 2)
         {
             Debug.LogError("Invalid number of words for applying the effect.");
+            ShowFailHint();
             onEffectFailed?.Invoke();
             return;
         }
-        
+    
         string word1 = selectedWords[0];
         string word2 = selectedWords[1];
-        
+    
         // Mark the combination as used
         combinationIconManager.MarkCombinationAsUsed(word1, word2);
-        
+    
         EffectBase effect = WordManager.Instance.GetEffect(word1, word2);
         AudioClip effectSound = WordManager.Instance.GetEffectSound(word1, word2);
-        
+    
         if (effect == null)
         {
             Debug.LogError("Effect not found for the given combination.");
+            ShowFailHint();
             onEffectFailed?.Invoke();
             return;
         }
-        
+    
         bool effectApplied = false;
-        
+    
         if (effect is SpikeCircleEffect || effect is GaleStride)
         {
             ApplyEffectToPlayer(effect);
@@ -76,19 +73,21 @@ public class EffectApplicationManager : MonoBehaviour
             else
             {
                 Debug.Log("No objects within range to apply the effect.");
+                ShowFailHint();
                 onEffectFailed?.Invoke();
                 return;
             }
         }
-        
+    
         if (effectApplied)
             onEffectApplied?.Invoke();
         else
         {
             Debug.LogWarning("The effect was not applied.");
+            ShowFailHint();
             onEffectFailed?.Invoke();
         }
-        
+    
         // Reset the combination icon display
         combinationIconManager.ResetCombinationIcon();
     }
@@ -130,8 +129,6 @@ public class EffectApplicationManager : MonoBehaviour
 
         return effectApplied;
     }
-
-
     
     private bool AnyObjectInRange()
     {
@@ -151,4 +148,21 @@ public class EffectApplicationManager : MonoBehaviour
             audioSource.PlayOneShot(clip);
         }
     }
+    
+    private void ShowFailHint()
+    {
+        HintPanelController hint = FindObjectOfType<HintPanelController>();
+        if (hint != null)
+        {
+            hint.Show("Ничего не произошло");
+            StartCoroutine(HideHintAfterDelay(hint, 2f));
+        }
+    }
+
+    private IEnumerator HideHintAfterDelay(HintPanelController hint, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        hint.Hide();
+    }
+
 }
