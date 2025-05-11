@@ -10,7 +10,6 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private TMP_Text speakerNameLabel;
-    [SerializeField] private Image speakerImage;
     [SerializeField] private FadeController fadeController; 
     public event Action OnDialogueEnd;
 
@@ -43,27 +42,12 @@ public class DialogueUI : MonoBehaviour
         if (dialogueObject.DialogueSegments.Length > 0)
         {
             DialogueSegment firstSegment = dialogueObject.DialogueSegments[0];
-
             speakerNameLabel.text = firstSegment.speakerName;
-
-            if (firstSegment.speakerSprite != null)
-            {
-                speakerImage.sprite = firstSegment.speakerSprite;
-                speakerImage.color = Color.white; 
-            }
-            else
-            {
-                speakerImage.sprite = null;
-                speakerImage.color = new Color(1, 1, 1, 0); 
-            }
         }
-        
+    
         yield return StartCoroutine(fadeController.FadeIn());
-
         dialogueBox.SetActive(true);
-        
         yield return StartCoroutine(fadeController.FadeOut());
-        
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
 
@@ -80,23 +64,11 @@ public class DialogueUI : MonoBehaviour
 
             speakerNameLabel.text = segment.speakerName;
 
-            if (segment.speakerSprite != null)
-            {
-                speakerImage.sprite = segment.speakerSprite;
-                speakerImage.color = Color.white; 
-            }
-            else
-            {
-                speakerImage.sprite = null;
-                speakerImage.color = new Color(1, 1, 1, 0); 
-            }
-
             yield return RunTypingEffect(segment.sentence, segment.speakerName);
-
             textLabel.text = segment.sentence;
 
             if (i == dialogueObject.DialogueSegments.Length - 1 && dialogueObject.HasResponses) break;
-
+        
             yield return null;
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         }
@@ -110,6 +82,7 @@ public class DialogueUI : MonoBehaviour
             StartCoroutine(CloseDialogueBoxWithFade());
         }
     }
+
 
     private void HandleResponseSelected(DialogueObject responseDialogueObject)
     {
@@ -149,7 +122,6 @@ public class DialogueUI : MonoBehaviour
         IsOpen = false;
         textLabel.text = string.Empty;
         speakerNameLabel.text = string.Empty;
-        speakerImage.sprite = null;
 
         OnDialogueEnd?.Invoke();
         
@@ -162,7 +134,6 @@ public class DialogueUI : MonoBehaviour
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
         speakerNameLabel.text = string.Empty;
-        speakerImage.sprite = null;
     }
 
     public void EndDialogue()
