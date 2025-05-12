@@ -154,7 +154,7 @@ public class EffectApplicationManager : MonoBehaviour
         HintPanelController hint = FindObjectOfType<HintPanelController>();
         if (hint != null)
         {
-            hint.Show("Ничего не произошло");
+            hint.Show("Nothing happened...");
             StartCoroutine(HideHintAfterDelay(hint, 2f));
         }
     }
