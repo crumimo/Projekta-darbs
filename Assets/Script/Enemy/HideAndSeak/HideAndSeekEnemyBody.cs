@@ -15,10 +15,10 @@ public class HideAndSeekEnemyBody : MonoBehaviour, IEffectable
 
     public List<HideAndSeekEnemyEye> enemyEyes;  
 
-    public void ApplyCombinationEffect(EffectBase effect)
+    public bool ApplyCombinationEffect(EffectBase effect)
     {
         if (effectApplied)
-            return;
+            return false;
     
         if ((effect is Pureflare && disableWithPureflare) ||
             (effect is Whisperseed && disableWithWhisperseed))
@@ -35,14 +35,16 @@ public class HideAndSeekEnemyBody : MonoBehaviour, IEffectable
             }
             effectApplied = true;
             EnemyStateManager.MarkEnemyAsSleep(enemyID);
+            return true;
         }
+        
+        return false;
+    }
+    public bool ApplyEffect(EffectBase effect)
+    {
+        return ApplyCombinationEffect(effect);
     }
 
-    
-    public void ApplyEffect(EffectBase effect)
-    {
-        ApplyCombinationEffect(effect);
-    }
 
     public void KillEnemy()
     {

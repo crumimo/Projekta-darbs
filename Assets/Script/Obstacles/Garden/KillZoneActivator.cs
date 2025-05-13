@@ -20,7 +20,7 @@ public class KillZoneActivator : MonoBehaviour, IEffectable
         }
     }
 
-    public void ApplyEffect(EffectBase effect)
+    public bool ApplyEffect(EffectBase effect)
     {
         if (effect is VerdantSurge && targetKillZone != null)
         {
@@ -36,6 +36,7 @@ public class KillZoneActivator : MonoBehaviour, IEffectable
                     }
                     targetKillZone.DisableZone();
                     Debug.Log("KillZone deactivated via KillZoneActivator on " + gameObject.name);
+                    return true;
                 }
                 else
                 {
@@ -43,6 +44,7 @@ public class KillZoneActivator : MonoBehaviour, IEffectable
                 }
             }
         }
+        return false;
     }
     public void ResetActivator()
     {

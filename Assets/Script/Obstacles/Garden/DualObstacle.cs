@@ -33,7 +33,7 @@ public class DualObstacle : MonoBehaviour, IEffectable
     }
 
 
-    public void ApplyEffect(EffectBase effect)
+    public bool ApplyEffect(EffectBase effect)
     {
         if (effect is VerdantSurge)
         {
@@ -45,6 +45,7 @@ public class DualObstacle : MonoBehaviour, IEffectable
                 {
                     ToggleObstacles();
                     Debug.Log("VerdantSurgeEffect applied, obstacles toggled within radius.");
+                    return true;
                 }
                 else
                 {
@@ -52,6 +53,7 @@ public class DualObstacle : MonoBehaviour, IEffectable
                 }
             }
         }
+        return false;
     }
     
     public void ApplySwitchedState(bool isSwitched)

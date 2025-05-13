@@ -348,31 +348,32 @@ public class WordUIManager : MonoBehaviour
         }
     }
 
-    void ConfirmCombination()
+    public void ConfirmCombination()
     {
         if (selectedWords.Count == 2)
         {
-            EffectApplicationManager.Instance.ApplyCombinationEffect(
-                selectedWords,
-                onEffectApplied: () =>
+            bool effectApplied = EffectApplicationManager.Instance.ApplyCombinationEffect(selectedWords);
+            
+            if (effectApplied)
+            {
+                StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
                 {
-                    StartCoroutine(FadeOut(worldCanvasGroup, 0.5f, () =>
-                    {
-                        playerVisual.sortingLayerName = "Middleground";
-                        playerVisual.sortingOrder = 0;
-                        worldCanvas.enabled = false;
-                        playerMovement.EnableMovement();
-                        enemyManager.ResumeEnemies();
-                    }));
-                },
-                onEffectFailed: () =>
-                {
-                    ReturnWordsToCollection();
-                }
-            );
+                    playerVisual.sortingLayerName = "Middleground";
+                    playerVisual.sortingOrder = 0;
+                    worldCanvas.enabled = false;
+                    playerMovement.EnableMovement();
+                    enemyManager.ResumeEnemies();
+                }));
+            }
+            else
+            {
+                ReturnWordsToCollection();
+            }
             ResetSelection();
         }
     }
+
+
     
     private void ReturnWordsToCollection()
     {

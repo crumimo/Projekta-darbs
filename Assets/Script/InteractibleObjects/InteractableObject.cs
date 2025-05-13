@@ -125,13 +125,15 @@ public class InteractableObject : MonoBehaviour, IEffectable
         }
     }
     
-    public void ApplyEffect(EffectBase effect)
+    public bool ApplyEffect(EffectBase effect)
     {
         if (requiresEffect && effect == requiredEffect)
         {
             effectApplied = true;
             hintPanelController.Show(interactHintMessage); 
+            return true;
         }
+        return false;
     }
     
     public void ResetInteractableObject()

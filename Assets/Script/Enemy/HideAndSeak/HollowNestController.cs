@@ -31,12 +31,14 @@ public class HollowNestController : MonoBehaviour, IEffectable
         }
     }
     
-    public void ApplyEffect(EffectBase effect)
+    public bool ApplyEffect(EffectBase effect)
     {
         if (effect is HollowNest)
         {
             ActivateNest();
+            return true;
         }
+        return false;
     }
 
     

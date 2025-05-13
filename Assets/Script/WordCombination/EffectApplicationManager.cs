@@ -26,35 +26,32 @@ public class EffectApplicationManager : MonoBehaviour
             Destroy(gameObject);
     }
     
-    public void ApplyCombinationEffect(List<string> selectedWords, Action onEffectApplied, Action onEffectFailed)
+    public bool ApplyCombinationEffect(List<string> selectedWords)
     {
         if (selectedWords == null || selectedWords.Count != 2)
         {
             Debug.LogError("Invalid number of words for applying the effect.");
             ShowFailHint();
-            onEffectFailed?.Invoke();
-            return;
+            return false;
         }
-    
+
         string word1 = selectedWords[0];
         string word2 = selectedWords[1];
-    
-        // Mark the combination as used
+
         combinationIconManager.MarkCombinationAsUsed(word1, word2);
-    
+
         EffectBase effect = WordManager.Instance.GetEffect(word1, word2);
         AudioClip effectSound = WordManager.Instance.GetEffectSound(word1, word2);
-    
+
         if (effect == null)
         {
             Debug.LogError("Effect not found for the given combination.");
             ShowFailHint();
-            onEffectFailed?.Invoke();
-            return;
+            return false;
         }
-    
+
         bool effectApplied = false;
-    
+
         if (effect is SpikeCircleEffect || effect is GaleStride)
         {
             ApplyEffectToPlayer(effect);
@@ -63,34 +60,20 @@ public class EffectApplicationManager : MonoBehaviour
         }
         else
         {
-            bool objectsInRange = AnyObjectInRange();
-            if (objectsInRange)
-            {
-                effectApplied = ApplyEffectToObjects(effect);
-                if (effectApplied)
-                    PlayEffectSound(effectSound);
-            }
-            else
-            {
-                Debug.Log("No objects within range to apply the effect.");
-                ShowFailHint();
-                onEffectFailed?.Invoke();
-                return;
-            }
+            effectApplied = ApplyEffectToObjects(effect);
+            if (effectApplied) PlayEffectSound(effectSound);
         }
-    
-        if (effectApplied)
-            onEffectApplied?.Invoke();
-        else
+
+        if (!effectApplied)
         {
             Debug.LogWarning("The effect was not applied.");
             ShowFailHint();
-            onEffectFailed?.Invoke();
         }
-    
-        // Reset the combination icon display
+
         combinationIconManager.ResetCombinationIcon();
+        return effectApplied;
     }
+
     
     private void ApplyEffectToPlayer(EffectBase effect)
     {
@@ -114,9 +97,16 @@ public class EffectApplicationManager : MonoBehaviour
             }
             if (effectable.CanReceiveEffect(playerTransform.position, effectRadius, effect))
             {
-                effectable.ApplyEffect(effect);
-                Debug.Log($"{effect.GetType().Name} applied to {mb.name}");
-                effectApplied = true;
+                bool appliedSuccessfully = effectable.ApplyEffect(effect);
+                if (appliedSuccessfully)
+                {
+                    Debug.Log($"{effect.GetType().Name} applied to {mb.name}");
+                    effectApplied = true;
+                }
+                else
+                {
+                    Debug.Log($"{mb.name} did not accept the effect, even though it's in range.");
+                }
             }
             else
             {
