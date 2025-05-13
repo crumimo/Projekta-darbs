@@ -19,15 +19,27 @@ MonoBehaviour:
 
 '
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   - speakerName: '?'
     sentence: Never thought that i will see another mermaid...
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   - speakerName: Maya
     sentence: I'm Maya
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   - speakerName: Maya
     sentence: How can we help?
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   responses:
   - responseText: How to get home
     dialogueObject: {fileID: 11400000, guid: b13990b6071d30b4fa813497da544462, type: 2}

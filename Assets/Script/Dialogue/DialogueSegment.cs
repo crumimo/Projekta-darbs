@@ -7,4 +7,9 @@ public class DialogueSegment
     [TextArea(3, 10)]
     public string sentence;
     public Sprite speakerSprite;
+    
+    public bool switchNpcToObject;
+    public GameObject newPrefabToSpawn;
+    public bool switchBackToNpc;
+
 }

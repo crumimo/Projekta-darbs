@@ -11,6 +11,8 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private TMP_Text speakerNameLabel;
     [SerializeField] private FadeController fadeController; 
+    [SerializeField] private DialogueActivator dialogueActivator;
+
     public event Action OnDialogueEnd;
 
     public bool IsOpen { get; private set; }
@@ -66,9 +68,20 @@ public class DialogueUI : MonoBehaviour
 
             yield return RunTypingEffect(segment.sentence, segment.speakerName);
             textLabel.text = segment.sentence;
+            
+            if (segment.switchNpcToObject && segment.newPrefabToSpawn != null)
+            {
+                yield return StartCoroutine(dialogueActivator.ReplaceNpcWithObjectWithFade(segment.newPrefabToSpawn));
+            }
+            else if (segment.switchBackToNpc)
+            {
+                yield return StartCoroutine(dialogueActivator.RestoreOriginalNpcWithFade());
+            }
+
+
 
             if (i == dialogueObject.DialogueSegments.Length - 1 && dialogueObject.HasResponses) break;
-        
+
             yield return null;
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         }
@@ -124,8 +137,6 @@ public class DialogueUI : MonoBehaviour
         speakerNameLabel.text = string.Empty;
 
         OnDialogueEnd?.Invoke();
-        
-
     }
 
     public void CloseDialogueBoxInstant()

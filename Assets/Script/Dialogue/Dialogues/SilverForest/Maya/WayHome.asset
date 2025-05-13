@@ -16,21 +16,39 @@ MonoBehaviour:
   - speakerName: Maya
     sentence: I see, i also wanted to go home
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   - speakerName: Maya
     sentence: "Here, take this. \nHer name is isopoda"
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+    switchNpcToObject: 1
+    newPrefabToSpawn: {fileID: 4757573747236846033, guid: f08605ce279d9c4478e6175dcece6cdf, type: 3}
+    switchBackToNpc: 0
   - speakerName: 
     sentence: '*She hands you a curious looking creature*'
     speakerSprite: {fileID: -1896832245, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   - speakerName: Maya
     sentence: She will help you get to the Garden, that awaits you on your way home
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+    switchNpcToObject: 1
+    newPrefabToSpawn: {fileID: 6083874700902106337, guid: 0ab331dfb1f3c9c40a262c7e94f5bf0c, type: 3}
+    switchBackToNpc: 0
   - speakerName: Maya
     sentence: But that's all i can do
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   - speakerName: Maya
     sentence: Anything else?
     speakerSprite: {fileID: -1134218312, guid: 18e6891c86361fb4da44f75cc3df11a5, type: 3}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   responses:
   - responseText: yes
     dialogueObject: {fileID: 11400000, guid: 4eae367f84a3dff4b9995e22f4bec2dd, type: 2}

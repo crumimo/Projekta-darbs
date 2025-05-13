@@ -14,6 +14,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     [SerializeField] private HintPanelController hintPanelController; 
     private bool canStartDialogue = false;
     private bool playerInRange = false;
+    private GameObject originalNpcPrefab;
+
     
     [Header("Dialogue NPC Settings")]
     public GameObject dialogueNpcPrefab;  
@@ -25,6 +27,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     
     private string currentHint = "";
     public AudioClip dialogueMusicClip;
+    [SerializeField] private FadeController fadeController;
+
 
     
     private void Start()
@@ -179,7 +183,8 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
             {
                 Destroy(currentNpcInstance);
             }
-            
+            originalNpcPrefab = dialogueNpcPrefab;
+
             currentNpcInstance = Instantiate(dialogueNpcPrefab, dialogueNpcContainer);
             
             RectTransform rect = currentNpcInstance.GetComponent<RectTransform>();
@@ -225,5 +230,46 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
     public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
     {
         return Vector3.Distance(transform.position, playerPosition) <= effectRadius;
+    }
+    
+    public IEnumerator ReplaceNpcWithObjectWithFade(GameObject newPrefab)
+    {
+        yield return fadeController.FadeIn();
+
+        if (currentNpcInstance != null)
+            Destroy(currentNpcInstance);
+
+        currentNpcInstance = Instantiate(newPrefab, dialogueNpcContainer);
+
+        RectTransform rect = currentNpcInstance.GetComponent<RectTransform>();
+        if (rect != null)
+        {
+            rect.anchoredPosition = Vector2.zero;
+            rect.localScale = Vector3.one;
+        }
+
+        yield return fadeController.FadeOut();
+    }
+
+    public IEnumerator RestoreOriginalNpcWithFade()
+    {
+        yield return fadeController.FadeIn();
+
+        if (currentNpcInstance != null)
+            Destroy(currentNpcInstance);
+
+        if (originalNpcPrefab != null)
+        {
+            currentNpcInstance = Instantiate(originalNpcPrefab, dialogueNpcContainer);
+
+            RectTransform rect = currentNpcInstance.GetComponent<RectTransform>();
+            if (rect != null)
+            {
+                rect.anchoredPosition = Vector2.zero;
+                rect.localScale = Vector3.one;
+            }
+        }
+
+        yield return fadeController.FadeOut();
     }
 }
