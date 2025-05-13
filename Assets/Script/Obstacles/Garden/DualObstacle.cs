@@ -58,40 +58,9 @@ public class DualObstacle : MonoBehaviour, IEffectable
         if (inactiveObstacle != null) inactiveObstacle.SetActive(isSwitched);
     }
 
-    private IEnumerator SmoothSwitchObstacles()
-    {
-        GameObject fromObstacle = isSwitched ? inactiveObstacle : activeObstacle;
-        GameObject toObstacle = isSwitched ? activeObstacle : inactiveObstacle;
-
-        var fromRenderer = fromObstacle?.GetComponent<SpriteRenderer>();
-        var toRenderer = toObstacle?.GetComponent<SpriteRenderer>();
-        
-        if (fromObstacle != null) fromObstacle.SetActive(true);
-        if (toObstacle != null) toObstacle.SetActive(true);
-        
-        yield return null;
-        
-        if (fromRenderer != null)
-            yield return SpriteFadeController.FadeOut(fromRenderer, fadeDuration);
-        
-        if (fromObstacle != null) fromObstacle.SetActive(false);
-        
-        if (toRenderer != null)
-        {
-            Color c = toRenderer.color;
-            c.a = 0f;
-            toRenderer.color = c;
-        }
-        
-        if (toRenderer != null)
-            yield return SpriteFadeController.FadeIn(toRenderer, fadeDuration);
-    }
-
-
     public void ToggleObstacles()
     {
         isSwitched = !isSwitched;
-        StartCoroutine(SmoothSwitchObstacles());
 
         ObstacleStateManager.MarkObstacleSwitchedState(obstacleID, isSwitched);
         Debug.Log($"Obstacle state switched: {isSwitched}");

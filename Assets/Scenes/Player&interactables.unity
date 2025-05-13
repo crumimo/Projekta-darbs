@@ -8510,7 +8510,7 @@ Transform:
   m_GameObject: {fileID: 291845896}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -633, y: -231.1, z: 0}
+  m_LocalPosition: {x: -630.7, y: -104.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12817,6 +12817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObstacle: {fileID: 279067881}
   inactiveObstacle: {fileID: 28215220}
+  fadeDuration: 0.5
   activationRadius: 10
   obstacleID: 0
 --- !u!4 &494579554
@@ -31929,7 +31930,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 141.18, y: -279.63, z: -10}
+  m_LocalPosition: {x: 143.47998, y: -152.63, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -36403,7 +36404,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 141.18, y: -279.63, z: -10}
+  m_LocalPosition: {x: 143.47998, y: -152.63, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53291,6 +53292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObstacle: {fileID: 1501831564}
   inactiveObstacle: {fileID: 2046813752}
+  fadeDuration: 0.5
   activationRadius: 10
   obstacleID: 0
 --- !u!1 &2132983361

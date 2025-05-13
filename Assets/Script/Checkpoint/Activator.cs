@@ -1,7 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class Activator : MonoBehaviour
 {
@@ -16,7 +15,12 @@ public class Activator : MonoBehaviour
             {
                 foreach (GameObject objectt in objectsToActivate)
                 {
-                    objectt.SetActive(true);
+                    SpriteShapeRenderer shapeRenderer = objectt.GetComponent<SpriteShapeRenderer>();
+                    if (shapeRenderer != null)
+                    {
+                        objectt.SetActive(true); // Включаем объект
+                        StartCoroutine(SpriteFadeController.FadeIn(shapeRenderer, 0.5f)); // Плавно проявляем
+                    }
                 }
             }
 
@@ -24,9 +28,19 @@ public class Activator : MonoBehaviour
             {
                 foreach (GameObject objectt in objectsToDeactivate)
                 {
-                    objectt.SetActive(false);
+                    SpriteShapeRenderer shapeRenderer = objectt.GetComponent<SpriteShapeRenderer>();
+                    if (shapeRenderer != null)
+                    {
+                        StartCoroutine(FadeOutAndDisable(objectt, shapeRenderer, 0.5f)); // Плавно исчезает, затем отключается
+                    }
                 }
             }
         }
+    }
+
+    private IEnumerator FadeOutAndDisable(GameObject objectToDisable, SpriteShapeRenderer shapeRenderer, float duration)
+    {
+        yield return StartCoroutine(SpriteFadeController.FadeOut(shapeRenderer, duration)); // Ждём завершения анимации
+        objectToDisable.SetActive(false); // Отключаем объект после исчезновения
     }
 }
