@@ -100,15 +100,16 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         hintPanelController.Show(newHint);
     }
     
-    public void ApplyEffect(EffectBase effect)
+    public bool ApplyEffect(EffectBase effect)
     {
         if (!requiresEffect)
         {
             StartCoroutine(ShowTemporaryHint("Nothing happened", 2f));
-            return;
+            return false;
         }
         effect.Apply(gameObject);
         CheckEffectRequirements(effect);
+        return true;
     }
     
     private IEnumerator ShowTemporaryHint(string message, float delay)

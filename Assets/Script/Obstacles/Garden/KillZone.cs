@@ -54,24 +54,25 @@ public class KillZone : MonoBehaviour, IEffectable
         }
     }
 
-    public void ApplyEffect(EffectBase effect)
+    public bool ApplyEffect(EffectBase effect)
     {
         if (effect is VerdantSurge)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player == null)
             {
-                return;
+                return false;
             }
             if (effectCollider == null)
             {
-                return;
+                return true;
             }
             if (effectCollider.OverlapPoint(player.transform.position))
             {
                 DisableZone();
             }
         }
+        return false;
     }
     
     public void DisableZone()

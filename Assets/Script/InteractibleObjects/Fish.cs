@@ -96,9 +96,10 @@ public class Fish : MonoBehaviour, IEffectable
         }
     }
 
-    public void ApplyEffect(EffectBase effect)
+    public bool ApplyEffect(EffectBase effect)
     {
         effect.Apply(gameObject);
+        return true;
     }
 
     public void ApplyCorrectCombination()
