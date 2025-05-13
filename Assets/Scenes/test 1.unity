@@ -486,6 +486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObstacle: {fileID: 1142072801}
   inactiveObstacle: {fileID: 1682138229}
+  fadeDuration: 0.5
   activationRadius: 10
   obstacleID: 2
 --- !u!4 &15615791
@@ -1378,7 +1379,7 @@ Transform:
   m_GameObject: {fileID: 146020761}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 83.8, y: -83.4, z: 0}
+  m_LocalPosition: {x: 36.6, y: -52.4, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1636,7 +1637,7 @@ Transform:
   m_GameObject: {fileID: 195430766}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91.9, y: -80.7, z: -0.08459239}
+  m_LocalPosition: {x: 34.3, y: -50.7, z: -0.08459239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3833,6 +3834,7 @@ MonoBehaviour:
   dialogueNpcContainer: {fileID: 0}
   distanceToActivate: 3
   dialogueMusicClip: {fileID: 0}
+  fadeController: {fileID: 0}
 --- !u!58 &644708473
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7471,7 +7473,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 83.8, y: -83.4, z: -10}
+  m_LocalPosition: {x: 36.6, y: -52.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8011,7 +8013,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 83.8, y: -83.4, z: -10}
+  m_LocalPosition: {x: 36.6, y: -52.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11111,6 +11113,7 @@ MonoBehaviour:
   textLabel: {fileID: 1947054227}
   speakerNameLabel: {fileID: 138250192}
   fadeController: {fileID: 1104132655}
+  dialogueActivator: {fileID: 0}
 --- !u!224 &2055068592
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,37 +1,101 @@
 using UnityEngine;
+using System.Collections;
 
 public class DualObstacle : MonoBehaviour, IEffectable
 {
     [Header("Obstacle Parts")]
-    public GameObject activeObstacle; 
-    public GameObject inactiveObstacle; 
+    public GameObject activeObstacle;
+    public GameObject inactiveObstacle;
 
-    private bool isSwitched = false; 
+    private bool isSwitched = false;
+
+    [Header("Fade Settings")]
+    public float fadeDuration = 0.5f;
 
     [Header("Activation Settings")]
-    public float activationRadius = 5f; 
+    public float activationRadius = 5f;
 
     public int obstacleID;
+
     void Start()
     {
-        UpdateObstacleState();
+        InitializeObstacles();
+    }
+    
+    private void InitializeObstacles()
+    {
+        if (activeObstacle != null) activeObstacle.SetActive(true);
+        if (inactiveObstacle != null) inactiveObstacle.SetActive(true);
+        
+        SetAlpha(activeObstacle, isSwitched ? 0f : 1f);
+        SetAlpha(inactiveObstacle, isSwitched ? 1f : 0f);
+        
+        if (isSwitched)
+        {
+            if (activeObstacle != null) activeObstacle.SetActive(false);
+        }
+        else
+        {
+            if (inactiveObstacle != null) inactiveObstacle.SetActive(false);
+        }
     }
 
-    private void UpdateObstacleState()
+    private void SetAlpha(GameObject obj, float alpha)
+    {
+        if (obj == null) return;
+        var renderer = obj.GetComponent<SpriteRenderer>();
+        if (renderer != null)
+        {
+            Color c = renderer.color;
+            c.a = alpha;
+            renderer.color = c;
+        }
+    }
+
+    private void UpdateObstacleStateImmediate()
     {
         if (activeObstacle != null) activeObstacle.SetActive(!isSwitched);
         if (inactiveObstacle != null) inactiveObstacle.SetActive(isSwitched);
     }
 
+    private IEnumerator SmoothSwitchObstacles()
+    {
+        GameObject fromObstacle = isSwitched ? inactiveObstacle : activeObstacle;
+        GameObject toObstacle = isSwitched ? activeObstacle : inactiveObstacle;
+
+        var fromRenderer = fromObstacle?.GetComponent<SpriteRenderer>();
+        var toRenderer = toObstacle?.GetComponent<SpriteRenderer>();
+        
+        if (fromObstacle != null) fromObstacle.SetActive(true);
+        if (toObstacle != null) toObstacle.SetActive(true);
+        
+        yield return null;
+        
+        if (fromRenderer != null)
+            yield return SpriteFadeController.FadeOut(fromRenderer, fadeDuration);
+        
+        if (fromObstacle != null) fromObstacle.SetActive(false);
+        
+        if (toRenderer != null)
+        {
+            Color c = toRenderer.color;
+            c.a = 0f;
+            toRenderer.color = c;
+        }
+        
+        if (toRenderer != null)
+            yield return SpriteFadeController.FadeIn(toRenderer, fadeDuration);
+    }
+
+
     public void ToggleObstacles()
     {
         isSwitched = !isSwitched;
-        UpdateObstacleState();
-        
+        StartCoroutine(SmoothSwitchObstacles());
+
         ObstacleStateManager.MarkObstacleSwitchedState(obstacleID, isSwitched);
         Debug.Log($"Obstacle state switched: {isSwitched}");
     }
-
 
     public bool ApplyEffect(EffectBase effect)
     {
@@ -55,11 +119,11 @@ public class DualObstacle : MonoBehaviour, IEffectable
         }
         return false;
     }
-    
+
     public void ApplySwitchedState(bool isSwitched)
     {
         this.isSwitched = isSwitched;
-        UpdateObstacleState();
+        UpdateObstacleStateImmediate();
     }
 
     public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
