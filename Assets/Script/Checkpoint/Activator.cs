@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.U2D;
 
 public class Activator : MonoBehaviour
 {
@@ -15,11 +14,11 @@ public class Activator : MonoBehaviour
             {
                 foreach (GameObject objectt in objectsToActivate)
                 {
-                    SpriteShapeRenderer shapeRenderer = objectt.GetComponent<SpriteShapeRenderer>();
-                    if (shapeRenderer != null)
+                    SpriteRenderer spriteRenderer = objectt.GetComponent<SpriteRenderer>();
+                    if (spriteRenderer != null)
                     {
-                        objectt.SetActive(true); // Включаем объект
-                        StartCoroutine(SpriteFadeController.FadeIn(shapeRenderer, 0.5f)); // Плавно проявляем
+                        objectt.SetActive(true); 
+                        StartCoroutine(SpriteFadeController.FadeIn(spriteRenderer, 0.5f)); 
                     }
                 }
             }
@@ -28,19 +27,19 @@ public class Activator : MonoBehaviour
             {
                 foreach (GameObject objectt in objectsToDeactivate)
                 {
-                    SpriteShapeRenderer shapeRenderer = objectt.GetComponent<SpriteShapeRenderer>();
-                    if (shapeRenderer != null)
+                    SpriteRenderer spriteRenderer = objectt.GetComponent<SpriteRenderer>();
+                    if (spriteRenderer != null)
                     {
-                        StartCoroutine(FadeOutAndDisable(objectt, shapeRenderer, 0.5f)); // Плавно исчезает, затем отключается
+                        StartCoroutine(FadeOutAndDisable(objectt, spriteRenderer, 0.5f));
                     }
                 }
             }
         }
     }
 
-    private IEnumerator FadeOutAndDisable(GameObject objectToDisable, SpriteShapeRenderer shapeRenderer, float duration)
+    private IEnumerator FadeOutAndDisable(GameObject objectToDisable, SpriteRenderer spriteRenderer, float duration)
     {
-        yield return StartCoroutine(SpriteFadeController.FadeOut(shapeRenderer, duration)); // Ждём завершения анимации
-        objectToDisable.SetActive(false); // Отключаем объект после исчезновения
+        yield return StartCoroutine(SpriteFadeController.FadeOut(spriteRenderer, duration)); 
+        objectToDisable.SetActive(false); 
     }
 }
