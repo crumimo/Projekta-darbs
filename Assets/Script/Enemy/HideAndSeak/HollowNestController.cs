@@ -7,8 +7,18 @@ public class HollowNestController : MonoBehaviour, IEffectable
     public GameObject nestVisual;
     public Transform effectCenter;
 
+    public AudioClip nestAppearSound; 
+
+    private AudioSource audioSource;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>(); 
+        }
+        
         if(nestVisual != null)
         {
             nestVisual.SetActive(false);
@@ -20,6 +30,10 @@ public class HollowNestController : MonoBehaviour, IEffectable
         if(nestVisual != null)
         {
             nestVisual.SetActive(true);
+            if (nestAppearSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(nestAppearSound);
+            }
         }
     }
     

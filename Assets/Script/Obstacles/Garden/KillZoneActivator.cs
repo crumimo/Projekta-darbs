@@ -5,18 +5,26 @@ public class KillZoneActivator : MonoBehaviour, IEffectable
     [Header("References")]
     public KillZone targetKillZone;
     public float activationRadius = 5f;
-
+    public AudioClip disableSound;
+    
     [Header("Sprite Settings")]
     public Sprite normalSprite;
     public Sprite activatedSprite;
     private SpriteRenderer sr;
+    
+    private AudioSource audioSource;
 
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
         if (sr != null && normalSprite != null)
         {
             sr.sprite = normalSprite;
+        }
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>(); 
         }
     }
 
@@ -35,6 +43,12 @@ public class KillZoneActivator : MonoBehaviour, IEffectable
                         sr.sprite = activatedSprite;
                     }
                     targetKillZone.DisableZone();
+                    
+                    if (disableSound != null && audioSource != null)
+                    {
+                        audioSource.PlayOneShot(disableSound);
+                    }
+                    
                     Debug.Log("KillZone deactivated via KillZoneActivator on " + gameObject.name);
                     return true;
                 }
