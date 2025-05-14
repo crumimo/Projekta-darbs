@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoadTrigger : MonoBehaviour
 {
-    [SerializeField] private string[] scenesToLoad; // Хранит имена сцен
+    [SerializeField] private string[] scenesToLoad; 
     [SerializeField] private string[] scenesToUnload;
 
     private GameObject player;
@@ -41,7 +41,7 @@ public class SceneLoadTrigger : MonoBehaviour
 
             if (!isSceneLoaded)
             {
-                SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive); // Передаём строку вместо SceneField
+                SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive); 
             }
         }
     }
@@ -55,7 +55,7 @@ public class SceneLoadTrigger : MonoBehaviour
                 Scene loadedScene = SceneManager.GetSceneAt(j);
                 if (loadedScene.name == sceneName)
                 {
-                    SceneManager.UnloadSceneAsync(sceneName); // Передаём строку вместо SceneField
+                    SceneManager.UnloadSceneAsync(sceneName); 
                 }
             }
         }
