@@ -14,32 +14,18 @@ public class Activator : MonoBehaviour
             {
                 foreach (GameObject objectt in objectsToActivate)
                 {
-                    SpriteRenderer spriteRenderer = objectt.GetComponent<SpriteRenderer>();
-                    if (spriteRenderer != null)
-                    {
-                        objectt.SetActive(true); 
-                        StartCoroutine(SpriteFadeController.FadeIn(spriteRenderer, 0.5f)); 
-                    }
+                    objectt.SetActive(true);
                 }
             }
 
             if (objectsToDeactivate != null)
             {
                 foreach (GameObject objectt in objectsToDeactivate)
-                {
-                    SpriteRenderer spriteRenderer = objectt.GetComponent<SpriteRenderer>();
-                    if (spriteRenderer != null)
-                    {
-                        StartCoroutine(FadeOutAndDisable(objectt, spriteRenderer, 0.5f));
-                    }
+                { 
+                    objectt.SetActive(false);
                 }
             }
         }
     }
-
-    private IEnumerator FadeOutAndDisable(GameObject objectToDisable, SpriteRenderer spriteRenderer, float duration)
-    {
-        yield return StartCoroutine(SpriteFadeController.FadeOut(spriteRenderer, duration)); 
-        objectToDisable.SetActive(false); 
-    }
+    
 }
