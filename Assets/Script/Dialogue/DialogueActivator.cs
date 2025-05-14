@@ -165,6 +165,15 @@ public class DialogueActivator : MonoBehaviour, IInteractable, IEffectable
         if (dialogueUI != null)
         {
             SoundManager.Instance.StartDialogue(dialogueMusicClip);
+            
+            foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
+            {
+                if (responseEvents.DialogueObject == dialogueObject)
+                {
+                    dialogueUI.AddResponseEvents(responseEvents.Events);
+                    break;
+                }
+            }
             dialogueUI.ShowDialogue(dialogueObject);
             isDialogueActive = true;
             dialogueUI.OnDialogueEnd += EndDialogue;

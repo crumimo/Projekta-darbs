@@ -8,6 +8,7 @@ public class Altar : MonoBehaviour
     [SerializeField] private string firstInteractionMessage = "Words restored and map activated!"; 
     [SerializeField] private float messageDisplayDuration = 3f;
     
+
     [SerializeField] private int maxUses = 3; 
     private int currentUses = 0; 
     
