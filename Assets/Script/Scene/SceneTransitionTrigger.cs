@@ -36,8 +36,14 @@ public class SceneTransitionTrigger : MonoBehaviour
 
     private IEnumerator PerformSceneTransition()
     {
+        Movement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+        if (playerMovement != null)
+        {
+            playerMovement.DisableMovement();
+        }
+
         yield return StartCoroutine(fadeController.FadeIn());
-        
+
         if (transitionSound != null)
         {
             audioSource.PlayOneShot(transitionSound);
@@ -70,5 +76,10 @@ public class SceneTransitionTrigger : MonoBehaviour
         yield return new WaitForSeconds(0.5f); 
         
         yield return StartCoroutine(fadeController.FadeOut());
+        
+        if (playerMovement != null)
+        {
+            playerMovement.EnableMovement();
+        }
     }
 }
