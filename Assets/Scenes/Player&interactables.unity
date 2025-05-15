@@ -420,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 9225372}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.36, y: -1.04, z: 0}
+  m_LocalPosition: {x: -10.54, y: -1.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -484,9 +484,9 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.10175705, y: -0.5131378}
-      - {x: 3.1177645, y: 7.207485}
-      - {x: 5.1614075, y: 6.6476746}
-      - {x: 5.8806634, y: 6.393528}
+      - {x: 4.4892855, y: 11.422359}
+      - {x: 6.566345, y: 9.123047}
+      - {x: 9.259264, y: 8.701664}
   m_UseDelaunayMesh: 0
 --- !u!114 &9225376
 MonoBehaviour:
@@ -500,8 +500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b8e5d7615144c4d803746973638e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenLightDuration: 2
-  redLightDuration: 0.5
+  greenLightDuration: 0.5
+  redLightDuration: 2
   spriteRenderer: {fileID: 2000607050}
   openEyeSprite: {fileID: -1597590897, guid: 649abacbb88880f419605f34ac695b5b, type: 3}
   closedEyeSprite: {fileID: -1988616563, guid: 649abacbb88880f419605f34ac695b5b, type: 3}
@@ -9487,7 +9487,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.9
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000099cae88ca76c0796b32bcbde
@@ -18892,7 +18892,7 @@ Transform:
   m_GameObject: {fileID: 609434429}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 356, y: -101.3, z: 0}
+  m_LocalPosition: {x: 352.5, y: -72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29454,7 +29454,7 @@ Transform:
   m_GameObject: {fileID: 979491080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 646.5, y: -100.9, z: 0}
+  m_LocalPosition: {x: 683.1, y: -80.3, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -36588,7 +36588,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 283.09998, y: -161.40001, z: 0}
+  m_LocalPosition: {x: 319.69995, y: -140.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39352,8 +39352,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.10175705, y: -0.5131378}
-      - {x: -2.2272673, y: -12.49268}
-      - {x: -6.266401, y: -12.658138}
+      - {x: -1.4578886, y: -12.827183}
+      - {x: -10.146772, y: -9.714413}
   m_UseDelaunayMesh: 0
 --- !u!114 &1299860217
 MonoBehaviour:
@@ -39367,8 +39367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b8e5d7615144c4d803746973638e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenLightDuration: 2
-  redLightDuration: 0.5
+  greenLightDuration: 0.5
+  redLightDuration: 2
   spriteRenderer: {fileID: 973411406}
   openEyeSprite: {fileID: -1597590897, guid: 649abacbb88880f419605f34ac695b5b, type: 3}
   closedEyeSprite: {fileID: -1988616563, guid: 649abacbb88880f419605f34ac695b5b, type: 3}
@@ -42129,7 +42129,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 283.09998, y: -161.40001, z: 0}
+  m_LocalPosition: {x: 319.69995, y: -140.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52588,7 +52588,7 @@ Transform:
   m_GameObject: {fileID: 1839919906}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.69, y: 12.46, z: 0}
+  m_LocalPosition: {x: -3.9, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60885,7 +60885,7 @@ Transform:
   m_GameObject: {fileID: 2139160888}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 364.9, y: -102.1, z: 0}
+  m_LocalPosition: {x: 341.5, y: -73.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
