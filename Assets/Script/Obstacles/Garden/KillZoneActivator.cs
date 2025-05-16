@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class KillZoneActivator : MonoBehaviour, IEffectable
 {
@@ -13,6 +14,9 @@ public class KillZoneActivator : MonoBehaviour, IEffectable
     private SpriteRenderer sr;
     private AudioSource audioSource;
 
+    [SerializeField] private SpriteShapeController shapeController;
+    [SerializeField] private SpriteShape spriteShape;
+  
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -41,6 +45,8 @@ public class KillZoneActivator : MonoBehaviour, IEffectable
                 {
                     if (sr != null && activatedSprite != null)
                     {
+                        shapeController.spriteShape = spriteShape;
+                        shapeController.BakeMesh();
                         sr.sprite = activatedSprite;
                     }
 
