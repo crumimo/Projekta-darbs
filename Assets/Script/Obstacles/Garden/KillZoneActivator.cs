@@ -3,34 +3,35 @@ using UnityEngine;
 public class KillZoneActivator : MonoBehaviour, IEffectable
 {
     [Header("References")]
-    public KillZone targetKillZone;
+    public KillZone[] targetKillZones;
     public float activationRadius = 5f;
     public AudioClip disableSound;
-    
+
     [Header("Sprite Settings")]
     public Sprite normalSprite;
     public Sprite activatedSprite;
     private SpriteRenderer sr;
-    
     private AudioSource audioSource;
 
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+
         if (sr != null && normalSprite != null)
         {
             sr.sprite = normalSprite;
         }
+
         if (audioSource == null)
         {
-            audioSource = gameObject.AddComponent<AudioSource>(); 
+            audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
 
     public bool ApplyEffect(EffectBase effect)
     {
-        if (effect is VerdantSurge && targetKillZone != null)
+        if (effect is VerdantSurge && targetKillZones != null && targetKillZones.Length > 0)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
@@ -42,14 +43,21 @@ public class KillZoneActivator : MonoBehaviour, IEffectable
                     {
                         sr.sprite = activatedSprite;
                     }
-                    targetKillZone.DisableZone();
-                    
+
+                    foreach (KillZone zone in targetKillZones)
+                    {
+                        if (zone != null)
+                        {
+                            zone.DisableZone();
+                        }
+                    }
+
                     if (disableSound != null && audioSource != null)
                     {
                         audioSource.PlayOneShot(disableSound);
                     }
-                    
-                    Debug.Log("KillZone deactivated via KillZoneActivator on " + gameObject.name);
+
+                    Debug.Log($"KillZones deactivated via KillZoneActivator on {gameObject.name}");
                     return true;
                 }
                 else
@@ -60,6 +68,7 @@ public class KillZoneActivator : MonoBehaviour, IEffectable
         }
         return false;
     }
+
     public void ResetActivator()
     {
         if (sr != null && normalSprite != null)

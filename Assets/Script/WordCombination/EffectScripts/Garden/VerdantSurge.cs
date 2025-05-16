@@ -13,14 +13,14 @@ public class VerdantSurge : EffectBase
             return;
         }
         
-        var killZone = target.GetComponent<KillZone>();
-        if (killZone != null)
+        var killZoneActivator = target.GetComponent<KillZoneActivator>();
+        if (killZoneActivator != null)
         {
-            killZone.ApplyEffect(this);
-            Debug.Log("VerdantSurgeEffect applied to KillZone on " + target.name);
+            killZoneActivator.ApplyEffect(this); 
+            Debug.Log("VerdantSurgeEffect applied to KillZoneActivator on " + target.name);
             return;
         }
-        
-        Debug.Log("VerdantSurgeEffect: Target " + target.name + " does not have DualObstacle or KillZone.");
+
+        Debug.Log("VerdantSurgeEffect: Target " + target.name + " does not have DualObstacle or KillZoneActivator.");
     }
 }
