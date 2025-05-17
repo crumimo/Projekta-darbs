@@ -15,7 +15,7 @@ public class Altar : MonoBehaviour
     private bool hasShownFirstMessage = false; 
     private string currentHintText = ""; 
     
-    [SerializeField] private MapManager targetMapManager; // 🔹 Каждому алтарю назначаем свой `MapManager`
+    [SerializeField] private MapManager targetMapManager; 
 
     private void Update()
     {
@@ -34,7 +34,7 @@ public class Altar : MonoBehaviour
 
                 if (targetMapManager != null)
                 {
-                    targetMapManager.ActivateMap(); // 🔹 Активируем именно ту карту, которую указывает алтарь
+                    targetMapManager.ActivateMap(); 
                 }
 
                 WordUIManager.Instance.ClearCollectedWords(); 
