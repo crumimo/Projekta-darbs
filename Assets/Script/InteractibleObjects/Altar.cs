@@ -5,22 +5,17 @@ public class Altar : MonoBehaviour
 {
     [SerializeField] private HintPanelController hintPanelController; 
     [SerializeField] private string hintMessage = "Press F to interact";
-    [SerializeField] private string firstInteractionMessage = "Words restored and map activated!"; 
+    [SerializeField] private string firstInteractionMessage = "Words restored and map activated!";
     [SerializeField] private float messageDisplayDuration = 3f;
     
-
     [SerializeField] private int maxUses = 3; 
     private int currentUses = 0; 
     
     private bool isPlayerInRange = false; 
     private bool hasShownFirstMessage = false; 
     private string currentHintText = ""; 
-    private MapManager mapManager; 
-
-    private void Start()
-    {
-        mapManager = FindObjectOfType<MapManager>(); 
-    }
+    
+    [SerializeField] private MapManager targetMapManager; // 🔹 Каждому алтарю назначаем свой `MapManager`
 
     private void Update()
     {
@@ -36,7 +31,12 @@ public class Altar : MonoBehaviour
             {
                 ActivateCollectedWords(); 
                 ActivateAllEnemies();
-                mapManager.ActivateMap();
+
+                if (targetMapManager != null)
+                {
+                    targetMapManager.ActivateMap(); // 🔹 Активируем именно ту карту, которую указывает алтарь
+                }
+
                 WordUIManager.Instance.ClearCollectedWords(); 
                 ShowHint(firstInteractionMessage + $" ({maxUses - currentUses - 1} uses left)");
                 hasShownFirstMessage = true;
@@ -52,14 +52,11 @@ public class Altar : MonoBehaviour
 
             currentUses++;
         }
-
     }
 
     private void ActivateCollectedWords()
     {
-        Debug.Log("Activating all collected words.");
         WordUIManager.Instance.ResetCollectedWords(); 
-        
     }
     
     private void ActivateAllEnemies()
@@ -76,12 +73,10 @@ public class Altar : MonoBehaviour
             if (enemy.permanentSleep)
             {
                 enemy.ResetEnemy();
-                EnemyStateManager.MarkEnemyAsAwake(enemy.enemyID); 
+                EnemyStateManager.MarkEnemyAsAwake(enemy.enemyID);
             }
             enemy.isAsleep = false;
         }
-        
-        Debug.Log($"Activated {allEnemies.Length} enemies.");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -89,15 +84,7 @@ public class Altar : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
-
-            if (currentUses >= maxUses)
-            {
-                ShowHint("The altar has no power left.");
-            }
-            else
-            {
-                ShowHint($"{hintMessage} ({maxUses - currentUses} uses left)");
-            }
+            ShowHint(currentUses >= maxUses ? "The altar has no power left." : $"{hintMessage} ({maxUses - currentUses} uses left)");
         }
     }
     
@@ -106,7 +93,6 @@ public class Altar : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            
             HideHintPanel();
         }
     }
