@@ -681,7 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 730487482}
-  fadeDuration: 0.5
+  fadeDuration: 1
 --- !u!1 &1152115111
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,6 +917,9 @@ MonoBehaviour:
   typingSpeed: 0.05
   fadeSpeed: 1
   dialogueData: {fileID: 11400000, guid: 521a4614ed13fc84ea31556b0ff20138, type: 2}
+  persistentGameplay: Player&interactables
+  levelScene: SilverForest
+  fadeController: {fileID: 1137849944}
 --- !u!224 &1337562399
 RectTransform:
   m_ObjectHideFlags: 0
