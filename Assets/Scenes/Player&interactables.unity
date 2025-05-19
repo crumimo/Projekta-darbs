@@ -11810,6 +11810,34 @@ MonoBehaviour:
     - {fileID: 8300000, guid: d44d98d25d2d87844bf72b1e89f409b0, type: 3}
     - {fileID: 8300000, guid: 497263126cfc98449a5714fc43244d35, type: 3}
     - {fileID: 8300000, guid: 559bbbd543e8cb548aad1fa02ebada40, type: 3}
+  - characterName: Hanna
+    voiceClips:
+    - {fileID: 8300000, guid: fe1ea876b854ae241b4755ec55efcef4, type: 3}
+    - {fileID: 8300000, guid: c1d8476f2882bb54ea89d49781c84c29, type: 3}
+    - {fileID: 8300000, guid: ec70ccc80b9d6914380744f7cf8912bb, type: 3}
+    - {fileID: 8300000, guid: f51afa603bd817e4f83d564e30bf6216, type: 3}
+    - {fileID: 8300000, guid: 376dbcafd1f6a59448c07c96307f424f, type: 3}
+  - characterName: Albina
+    voiceClips:
+    - {fileID: 8300000, guid: 7e54c07b7a0c3f348b05facd48f7dc49, type: 3}
+    - {fileID: 8300000, guid: c7d4b7c7dab23d0469d516eacf8b7089, type: 3}
+    - {fileID: 8300000, guid: 18bcc8524719bcc4abb271ae61849292, type: 3}
+    - {fileID: 8300000, guid: 2db1f04d0f54ade4285861741adef68c, type: 3}
+    - {fileID: 8300000, guid: 915d8f55057ed9a479ad627ed31487ea, type: 3}
+  - characterName: Vesna
+    voiceClips:
+    - {fileID: 8300000, guid: 8d2b2d7c632a08043b48aac9dbe557d1, type: 3}
+    - {fileID: 8300000, guid: f9dfb8d00d5061f49b7c339f9a7a78d8, type: 3}
+    - {fileID: 8300000, guid: 66a0fedec4206894e87b4d6e00eb6375, type: 3}
+    - {fileID: 8300000, guid: 4498f6d9510f4f04b931f4d7048d5f1e, type: 3}
+    - {fileID: 8300000, guid: 54f96f6997b68f04dbec82ba74b127b4, type: 3}
+  - characterName: Zuri
+    voiceClips:
+    - {fileID: 8300000, guid: a27a1c455cbb5a1479dd5600fc584ca0, type: 3}
+    - {fileID: 8300000, guid: ec04515a0d2295b4495cb46af79ea022, type: 3}
+    - {fileID: 8300000, guid: dc32d203464c6554da9da7a0a8caf3e6, type: 3}
+    - {fileID: 8300000, guid: b1b0c4665c09fa94b88d81dfa39c6f9d, type: 3}
+    - {fileID: 8300000, guid: 5c9da3cb9babddd47bacd68549770264, type: 3}
 --- !u!1 &250825186
 GameObject:
   m_ObjectHideFlags: 0
