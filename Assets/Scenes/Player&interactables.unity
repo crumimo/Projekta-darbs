@@ -20516,7 +20516,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObstacle: {fileID: 312598965}
   inactiveObstacle: {fileID: 1985836812}
-  fadeDuration: 0.5
   activationRadius: 4
   obstacleID: 4
 --- !u!1 &444694645
@@ -21542,7 +21541,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObstacle: {fileID: 1039720474}
   inactiveObstacle: {fileID: 1703983201}
-  fadeDuration: 0.5
   activationRadius: 4
   obstacleID: 3
 --- !u!1 &460755213
@@ -22849,7 +22847,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObstacle: {fileID: 279067881}
   inactiveObstacle: {fileID: 28215220}
-  fadeDuration: 0.5
   activationRadius: 10
   obstacleID: 0
 --- !u!4 &494579554
@@ -23568,7 +23565,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObstacle: {fileID: 1686073888}
   inactiveObstacle: {fileID: 80511336}
-  fadeDuration: 0.5
   activationRadius: 4
   obstacleID: 2
 --- !u!1 &517400030
@@ -94052,7 +94048,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeObstacle: {fileID: 1501831564}
   inactiveObstacle: {fileID: 2046813752}
-  fadeDuration: 0.5
   activationRadius: 10
   obstacleID: 1
 --- !u!1 &2129690709
