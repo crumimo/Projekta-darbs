@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979c1d7f80477e740ae24ff5e054386f, type: 3}
+  m_Name: Intro 1
+  m_EditorClassIdentifier: 
+  dialogueBlocks:
+  - backgroundImage: {fileID: 21300000, guid: 77e03d78e3ec927498f968ab0c1322c1, type: 3}
+    sentences:
+    - speakerName: 
+      sentence: A sharp pain leaves my body, and it makes me realize
+    - speakerName: 
+      sentence: That I'm no longer a part of this world
+    - speakerName: 
+      sentence: But suddenly, someone embraces me
+    - speakerName: 
+      sentence: Someone i don't recognize
+  - backgroundImage: {fileID: 21300000, guid: 42225bf5c833df944a06f386e6ee4383, type: 3}
+    sentences:
+    - speakerName: 
+      sentence: '"Don''t be afraid little one"'
+    - speakerName: 
+      sentence: '"I can help you, but in exchange, you''ll have to also help me"'
+    - speakerName: 
+      sentence: '"These lands rejected me"'
+    - speakerName: 
+      sentence: '"Maybe, they will accept you"'
+    - speakerName: 
+      sentence: '"But at first, accept this gift from me"'
+  - backgroundImage: {fileID: 21300000, guid: 1e0f90fbfaa47714b8c7eafd5c521309, type: 3}
+    sentences:
+    - speakerName: 
+      sentence: Silver leaves tickle and burn my body at the same time
+    - speakerName: 
+      sentence: Black growth pokes my tail
+    - speakerName: 
+      sentence: I don't recognize this place
+    - speakerName: 
+      sentence: But I'm somehow still alive
+  - backgroundImage: {fileID: 21300000, guid: 2ee507e761167244f89d60daef948e64, type: 3}
+    sentences:
+    - speakerName: 
+      sentence: ...
+    - speakerName: 
+      sentence: I must find a way back home

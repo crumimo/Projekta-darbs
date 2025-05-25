@@ -10,8 +10,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject settingsPanel;   
 
     [Header("Scene to load")]
-    [SerializeField] private string persistentGameplay = "Player&interactables";
-    [SerializeField] private string levelScene = "SilverForest";
+    [SerializeField] private string intro = "Intro";
+    
 
     [Header("Fade Controller")]
     [SerializeField] private FadeController fadeController;
@@ -40,14 +40,12 @@ public class MainMenuManager : MonoBehaviour
             };
         }
 
-        AsyncOperation persistentLoad = SceneManager.LoadSceneAsync(persistentGameplay, LoadSceneMode.Additive);
-        AsyncOperation levelLoad = SceneManager.LoadSceneAsync(levelScene, LoadSceneMode.Additive);
+        AsyncOperation persistentLoad = SceneManager.LoadSceneAsync(intro, LoadSceneMode.Additive);
+        
 
         persistentLoad.allowSceneActivation = false;
-        levelLoad.allowSceneActivation = false;
-
+        
         sceneToLoad.Add(persistentLoad);
-        sceneToLoad.Add(levelLoad);
 
         StartCoroutine(LoadScenesWithFade());
     }
@@ -69,7 +67,7 @@ public class MainMenuManager : MonoBehaviour
     {
 #if UNITY_EDITOR
         
-        Debug.Log("Игра завершена (работает только в сборке)!");
+        
 #else
         // Если игра запущена в сборке
         Application.Quit();
@@ -106,21 +104,26 @@ public class MainMenuManager : MonoBehaviour
         }
         
         yield return StartCoroutine(fadeController.FadeIn());
-
+        
         foreach (AsyncOperation op in sceneToLoad)
         {
             op.allowSceneActivation = true;
         }
         
-        while (!SceneManager.GetSceneByName(levelScene).isLoaded || !SceneManager.GetSceneByName(persistentGameplay).isLoaded)
+        while (!SceneManager.GetSceneByName(intro).isLoaded)
         {
             yield return null;
         }
-
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(levelScene));
-
+        
+        Scene introScene = SceneManager.GetSceneByName(intro);
+        if (introScene.IsValid() && introScene.isLoaded)
+        {
+            SceneManager.SetActiveScene(introScene);
+        }
+        
         yield return SceneManager.UnloadSceneAsync(mainMenuScene);
         
         yield return StartCoroutine(fadeController.FadeOut());
     }
+
 }

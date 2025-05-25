@@ -1818,8 +1818,7 @@ MonoBehaviour:
   objectsToHide:
   - {fileID: 237601648}
   settingsPanel: {fileID: 1299079281}
-  persistentGameplay: Player&interactables
-  levelScene: SilverForest
+  intro: Intro
   fadeController: {fileID: 1502834618}
 --- !u!4 &1502834617
 Transform:
