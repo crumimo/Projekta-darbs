@@ -12495,7 +12495,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2048368296}
-  - {fileID: 938932627}
   m_Father: {fileID: 2044056033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -40543,7 +40542,7 @@ GameObject:
   - component: {fileID: 641810338}
   - component: {fileID: 641810339}
   m_Layer: 0
-  m_Name: Peaceful
+  m_Name: GardenPeaceful
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52802,12 +52801,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938932626}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 248371149}
+  m_Father: {fileID: 2048368296}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -52830,7 +52829,7 @@ MonoBehaviour:
   m_LightType: 1
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.93710685, g: 0.905308, b: 0.7986036, a: 1}
   m_Intensity: 0.8
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -55024,7 +55023,7 @@ Transform:
   m_GameObject: {fileID: 979491080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 703.5, y: -70.6, z: 0}
+  m_LocalPosition: {x: 832.42, y: -53.87, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -66859,7 +66858,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -173.1, y: -219.7, z: 0}
+  m_LocalPosition: {x: -44.180023, y: -202.97002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -74404,7 +74403,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -173.1, y: -219.7, z: 0}
+  m_LocalPosition: {x: -44.180023, y: -202.97002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -95427,6 +95426,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1904439108}
   - component: {fileID: 1904439107}
+  - component: {fileID: 1904439110}
+  - component: {fileID: 1904439109}
   m_Layer: 0
   m_Name: Albina
   m_TagString: Untagged
@@ -95501,6 +95502,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 735322040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1904439109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904439106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed76f26719b50c42ba949c140e106be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresEffect: 0
+  requiredEffect: {fileID: 11400000, guid: 626ff1d4b574e34498b4b1de1f5d405b, type: 2}
+  dialogueObject: {fileID: 11400000, guid: afc9be666699b7f43a5ec423bbc0b49f, type: 2}
+  hintPanelController: {fileID: 712148360}
+  dialogueNpcPrefab: {fileID: 8499446039787348378, guid: 5a97171b1866f53418e7dce334a5b1ae, type: 3}
+  dialogueNpcContainer: {fileID: 1470781454}
+  distanceToActivate: 2
+  dialogueMusicClip: {fileID: 8300000, guid: cf49f1dd97380c54dbe52e1bca496b1f, type: 3}
+  fadeController: {fileID: 1665075629}
+--- !u!58 &1904439110
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904439106}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.55
 --- !u!1 &1907947366
 GameObject:
   m_ObjectHideFlags: 0
@@ -96256,7 +96313,7 @@ GameObject:
   - component: {fileID: 1944439990}
   - component: {fileID: 1944439989}
   m_Layer: 0
-  m_Name: BG2
+  m_Name: SilverForestPeaceful
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96517,6 +96574,7 @@ MonoBehaviour:
   backgroundMusicSources:
   - {fileID: 1848029777}
   - {fileID: 1944439989}
+  - {fileID: 641810339}
   dialogueMusicSource: {fileID: 1953601007}
   fadeDuration: 2
 --- !u!1 &1954636186
@@ -102962,6 +103020,7 @@ RectTransform:
   m_Children:
   - {fileID: 1934618916}
   - {fileID: 1622221133}
+  - {fileID: 938932627}
   m_Father: {fileID: 248371149}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
