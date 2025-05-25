@@ -12989,7 +12989,7 @@ MonoBehaviour:
   requiredEffect: {fileID: 0}
   dialogueObject: {fileID: 11400000, guid: 47193e4fc6814664e9ace876e0402730, type: 2}
   hintPanelController: {fileID: 712148360}
-  dialogueNpcPrefab: {fileID: 8499446039787348378, guid: 5a97171b1866f53418e7dce334a5b1ae, type: 3}
+  dialogueNpcPrefab: {fileID: 1516493852380331391, guid: 1bee43cb34ac5d846bd3e5672563d178, type: 3}
   dialogueNpcContainer: {fileID: 1470781454}
   distanceToActivate: 3
   dialogueMusicClip: {fileID: 8300000, guid: cb872de1be027e742829f48fc6b4e2df, type: 3}
@@ -52831,7 +52831,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.8
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: ef2e83fe
@@ -52848,8 +52848,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -6.820801, y: 15.348999, z: 0}
-    m_Extent: {x: 842.9417, y: 531.0257, z: 0}
+    m_Center: {x: -9.932953, y: -5.5424957, z: 0}
+    m_Extent: {x: 913.3677, y: 501.778, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -52860,10 +52860,10 @@ MonoBehaviour:
   m_ShapeLightFalloffSize: 0.5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: 835.6207, y: -515.1758, z: -0.00009918213}
-  - {x: 829.3961, y: 519.59186, z: -0.00009918213}
-  - {x: -828.3981, y: 545.874, z: -0.00009918213}
-  - {x: -849.2619, y: -512.3686, z: -0.00009918213}
+  - {x: 899.1305, y: -506.81955, z: 0.0001449585}
+  - {x: 902.9345, y: 492.8508, z: 0.0001449585}
+  - {x: -903.6068, y: 495.7347, z: 0.0001449585}
+  - {x: -922.80005, y: -505.6843, z: 0.0001449585}
 --- !u!1 &943976810
 GameObject:
   m_ObjectHideFlags: 0
@@ -76299,7 +76299,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 161, y: 124}
+  m_AnchoredPosition: {x: 170, y: 132}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1470781456
