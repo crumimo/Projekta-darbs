@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
+  m_Name: AboutWorld
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - speakerName: Albina
+    sentence: 'Well, first of all this place is called Garden.
+
+      From what i''ve
+      found...'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
+    sentence: There was a mermaid village long time ago, but there's only ruins now
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
+    sentence: 'And there''s this strange statues of one mermaid...
+
+      Sorry i
+      don''t know anything about her
+
+      There''s not a lot left from those times'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
+    sentence: Right now Garden isn't in its best shape
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
+    sentence: A disease called miasma is spreading around like crazy...
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
+    sentence: Anything else?
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  responses:
+  - responseText: Yes
+    dialogueObject: {fileID: 11400000, guid: 2ae43e7adbd23664c8ae9140c1410ad8, type: 2}
+  - responseText: No
+    dialogueObject: {fileID: 0}

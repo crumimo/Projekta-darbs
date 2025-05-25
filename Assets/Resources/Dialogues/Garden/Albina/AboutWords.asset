@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
+  m_Name: AboutWords
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - speakerName: Albina
+    sentence: Wordsss...
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
+    sentence: Is there a specific one you would like to know about?
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  responses:
+  - responseText: Bloom
+    dialogueObject: {fileID: 11400000, guid: acbedb0b06be50144a4e77f428c4f065, type: 2}
+  - responseText: Sun
+    dialogueObject: {fileID: 11400000, guid: 8923810d9eec148448eb7f5d300462fd, type: 2}
+  - responseText: Mold
+    dialogueObject: {fileID: 11400000, guid: 7be662844964fa74f924f7e9968efcd3, type: 2}
+  - responseText: Something interesting
+    dialogueObject: {fileID: 11400000, guid: dcb162b8c7fdeef458e41d8690d77c50, type: 2}

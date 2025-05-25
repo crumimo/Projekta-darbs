@@ -13,38 +13,53 @@ MonoBehaviour:
   m_Name: FirstEncounter
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: '?'
-    sentence: You alre.. oh wait, who are?
-    speakerSprite: {fileID: 0}
-    switchNpcToObject: 0
-    newPrefabToSpawn: {fileID: 0}
-    switchBackToNpc: 0
-  - speakerName: '?'
-    sentence: 'Well, whatever...
+  - speakerName: Hanna
+    sentence: 'Ooooo Nereida!
 
-      You look weak and fragile'
+      I''ve been waiting for you'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Albina
-    sentence: My name's Albina
+  - speakerName: Hanna
+    sentence: 'How do i know your name?
+
+      Well i know a lot of things...
+
+      Heyy,
+      you also know my name^^'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Albina
-    sentence: How can i help you?
+  - speakerName: Hanna
+    sentence: 'Wanna know why???
+
+      She prolly told you that,
+
+      Or was it
+      someone else?'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Hanna
+    sentence: 'Right now it doesn''t matter,
+
+      I have something else to tell
+      you'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: 
+    sentence: '*What should i do?*'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   responses:
-  - responseText: About you
-    dialogueObject: {fileID: 11400000, guid: 01b129dd5fbacb2458e012998bd5282d, type: 2}
-  - responseText: About words
-    dialogueObject: {fileID: 11400000, guid: b7f20c947cb74704ca87781ba1333439, type: 2}
-  - responseText: About home
-    dialogueObject: {fileID: 11400000, guid: fc9267970d37486448e2b9301593fe63, type: 2}
-  - responseText: About  world
-    dialogueObject: {fileID: 11400000, guid: bf0471d049f0cdb4cb122f0ab02cb2bf, type: 2}
+  - responseText: Listen to her
+    dialogueObject: {fileID: 11400000, guid: 2139487a6cfc2af4aae3c0d2c604f144, type: 2}
+  - responseText: Leave her
+    dialogueObject: {fileID: 11400000, guid: 22da18283d7f17a45bc5ff24063e532d, type: 2}

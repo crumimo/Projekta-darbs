@@ -10,29 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: FirstEncounter
+  m_Name: AfterSpeakingForFirstTime
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: '?'
-    sentence: You alre.. oh wait, who are?
-    speakerSprite: {fileID: 0}
-    switchNpcToObject: 0
-    newPrefabToSpawn: {fileID: 0}
-    switchBackToNpc: 0
-  - speakerName: '?'
-    sentence: 'Well, whatever...
-
-      You look weak and fragile'
-    speakerSprite: {fileID: 0}
-    switchNpcToObject: 0
-    newPrefabToSpawn: {fileID: 0}
-    switchBackToNpc: 0
-  - speakerName: Albina
-    sentence: My name's Albina
-    speakerSprite: {fileID: 0}
-    switchNpcToObject: 0
-    newPrefabToSpawn: {fileID: 0}
-    switchBackToNpc: 0
   - speakerName: Albina
     sentence: How can i help you?
     speakerSprite: {fileID: 0}
@@ -44,7 +24,7 @@ MonoBehaviour:
     dialogueObject: {fileID: 11400000, guid: 01b129dd5fbacb2458e012998bd5282d, type: 2}
   - responseText: About words
     dialogueObject: {fileID: 11400000, guid: b7f20c947cb74704ca87781ba1333439, type: 2}
-  - responseText: About home
+  - responseText: Aboout home
     dialogueObject: {fileID: 11400000, guid: fc9267970d37486448e2b9301593fe63, type: 2}
-  - responseText: About  world
+  - responseText: About world
     dialogueObject: {fileID: 11400000, guid: bf0471d049f0cdb4cb122f0ab02cb2bf, type: 2}
