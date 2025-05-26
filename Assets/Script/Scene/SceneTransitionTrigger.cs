@@ -31,6 +31,7 @@ public class SceneTransitionTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             StartCoroutine(PerformSceneTransition());
+            WordUIManager.Instance.ClearCollectedWords();
         }
     }
 
