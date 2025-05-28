@@ -54,4 +54,4 @@ MonoBehaviour:
   - responseText: Yes
     dialogueObject: {fileID: 11400000, guid: 2ae43e7adbd23664c8ae9140c1410ad8, type: 2}
   - responseText: No
-    dialogueObject: {fileID: 0}
+    dialogueObject: {fileID: 11400000, guid: d5fcbb19e4b29cc428e61af6fb65a4d9, type: 2}
