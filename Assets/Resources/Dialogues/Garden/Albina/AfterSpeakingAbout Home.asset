@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
+  m_Name: AfterSpeakingAbout Home
+  m_EditorClassIdentifier: 
+  dialogueSegments:
+  - speakerName: Albina
+    sentence: How can i help you?
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  responses:
+  - responseText: About you
+    dialogueObject: {fileID: 11400000, guid: 01b129dd5fbacb2458e012998bd5282d, type: 2}
+  - responseText: About words
+    dialogueObject: {fileID: 11400000, guid: b7f20c947cb74704ca87781ba1333439, type: 2}
+  - responseText: Aboout home
+    dialogueObject: {fileID: 11400000, guid: db7c39a511c712947b53cfd925eeb53c, type: 2}
+  - responseText: About world
+    dialogueObject: {fileID: 11400000, guid: bf0471d049f0cdb4cb122f0ab02cb2bf, type: 2}

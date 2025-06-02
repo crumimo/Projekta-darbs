@@ -27,19 +27,16 @@ MonoBehaviour:
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Albina
-    sentence: 'I guess you know what humans are?
+    sentence: 'Humans would call me a witch,
 
-      Maybe they would call me
-      a witch'
+      I spend most of my time here,
+      trying to understand world outside.'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Albina
-    sentence: 'I spend most of my time here, trying to understand world outside.
-
-      My
-      "assistant" helps me with that'
+    sentence: And i also study a lot about our souls and bodies
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
@@ -54,4 +51,4 @@ MonoBehaviour:
   - responseText: Yes
     dialogueObject: {fileID: 11400000, guid: 2ae43e7adbd23664c8ae9140c1410ad8, type: 2}
   - responseText: No
-    dialogueObject: {fileID: 11400000, guid: d5fcbb19e4b29cc428e61af6fb65a4d9, type: 2}
+    dialogueObject: {fileID: 11400000, guid: 6412bc09447bca741938c66a1c473db2, type: 2}

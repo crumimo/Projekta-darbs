@@ -10,52 +10,60 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: AboutWorld
+  m_Name: Truth
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: Albina
-    sentence: 'Well, first of all this place is called Garden.
-
-      From what i''ve
-      found...'
+  - speakerName: Hanna
+    sentence: We, mermaids, are born when previous self drowns
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Albina
-    sentence: There was a mermaid village long time ago, but there's only ruins now
+  - speakerName: 
+    sentence: '*My eyes are itching,
+
+      and this world seems so unfair*'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Albina
-    sentence: 'And there''s this strange statues of one mermaid...
-
-      Sorry i
-      don''t know anything about her
-
-      There''s not a lot left from those times'
+  - speakerName: Hanna
+    sentence: '*When suddenly, Albina hugs me*'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Albina
-    sentence: 'Right now Garden isn''t in its best shape,
-
-      A disease called
-      miasma is spreading around like crazy...'
+  - speakerName: Hanna
+    sentence: If your heart doesn't accept the truth, there's a slim chance to return
+      back
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Albina
+  - speakerName: Hanna
+    sentence: But i can't help you witohut my assistant, you'll have to help me a
+      bit first
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Hanna
+    sentence: 'You see, she got stuck somewhere,
+
+      After you find Vesna, we''ll
+      help you together'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Hanna
     sentence: Anything else?
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   responses:
-  - responseText: Yes
-    dialogueObject: {fileID: 11400000, guid: 2ae43e7adbd23664c8ae9140c1410ad8, type: 2}
-  - responseText: No
+  - responseText: yes
+    dialogueObject: {fileID: 11400000, guid: f74373040d248604cb76b2f0a898172f, type: 2}
+  - responseText: no
     dialogueObject: {fileID: 11400000, guid: 6412bc09447bca741938c66a1c473db2, type: 2}

@@ -10,34 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: AboutHome
+  m_Name: Mold
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: Albina
-    sentence: 'Home? Parents?
-
-      What are you talking about?'
+  - speakerName: Hanna
+    sentence: 
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Albina
-    sentence: ... Poor soul, you still didn't figure it out?
-    speakerSprite: {fileID: 0}
-    switchNpcToObject: 0
-    newPrefabToSpawn: {fileID: 0}
-    switchBackToNpc: 0
-  - speakerName: Albina
-    sentence: 'There is no real home for you, and even for us,
-
-      Because we''re
-      not really alive anymore
-
-'
+  - speakerName: Hanna
+    sentence: Anything else?
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   responses:
-  - responseText: what do you mean?
-    dialogueObject: {fileID: 11400000, guid: cd9720e505d5d944b941904d40174bbb, type: 2}
+  - responseText: yes
+    dialogueObject: {fileID: 11400000, guid: 2ae43e7adbd23664c8ae9140c1410ad8, type: 2}
+  - responseText: no
+    dialogueObject: {fileID: 11400000, guid: 6412bc09447bca741938c66a1c473db2, type: 2}
