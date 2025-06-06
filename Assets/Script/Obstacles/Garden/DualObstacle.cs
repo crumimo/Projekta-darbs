@@ -1,15 +1,14 @@
+using System;
 using UnityEngine;
 
 public class DualObstacle : MonoBehaviour, IEffectable
 {
     [Header("Obstacle Parts")]
     public GameObject activeObstacle; 
-    public GameObject inactiveObstacle; 
+    public GameObject inactiveObstacle;
 
-    private bool isSwitched = false; 
-
-    [Header("Activation Settings")]
-    public float activationRadius = 5f; 
+    private bool isSwitched;
+    private bool isNear;
 
     public int obstacleID;
     void Start()
@@ -19,8 +18,15 @@ public class DualObstacle : MonoBehaviour, IEffectable
 
     private void UpdateObstacleState()
     {
-        if (activeObstacle != null) activeObstacle.SetActive(!isSwitched);
-        if (inactiveObstacle != null) inactiveObstacle.SetActive(isSwitched);
+        if (activeObstacle != null)
+        {
+            activeObstacle.SetActive(!isSwitched);
+        }
+
+        if (inactiveObstacle != null)
+        {
+            inactiveObstacle.SetActive(isSwitched);
+        }
     }
 
     public void ToggleObstacles()
@@ -38,6 +44,22 @@ public class DualObstacle : MonoBehaviour, IEffectable
         UpdateObstacleState();
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isNear = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isNear = false;
+        }
+    }
+
     public bool ApplyEffect(EffectBase effect)
     {
         if (effect is VerdantSurge)
@@ -45,8 +67,9 @@ public class DualObstacle : MonoBehaviour, IEffectable
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                float distance = Vector3.Distance(player.transform.position, transform.position);
-                if (distance <= activationRadius)
+                //float distance = Vector3.Distance(player.transform.position, transform.position);
+                
+                if (isNear)
                 {
                     ToggleObstacles();
                     Debug.Log("VerdantSurgeEffect applied, obstacles toggled within radius.");
@@ -63,6 +86,6 @@ public class DualObstacle : MonoBehaviour, IEffectable
 
     public bool CanReceiveEffect(Vector3 playerPosition, float effectRadius, EffectBase effect)
     {
-        return Vector3.Distance(transform.position, playerPosition) <= effectRadius;
+        return Vector3.Distance(transform.position, playerPosition) <= effectRadius + 5f;
     }
 }
