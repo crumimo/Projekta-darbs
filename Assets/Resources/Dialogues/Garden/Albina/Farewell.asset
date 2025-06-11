@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: Farewell
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: Hanna
+  - speakerName: Albina
     sentence: May the queen protect you
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: 
+    sentence: '*Her smile looks very lonely*'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}

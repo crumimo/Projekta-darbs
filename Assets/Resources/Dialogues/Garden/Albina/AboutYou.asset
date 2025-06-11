@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Albina
-    sentence: We know each other for less than a minute and you already ask me this
-      kind of questions?
+    sentence: Oh, you actually want to know that?
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
@@ -36,7 +35,7 @@ MonoBehaviour:
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Albina
-    sentence: And i also study a lot about our souls and bodies
+    sentence: Well, that's at least what i believe i'm doing
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}

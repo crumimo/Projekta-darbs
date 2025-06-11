@@ -27,10 +27,10 @@ MonoBehaviour:
     switchBackToNpc: 0
   responses:
   - responseText: Bloom
-    dialogueObject: {fileID: 11400000, guid: acbedb0b06be50144a4e77f428c4f065, type: 2}
+    dialogueObject: {fileID: 11400000, guid: b0dbac25e85d9584cb511ad507bbbb74, type: 2}
   - responseText: Sun
-    dialogueObject: {fileID: 11400000, guid: 8923810d9eec148448eb7f5d300462fd, type: 2}
+    dialogueObject: {fileID: 11400000, guid: acbedb0b06be50144a4e77f428c4f065, type: 2}
   - responseText: Mold
-    dialogueObject: {fileID: 11400000, guid: 7be662844964fa74f924f7e9968efcd3, type: 2}
+    dialogueObject: {fileID: 11400000, guid: bf490c65c948bd94f853e1081acdd293, type: 2}
   - responseText: Something interesting
-    dialogueObject: {fileID: 11400000, guid: dcb162b8c7fdeef458e41d8690d77c50, type: 2}
+    dialogueObject: {fileID: 11400000, guid: 6fd0c2152f784954b8ddc973fc237eaa, type: 2}

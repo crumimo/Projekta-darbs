@@ -13,50 +13,63 @@ MonoBehaviour:
   m_Name: Truth
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: Hanna
+  - speakerName: 
+    sentence: '*Maybe ignorance was always a bliss*'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
     sentence: We, mermaids, are born when previous self drowns
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: 
-    sentence: '*My eyes are itching,
+    sentence: '*I feel trapped inside of this disgusting body*
 
-      and this world seems so unfair*'
+      *Every fiber
+      of my being wants to get out*'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Hanna
-    sentence: '*When suddenly, Albina hugs me*'
+  - speakerName: 
+    sentence: '*Albina quietly sits down next to me*'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Hanna
+  - speakerName: 
+    sentence: '*After some time in silence she finally says something*'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
     sentence: If your heart doesn't accept the truth, there's a slim chance to return
       back
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Hanna
-    sentence: But i can't help you witohut my assistant, you'll have to help me a
-      bit first
+  - speakerName: Albina
+    sentence: But i can't help you without my assistant and key ingredients, you'll
+      have to work a bit first
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Hanna
-    sentence: 'You see, she got stuck somewhere,
+  - speakerName: Albina
+    sentence: 'You see, my assistant got stuck somewhere,
 
-      After you find Vesna, we''ll
-      help you together'
+      After you find Vesna,
+      we''ll help you together'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Hanna
+  - speakerName: Albina
     sentence: Anything else?
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0

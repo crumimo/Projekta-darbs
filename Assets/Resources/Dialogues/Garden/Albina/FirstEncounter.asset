@@ -20,9 +20,7 @@ MonoBehaviour:
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: '?'
-    sentence: 'Well, whatever...
-
-      You look weak and fragile'
+    sentence: You seem so fragile, like a small twig
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}

@@ -14,36 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Albina
-    sentence: 'Well, first of all this place is called Garden.
-
-      From what i''ve
-      found...'
+    sentence: We're in a middle part of Bygone Basin, we usually call it the Garden
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Albina
-    sentence: There was a mermaid village long time ago, but there's only ruins now
+    sentence: 'It''s very lively here,
+
+      But it''s only flora and miasma that''s
+      thriving'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Albina
-    sentence: 'And there''s this strange statues of one mermaid...
-
-      Sorry i
-      don''t know anything about her
-
-      There''s not a lot left from those times'
+    sentence: There's simply not enough air for all of us
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Albina
-    sentence: 'Right now Garden isn''t in its best shape,
+    sentence: 'Oh, and statues of nameless mermaid,
 
-      A disease called
-      miasma is spreading around like crazy...'
+      maybe you know who she
+      was?'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}

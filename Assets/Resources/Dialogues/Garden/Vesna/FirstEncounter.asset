@@ -10,23 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: Sun
+  m_Name: FirstEncounter
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: Albina
-    sentence: 
+  - speakerName: 
+    sentence: '*Something is moving,
+
+      But you can''t really see what it is
+      from behing*'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Albina
-    sentence: Anything else?
+  - speakerName: '?'
+    sentence: Oh!
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  responses:
-  - responseText: yes
-    dialogueObject: {fileID: 11400000, guid: 2ae43e7adbd23664c8ae9140c1410ad8, type: 2}
-  - responseText: no
-    dialogueObject: {fileID: 11400000, guid: 6412bc09447bca741938c66a1c473db2, type: 2}
+  responses: []

@@ -13,13 +13,27 @@ MonoBehaviour:
   m_Name: Bloom
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: Hanna
-    sentence: 
+  - speakerName: Albina
+    sentence: '"Spring will come, and everything will bloom"'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Hanna
+  - speakerName: Albina
+    sentence: 'I''ve read that in one human book,
+
+      isn''t it beautiful?'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
+    sentence: Maybe spring will also come to this land...
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
     sentence: Anything else?
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Interesting
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: Hanna
+  - speakerName: Albina
     sentence: 
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  - speakerName: Hanna
+  - speakerName: Albina
     sentence: Anything else?
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
