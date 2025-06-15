@@ -141,6 +141,7 @@ public class HideAndSeekEnemyEye : MonoBehaviour
             Movement movement = other.GetComponent<Movement>();
             if (movement != null)
                 movement.Die();
+            
         }
     }
 

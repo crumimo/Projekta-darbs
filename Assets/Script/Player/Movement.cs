@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     private HashSet<System.Type> activeEffects = new HashSet<System.Type>();
     private Vector2 movement;
     private Rigidbody2D rb;
+    private Collider2D cl;
     private bool isDead = false;
     private bool isPaused = false;
     private Animator animator;
@@ -24,6 +25,7 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        cl = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         baseSpeed = speed;           // запомнили исходную скорость
         baseAnimSpeed = animator.speed; // обычно = 1
@@ -81,6 +83,7 @@ public class Movement : MonoBehaviour
         movement = Vector2.zero;
         rb.velocity = Vector2.zero;
         animator.SetTrigger("Die");
+        cl.enabled = false;
         
         ClearAllEffects();
 
@@ -129,6 +132,7 @@ public class Movement : MonoBehaviour
             yield return StartCoroutine(fade.FadeIn());
         }
         
+        cl.enabled = true;
         isDead = false;
         speed = baseSpeed;
         animator.speed = baseAnimSpeed;
