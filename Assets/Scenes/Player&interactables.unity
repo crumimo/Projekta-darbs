@@ -14815,7 +14815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b8e5d7615144c4d803746973638e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenLightDuration: 0.8
+  greenLightDuration: 0.5
   redLightDuration: 10
   spriteRenderer: {fileID: 1803131303}
   openEyeSprite: {fileID: -1597590897, guid: 649abacbb88880f419605f34ac695b5b, type: 3}
@@ -59059,7 +59059,7 @@ Transform:
   m_GameObject: {fileID: 979491080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1443.84, y: 68.52, z: 0}
+  m_LocalPosition: {x: 1427, y: 61.24, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -71425,7 +71425,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 321.63992, y: -161.88002, z: 0}
+  m_LocalPosition: {x: 304.79996, y: -169.16002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79084,7 +79084,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 321.63992, y: -161.88002, z: 0}
+  m_LocalPosition: {x: 304.79996, y: -169.16002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
