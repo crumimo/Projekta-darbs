@@ -14,7 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: '?'
-    sentence: 
+    sentence: Hmmmmm a new mermaid?
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Zuri
+    sentence: 'Don''t be scared, name''s Zuri,
+
+      I take care of local wildlife,
+      at least what''s left of it'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Zuri
+    sentence: But lately something weird started to happen, my bees stopped working,
+      and all they do now is sleep
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Zuri
+    sentence: I've never seen something like this before...
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}

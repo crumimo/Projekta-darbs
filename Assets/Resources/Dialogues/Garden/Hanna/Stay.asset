@@ -37,42 +37,58 @@ MonoBehaviour:
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Hanna
-    sentence: 'But all these experiences made me see and hear things
+    sentence: 'But all these experiences made me see and hear things,
 
-      And there''s
-      been whispers about you darling'
+      And
+      there''s been whispers about you darling'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Hanna
-    sentence: 'Have you ever felt that your scales are too dull?
+    sentence: 'I suppose you already know the truth,
 
-      Or that you
-      earn for someone to be next to you?'
+      So, can you still trust
+      you memories?
+
+      You don''t remember what happened'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Hanna
-    sentence: Let me tell you a little secret...
+    sentence: 'Maybe it was an accident,
+
+      Or universe decided to get rid of
+      you'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Hanna
-    sentence: 'You made a biiig mistake, serious one,
-
-      And you paid with your
-      life for it
-
-'
+    sentence: Someone sitting in the darkest corners of Bygone Basin got a bit bored,
+      don't you agree?
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Hanna
-    sentence: Was it really worth it?
+    sentence: 'I''ve heard that you want to get you old body back,
+
+      Here, don''t
+      be shy'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: 
+    sentence: '*Hanna gives me a bag full of questionable dust*'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Hanna
+    sentence: You will need this
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}

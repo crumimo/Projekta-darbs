@@ -12,5 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
   m_Name: LastDialogue
   m_EditorClassIdentifier: 
-  dialogueSegments: []
+  dialogueSegments:
+  - speakerName: Hanna
+    sentence: May the Great Queen of Abyss protect you
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Hanna
+    sentence: Oh, she already did that, silly me
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   responses: []

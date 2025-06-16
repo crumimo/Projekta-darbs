@@ -13,8 +13,15 @@ MonoBehaviour:
   m_Name: JobDescription
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: 
-    sentence: yarerere
+  - speakerName: Zuri
+    sentence: You're a weird one
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Zuri
+    sentence: Okay so, further you'll see some beehives, look at them, maybe you
+      can even help them somehow
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}

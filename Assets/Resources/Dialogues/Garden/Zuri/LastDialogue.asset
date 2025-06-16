@@ -19,4 +19,10 @@ MonoBehaviour:
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
+  - speakerName: Zuri
+    sentence: May the Queen guide you
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   responses: []

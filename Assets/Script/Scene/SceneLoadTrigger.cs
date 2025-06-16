@@ -24,7 +24,7 @@ public class SceneLoadTrigger : MonoBehaviour
         }
     }
 
-    private void LoadScenes()
+    public void LoadScenes()
     {
         foreach (string sceneName in scenesToLoad)
         {
@@ -46,7 +46,7 @@ public class SceneLoadTrigger : MonoBehaviour
         }
     }
 
-    private void UnloadScenes()
+    public void UnloadScenes()
     {
         foreach (string sceneName in scenesToUnload)
         {

@@ -28,6 +28,26 @@ MonoBehaviour:
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
+  - speakerName: '?'
+    sentence: O-oh sorry it's not really safe here, you should probably leave
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: '?'
+    sentence: Huh? Albina sent you after me? I-I guess it's time to get back
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Vesna
+    sentence: 'Oh Queen, how long have i been there?
+
+      Ssorry, my name is Vesna'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   - speakerName: Vesna
     sentence: '*She akwardly looks at you*'
     speakerSprite: {fileID: 0}
