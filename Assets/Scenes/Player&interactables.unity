@@ -4023,6 +4023,8 @@ GameObject:
   m_Component:
   - component: {fileID: 85107673}
   - component: {fileID: 85107674}
+  - component: {fileID: 85107676}
+  - component: {fileID: 85107675}
   m_Layer: 0
   m_Name: beeHouse (1)
   m_TagString: Untagged
@@ -4097,6 +4099,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &85107675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85107672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa260434fea4a140b69081aedc542b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: f3a8c433303f9714da081f0a9fe3041a, type: 2}
+  events:
+  - name: Clean it
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 85107676}
+          m_TargetAssemblyTypeName: DialogueActivator, Assembly-CSharp
+          m_MethodName: UpdateDialogueObject
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 473dc55d3cda495439f548bfba2093cf, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueObject, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &85107676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85107672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed76f26719b50c42ba949c140e106be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresEffect: 0
+  requiredEffect: {fileID: 11400000, guid: 626ff1d4b574e34498b4b1de1f5d405b, type: 2}
+  dialogueObject: {fileID: 11400000, guid: f3a8c433303f9714da081f0a9fe3041a, type: 2}
+  hintPanelController: {fileID: 712148360}
+  dialogueNpcPrefab: {fileID: 0}
+  dialogueNpcContainer: {fileID: 1470781454}
+  distanceToActivate: 2
+  dialogueMusicClip: {fileID: 0}
+  fadeController: {fileID: 1665075629}
 --- !u!1 &86298638
 GameObject:
   m_ObjectHideFlags: 0
@@ -84649,6 +84702,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1847666681}
   - component: {fileID: 1847666682}
+  - component: {fileID: 1847666685}
+  - component: {fileID: 1847666684}
+  - component: {fileID: 1847666683}
   m_Layer: 0
   m_Name: beeHouse (2)
   m_TagString: Untagged
@@ -84723,6 +84779,92 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1847666683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847666680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa260434fea4a140b69081aedc542b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: f3a8c433303f9714da081f0a9fe3041a, type: 2}
+  events:
+  - name: Clean it
+    onPickedResponse:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1847666684}
+          m_TargetAssemblyTypeName: DialogueActivator, Assembly-CSharp
+          m_MethodName: UpdateDialogueObject
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 473dc55d3cda495439f548bfba2093cf, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueObject, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1847666684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847666680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ed76f26719b50c42ba949c140e106be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresEffect: 0
+  requiredEffect: {fileID: 11400000, guid: 626ff1d4b574e34498b4b1de1f5d405b, type: 2}
+  dialogueObject: {fileID: 11400000, guid: f3a8c433303f9714da081f0a9fe3041a, type: 2}
+  hintPanelController: {fileID: 712148360}
+  dialogueNpcPrefab: {fileID: 0}
+  dialogueNpcContainer: {fileID: 1470781454}
+  distanceToActivate: 3
+  dialogueMusicClip: {fileID: 0}
+  fadeController: {fileID: 0}
+--- !u!58 &1847666685
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847666680}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!1 &1847931119
 GameObject:
   m_ObjectHideFlags: 0
