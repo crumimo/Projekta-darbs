@@ -10,30 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
-  m_Name: FirstEncounter
+  m_Name: GoingHome
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: 
-    sentence: '*Something green is moving,
-
-      But you can''t really see what
-      it is*'
-    speakerSprite: {fileID: 0}
-    switchNpcToObject: 0
-    newPrefabToSpawn: {fileID: 0}
-    switchBackToNpc: 0
-  - speakerName: '?'
-    sentence: Oh!
+  - speakerName: Vesna
+    sentence: O-okay, i'll get back on my own when i'm ready
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Vesna
-    sentence: '*She akwardly looks at you*'
+    sentence: Thanks again for clearing path for me
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
-  responses:
-  - responseText: Let's get back
-    dialogueObject: {fileID: 11400000, guid: 84852812d323c5e41a8558ae8cd97a05, type: 2}
+  - speakerName: 
+    sentence: '*Looks like i''ll have to get back alone...*'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  responses: []
