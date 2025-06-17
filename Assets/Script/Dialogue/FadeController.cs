@@ -63,4 +63,25 @@ public class FadeController : MonoBehaviour
             fadeImage.color = color;
         }
     }
+    public void StartFadeToBlack()
+    {
+        StartCoroutine(FadeToBlack());
+    }
+    
+    private IEnumerator FadeToBlack()
+    {
+        if (fadeImage == null) yield break; 
+
+        fadeImage.gameObject.SetActive(true); 
+        float alpha = 0f;
+
+        while (alpha < 1f)
+        {
+            alpha += Time.deltaTime / fadeDuration;
+            SetAlpha(alpha);
+            yield return null;
+        }
+
+        SetAlpha(1f); 
+    }
 }

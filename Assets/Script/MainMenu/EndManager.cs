@@ -12,7 +12,7 @@ public class EndManager : MonoBehaviour
     [SerializeField] private Image backgroundImage;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private FadeController fadeController;
-
+    [SerializeField] private Image blackScreen;
     [Header("Settings")]
     [SerializeField] private float fadeSpeed = 1f;
     [SerializeField] private DialogueData dialogueData;
@@ -31,6 +31,7 @@ public class EndManager : MonoBehaviour
 
     private List<AsyncOperation> sceneToLoad = new List<AsyncOperation>();
     private Scene EndScene;
+    private bool isSceneLoading = false; 
 
 
     private void Awake()
@@ -41,10 +42,29 @@ public class EndManager : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(FadeInAndDisable());
         SceneManager.UnloadSceneAsync(sceneToUnload);
         StartCoroutine(StartWithFadeOut());
     }
 
+    private IEnumerator FadeInAndDisable()
+    {
+        if (blackScreen == null) yield break; 
+
+        blackScreen.gameObject.SetActive(true); 
+        float alpha = 1f; 
+        blackScreen.color = new Color(0f, 0f, 0f, alpha);
+
+        while (alpha > 0f)
+        {
+            alpha -= Time.deltaTime / fadeSpeed;
+            blackScreen.color = new Color(0f, 0f, 0f, Mathf.Clamp01(alpha));
+            yield return null;
+        }
+
+        blackScreen.gameObject.SetActive(false); 
+    }
+    
     private IEnumerator StartWithFadeOut()
     {
         blackOverlay.color = new Color(0f, 0f, 0f, 1f);
@@ -164,14 +184,14 @@ public class EndManager : MonoBehaviour
 
     private void EndIntro()
     {
-        AsyncOperation persistentLoad = SceneManager.LoadSceneAsync(persistentGameplay, LoadSceneMode.Additive);
-        
+        if (isSceneLoading) return; 
 
+        isSceneLoading = true; 
+
+        AsyncOperation persistentLoad = SceneManager.LoadSceneAsync(persistentGameplay, LoadSceneMode.Additive);
         persistentLoad.allowSceneActivation = false;
-        
 
         sceneToLoad.Add(persistentLoad);
-        
 
         StartCoroutine(LoadScenesWithFade());
     }
@@ -228,7 +248,7 @@ public class EndManager : MonoBehaviour
         {
             typewriterEffect.Stop();
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && !isTyping)
+        else if (Input.GetKeyDown(KeyCode.Space) && !isTyping && !isSceneLoading) 
         {
             ShowNextSentence();
         }
