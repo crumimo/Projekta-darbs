@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EndingManager : MonoBehaviour
 {
-    [SerializeField] private GameObject endingNPC;
+    [SerializeField] private GameObject endingNPC, NPCToDisable;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,6 +15,7 @@ public class EndingManager : MonoBehaviour
             if (EndingCounter.ingredientsCollected == 2)
             {
                 endingNPC.SetActive(true);
+                NPCToDisable.SetActive(false);
                 this.gameObject.SetActive(false);
             }
         }
