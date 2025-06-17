@@ -16663,6 +16663,7 @@ MonoBehaviour:
   scenesToLoad: []
   scenesToUnload:
   - SilverForest
+  spawnPoint: {fileID: 0}
 --- !u!4 &408023733
 Transform:
   m_ObjectHideFlags: 0
@@ -16672,7 +16673,7 @@ Transform:
   m_GameObject: {fileID: 408023730}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.9, y: -50.8, z: -0.008602619}
+  m_LocalPosition: {x: 4.9, y: -62.1, z: -0.008602619}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29682,6 +29683,7 @@ MonoBehaviour:
   scenesToUnload:
   - Garden
   - Player&Interactables
+  spawnPoint: {fileID: 0}
 --- !u!1 &597551726
 GameObject:
   m_ObjectHideFlags: 0
@@ -35471,7 +35473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &688138615
 Transform:
   m_ObjectHideFlags: 0
@@ -36881,7 +36883,7 @@ Transform:
   m_GameObject: {fileID: 716498550}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.3814468, y: -20.2, z: -0.008602619}
+  m_LocalPosition: {x: 2.3814468, y: -22.2, z: -0.008602619}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37043,7 +37045,6 @@ MonoBehaviour:
   fadeController: {fileID: 1665075629}
   transitionSound: {fileID: 8300000, guid: 0be7315229e86274a9094456032c0761, type: 3}
   objectsToDisable:
-  - {fileID: 2135227331}
   - {fileID: 986755731}
   - {fileID: 1134311877}
   - {fileID: 136105454}
@@ -37052,6 +37053,7 @@ MonoBehaviour:
   - {fileID: 366175627}
   - {fileID: 2074434406}
   - {fileID: 507459179}
+  spawnPoint: {fileID: 1010779963}
   fadeDuration: 1
 --- !u!1 &720187965
 GameObject:
@@ -50375,7 +50377,7 @@ Transform:
   m_GameObject: {fileID: 979491080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1120.7, y: 229.5, z: 0}
+  m_LocalPosition: {x: 1248.9, y: 169.5, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -50623,7 +50625,7 @@ Transform:
   m_GameObject: {fileID: 995647932}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 328.7368, y: -23.00739, z: 0}
+  m_LocalPosition: {x: 325.69, y: -23.94, z: 0}
   m_LocalScale: {x: 1.4999999, y: 1.4999999, z: 1.4999999}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -51279,6 +51281,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1010779962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010779963}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010779963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010779962}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: -41.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1221297290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1015309102
 GameObject:
   m_ObjectHideFlags: 0
@@ -57923,6 +57956,7 @@ MonoBehaviour:
   scenesToLoad:
   - Garden
   scenesToUnload: []
+  spawnPoint: {fileID: 0}
 --- !u!4 &1184538072
 Transform:
   m_ObjectHideFlags: 0
@@ -58816,7 +58850,7 @@ Transform:
   m_GameObject: {fileID: 1212037387}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5000916, y: -0.90000916, z: 0}
+  m_LocalPosition: {x: 126.69998, y: -60.90001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59040,6 +59074,7 @@ Transform:
   - {fileID: 716498551}
   - {fileID: 2135227333}
   - {fileID: 408023733}
+  - {fileID: 1010779963}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1221812838
@@ -66715,7 +66750,7 @@ Transform:
   m_GameObject: {fileID: 1421780769}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5000916, y: -0.90000916, z: 0}
+  m_LocalPosition: {x: 126.69998, y: -60.90001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75095,7 +75130,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -17.999878}
+  m_AnchoredPosition: {x: 0, y: -17.999908}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1623619732
@@ -97396,7 +97431,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1777898329
   m_SortingLayer: 2
-  m_SortingOrder: 10
+  m_SortingOrder: -21
   m_Sprite: {fileID: 21300000, guid: 5db63cd3490639a40b0e5ee77a0ac088, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98242,7 +98277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8644696896403185322, guid: 57d358c6fdd9a05498e2b9f28eb34311, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8695484348150885504, guid: 57d358c6fdd9a05498e2b9f28eb34311, type: 3}
       propertyPath: fadeDuration
@@ -98267,7 +98302,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7720526941008994492, guid: 57d358c6fdd9a05498e2b9f28eb34311, type: 3}
       insertIndex: 0
       addedObject: {fileID: 2020060036}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9038219267260527653, guid: 57d358c6fdd9a05498e2b9f28eb34311, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 57d358c6fdd9a05498e2b9f28eb34311, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

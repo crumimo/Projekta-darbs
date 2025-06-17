@@ -6,7 +6,8 @@ public class SceneTransitionTrigger : MonoBehaviour
     [SerializeField] private FadeController fadeController; 
     [SerializeField] private AudioClip transitionSound; 
     [SerializeField] private GameObject[] objectsToDisable; 
-    [SerializeField] private GameObject[] objectsToEnable;  
+    [SerializeField] private GameObject[] objectsToEnable;
+    [SerializeField] private Transform spawnPoint;
     [SerializeField] private float fadeDuration = 0.5f; 
 
     private AudioSource audioSource;
@@ -37,7 +38,8 @@ public class SceneTransitionTrigger : MonoBehaviour
 
     private IEnumerator PerformSceneTransition()
     {
-        Movement playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Movement playerMovement = player.GetComponent<Movement>();
         if (playerMovement != null)
         {
             playerMovement.DisableMovement();
@@ -54,6 +56,7 @@ public class SceneTransitionTrigger : MonoBehaviour
         
         if (objectsToDisable != null)
         {
+            player.transform.position = spawnPoint.position;
             foreach (GameObject obj in objectsToDisable)
             {
                 if (obj != null)

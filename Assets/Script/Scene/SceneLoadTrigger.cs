@@ -7,6 +7,7 @@ public class SceneLoadTrigger : MonoBehaviour
 {
     [SerializeField] private string[] scenesToLoad; 
     [SerializeField] private string[] scenesToUnload;
+    [SerializeField] private Transform spawnPoint;
 
     private GameObject player;
 
