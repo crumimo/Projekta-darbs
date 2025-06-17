@@ -31,7 +31,7 @@ public class IntroManager : MonoBehaviour
 
     private List<AsyncOperation> sceneToLoad = new List<AsyncOperation>();
     private Scene introScene;
-
+    private bool isSceneLoading = false;
 
     private void Awake()
     { 
@@ -163,6 +163,10 @@ public class IntroManager : MonoBehaviour
 
     private void EndIntro()
     {
+        if (isSceneLoading) return; 
+
+        isSceneLoading = true; 
+
         AsyncOperation persistentLoad = SceneManager.LoadSceneAsync(persistentGameplay, LoadSceneMode.Additive);
         AsyncOperation levelLoad = SceneManager.LoadSceneAsync(levelScene, LoadSceneMode.Additive);
 
@@ -227,7 +231,7 @@ public class IntroManager : MonoBehaviour
         {
             typewriterEffect.Stop();
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && !isTyping)
+        else if (Input.GetKeyDown(KeyCode.Space) && !isTyping && !isSceneLoading) 
         {
             ShowNextSentence();
         }
