@@ -14,13 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Albina
-    sentence: 
+    sentence: Oh, i don't know much about this one
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}
     switchBackToNpc: 0
   - speakerName: Albina
-    sentence: Anything else?
+    sentence: All my memories about sun are long gone, but i still feel its warmth
+      sometimes
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
+    sentence: 'Especially when me and Vesna sleep toge...
+
+'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
+    sentence: SORRY DIDN'T MEAN TO SAY THAT
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
+    sentence: Anything else? *Her face is really red*
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}

@@ -14,7 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: Albina
-    sentence: 
+    sentence: 'Have you ever heard songs from Abyss?
+
+      Mermaids there are very
+      aggressive, and so are their songs'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: Albina
+    sentence: 'If i remember correctly, they are using void and dead creatures as
+      inspiration their songs,
+
+      creepy...'
     speakerSprite: {fileID: 0}
     switchNpcToObject: 0
     newPrefabToSpawn: {fileID: 0}

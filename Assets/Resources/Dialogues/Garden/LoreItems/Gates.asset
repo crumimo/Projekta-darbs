@@ -12,5 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef21ea6ca5e57243ba43e045ed9129f, type: 3}
   m_Name: Gates
   m_EditorClassIdentifier: 
-  dialogueSegments: []
+  dialogueSegments:
+  - speakerName: 
+    sentence: 'Giant sealed gates, overgrown and long forgotten,
+
+      You feel
+      cold and menacing aura from it, could it be Abyss behind it?'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: 
+    sentence: You take a closer look and see text scribbled on some parts of gates
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: 
+    sentence: '*After every human is gone
+
+      Even after sun goes out
+
+      Even
+      after your voices go silent*'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: 
+    sentence: '*Never let those demons and their Queen get out*'
+    speakerSprite: {fileID: 0}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   responses: []

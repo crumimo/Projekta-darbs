@@ -19,6 +19,7 @@ public class EndManager : MonoBehaviour
 
     [Header("Scene Loading")]
     [SerializeField] private string persistentGameplay;
+    [SerializeField] private string sceneToUnload;
 
     private Queue<DialogueEntry> sentenceQueue = new Queue<DialogueEntry>();
     private int currentBlockIndex = -1;
@@ -40,6 +41,7 @@ public class EndManager : MonoBehaviour
 
     private void Start()
     {
+        SceneManager.UnloadSceneAsync(sceneToUnload);
         StartCoroutine(StartWithFadeOut());
     }
 
