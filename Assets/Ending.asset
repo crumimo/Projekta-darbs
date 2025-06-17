@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979c1d7f80477e740ae24ff5e054386f, type: 3}
+  m_Name: Ending
+  m_EditorClassIdentifier: 
+  dialogueBlocks:
+  - backgroundImage: {fileID: 21300000, guid: c85e3f106e8d9144fb729d15f8ce5e80, type: 3}
+    sentences:
+    - speakerName: 
+      sentence: aaaaaaaaaaaaaa
+  - backgroundImage: {fileID: 21300000, guid: 001d1ac42d655a54aa2a8acf495b2317, type: 3}
+    sentences:
+    - speakerName: 
+      sentence: aaaaaa
+  - backgroundImage: {fileID: 21300000, guid: a0342c6370064e84caeaff1e5ded2287, type: 3}
+    sentences:
+    - speakerName: 
+      sentence: aaaaaaaaaa
+  - backgroundImage: {fileID: 21300000, guid: 2edd317355619754da5cc99e6a1c45c1, type: 3}
+    sentences:
+    - speakerName: 
+      sentence: aaaaaaa
+  - backgroundImage: {fileID: 21300000, guid: 2f48824d8eed97e43af85c73eb3e57c8, type: 3}
+    sentences:
+    - speakerName: 
+      sentence: aaaaaaaa
+  - backgroundImage: {fileID: 21300000, guid: 1e69ff431e7e74f46912de9e6b213630, type: 3}
+    sentences:
+    - speakerName: 
+      sentence: aaaaaaaa
+  - backgroundImage: {fileID: 21300000, guid: 523121948d90d2b459f723de9bca60fa, type: 3}
+    sentences:
+    - speakerName: 
+      sentence: aaaaa
