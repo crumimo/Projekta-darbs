@@ -13,19 +13,34 @@ MonoBehaviour:
   m_Name: Statues
   m_EditorClassIdentifier: 
   dialogueSegments:
-  - speakerName: Traces of the past
+  - speakerName: 
     sentence: Mother? Idol? or perhaps God-like being?
     speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
-  - speakerName: Traces of the past
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: 
     sentence: Nobody needed her
     speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
-  - speakerName: Traces of the past
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: 
     sentence: And yet, a statue still stands
     speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
-  - speakerName: Traces of the past
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: 
     sentence: She tried to makes everyones life easier
     speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
-  - speakerName: Traces of the past
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
+  - speakerName: 
     sentence: Tried to make these lands a better home
     speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   responses: []

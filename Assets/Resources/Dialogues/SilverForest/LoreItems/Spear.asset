@@ -14,24 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSegments:
   - speakerName: 
-    sentence: '*Golden spear my parents made*'
-    speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
-  - speakerName: 
-    sentence: '*There''s a message attached to golden leaves.
+    sentence: 'A Golden spear from ancient times,
 
-      But parts of
-      it are missing...*'
+      It''s seeping with memories,
+      victories and defeats'
     speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   - speakerName: 
-    sentence: 'Our dear daughter '
+    sentence: 'But you''re too blind to see it all,
+
+      Past of this place will
+      always remain a mystery for you'
     speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
-  - speakerName: 
-    sentence: Don't be afraid, we've sent...
-    speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
-  - speakerName: 
-    sentence: We don't know ... but ... hope that u'll find a way back home
-    speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
-  - speakerName: 
-    sentence: '*Looks like they also don''t know what happened*'
-    speakerSprite: {fileID: -349710313, guid: ad1d8a00c9012cb49859ce3857643b2f, type: 3}
+    switchNpcToObject: 0
+    newPrefabToSpawn: {fileID: 0}
+    switchBackToNpc: 0
   responses: []
